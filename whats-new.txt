@@ -5,6 +5,7 @@ New this update
 • Free Games This Week: every game you can claim and keep for free right now, from Epic, Steam, GOG, itch.io, consoles and mobile, with how long each deal has left.
 • Site Roulette has twice as many sites, and Wiki Race has 50 more articles.
 • Help now lists more things you can ask Capri: switching and closing tabs, typing, bookmarks, finding games and more.
+• Say "add to my notes ..." (or "note this down", "write that down") and Capri saves it as a new note. Say "research this" or "look into ..." and she looks it up and saves what she found as a note. Needs the latest Capri Browser mod.
 
 1.9.9
 • Capri plays what she finds: she opens the episode or presses play, and asks "want me to put it on?" if it won't start.

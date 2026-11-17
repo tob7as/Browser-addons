@@ -16,6 +16,8 @@ Ask Capri in chat, for example:
 • "find me a Roblox game" (or Steam, itch.io, anything)
 • "open my Discord in my browser and message Sam hi"
 • "bookmark this" to save the page to Speed Dial
+• "add to my notes ...", "note this down", "write that down"
+• "research this" or "look into ...": she looks it up and saves it as a note
 • "let's play snake", "play wiki race", "quiz me"
 • "read this page to me" or "translate this page"
 • "what's new in Capri Browser?" for the latest update notes
