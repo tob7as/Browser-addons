@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Free Games This Week - Capri Browser</title>
+<style>
+  body { margin:0; min-height:100vh; background:#0a0a10 radial-gradient(ellipse 900px 420px at 50% -120px,#360e1a,transparent) no-repeat fixed; color:#ececf1; font-family:Bahnschrift,'Segoe UI',sans-serif; }
+  .card { margin:0 auto; text-align:center; padding:24px 16px; max-width:980px; }
+  h1 { margin:0 0 4px; color:#e84246; font-size:22px; letter-spacing:5px; font-weight:600; }
+  p { margin:0 0 14px; color:#92828c; }
+  #filters { display:flex; flex-wrap:wrap; gap:6px; justify-content:center; margin-bottom:16px; }
+  #filters button { background:#11101c; color:#ececf1; border:1px solid #5c1824; padding:7px 12px; font:14px Bahnschrift,'Segoe UI',sans-serif; cursor:pointer; }
+  #filters button.on, #filters button:hover { border-color:#5ef0f6; color:#5ef0f6; }
+  #list { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:12px; text-align:left; }
+  .g { background:#11101c; border:1px solid #5c1824; display:flex; flex-direction:column; color:inherit; text-decoration:none; transition:border-color .2s, transform .2s; }
+  .g:hover { border-color:#5ef0f6; transform:translateY(-2px); }
+  .g img { width:100%; aspect-ratio:16/9; object-fit:cover; display:block; background:#1a1626; }
+  .g .b { padding:9px 10px 11px; display:flex; flex-direction:column; gap:5px; flex:1; }
+  .g h3 { margin:0; font-size:15px; font-weight:600; }
+  .g .p { font-size:12px; color:#92828c; }
+  .g .row { display:flex; justify-content:space-between; align-items:center; margin-top:auto; font-size:13px; }
+  .worth { color:#5ef0f6; } .worth s { color:#5f5560; margin-right:4px; }
+  .ends { color:#e84246; }
+  #msg { min-height:24px; color:#5ef0f6; margin:10px 0; }
+  .links a { color:#e84246; text-decoration:none; letter-spacing:2px; margin:0 12px; }
+  .small { font-size:12px; color:#5f5560; margin-top:16px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>FREE GAMES THIS WEEK</h1>
+  <p>Games you can claim and keep for free right now. Grab them before they end.</p>
+  <div id="filters"></div>
+  <div id="msg">Loading free games...</div>
+  <div id="list"></div>
+  <div class="links" style="margin-top:18px"><a href="https://capri.dial/play?g=quit">BACK</a></div>
+  <div class="small">Listings from GamerPower. Each one opens the store page where you claim it.</div>
+</div>
+<script>
+  // Live free-to-keep game giveaways (Epic, Steam, GOG, itch.io and more) from the GamerPower API.
+  var FILTERS = [['All', ''], ['Epic', 'epic-games-store'], ['Steam', 'steam'], ['GOG', 'gog'], ['itch.io', 'itchio'], ['PlayStation', 'ps4.ps5'], ['Xbox', 'xbox-one.xbox-series-xs'], ['Switch', 'switch'], ['Mobile', 'android.ios']];
+  var $ = function (id) { return document.getElementById(id); };
+
+  function left(end) {
+    if (!end || end === 'N/A') return '';
+    var ms = new Date(end.replace(' ', 'T')) - new Date();
+    if (!(ms > 0)) return '';
+    var d = Math.floor(ms / 864e5), h = Math.floor(ms / 36e5) % 24;
+    return 'Ends in ' + (d ? d + 'd ' : '') + h + 'h';
+  }
+
+  function show(platform) {
+    $('msg').textContent = 'Loading free games...'; $('list').innerHTML = '';
+    var url = 'https://www.gamerpower.com/api/' + (platform ? 'filter?type=game&sort-by=popularity&platform=' + platform : 'giveaways?type=game&sort-by=popularity');
+    fetch(url).then(function (r) { if (r.status === 201) return []; return r.json(); }).then(function (list) {
+      list = (list || []).filter(function (g) { return g.status === 'Active'; });
+      $('msg').textContent = list.length ? list.length + ' free game' + (list.length === 1 ? '' : 's') + ' right now.' : 'Nothing free here right now, choom. Check back soon.';
+      list.forEach(function (g) {
+        var a = document.createElement('a'); a.className = 'g'; a.href = g.open_giveaway_url; a.target = '_blank'; a.rel = 'noopener';
+        var img = document.createElement('img'); img.src = g.thumbnail; img.alt = ''; img.loading = 'lazy'; a.appendChild(img);
+        var b = document.createElement('div'); b.className = 'b';
+        var h = document.createElement('h3'); h.textContent = g.title.replace(/ ?\(.*?\)? Giveaway$/, '').replace(/ Giveaway$/, ''); b.appendChild(h);
+        var p = document.createElement('div'); p.className = 'p'; p.textContent = g.platforms; b.appendChild(p);
+        var row = document.createElement('div'); row.className = 'row';
+        var w = document.createElement('span'); w.className = 'worth';
+        if (g.worth && g.worth !== 'N/A') { var s = document.createElement('s'); s.textContent = g.worth; w.appendChild(s); }
+        w.appendChild(document.createTextNode('FREE')); row.appendChild(w);
+        var e = document.createElement('span'); e.className = 'ends'; e.textContent = left(g.end_date); row.appendChild(e);
+        b.appendChild(row); a.appendChild(b); $('list').appendChild(a);
+      });
+    }).catch(function () { $('msg').textContent = "Couldn't reach GamerPower right now, choom. Try again in a bit."; });
+  }
+
+  FILTERS.forEach(function (f, i) {
+    var b = document.createElement('button'); b.textContent = f[0]; if (!i) b.className = 'on';
+    b.onclick = function () { [].forEach.call($('filters').children, function (x) { x.className = ''; }); b.className = 'on'; show(f[1]); };
+    $('filters').appendChild(b);
+  });
+  show('');
+</script>
+</body>
+</html>

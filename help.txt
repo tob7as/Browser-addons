@@ -9,13 +9,25 @@ Ask Capri in chat, for example:
 • "find this cheaper" or "any coupon codes for this site?"
 • "take a screenshot and put it in my notes"
 • "click ...", "scroll down", "go back"
-• "show me something random"
+• "show me something random" or "find a random website"
+• "switch to my YouTube tab", "close this tab", "open a new tab"
+• "type hello in the search box" then "press enter"
+• "play the newest" for the latest upload from a channel or show
+• "find me a Roblox game" (or Steam, itch.io, anything)
+• "open my Discord in my browser and message Sam hi"
+• "bookmark this" to save the page to Speed Dial
+• "let's play snake", "play wiki race", "quiz me"
+• "read this page to me" or "translate this page"
+• "what's new in Capri Browser?" for the latest update notes
 
 In the browser:
 • Highlight text, right-click, then Ask Capri about this
 • YouTube ads are skipped automatically
 • Games, stats and achievements are on the sidebar
 • The ≡ menu has screenshot to notes, dark mode for sites and pop-out video
+• Right-click a tab and choose Add to bookmarks
+• Free Games This Week is on the Games page
+• Settings > Update all gets new games and lists right away (it also checks once a day)
 %%
 ≡  the menu: zoom, print, screenshot, translate...
 Right-click a tab  duplicate, mute, close others

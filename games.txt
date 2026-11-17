@@ -11,3 +11,4 @@ breach	Code Breach	Crack a 4-digit ICE code with hit and near clues. Eight tries
 anime	Guess the Anime Character	A popular anime character, blurred. Guess who before the picture clears. Three lives.	page
 celebs	Guess the Celebrity	A famous face, blurred. Guess who before the photo clears. Three lives.	page
 mystery	Mystery Choom	Guess which Cyberpunk: Edgerunners character Capri picked, with yes or no questions.	page
+freegames	Free Games This Week	Games you can claim and keep for free right now: Epic, Steam, GOG, itch.io and more.	page
