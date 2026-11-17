@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guess the Celebrity - Capri Browser</title>
+<style>
+  body { margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center; background:#0a0a10 radial-gradient(ellipse 900px 420px at 50% -120px,#360e1a,transparent) no-repeat fixed; color:#ececf1; font-family:Bahnschrift,'Segoe UI',sans-serif; }
+  .card { text-align:center; padding:22px; width:min(560px,100%); }
+  h1 { margin:0 0 4px; color:#e84246; font-size:22px; letter-spacing:5px; font-weight:600; }
+  p { margin:0 0 12px; color:#92828c; }
+  #hud { display:flex; justify-content:space-between; color:#5ef0f6; letter-spacing:2px; margin-bottom:10px; font-size:17px; }
+  #frame { position:relative; width:260px; height:320px; margin:0 auto 14px; background:#11101c; box-shadow:inset 0 0 0 1px #5c1824, 0 0 30px rgba(232,66,70,.15); overflow:hidden;
+           clip-path:polygon(0 0,100% 0,100% calc(100% - 16px),calc(100% - 16px) 100%,0 100%); }
+  #pic { width:100%; height:100%; object-fit:cover; object-position:center 20%; filter:blur(24px); transform:scale(1.15); transition:filter .25s linear; }
+  #hint { min-height:22px; color:#92828c; margin-bottom:10px; }
+  #hint b { color:#5ef0f6; font-weight:600; }
+  #opts { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  #opts button { background:#11101c; color:#ececf1; border:1px solid #5c1824; padding:12px 10px; font:16px Bahnschrift,'Segoe UI',sans-serif; cursor:pointer; min-height:52px; }
+  #opts button:hover:not(:disabled) { border-color:#5ef0f6; }
+  #opts button.ok { background:#0f2226; border-color:#5ef0f6; color:#5ef0f6; }
+  #opts button.no { background:#2a0f14; border-color:#e84246; color:#e84246; }
+  #msg { min-height:26px; margin:12px 0 8px; font-size:18px; color:#5ef0f6; }
+  .links a { color:#e84246; text-decoration:none; letter-spacing:2px; margin:0 12px; cursor:pointer; }
+  .small { font-size:12px; color:#5f5560; margin-top:14px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>GUESS THE CELEBRITY</h1>
+  <p>The photo sharpens over time. Guess fast for more points. Three lives.</p>
+  <div id="hud"><span id="score">0</span><span id="lives">♥♥♥</span><span id="best"></span></div>
+  <div id="frame"><img id="pic" alt=""></div>
+  <div id="hint"></div>
+  <div id="opts"></div>
+  <div id="msg">Loading photos...</div>
+  <div class="links"><a id="hintBtn">HINT</a><a id="again" style="display:none">PLAY AGAIN</a><a href="https://capri.dial/play?g=quit">CANCEL</a></div>
+  <div class="small">Photos from Wikipedia.</div>
+</div>
+<script>
+  // Well-known people, by what they're known for (decoys come from the same group). Photos load live from Wikipedia.
+  var PEOPLE = {
+    'Music': ['Taylor Swift', 'Beyoncé', 'Rihanna', 'Ed Sheeran', 'Billie Eilish', 'Drake (musician)', 'Ariana Grande', 'Justin Bieber', 'Lady Gaga', 'Bruno Mars', 'Dua Lipa', 'The Weeknd', 'Eminem', 'Adele', 'Harry Styles', 'Olivia Rodrigo', 'Snoop Dogg', 'Shakira', 'Post Malone', 'Katy Perry', 'Kendrick Lamar', 'Sabrina Carpenter', 'Doja Cat', 'Travis Scott', 'Selena Gomez'],
+    'Film and TV': ['Dwayne Johnson', 'Zendaya', 'Keanu Reeves', 'Tom Holland', 'Leonardo DiCaprio', 'Scarlett Johansson', 'Will Smith', 'Margot Robbie', 'Ryan Reynolds', 'Jennifer Lawrence', 'Robert Downey Jr.', 'Timothée Chalamet', 'Chris Hemsworth', 'Emma Watson', 'Morgan Freeman', 'Jackie Chan', 'Tom Cruise', 'Millie Bobby Brown', 'Pedro Pascal', 'Florence Pugh', 'Samuel L. Jackson', 'Johnny Depp', 'Sydney Sweeney', 'Jenna Ortega', 'Idris Elba'],
+    'Sport': ['Cristiano Ronaldo', 'Lionel Messi', 'LeBron James', 'Serena Williams', 'Usain Bolt', 'Kylian Mbappé', 'Lewis Hamilton', 'Stephen Curry', 'Neymar', 'Simone Biles', 'Erling Haaland', 'Roger Federer', 'Michael Jordan', 'Tom Brady', 'Conor McGregor', 'Novak Djokovic', 'Max Verstappen', 'Naomi Osaka', 'David Beckham', 'Mike Tyson'],
+    'Internet and tech': ['MrBeast', 'PewDiePie', 'Elon Musk', 'Mark Zuckerberg', 'Bill Gates', 'Ninja (gamer)', 'KSI', 'Logan Paul', 'IShowSpeed', 'Markiplier', 'Kai Cenat', 'Steve Jobs', 'Jeff Bezos', 'Tim Cook', 'Pokimane'],
+    'History': ['Albert Einstein', 'Marilyn Monroe', 'Michael Jackson', 'Elvis Presley', 'Freddie Mercury', 'Bob Marley', 'Princess Diana', 'Muhammad Ali', 'Bruce Lee', 'Audrey Hepburn', 'Abraham Lincoln', 'Nelson Mandela', 'Frida Kahlo', 'Charlie Chaplin', 'Marie Curie']
+  };
+  var pool = [], used = {}, score = 0, lives = 3, best = 0, round = null, timer = null, hinted = false, startAt = 0;
+  var $ = function (id) { return document.getElementById(id); };
+  try { best = +localStorage.getItem('celebs-best') || 0; } catch (e) {}
+  function clean(t) { return t.replace(/ \(.*\)$/, ''); }
+
+  // Wikipedia gives up to 50 photos per request.
+  function load(titles, group) {
+    var url = 'https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&redirects=1&prop=pageimages&piprop=thumbnail&pithumbsize=400&titles=' + encodeURIComponent(titles.join('|'));
+    return fetch(url).then(function (r) { return r.json(); }).then(function (j) {
+      var pages = (j.query && j.query.pages) || {};
+      Object.keys(pages).forEach(function (k) { var p = pages[k]; if (p.thumbnail && p.thumbnail.source && !/\.svg/i.test(p.thumbnail.source)) pool.push({ name: clean(p.title), pic: p.thumbnail.source, group: group }); });
+    });
+  }
+
+  function hud() {
+    $('score').textContent = score + ' pts';
+    $('lives').textContent = Array(lives + 1).join('♥') + Array(4 - lives).join('♡');
+    $('best').textContent = best ? 'Best ' + best : '';
+  }
+
+  function next() {
+    var fresh = pool.filter(function (c) { return !used[c.name]; });
+    if (fresh.length < 4) { used = {}; fresh = pool; }
+    var answer = fresh[Math.floor(Math.random() * fresh.length)];
+    used[answer.name] = 1;
+    var same = pool.filter(function (c) { return c.group === answer.group && c !== answer; }).sort(function () { return Math.random() - .5; });
+    var others = pool.filter(function (c) { return c !== answer && same.indexOf(c) < 0; }).sort(function () { return Math.random() - .5; });
+    var opts = same.concat(others).slice(0, 3).concat([answer]).sort(function () { return Math.random() - .5; });
+    round = { answer: answer, done: false };
+    hinted = false;
+    $('hint').innerHTML = ''; $('msg').textContent = ''; $('hintBtn').style.display = '';
+    var img = $('pic'); img.style.filter = 'blur(24px)'; img.src = answer.pic;
+    var box = $('opts'); box.innerHTML = '';
+    opts.forEach(function (c) { var b = document.createElement('button'); b.textContent = c.name; b.onclick = function () { guess(b, c); }; box.appendChild(b); });
+    startAt = Date.now();
+    clearInterval(timer);
+    timer = setInterval(function () { var blur = Math.max(0, 24 - (Date.now() - startAt) / 15000 * 24); img.style.filter = 'blur(' + blur.toFixed(1) + 'px)'; if (!blur) clearInterval(timer); }, 250);
+  }
+
+  function guess(btn, c) {
+    if (round.done) return;
+    round.done = true; clearInterval(timer);
+    $('pic').style.filter = 'none';
+    [].forEach.call($('opts').children, function (b) { b.disabled = true; if (b.textContent === round.answer.name) b.className = 'ok'; });
+    if (c === round.answer) {
+      var pts = Math.round(Math.max(10, 100 - (Date.now() - startAt) / 150) / (hinted ? 2 : 1));
+      score += pts;
+      $('msg').textContent = 'Nice, choom! +' + pts;
+    } else {
+      btn.className = 'no'; lives--;
+      $('msg').textContent = 'Nope, that was ' + round.answer.name + '.';
+    }
+    if (score > best) { best = score; try { localStorage.setItem('celebs-best', best); } catch (e) {} }
+    hud();
+    if (lives <= 0) { $('msg').textContent += ' Game over: ' + score + ' pts.'; $('again').style.display = ''; $('hintBtn').style.display = 'none'; return; }
+    setTimeout(next, 1700);
+  }
+
+  $('hintBtn').onclick = function () { if (!round || round.done || hinted) return; hinted = true; $('hint').innerHTML = 'Known for: <b></b> (half points)'; $('hint').querySelector('b').textContent = round.answer.group; };
+  $('again').onclick = function () { score = 0; lives = 3; $('again').style.display = 'none'; hud(); next(); };
+
+  hud();
+  Promise.all(Object.keys(PEOPLE).map(function (g) { return load(PEOPLE[g], g); })).then(function () {
+    if (pool.length < 8) throw new Error('few');
+    next();
+  }).catch(function () { $('msg').textContent = "Couldn't reach Wikipedia right now, choom. Try again in a bit."; });
+</script>
+</body>
+</html>

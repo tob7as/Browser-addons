@@ -9,3 +9,4 @@ snake	Neon Snake	Classic snake in Capri neon. It speeds up as you grow.	page
 memory	Memory Match	Flip tiles and find all eight pairs in as few moves as you can.	page
 breach	Code Breach	Crack a 4-digit ICE code with hit and near clues. Eight tries.	page
 anime	Guess the Anime Character	A popular anime character, blurred. Guess who before the picture clears. Three lives.	page
+celebs	Guess the Celebrity	A famous face, blurred. Guess who before the photo clears. Three lives.	page
