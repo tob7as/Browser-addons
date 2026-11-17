@@ -1,0 +1,56 @@
+# Capri Browser lists. One per line, fields split by tabs.
+# site: name words, host, home page, search address, what a link to a video looks like, then "" for things that are not videos.
+# The first site is the default for videos, the last one for everything else.
+site	youtube|yt	youtube.com	https://www.youtube.com/	https://www.youtube.com/results?search_query=	/watch\?v=
+site	tiktoks?	tiktok.com	https://www.tiktok.com/	https://www.tiktok.com/search?q=	/video/\d
+site	crunchyroll	crunchyroll.com	https://www.crunchyroll.com/	https://www.crunchyroll.com/search?q=	/(series|watch)/
+site	netflix	netflix.com	https://www.netflix.com/browse	https://www.netflix.com/search?q=	/(title|watch)/\d
+site	twitch	twitch.tv	https://www.twitch.tv/	https://www.twitch.tv/search?term=	/videos/\d|^https://www\.twitch\.tv/\w{3,}$
+site	prime(?: video)?	primevideo.com	https://www.primevideo.com/	https://www.primevideo.com/search?phrase=	/detail/
+site	roblox	roblox.com	https://www.roblox.com/charts	https://www.roblox.com/discover/?Keyword=	/games/\d	
+site	steam	steampowered.com	https://store.steampowered.com/	https://store.steampowered.com/search/?term=	/app/\d	
+site	itch(?:[.]io)?	itch.io	https://itch.io/games	https://itch.io/search?q=	^https://[\w-]+\.itch\.io/[\w-]+/?$	
+site	web	bing.com	https://www.bing.com/	https://www.bing.com/search?q=	^https?://(?:www\.bing\.com/ck/|(?![^/]*(?:bing|microsoft|msn)\.com))	
+# known: sites she can open by name
+known	youtube.com
+known	tiktok.com
+known	crunchyroll.com
+known	netflix.com
+known	twitch.tv
+known	roblox.com
+known	reddit.com
+known	google.com
+known	gmail.com
+known	twitter.com
+known	x.com
+known	instagram.com
+known	facebook.com
+known	amazon.com
+known	ebay.com
+known	wikipedia.org
+known	github.com
+known	pinterest.com
+known	minecraft.net
+known	primevideo.com
+known	disneyplus.com
+known	hulu.com
+known	chatgpt.com
+known	bing.com
+known	duckduckgo.com
+known	twitch.tv
+known	kick.com
+known	soundcloud.com
+known	imdb.com
+known	myanimelist.net
+known	fandom.com
+known	linkedin.com
+known	outlook.com
+known	chess.com
+known	speedtest.net
+known	maps.google.com
+# engine: id, name, search address ({q} = what they typed, {hl} = their language)
+engine	google	Google	https://www.google.com/search?q={q}&hl={hl}
+engine	bing	Bing	https://www.bing.com/search?q={q}&setlang={hl}
+engine	duckduckgo	DuckDuckGo	https://duckduckgo.com/?q={q}
+engine	brave	Brave Search	https://search.brave.com/search?q={q}
+engine	ecosia	Ecosia	https://www.ecosia.org/search?q={q}

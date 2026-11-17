@@ -14,3 +14,4 @@ Capri Browser 0.7
 • New games: Neon Snake, Memory Match and Code Breach.
 • On messaging sites like Discord, Gmail or WhatsApp, Capri asks before she clicks, types or presses Enter for you.
 • Games, help and languages are only used if they exactly match the versions that shipped with your copy of Capri Browser. New ones come with a new version of the mod.
+• The Welcome page has Download browser (everything at once, with progress, each file checked) or Download quietly in the background. The browser works before either finishes.
