@@ -6,13 +6,13 @@
 <title>Mystery Choom - Capri Browser</title>
 <style>
   body { margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center; background:#0a0a10 radial-gradient(ellipse 900px 420px at 50% -120px,#360e1a,transparent) no-repeat fixed; color:#ececf1; font-family:Bahnschrift,'Segoe UI',sans-serif; }
-  .card { text-align:center; padding:20px; width:min(780px,100%); }
+  .card { text-align:center; padding:20px; width:min(820px,100%); }
   h1 { margin:0 0 4px; color:#e84246; font-size:22px; letter-spacing:5px; font-weight:600; }
   p { margin:0 0 12px; color:#92828c; }
   #grid { display:grid; grid-template-columns:repeat(6,1fr); gap:8px; margin-bottom:14px; }
-  .c { background:linear-gradient(#1a1030,#0d0c18); border:1px solid #5c1824; padding:4px 2px 6px; cursor:pointer; transition:opacity .3s, border-color .2s; }
+  .c { background:#11101c; border:1px solid #5c1824; padding:3px 3px 6px; cursor:pointer; transition:opacity .3s, border-color .2s; }
   .c:hover { border-color:#5ef0f6; }
-  .c svg { width:100%; height:auto; display:block; }
+  .c img { width:100%; aspect-ratio:3/4; object-fit:cover; display:block; margin-bottom:4px; }
   .c span { font-size:12px; color:#ececf1; letter-spacing:1px; }
   .c.out { opacity:.15; }
   .c.win { border-color:#5ef0f6; box-shadow:0 0 18px rgba(94,240,246,.5); opacity:1; }
@@ -24,91 +24,55 @@
   #msg { min-height:26px; margin:6px 0 8px; font-size:18px; color:#5ef0f6; }
   #msg b { color:#e84246; }
   .links a { color:#e84246; text-decoration:none; letter-spacing:2px; margin:0 12px; cursor:pointer; }
+  .small { font-size:12px; color:#5f5560; margin-top:14px; }
   @media (max-width:560px) { #grid { grid-template-columns:repeat(4,1fr); } }
 </style>
 </head>
 <body>
 <div class="card">
   <h1>MYSTERY CHOOM</h1>
-  <p>Capri's picked one of these Night City runners. Ask yes or no questions, then click who you think it is. Fewer questions, better score. Two guesses.</p>
+  <p>Capri's picked someone from Cyberpunk: Edgerunners 1 or 2. Ask yes or no questions, then click who you think it is. Fewer questions, better score. Two guesses.</p>
   <div id="qs"></div>
   <div id="msg"></div>
   <div id="grid"></div>
   <div class="links"><a id="again">NEW GAME</a><a href="https://capri.dial/play?g=quit">CANCEL</a></div>
+  <div class="small">Pictures from AniList.</div>
 </div>
 <script>
-  // Original anime-style cyberpunk runners, drawn from their traits; nothing is downloaded.
-  var NAMES = ['Vex', 'Nova', 'Kiro', 'Jax', 'Rook', 'Lumi', 'Dex', 'Zara', 'Echo', 'Taz', 'Mira', 'Volt', 'Sable', 'Ryn', 'Kade', 'Pixel', 'Nyx', 'Bolt', 'Juno', 'Riot', 'Sly', 'Ash', 'Kai', 'Wren', 'Hana', 'Ren', 'Yuki', 'Sora'];
-  var HAIR = { red: ['#ff3d5a', '#a01830'], cyan: ['#5ef0f6', '#1f8fa0'], black: ['#2a2638', '#0e0c16'], blonde: ['#ffd76a', '#c08a2a'], purple: ['#b26cff', '#5a2aa0'], pink: ['#ff7ad0', '#b03080'] };
-  var EYE = { cyan: '#2fe0ff', red: '#ff2f4a', gold: '#ffc83a', green: '#3aff9a' };
-  var SKIN = ['#ffe0c8', '#f2c4a0', '#c98e66', '#8a5a3c'];
+  // Edgerunners characters. Pictures load live from AniList; only ids and traits are kept here.
+  // [AniList id, name, season, hair, woman, eyewear, mask, full chrome body, hood]
+  var CAST = [
+    [284157, 'Lucy', 1, 'white', 1, 0, 0, 0, 0], [284158, 'David Martinez', 1, 'dark', 0, 0, 0, 0, 0],
+    [284159, 'Maine', 1, 'blonde', 0, 1, 0, 0, 0], [284160, 'Dorio', 1, 'blonde', 1, 0, 0, 0, 0],
+    [284161, 'Kiwi', 1, 'pink', 1, 0, 1, 0, 0], [284162, 'Pilar', 1, 'none', 0, 1, 0, 0, 0],
+    [284163, 'Rebecca', 1, 'cyan', 1, 0, 0, 0, 0], [284165, 'Faraday', 1, 'white', 0, 0, 0, 0, 0],
+    [284166, 'Gloria Martinez', 1, 'pink', 1, 0, 0, 0, 0], [287420, 'Falco', 1, 'dark', 0, 0, 0, 0, 0],
+    [287490, 'Adam Smasher', 1, 'none', 0, 0, 0, 1, 0],
+    [402555, 'D', 2, 'dark', 0, 0, 0, 0, 0], [402617, 'Roman Carax', 2, 'blonde', 0, 0, 0, 0, 0],
+    [402683, 'Talia Yang', 2, 'pink', 1, 0, 1, 0, 0], [407502, 'Avida Yang', 2, 'dark', 1, 0, 0, 0, 0],
+    [410878, 'Jessie', 2, 'white', 1, 0, 0, 0, 0], [410880, 'Meshuga', 2, 'blonde', 0, 0, 0, 0, 1],
+    [410881, 'Kitano', 2, 'white', 0, 1, 0, 0, 0]
+  ].map(function (r) { return { id: r[0], name: r[1], season: r[2], hair: r[3], woman: r[4], eyewear: r[5], mask: r[6], chrome: r[7], hood: r[8] }; });
+  function is(k, v) { return function (c) { return c[k] === v; }; }
+  function has(k) { return function (c) { return !!c[k]; }; }
   var QUESTIONS = [
-    ['Red hair?', function (c) { return c.hair === 'red'; }], ['Cyan hair?', function (c) { return c.hair === 'cyan'; }],
-    ['Black hair?', function (c) { return c.hair === 'black'; }], ['Blonde hair?', function (c) { return c.hair === 'blonde'; }],
-    ['Purple hair?', function (c) { return c.hair === 'purple'; }], ['Pink hair?', function (c) { return c.hair === 'pink'; }],
-    ['Long hair?', function (c) { return c.long; }], ['Glowing red eyes?', function (c) { return c.eye === 'red'; }],
-    ['Cyan eyes?', function (c) { return c.eye === 'cyan'; }], ['Visor?', function (c) { return c.visor; }],
-    ['Face chrome?', function (c) { return c.chrome; }], ['Headphones?', function (c) { return c.phones; }],
-    ['Face mask?', function (c) { return c.mask; }], ['Neon tattoo?', function (c) { return c.tattoo; }]
+    ['A woman?', has('woman')], ['From season 2?', is('season', 2)],
+    ['Black or brown hair?', is('hair', 'dark')], ['Blonde hair?', is('hair', 'blonde')], ['White or grey hair?', is('hair', 'white')],
+    ['Pink, red or purple hair?', is('hair', 'pink')], ['Cyan hair?', is('hair', 'cyan')], ['No hair showing?', is('hair', 'none')],
+    ['Shades, visor or glasses?', has('eyewear')], ['Face mask?', has('mask')], ['Hood up?', has('hood')], ['Full chrome body?', has('chrome')]
   ];
-  var people, secret, asked, guesses, over, best = 0, uid = 0;
+  var people = [], secret, asked, guesses, over, best = 0;
   var $ = function (id) { return document.getElementById(id); };
   try { best = +localStorage.getItem('mystery-best') || 0; } catch (e) {}
-  function any(list) { return list[Math.floor(Math.random() * list.length)]; }
-  function chance(p) { return Math.random() < p; }
-
-  function make() {
-    var out = [], seen = {}, names = NAMES.slice().sort(function () { return Math.random() - .5; });
-    while (out.length < 18) {
-      var c = { hair: any(Object.keys(HAIR)), long: chance(.45), eye: any(Object.keys(EYE)), visor: chance(.2), chrome: chance(.35), phones: chance(.3), mask: chance(.2), tattoo: chance(.3), skin: any(SKIN) };
-      if (c.visor) c.eye = any(['cyan', 'red']); // the visor glows in their eye colour
-      var key = [c.hair, c.long, c.eye, c.visor, c.chrome, c.phones, c.mask, c.tattoo].join();
-      if (seen[key]) continue; // every runner can be told apart
-      seen[key] = 1; c.name = names[out.length]; out.push(c);
-    }
-    return out;
-  }
-
-  function eye(x, col, flip) {
-    var s = flip ? -1 : 1;
-    return '<path d="M' + (x - 8 * s) + ' 55 Q' + x + ' 47 ' + (x + 8 * s) + ' 54" stroke="#120e1c" stroke-width="2.6" fill="none" stroke-linecap="round"/>' +
-      '<ellipse cx="' + x + '" cy="59" rx="6" ry="7.5" fill="#fff"/>' +
-      '<ellipse cx="' + x + '" cy="60" rx="5" ry="6.6" fill="' + col + '"/>' +
-      '<ellipse cx="' + x + '" cy="61" rx="2.4" ry="3.6" fill="#120e1c"/>' +
-      '<circle cx="' + (x - 2) + '" cy="56.5" r="1.8" fill="#fff"/><circle cx="' + (x + 2) + '" cy="63" r=".9" fill="#fff"/>';
-  }
-
-  function face(c) {
-    var h = HAIR[c.hair], e = EYE[c.eye], id = 'g' + (uid++);
-    var s = '<svg viewBox="0 0 100 110" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="' + id + '" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="' + h[0] + '"/><stop offset="1" stop-color="' + h[1] + '"/></linearGradient></defs>';
-    var hair = 'url(#' + id + ')';
-    // back hair
-    if (c.long) s += '<path d="M20 40 Q16 80 24 104 L36 92 L42 104 L50 94 L58 104 L64 92 L76 104 Q84 80 80 40 Z" fill="' + hair + '"/>';
-    // neck and jacket collar
-    s += '<rect x="43" y="78" width="14" height="14" fill="' + c.skin + '"/><path d="M18 110 Q22 90 40 88 L50 98 L60 88 Q78 90 82 110 Z" fill="#1e1a2e"/><path d="M40 88 L50 98 L60 88" stroke="#e84246" stroke-width="2" fill="none"/>';
-    // anime face: round top, pointed chin
-    s += '<path d="M28 48 Q28 28 50 28 Q72 28 72 48 Q72 66 62 76 Q55 83 50 83 Q45 83 38 76 Q28 66 28 48 Z" fill="' + c.skin + '"/>';
-    if (c.tattoo) s += '<path d="M31 64 L35 68 L31 72" stroke="#5ef0f6" stroke-width="1.6" fill="none"/><circle cx="34" cy="75" r="1.2" fill="#ff3dd0"/>';
-    // eyes or visor
-    if (c.visor) s += '<path d="M26 52 L74 52 L72 64 L28 64 Z" fill="' + e + '" opacity=".85"/><path d="M28 55 L72 55" stroke="#fff" stroke-width="1" opacity=".6"/>';
-    else s += eye(40, e, false) + eye(60, e, true);
-    if (c.chrome) s += '<path d="M64 66 L70 64 L70 74 M66 70 L70 70" stroke="#c8d0e0" stroke-width="1.8" fill="none"/><circle cx="70" cy="74" r="1.6" fill="' + e + '"/>';
-    // mouth / mask
-    if (c.mask) s += '<path d="M34 68 Q50 66 66 68 L62 80 Q50 86 38 80 Z" fill="#14121e"/><path d="M40 74 L60 74 M42 78 L58 78" stroke="' + e + '" stroke-width="1.2"/>';
-    else s += '<path d="M46 74 Q50 76.5 54 74" stroke="#7a2e3a" stroke-width="1.6" fill="none" stroke-linecap="round"/>';
-    // spiky fringe
-    s += '<path d="M24 52 Q22 22 50 18 Q78 22 76 52 L70 38 L66 48 L60 34 L54 46 L48 32 L42 46 L36 36 L32 48 L28 40 Z" fill="' + hair + '"/>';
-    s += '<path d="M40 24 Q50 20 60 24" stroke="#fff" stroke-width="1.5" opacity=".35" fill="none"/>';
-    if (c.phones) s += '<path d="M22 50 Q22 14 50 14 Q78 14 78 50" stroke="#2a2638" stroke-width="4" fill="none"/><rect x="17" y="46" width="9" height="16" rx="3" fill="#2a2638"/><rect x="74" y="46" width="9" height="16" rx="3" fill="#2a2638"/><rect x="19" y="50" width="2" height="8" fill="' + e + '"/><rect x="79" y="50" width="2" height="8" fill="' + e + '"/>';
-    return s + '</svg>';
-  }
 
   function start() {
-    people = make(); secret = any(people); asked = 0; guesses = 2; over = false;
+    secret = people[Math.floor(Math.random() * people.length)]; asked = 0; guesses = 2; over = false;
     var grid = $('grid'); grid.innerHTML = '';
-    people.forEach(function (c) {
-      var d = document.createElement('div'); d.className = 'c'; d.innerHTML = face(c) + '<span></span>';
-      d.querySelector('span').textContent = c.name; d.onclick = function () { guess(c, d); }; c.el = d; grid.appendChild(d);
+    people.slice().sort(function () { return Math.random() - .5; }).forEach(function (c) {
+      var d = document.createElement('div'); d.className = 'c';
+      var img = document.createElement('img'); img.src = c.pic; img.alt = ''; d.appendChild(img);
+      var sp = document.createElement('span'); sp.textContent = c.name; d.appendChild(sp);
+      d.onclick = function () { guess(c, d); }; c.el = d; grid.appendChild(d);
     });
     var qs = $('qs'); qs.innerHTML = '';
     QUESTIONS.forEach(function (q) { var b = document.createElement('button'); b.textContent = q[0]; b.onclick = function () { ask(q, b); }; qs.appendChild(b); });
@@ -137,8 +101,18 @@
     $('msg').textContent = 'Not ' + c.name + '. One guess left.';
   }
 
-  $('again').onclick = start;
-  start();
+  $('again').onclick = function () { if (people.length) start(); };
+  $('msg').textContent = 'Loading Edgerunners...';
+  fetch('https://graphql.anilist.co', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify({ query: 'query($ids:[Int]){Page(perPage:50){characters(id_in:$ids){id image{large}}}}', variables: { ids: CAST.map(function (c) { return c.id; }) } }) })
+    .then(function (r) { return r.json(); })
+    .then(function (j) {
+      var pics = {}; j.data.Page.characters.forEach(function (c) { pics[c.id] = c.image.large; });
+      people = CAST.filter(function (c) { return (c.pic = pics[c.id]); });
+      if (people.length < 8) throw new Error('few');
+      start();
+    })
+    .catch(function () { $('msg').textContent = "Couldn't reach AniList right now, choom. Try again in a bit."; });
 </script>
 </body>
 </html>
