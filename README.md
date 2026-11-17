@@ -19,6 +19,7 @@ They live here instead of inside the mod, so the mod stays small. Capri Browser 
 | `games/<id>.txt` | A built-in game's lists, such as the sites for Guess the Site (type `data`). |
 | `settings.css` | The look of Capri Browser's Settings page. Style rules only. |
 | `help.txt` | The "What Capri can do" and shortcuts text in Settings. |
+| `pages/welcome.html` | Capri Browser's Welcome page: its styling, a `%%` line, then the page. Shown with scripts and outside loads blocked, and only its own three buttons work. |
 
 Games of type `none` (Quiz, Minecraft with Capri) need no files; downloading them just switches them on.
 
