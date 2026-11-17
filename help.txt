@@ -1,0 +1,39 @@
+Ask Capri in chat, for example:
+• "open YouTube" or "open the Roblox website"
+• "find me a funny video to watch"
+• "full screen" or "pop the video out"
+• "skip 30 seconds", "play at 1.5x", "go to 3:20"
+• "next video", "turn on captions", "loop it"
+• "look up ..." to get an answer from the web
+• "summarise this page" or "what does this page say about ..."
+• "find this cheaper" or "any coupon codes for this site?"
+• "take a screenshot and put it in my notes"
+• "click ...", "scroll down", "go back"
+• "show me something random"
+
+In the browser:
+• Highlight text, right-click, then Ask Capri about this
+• YouTube ads are skipped automatically
+• Games, stats and achievements are on the sidebar
+• The ≡ menu has screenshot to notes, dark mode for sites and pop-out video
+%%
+≡  the menu: zoom, print, screenshot, translate...
+Right-click a tab  duplicate, mute, close others
+Ctrl+T  new tab
+Ctrl+Shift+N  private tab
+Ctrl+W  close tab (or middle-click it)
+Ctrl+Shift+T  reopen a closed tab
+Ctrl+Tab  next tab
+Ctrl+L  type in the bar
+Ctrl+F  find on the page
+Ctrl+Plus / Ctrl+Minus  zoom
+Ctrl+P  print
+Ctrl+H  history
+Ctrl+J  downloads
+F5  reload
+F11  full screen
+Ctrl+D  add this site to Speed Dial
+Ctrl+Shift+S  Capri sums up the page
+Ctrl+Shift+A  ask Capri about the page (or type ?question in the bar)
+Ctrl+M  mute or unmute the tab
+Alt+Left / Alt+Right  back / forward
