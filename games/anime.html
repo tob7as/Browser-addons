@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guess the Anime Character - Capri Browser</title>
+<style>
+  body { margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center; background:#0a0a10 radial-gradient(ellipse 900px 420px at 50% -120px,#360e1a,transparent) no-repeat fixed; color:#ececf1; font-family:Bahnschrift,'Segoe UI',sans-serif; }
+  .card { text-align:center; padding:22px; width:min(560px,100%); }
+  h1 { margin:0 0 4px; color:#e84246; font-size:22px; letter-spacing:5px; font-weight:600; }
+  p { margin:0 0 12px; color:#92828c; }
+  #hud { display:flex; justify-content:space-between; color:#5ef0f6; letter-spacing:2px; margin-bottom:10px; font-size:17px; }
+  #frame { position:relative; width:230px; height:330px; margin:0 auto 14px; background:#11101c; box-shadow:inset 0 0 0 1px #5c1824, 0 0 30px rgba(232,66,70,.15); overflow:hidden;
+           clip-path:polygon(0 0,100% 0,100% calc(100% - 16px),calc(100% - 16px) 100%,0 100%); }
+  #pic { width:100%; height:100%; object-fit:cover; filter:blur(24px); transform:scale(1.15); transition:filter .25s linear; }
+  #hint { min-height:22px; color:#92828c; margin-bottom:10px; }
+  #hint b { color:#5ef0f6; font-weight:600; }
+  #opts { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+  #opts button { background:#11101c; color:#ececf1; border:1px solid #5c1824; padding:12px 10px; font:16px Bahnschrift,'Segoe UI',sans-serif; cursor:pointer; min-height:52px; }
+  #opts button:hover:not(:disabled) { border-color:#5ef0f6; }
+  #opts button.ok { background:#0f2226; border-color:#5ef0f6; color:#5ef0f6; }
+  #opts button.no { background:#2a0f14; border-color:#e84246; color:#e84246; }
+  #msg { min-height:26px; margin:12px 0 8px; font-size:18px; color:#5ef0f6; }
+  .links a { color:#e84246; text-decoration:none; letter-spacing:2px; margin:0 12px; cursor:pointer; }
+  .small { font-size:12px; color:#5f5560; margin-top:14px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>GUESS THE ANIME CHARACTER</h1>
+  <p>The picture sharpens over time. Guess fast for more points. Three lives.</p>
+  <div id="hud"><span id="score">0</span><span id="lives">♥♥♥</span><span id="best"></span></div>
+  <div id="frame"><img id="pic" alt=""></div>
+  <div id="hint"></div>
+  <div id="opts"></div>
+  <div id="msg">Loading characters...</div>
+  <div class="links"><a id="hintBtn">HINT</a><a id="again" style="display:none">PLAY AGAIN</a><a href="https://capri.dial/play?g=quit">CANCEL</a></div>
+  <div class="small">Characters and pictures from AniList.</div>
+</div>
+<script>
+  // Popular characters from AniList (only from non-adult shows), fetched live; no pictures are stored in Browser addons.
+  var API = 'https://graphql.anilist.co';
+  var QUERY = 'query($p:Int){Page(page:$p,perPage:50){characters(sort:FAVOURITES_DESC){name{full}image{large}media(perPage:1,sort:POPULARITY_DESC){nodes{isAdult title{english romaji}}}}}}';
+  var pool = [], used = {}, score = 0, lives = 3, best = 0, round = null, timer = null, blur = 24, hinted = false, startAt = 0;
+  var $ = function (id) { return document.getElementById(id); };
+  try { best = +localStorage.getItem('anime-best') || 0; } catch (e) {}
+
+  function load(page) {
+    return fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' }, body: JSON.stringify({ query: QUERY, variables: { p: page } }) })
+      .then(function (r) { return r.json(); })
+      .then(function (j) {
+        (j.data.Page.characters || []).forEach(function (c) {
+          var m = c.media && c.media.nodes && c.media.nodes[0];
+          if (!m || m.isAdult || !c.image || !c.image.large || /default/.test(c.image.large)) return;
+          pool.push({ name: c.name.full, pic: c.image.large, show: m.title.english || m.title.romaji });
+        });
+      });
+  }
+
+  function hud() {
+    $('score').textContent = score + ' pts';
+    $('lives').textContent = Array(lives + 1).join('♥') + Array(4 - lives).join('♡');
+    $('best').textContent = best ? 'Best ' + best : '';
+  }
+
+  function pick(list, n, not) {
+    var out = [], tries = 0;
+    while (out.length < n && tries++ < 500) { var c = list[Math.floor(Math.random() * list.length)]; if (c !== not && out.indexOf(c) < 0 && out.every(function (o) { return o.name !== c.name; })) out.push(c); }
+    return out;
+  }
+
+  function next() {
+    var fresh = pool.filter(function (c) { return !used[c.name]; });
+    if (fresh.length < 4) { used = {}; fresh = pool; }
+    var answer = fresh[Math.floor(Math.random() * fresh.length)];
+    used[answer.name] = 1;
+    // Decoys from the same anime when possible, so it's not too easy.
+    var same = pool.filter(function (c) { return c.show === answer.show && c.name !== answer.name; });
+    var decoys = pick(same, Math.min(2, same.length), answer);
+    decoys = decoys.concat(pick(pool, 3 - decoys.length, answer).filter(function (c) { return decoys.indexOf(c) < 0; })).slice(0, 3);
+    var opts = decoys.concat([answer]).sort(function () { return Math.random() - .5; });
+    round = { answer: answer, done: false };
+    hinted = false; blur = 24;
+    $('hint').innerHTML = ''; $('msg').textContent = ''; $('hintBtn').style.display = '';
+    var img = $('pic'); img.style.filter = 'blur(24px)'; img.src = answer.pic;
+    var box = $('opts'); box.innerHTML = '';
+    opts.forEach(function (c) {
+      var b = document.createElement('button'); b.textContent = c.name;
+      b.onclick = function () { guess(b, c); };
+      box.appendChild(b);
+    });
+    startAt = Date.now();
+    clearInterval(timer);
+    // The picture sharpens over 15 seconds.
+    timer = setInterval(function () { blur = Math.max(0, 24 - (Date.now() - startAt) / 15000 * 24); img.style.filter = 'blur(' + blur.toFixed(1) + 'px)'; if (!blur) clearInterval(timer); }, 250);
+  }
+
+  function guess(btn, c) {
+    if (round.done) return;
+    round.done = true; clearInterval(timer);
+    $('pic').style.filter = 'none';
+    var right = c === round.answer;
+    [].forEach.call($('opts').children, function (b) { b.disabled = true; if (b.textContent === round.answer.name) b.className = 'ok'; });
+    if (right) {
+      var pts = Math.max(10, Math.round(100 - (Date.now() - startAt) / 150)) / (hinted ? 2 : 1);
+      score += Math.round(pts);
+      $('msg').textContent = 'Nice, choom! +' + Math.round(pts) + ' (' + round.answer.show + ')';
+    } else {
+      btn.className = 'no'; lives--;
+      $('msg').textContent = 'Nope, that was ' + round.answer.name + ' from ' + round.answer.show + '.';
+    }
+    if (score > best) { best = score; try { localStorage.setItem('anime-best', best); } catch (e) {} }
+    hud();
+    if (lives <= 0) { $('msg').textContent += ' Game over: ' + score + ' pts.'; $('again').style.display = ''; $('hintBtn').style.display = 'none'; return; }
+    setTimeout(next, 1700);
+  }
+
+  $('hintBtn').onclick = function () { if (!round || round.done || hinted) return; hinted = true; $('hint').innerHTML = 'From: <b></b> (half points)'; $('hint').querySelector('b').textContent = round.answer.show; };
+  $('again').onclick = function () { score = 0; lives = 3; $('again').style.display = 'none'; hud(); next(); };
+
+  hud();
+  // Two random pages of the top characters, so every game is a bit different.
+  var a = 1 + Math.floor(Math.random() * 3), b = 4 + Math.floor(Math.random() * 3);
+  Promise.all([load(a), load(b)]).then(function () {
+    if (pool.length < 8) throw new Error('few');
+    next();
+  }).catch(function () {
+    $('msg').textContent = "Couldn't reach AniList right now, choom. Try again in a bit.";
+  });
+</script>
+</body>
+</html>

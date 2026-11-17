@@ -1,3 +1,6 @@
+New game
+• Guess the Anime Character: a popular character appears blurred and slowly sharpens. Pick the right name from four, faster for more points. Hint shows the anime for half points. Three lives. Find it on the Games page.
+
 1.9.9
 • Capri plays what she finds: she opens the episode or presses play, and asks "want me to put it on?" if it won't start.
 • Say "play the newest" to get the newest upload from a channel or show.
