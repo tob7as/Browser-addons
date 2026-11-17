@@ -7,7 +7,7 @@ They live here instead of inside the mod, so the mod stays small. Capri Browser 
 
 - **Languages:** in Capri Browser, open Settings, go to Language and select **Download languages**.
 - **Games:** open the Games page and select **Get games**. Pick a game to download it; after that it plays straight away.
-- **Updates:** select **Update all** in the Updates section at the bottom of the Games page or Settings. It downloads every game and language, including anything new. Capri Browser also checks once a day by itself and quietly updates what you already have.
+- **Updates:** select **Update all** in the Updates section at the bottom of the Games page or Settings. It installs every game and language from the exact commit your version of Capri Browser is pinned to, and checks each file against the SHA-256 fingerprint built into the mod. There are no automatic updates: new or changed files reach players in a new version of the mod.
 
 ## What's here
 
@@ -34,6 +34,6 @@ Games of type `none` (Quiz, Minecraft with Capri) need no files; downloading the
 
 1. Add `games/<id>.html` (lowercase letters, numbers and dashes in the id).
 2. Add a line to `games.txt`: the id, the title, a one-line description and `page`, separated by tabs.
-3. Players see it the next time they select **Update all**.
+3. Put the new commit and the file's SHA-256 in the mod (`AddonsCommit` and `AddonHashes`), and release a new mod version. Files that don't match are thrown away.
 
 Made by tob7as, a contributor to the Capri app. Discord: `.tob1s`

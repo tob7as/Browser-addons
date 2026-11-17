@@ -29,7 +29,7 @@ In the browser:
 • The ≡ menu has screenshot to notes, dark mode for sites and pop-out video
 • Right-click a tab and choose Add to bookmarks
 • Free Games This Week is on the Games page
-• Settings > Update all gets new games and lists right away (it also checks once a day)
+• Settings > Update all installs every game and language that came with your version
 %%
 ≡  the menu: zoom, print, screenshot, translate...
 Right-click a tab  duplicate, mute, close others

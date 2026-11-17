@@ -1,21 +1,16 @@
-New this update
+Capri Browser 0.7
 • Guess the Anime Character: a popular character appears blurred and slowly sharpens. Pick the right name from four, faster for more points. Hint shows the anime for half points. Three lives. Find it on the Games page.
 • Guess the Celebrity: a famous face from music, film, sport, the internet or history, blurred. Same rules, and the hint shows what they're known for.
 • Mystery Choom: Capri picks a character from Cyberpunk: Edgerunners 1 or 2. Ask yes or no questions (season, hair, shades, mask...) and find them in as few as you can.
 • Free Games This Week: every game you can claim and keep for free right now, from Epic, Steam, GOG, itch.io, consoles and mobile, with how long each deal has left.
 • Site Roulette has twice as many sites, and Wiki Race has 50 more articles.
-• Help now lists more things you can ask Capri: switching and closing tabs, typing, bookmarks, finding games and more.
-• Say "add to my notes ..." (or "note this down", "write that down") and Capri saves it as a new note. Say "research this" or "look into ..." and she looks it up and saves what she found as a note. Needs the latest Capri Browser mod.
-
-1.9.9
-• Capri plays what she finds: she opens the episode or presses play, and asks "want me to put it on?" if it won't start.
-• Say "play the newest" to get the newest upload from a channel or show.
+• Say "add to my notes ..." (or "note this down", "write that down") and Capri saves it as a new note. Say "research this" or "look into ..." and she looks it up and saves what she found as a note.
+• Discord in the browser (turn it on in Settings > Capri features): "message Sam on Discord hi", "reply to Sam ...", "call Sam", "open Minecraft general", "join Minecraft gaming vc". She finds them and asks before she sends, calls or joins: say yes to go ahead.
+• Capri plays what she finds: she opens the episode or presses play, and asks "want me to put it on?" if it won't start. Say "play the newest" for the newest upload.
 • Ads you can't skip on YouTube are muted and fast-forwarded.
-• "Find me a Roblox game" (or a Steam game, an itch.io game, or anything else): she searches, scrolls and picks one for you. If the site is on your Speed Dial, she opens it from there.
-• "Find a random website" plays Site Roulette.
-• Start any game by asking: "let's play snake", "play wiki race", "quiz me".
-• Anything to do with a browser now uses Capri Browser, and she finishes the job: "open my Discord in my browser and message Sam hi".
+• "Find me a Roblox game" (or a Steam game, an itch.io game, or anything else): she searches, scrolls and picks one for you.
+• "Find a random website" plays Site Roulette, and you can start any game by asking: "let's play snake", "play wiki race", "quiz me".
 • "Bookmark this" saves the page to your Speed Dial. Also in a tab's right-click menu.
 • New games: Neon Snake, Memory Match and Code Breach.
-• More sites for Site Roulette and Guess the Site, more Wiki Race articles.
-• Capri Browser checks here once a day and quietly updates your games and languages.
+• On messaging sites like Discord, Gmail or WhatsApp, Capri asks before she clicks, types or presses Enter for you.
+• Games, help and languages are only used if they exactly match the versions that shipped with your copy of Capri Browser. New ones come with a new version of the mod.

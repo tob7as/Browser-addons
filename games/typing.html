@@ -31,7 +31,7 @@
   <p class="links" style="margin-top:16px"><a href="#" onclick="SV();return false">SURVIVAL MODE</a><a href="https://capri.dial/play?g=quit">CANCEL</a></p>
 </div>
 <script>
-  // Capri Browser fills in TEXT (a paragraph from the page they were reading), FROM and BEST before opening this.
+  // Capri Browser fills in FROM and BEST before opening this. TEXT stays empty (no page text is passed in), so a paragraph below is used.
   var TEXT = "%TEXT%", FROM = "%FROM%", BEST = +"%BEST%" || 0;
   var PARAGRAPHS = [
     "Night City never sleeps. Neon signs flicker over rain-soaked streets while netrunners chase data through the glow of a thousand screens.",
