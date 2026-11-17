@@ -1,0 +1,1 @@
+reaction	Reaction Test	Click the moment the panel turns cyan. Five rounds, then your average.
