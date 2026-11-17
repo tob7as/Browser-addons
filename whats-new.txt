@@ -1,0 +1,12 @@
+1.9.9
+• Capri plays what she finds: she opens the episode or presses play, and asks "want me to put it on?" if it won't start.
+• Say "play the newest" to get the newest upload from a channel or show.
+• Ads you can't skip on YouTube are muted and fast-forwarded.
+• "Find me a Roblox game" (or a Steam game, an itch.io game, or anything else): she searches, scrolls and picks one for you. If the site is on your Speed Dial, she opens it from there.
+• "Find a random website" plays Site Roulette.
+• Start any game by asking: "let's play snake", "play wiki race", "quiz me".
+• Anything to do with a browser now uses Capri Browser, and she finishes the job: "open my Discord in my browser and message Sam hi".
+• "Bookmark this" saves the page to your Speed Dial. Also in a tab's right-click menu.
+• New games: Neon Snake, Memory Match and Code Breach.
+• More sites for Site Roulette and Guess the Site, more Wiki Race articles.
+• Capri Browser checks here once a day and quietly updates your games and languages.

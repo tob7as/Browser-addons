@@ -20,6 +20,7 @@ They live here instead of inside the mod, so the mod stays small. Capri Browser 
 | `settings.css` | The look of Capri Browser's Settings page. Style rules only. |
 | `help.txt` | The "What Capri can do" and shortcuts text in Settings. |
 | `pages/welcome.html` | Capri Browser's Welcome page: its styling, a `%%` line, then the page. Shown with scripts and outside loads blocked, and only its own three buttons work. |
+| `whats-new.txt` | The update notes. Shown under "What's new" in the Updates section, and Capri reads them when asked what's new. Plain text, newest first. |
 
 Games of type `none` (Quiz, Minecraft with Capri) need no files; downloading them just switches them on.
 
