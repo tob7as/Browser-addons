@@ -1,4 +1,4 @@
-Capri Browser 0.7
+Capri Browser 1.9.9
 • Guess the Anime Character: a popular character appears blurred and slowly sharpens. Pick the right name from four, faster for more points. Hint shows the anime for half points. Three lives. Find it on the Games page.
 • Guess the Celebrity: a famous face from music, film, sport, the internet or history, blurred. Same rules, and the hint shows what they're known for.
 • Mystery Choom: Capri picks a character from Cyberpunk: Edgerunners 1 or 2. Ask yes or no questions (season, hair, shades, mask...) and find them in as few as you can.
