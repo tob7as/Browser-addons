@@ -72,23 +72,28 @@
   function SV() {
     var W = T.toLowerCase().split(/ +/).map(function (w) { return w.replace(/[^a-z']/g, ''); }).filter(function (w) { return w.length > 2; });
     if (!W.length) W = ['capri', 'neon', 'choom', 'glitch', 'chrome'];
-    document.getElementById('from').textContent = 'Survival: type each falling word and press Space. Three lives.';
+    document.getElementById('from').textContent = 'Survival: type a falling word and press Enter. It gets faster the longer you last. Three lives.';
     t.style.cssText = 'position:relative;height:360px;overflow:hidden;padding:0';
     t.innerHTML = ''; i.disabled = false; i.value = ''; i.style.height = '56px';
-    var F = [], s = 0, L = 3, last = 0, end = 0;
+    var F = [], s = 0, L = 3, last = 0, end = 0, began = 0, before = 0;
     function hud() { r.textContent = s + ' words  ' + Array(L + 1).join('♥'); }
     hud();
-    i.oninput = function () {
-      var v = i.value;
-      if (/ $/.test(v)) {
-        v = v.trim();
-        for (var k = 0; k < F.length; k++) if (F[k].w == v) { F[k].e.remove(); F.splice(k, 1); s++; break; }
-        i.value = ''; hud();
-      }
+    i.oninput = null;
+    // Enter sends the word (Enter never adds a new line here).
+    i.onkeydown = function (e) {
+      if (e.key !== 'Enter') return;
+      e.preventDefault();
+      var v = i.value.trim().toLowerCase();
+      for (var k = 0; k < F.length; k++) if (F[k].w == v) { F[k].e.remove(); F.splice(k, 1); s++; break; }
+      i.value = ''; hud();
     };
     function step(n) {
       if (end) return;
-      if (n - last > Math.max(550, 1800 - s * 45)) {
+      if (!began) began = before = n;
+      // Speed goes up steadily with time: words fall faster and arrive more often every second you survive.
+      var secs = (n - began) / 1000, dt = Math.min(50, n - before) / 16.7;
+      before = n;
+      if (n - last > Math.max(380, 1800 - secs * 22)) {
         last = n;
         var w = W[Math.floor(Math.random() * W.length)], e = document.createElement('span');
         e.textContent = w; e.className = 'ok';
@@ -97,7 +102,7 @@
       }
       for (var k = F.length - 1; k >= 0; k--) {
         var f = F[k];
-        f.y += .5 + s * .025; f.e.style.top = f.y + 'px';
+        f.y += (.45 + secs * .012) * dt; f.e.style.top = f.y + 'px';
         if (f.y > 330) {
           f.e.remove(); F.splice(k, 1); L--; hud();
           if (L <= 0) { end = 1; i.disabled = true; r.textContent = 'Game over: ' + s + ' words'; location.href = O + 'play?g=survived&s=' + s; return; }
