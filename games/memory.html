@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Memory Match - Capri Browser</title>
+<style>
+  body { margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center; background:#0a0a10 radial-gradient(ellipse 900px 420px at 50% -120px,#360e1a,transparent) no-repeat fixed; color:#ececf1; font-family:Bahnschrift,'Segoe UI',sans-serif; }
+  .card { text-align:center; padding:24px; width:min(520px,100%); }
+  h1 { margin:0 0 6px; color:#e84246; font-size:22px; letter-spacing:5px; font-weight:600; }
+  p { margin:0 0 16px; color:#92828c; }
+  #g { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; }
+  .t { aspect-ratio:1; display:flex; align-items:center; justify-content:center; font-size:34px; cursor:pointer; user-select:none; background:#11101c; box-shadow:inset 0 0 0 1px #5c1824; color:transparent; transition:background .15s; }
+  .t.up { background:#1a1626; color:#ececf1; box-shadow:inset 0 0 0 1px #5ef0f6; }
+  .t.done { background:#0f2226; color:#5ef0f6; box-shadow:inset 0 0 0 1px #5ef0f6, 0 0 14px rgba(94,240,246,.35); cursor:default; }
+  #s { font-size:20px; color:#5ef0f6; margin:16px 0 10px; letter-spacing:2px; }
+  a { color:#e84246; text-decoration:none; letter-spacing:2px; margin:0 12px; cursor:pointer; }
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>MEMORY MATCH</h1>
+  <p>Flip two tiles at a time and find all eight pairs in as few moves as you can.</p>
+  <div id="g"></div>
+  <div id="s"></div>
+  <a onclick="start()">NEW GAME</a><a href="https://capri.dial/play?g=quit">CANCEL</a>
+</div>
+<script>
+  var ICONS = ['⚡', '☢', '♠', '✦', '☾', '♫', '⚙', '❖'], g = document.getElementById('g'), s = document.getElementById('s');
+  var first, lock, moves, found;
+  function start() {
+    var deck = ICONS.concat(ICONS).sort(function () { return Math.random() - .5; });
+    g.innerHTML = ''; first = null; lock = false; moves = 0; found = 0; s.textContent = 'Moves: 0';
+    deck.forEach(function (icon) {
+      var t = document.createElement('div'); t.className = 't'; t.textContent = icon; t.onclick = function () { flip(t); }; g.appendChild(t);
+    });
+  }
+  function flip(t) {
+    if (lock || t == first || t.classList.contains('done')) return;
+    t.classList.add('up');
+    if (!first) { first = t; return; }
+    moves++; s.textContent = 'Moves: ' + moves;
+    if (first.textContent == t.textContent) {
+      first.classList.add('done'); t.classList.add('done'); first = null; found++;
+      if (found == ICONS.length) s.textContent = 'All pairs found in ' + moves + ' moves, choom!';
+      return;
+    }
+    var a = first; first = null; lock = true;
+    setTimeout(function () { a.classList.remove('up'); t.classList.remove('up'); lock = false; }, 700);
+  }
+  start();
+</script>
+</body>
+</html>
