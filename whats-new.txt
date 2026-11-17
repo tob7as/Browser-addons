@@ -1,6 +1,7 @@
 New games
 • Guess the Anime Character: a popular character appears blurred and slowly sharpens. Pick the right name from four, faster for more points. Hint shows the anime for half points. Three lives. Find it on the Games page.
 • Guess the Celebrity: a famous face from music, film, sport, the internet or history, blurred. Same rules, and the hint shows what they're known for.
+• Mystery Choom: Capri picks one of 18 anime cyberpunk runners. Ask yes or no questions (hair, eyes, visor, chrome...) and find them in as few as you can.
 
 1.9.9
 • Capri plays what she finds: she opens the episode or presses play, and asks "want me to put it on?" if it won't start.
