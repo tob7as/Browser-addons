@@ -1,1 +1,7 @@
-reaction	Reaction Test	Click the moment the panel turns cyan. Five rounds, then your average.
+wiki	Wiki Race	Reach the target article using only links within Wikipedia. Also needed for co-op races.	data
+guess	Guess the Site	A popular site opens blurred. Pick which one it is. Three lives.	data
+typing	Typing Race	Type a paragraph from the page you were reading, against the clock. Includes Survival mode.	page
+roulette	Site Roulette	Opens a random interesting website.	data
+quiz	Quiz	Capri asks you questions about the page you're reading.	none
+reaction	Reaction Test	Click the moment the panel turns cyan. Five rounds, then your average.	page
+minecraft	Minecraft with Capri	Play Minecraft Bedrock with Capri. Opens the add-on and how to set it up.	none

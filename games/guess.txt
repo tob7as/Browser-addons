@@ -1,0 +1,18 @@
+YouTube	https://www.youtube.com/
+Wikipedia	https://en.wikipedia.org/wiki/Main_Page
+Reddit	https://www.reddit.com/
+Amazon	https://www.amazon.com/
+Netflix	https://www.netflix.com/
+Twitch	https://www.twitch.tv/
+GitHub	https://github.com/
+Roblox	https://www.roblox.com/
+Spotify	https://open.spotify.com/
+IMDb	https://www.imdb.com/
+BBC	https://www.bbc.com/
+Pinterest	https://www.pinterest.com/
+eBay	https://www.ebay.com/
+Stack Overflow	https://stackoverflow.com/
+Minecraft	https://www.minecraft.net/
+Steam	https://store.steampowered.com/
+Discord	https://discord.com/
+Duolingo	https://www.duolingo.com/

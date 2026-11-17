@@ -1,30 +1,35 @@
 # Browser addons
 
-Extra languages and games for **Capri Browser**, the web browser mod for [Capri](https://capriai.app/).
-They live here instead of inside the mod, so the mod stays small.
+Languages and games for **Capri Browser**, the web browser mod for [Capri](https://capriai.app/).
+They live here instead of inside the mod, so the mod stays small. Capri Browser downloads them from this repo.
 
 ## How to use them
 
 - **Languages:** in Capri Browser, open Settings, go to Language and select **Download languages**.
-- **Games:** open the Games page and select **+ More games**. New games appear in the list.
+- **Games:** open the Games page and select **Get games**. Pick a game to download it; after that it plays straight away.
+- **Updates:** select **Check for updates** on the Games page (or in Settings, under Language) to get new games and the latest versions of everything you've downloaded.
 
 ## What's here
 
 | File | What it is |
 | --- | --- |
-| `languages.txt` | Spanish, French, German and Portuguese. One language per line: code, name, Wikipedia subdomain and the browser's words, separated by tabs. |
-| `games.txt` | The game list. One game per line: id, title and description, separated by tabs. |
-| `games/<id>.html` | Each game, served by GitHub Pages. |
+| `languages.txt` | 22 languages. One per line: code, name, Wikipedia subdomain and the browser's words, separated by tabs. |
+| `games.txt` | The game list. One game per line: id, title, description and type, separated by tabs. |
+| `games/<id>.html` | A game that's a page of its own (type `page`). |
+| `games/<id>.txt` | A built-in game's lists, such as the sites for Guess the Site (type `data`). |
+
+Games of type `none` (Quiz, Minecraft with Capri) need no files; downloading them just switches them on.
 
 ## Safety
 
 - Language files are words only. Capri Browser removes anything that could be code or page markup before using them.
-- Games are ordinary web pages. They open in a tab like any website and can't change the browser's settings, notes or history.
+- Page games open in a tab of their own, which has no access to the browser's settings, notes or history. They can only report a score.
+- Lists only hold names and `https://` addresses.
 
 ## Adding a game
 
 1. Add `games/<id>.html` (lowercase letters, numbers and dashes in the id).
-2. Add a line to `games.txt`: `<id>`, a tab, the title, a tab, a one-line description.
-3. Players get it the next time they select **+ More games**.
+2. Add a line to `games.txt`: the id, the title, a one-line description and `page`, separated by tabs.
+3. Players see it the next time they select **Check for updates**.
 
 Made by tob7as, a contributor to the Capri app. Discord: `.tob1s`

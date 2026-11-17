@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Typing Race - Capri Browser</title>
+<style>
+  body { margin:0; background:#0a0a10 radial-gradient(ellipse 900px 420px at 50% -120px,#360e1a,transparent) no-repeat fixed; color:#ececf1; }
+  .g { max-width:820px; margin:0 auto; padding:40px 24px; font-family:'Bahnschrift SemiCondensed','Segoe UI',sans-serif; }
+  .g h1 { color:#e84246; font-size:15px; letter-spacing:3px; margin:0 0 6px; }
+  .g h1 span { color:#5ef0f6; }
+  .g p { color:#92828c; margin:0 0 18px; }
+  #t { font:20px/1.8 Consolas,monospace; background:#11101c; border:1px solid #5c1824; padding:18px 20px; margin-bottom:14px; user-select:none; }
+  #t span { color:#92828c; }
+  #t .ok { color:#ececf1; }
+  #t .no { color:#fff; background:#e84246; }
+  #t .cur { box-shadow:-2px 0 0 #5ef0f6; }
+  textarea { width:100%; height:110px; box-sizing:border-box; background:#0a0a10; color:#ececf1; border:1px solid #5c1824; padding:12px; font:18px Consolas,monospace; outline:none; resize:none; }
+  textarea:focus { border-color:#e84246; }
+  #r { font-size:28px; color:#e84246; margin-top:14px; min-height:36px; }
+  .links a { color:#e84246; text-decoration:none; letter-spacing:2px; margin-right:24px; }
+</style>
+</head>
+<body>
+<div class="g">
+  <h1>TYPING RACE <span>&gt;</span></h1>
+  <p id="from"></p>
+  <div id="t"></div>
+  <textarea id="i" spellcheck="false" autofocus></textarea>
+  <div id="r"></div>
+  <p class="links" style="margin-top:16px"><a href="#" onclick="SV();return false">SURVIVAL MODE</a><a href="https://capri.dial/play?g=quit">CANCEL</a></p>
+</div>
+<script>
+  // Capri Browser fills in TEXT (a paragraph from the page they were reading), FROM and BEST before opening this.
+  var TEXT = "%TEXT%", FROM = "%FROM%", BEST = +"%BEST%" || 0;
+  var PARAGRAPHS = [
+    "Night City never sleeps. Neon signs flicker over rain-soaked streets while netrunners chase data through the glow of a thousand screens.",
+    "The quick brown fox jumps over the lazy dog, then stops for a snack and wonders why everyone keeps typing about it.",
+    "A good browser is like a good friend: fast when you need it, quiet when you don't, and always ready to open one more tab.",
+    "Chrome hums under the skin of the city. Every street corner has a story, and every story has a price someone is willing to pay.",
+    "Rain hits the window in a steady rhythm while the monitor glows. One more tab, one more song, one more line of code before sleep."
+  ];
+  var O = 'https://capri.dial/', T = TEXT.charAt(0) === '%' || !TEXT ? PARAGRAPHS[Math.floor(Math.random() * PARAGRAPHS.length)] : TEXT;
+  if (FROM.charAt(0) === '%') FROM = 'Capri';
+  document.getElementById('from').textContent = 'From: ' + FROM + (BEST > 0 ? ' · Your best: ' + BEST + ' WPM' : '') + ' · The clock starts on your first key.';
+  var t = document.getElementById('t'), i = document.getElementById('i'), r = document.getElementById('r'), st = 0, done = 0;
+  function D() {
+    var v = i.value, h = '';
+    for (var k = 0; k < T.length; k++) {
+      var c = T[k];
+      h += '<span class="' + (k < v.length ? (v[k] == c ? 'ok' : 'no') : k == v.length ? 'cur' : '') + '">' + (c == '<' ? '&lt;' : c == '&' ? '&amp;' : c) + '</span>';
+    }
+    t.innerHTML = h;
+  }
+  i.oninput = function () {
+    if (!st) st = Date.now();
+    D();
+    var v = i.value, m = Math.max((Date.now() - st) / 60000, 1 / 600);
+    r.textContent = Math.round(v.length / 5 / m) + ' WPM';
+    if (v.length >= T.length && !done) {
+      done = 1; i.disabled = true;
+      var ok = 0;
+      for (var k = 0; k < T.length; k++) if (v[k] == T[k]) ok++;
+      var a = Math.round(ok * 100 / T.length), w = Math.round(T.length / 5 / m * a / 100);
+      r.textContent = w + ' WPM · ' + a + '% accuracy';
+      location.href = O + 'play?g=typed&w=' + w + '&a=' + a;
+    }
+  };
+  D(); i.focus();
+
+  // Survival: words from the paragraph fall down the box; type one and press Space to clear it. Three lives.
+  function SV() {
+    var W = T.toLowerCase().split(/ +/).map(function (w) { return w.replace(/[^a-z']/g, ''); }).filter(function (w) { return w.length > 2; });
+    if (!W.length) W = ['capri', 'neon', 'choom', 'glitch', 'chrome'];
+    document.getElementById('from').textContent = 'Survival: type each falling word and press Space. Three lives.';
+    t.style.cssText = 'position:relative;height:360px;overflow:hidden;padding:0';
+    t.innerHTML = ''; i.disabled = false; i.value = ''; i.style.height = '56px';
+    var F = [], s = 0, L = 3, last = 0, end = 0;
+    function hud() { r.textContent = s + ' words  ' + Array(L + 1).join('♥'); }
+    hud();
+    i.oninput = function () {
+      var v = i.value;
+      if (/ $/.test(v)) {
+        v = v.trim();
+        for (var k = 0; k < F.length; k++) if (F[k].w == v) { F[k].e.remove(); F.splice(k, 1); s++; break; }
+        i.value = ''; hud();
+      }
+    };
+    function step(n) {
+      if (end) return;
+      if (n - last > Math.max(550, 1800 - s * 45)) {
+        last = n;
+        var w = W[Math.floor(Math.random() * W.length)], e = document.createElement('span');
+        e.textContent = w; e.className = 'ok';
+        e.style.cssText = 'position:absolute;top:0;left:' + (Math.random() * 78 + 2) + '%';
+        t.appendChild(e); F.push({ w: w, e: e, y: 0 });
+      }
+      for (var k = F.length - 1; k >= 0; k--) {
+        var f = F[k];
+        f.y += .5 + s * .025; f.e.style.top = f.y + 'px';
+        if (f.y > 330) {
+          f.e.remove(); F.splice(k, 1); L--; hud();
+          if (L <= 0) { end = 1; i.disabled = true; r.textContent = 'Game over: ' + s + ' words'; location.href = O + 'play?g=survived&s=' + s; return; }
+        }
+      }
+      requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+    i.focus();
+  }
+</script>
+</body>
+</html>
