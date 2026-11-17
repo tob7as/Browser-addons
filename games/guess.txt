@@ -16,3 +16,13 @@ Minecraft	https://www.minecraft.net/
 Steam	https://store.steampowered.com/
 Discord	https://discord.com/
 Duolingo	https://www.duolingo.com/
+Instagram	https://www.instagram.com/
+TikTok	https://www.tiktok.com/
+Epic Games	https://store.epicgames.com/
+Crunchyroll	https://www.crunchyroll.com/
+Apple	https://www.apple.com/
+Microsoft	https://www.microsoft.com/
+NASA	https://www.nasa.gov/
+Etsy	https://www.etsy.com/
+Khan Academy	https://www.khanacademy.org/
+Google Maps	https://www.google.com/maps

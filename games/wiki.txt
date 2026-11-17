@@ -1,2 +1,2 @@
-Pizza,Moon,Minecraft,Albert_Einstein,Japan,Cat,Bitcoin,Australia,Dinosaur,Batman,Coffee,Piracy,Volcano,Shark,Elvis_Presley
-Banana,Lego,Tokyo,Penguin,Chess,Rainbow,Ninja,Titanic,Guitar,Mars,Skateboarding,Sushi,Vikings,Mount_Everest,Basketball,Robot,Ice_cream,Egyptian_pyramids,Octopus,Snow,Internet,Association_football,Pancake,Tornado
+Pizza,Moon,Minecraft,Albert_Einstein,Japan,Cat,Bitcoin,Australia,Dinosaur,Batman,Coffee,Piracy,Volcano,Shark,Elvis_Presley,Spider-Man,Olympic_Games,Antarctica,Black_hole,Tyrannosaurus,Leonardo_da_Vinci,Harry_Potter
+Banana,Lego,Tokyo,Penguin,Chess,Rainbow,Ninja,Titanic,Guitar,Mars,Skateboarding,Sushi,Vikings,Mount_Everest,Basketball,Robot,Ice_cream,Egyptian_pyramids,Octopus,Snow,Internet,Association_football,Pancake,Tornado,Toaster,Hamster,Bubble_wrap,Kite,Cheese,Lighthouse

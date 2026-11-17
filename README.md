@@ -7,7 +7,7 @@ They live here instead of inside the mod, so the mod stays small. Capri Browser 
 
 - **Languages:** in Capri Browser, open Settings, go to Language and select **Download languages**.
 - **Games:** open the Games page and select **Get games**. Pick a game to download it; after that it plays straight away.
-- **Updates:** select **Update all** in the Updates section at the bottom of the Games page or Settings. It downloads every game and language, including anything new.
+- **Updates:** select **Update all** in the Updates section at the bottom of the Games page or Settings. It downloads every game and language, including anything new. Capri Browser also checks once a day by itself and quietly updates what you already have.
 
 ## What's here
 
