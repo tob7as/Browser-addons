@@ -20,7 +20,8 @@ They live here instead of inside the mod, so the mod stays small. Capri Browser 
 | `settings.css` | The look of Capri Browser's Settings page. Style rules only. |
 | `help.txt` | The "What Capri can do" and shortcuts text in Settings. |
 | `pages/home.css` | The look of the Speed Dial (new tab) page. Style rules only, with %C0% to %C6% for Capri's colours and %P<n>% for sizes. |
-| `data/lists.txt` | Video sites, sites Capri can open by name, and search engines. One per line, fields split by tabs. |
+| `pages/pages.css` | The look of the results, Games and History pages, in that order, split by `%%` lines. Style rules only, same tokens as home.css. |
+| `data/lists.txt` | Video sites, sites Capri can open by name, search engines, achievements, a few things Capri says, and words left out of searches. One per line, fields split by tabs. |
 | `pages/welcome.html` | Capri Browser's Welcome page: its styling, a `%%` line, then the page. Shown with scripts and outside loads blocked, and only its own buttons work. Put %DL% where the download progress should show. |
 | `whats-new.txt` | The update notes. Shown under "What's new" in the Updates section, and Capri reads them when asked what's new. Plain text, newest first. |
 

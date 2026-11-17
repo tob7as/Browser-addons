@@ -54,3 +54,38 @@ engine	bing	Bing	https://www.bing.com/search?q={q}&setlang={hl}
 engine	duckduckgo	DuckDuckGo	https://duckduckgo.com/?q={q}
 engine	brave	Brave Search	https://search.brave.com/search?q={q}
 engine	ecosia	Ecosia	https://www.ecosia.org/search?q={q}
+# badge: achievements. Stat, how many, name, what to do
+badge	pages	1	Jacked In	Visit your first site
+badge	pages	500	Netrunner	Visit 500 pages
+badge	videos	1	Couch Choom	Finish a video
+badge	videos	100	Binge Lord	Finish 100 videos
+badge	watchall	36000	Screen Zombie	Watch 10 hours of video
+badge	maxtabs	20	Tab Hoarder	Have 20 tabs open
+badge	private	1	Ghost Mode	Open a private tab
+badge	notes	10	Note Taker	Make 10 notes
+badge	shots	10	Paparazzi	Take 10 screenshots
+badge	roulette	10	Explorer	Spin site roulette 10 times
+badge	wiki	1	Wiki Racer	Win a wiki race
+badge	wikifast	1	Speed Demon	Win a wiki race in under 2 minutes
+badge	night	1	Night Owl	Browse between 1 and 5 am
+badge	coop	1	Co-op Champ	Finish a co-op wiki race
+badge	typingbest	60	Keyboard Warrior	Type 60 words per minute
+badge	guess	10	Site Seer	Guess 10 sites right
+badge	survival	40	Survivor	Type 40 words in Typing Survival
+# say: things Capri says. finding (looking for a video), lazy (when she won't), hoards (too many tabs)
+say	finding	Okay choom, finding one now.
+say	finding	On it choom, give me a sec.
+say	finding	Ooh, let me dig one up for you.
+say	finding	Say less, scrolling now.
+say	finding	Alright, let me find you something good.
+say	lazy	Find it yourself choom..
+say	lazy	Ugh, you've got hands, choom.
+say	lazy	Nah, I'm on break. Scroll yourself.
+say	lazy	Mm... not right now, choom.
+say	hoards	TWENTY TABS?! Choom, my circuits are melting. Close some before I combust!
+say	hoards	This many tabs is a cry for help. I'm staging an intervention.
+say	hoards	My RAM is screaming. Your RAM is screaming. EVERYONE'S RAM is screaming!
+say	hoards	I've seen netrunners fry for less. Close. Some. Tabs.
+say	hoards	Is this a browser or a junkyard, choom? Clean it up!
+# filler: words left out when she looks things up
+filler	the and for what whats what's when where who whos who's how hows does did are was were will can you tell about with that this its it's from have has there their any some much many look find out please capri choom
