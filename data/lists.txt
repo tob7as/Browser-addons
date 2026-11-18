@@ -141,6 +141,8 @@ say	blocklayer	Invisible click trap, gone. Try it now, choom.
 tip	Wallpaper	A picture of yours behind Speed Dial. Right-click Speed Dial to change it quickly.
 tip	control	A short animation plays when Capri takes the wheel to do something on a page for you.
 tip	discordmsg	Capri can send Discord messages for you in the browser. She always asks before anything is sent.
+tip	readdiscord	With Discord open and signed in on a tab here (not the Discord app), Capri says who messaged you and only reads it out if you say yes. To reply she repeats your exact words and sends them only on another yes. Login codes are never read out.
+tip	readwhatsapp	With WhatsApp Web open and signed in on a tab here, Capri says who messaged you (not muted chats) and only reads it out if you say yes. To reply she repeats your exact words and sends them only on another yes. Login codes are never read out.
 tip	skipask	When an ad, intro or recap can be skipped, Capri asks first, then presses Skip if you say yes.
 tip	mouse	When Capri clicks on a page, your real mouse pointer moves there so you can see what she's doing.
 tip	catchup	Come back to a tab that changed a lot after 3 minutes or more, and Capri asks if you want to know what's new. Never on video sites.
