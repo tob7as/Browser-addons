@@ -89,3 +89,24 @@ say	hoards	I've seen netrunners fry for less. Close. Some. Tabs.
 say	hoards	Is this a browser or a junkyard, choom? Clean it up!
 # filler: words left out when she looks things up
 filler	the and for what whats what's when where who whos who's how hows does did are was were will can you tell about with that this its it's from have has there their any some much many look find out please capri choom
+# say: skipad, skipintro, skiprecap, skipcredits (offer to skip, asks first), jobsaved (a custom job saved), jobstart (a job starting), scamtext (a scam page)
+say	skipad	Ugh, this ad is annoying, choom. Skip it?
+say	skipad	Ad's skippable now. Want me to skip it, choom?
+say	skipad	Another ad? Say yes and I'll skip it.
+say	skipad	This ad again? Want me to nuke it, choom?
+say	skipintro	Want me to skip the intro, choom?
+say	skipintro	Intro again? Say the word and I'll skip it.
+say	skiprecap	Skip the recap, choom?
+say	skiprecap	We know what happened. Skip the recap?
+say	skipcredits	Skip the credits, choom?
+say	jobsaved	Ugh, more commands, choom?
+say	jobsaved	Okayy, choom.
+say	jobsaved	Wowww, choom, you really got me working?
+say	jobsaved	Fine, fine. Saved it, choom.
+say	jobsaved	Another job? I'm gonna start charging, choom.
+say	jobsaved	Got it. Say the word and I'm on it.
+say	jobstart	On it, choom.
+say	jobstart	Say less, choom.
+say	jobstart	Here we go, choom.
+say	scamtext	Choom, careful. That page is a scam. Your PC isn't infected, and real companies never put a phone number in a warning like that. Don't call it. Want me to close it?
+say	scamtext	Whoa, scam alert, choom. That "your PC is infected" stuff is fake. Don't call any number on it. Want me to close the tab?

@@ -1,0 +1,380 @@
+# Capri Browser voice commands in other languages. Each line: cmd, language, what they say, the English command it means.
+# {n} and {m} are numbers, {x} is any words. Case and end punctuation don't matter. Capri's brain understands any language
+# anyway; these are the commands she does straight away without asking her brain.
+cmd	es	salta {n} segundos	skip {n} seconds
+cmd	es	adelanta {n} segundos	skip {n} seconds
+cmd	es	salta {n} minutos	skip {n} minutes
+cmd	es	adelanta {n} minutos	skip {n} minutes
+cmd	es	retrocede {n} segundos	go back {n} seconds
+cmd	es	siguiente video	next video
+cmd	es	salta el anuncio	skip the ad
+cmd	es	vuelve al video anterior	go back to the last video
+cmd	es	reabre esa pestaña	reopen that tab
+cmd	es	qué me perdí	what did i miss
+cmd	es	resume esta página y añádela a mis notas	summarise this page and add it to my notes
+cmd	es	añade {x} a mis notas	add to my notes {x}
+cmd	es	haz una captura y añádela a mis notas	screenshot this and add it to my notes
+cmd	es	recuérdamelo esta noche	remind me about this tonight
+cmd	es	recuérdamelo mañana	remind me about this tomorrow
+cmd	es	abre el navegador de capri	open capri browser
+cmd	es	abre mis tareas personalizadas	open custom jobs
+cmd	es	cuánto es el {n} por ciento de {m}	what's {n}% of {m}
+cmd	fr	avance de {n} secondes	skip {n} seconds
+cmd	fr	avance de {n} minutes	skip {n} minutes
+cmd	fr	recule de {n} secondes	go back {n} seconds
+cmd	fr	vidéo suivante	next video
+cmd	fr	passe la pub	skip the ad
+cmd	fr	reviens à la vidéo précédente	go back to the last video
+cmd	fr	rouvre cet onglet	reopen that tab
+cmd	fr	qu'est-ce que j'ai raté	what did i miss
+cmd	fr	résume cette page et ajoute-la à mes notes	summarise this page and add it to my notes
+cmd	fr	ajoute {x} à mes notes	add to my notes {x}
+cmd	fr	fais une capture et ajoute-la à mes notes	screenshot this and add it to my notes
+cmd	fr	rappelle-le-moi ce soir	remind me about this tonight
+cmd	fr	rappelle-le-moi demain	remind me about this tomorrow
+cmd	fr	ouvre le navigateur capri	open capri browser
+cmd	fr	ouvre mes tâches personnalisées	open custom jobs
+cmd	fr	combien font {n} pour cent de {m}	what's {n}% of {m}
+cmd	de	spring {n} sekunden vor	skip {n} seconds
+cmd	de	spring {n} minuten vor	skip {n} minutes
+cmd	de	geh {n} sekunden zurück	go back {n} seconds
+cmd	de	nächstes video	next video
+cmd	de	überspring die werbung	skip the ad
+cmd	de	zurück zum letzten video	go back to the last video
+cmd	de	öffne den tab wieder	reopen that tab
+cmd	de	was habe ich verpasst	what did i miss
+cmd	de	fass diese seite zusammen und füg sie zu meinen notizen hinzu	summarise this page and add it to my notes
+cmd	de	füg {x} zu meinen notizen hinzu	add to my notes {x}
+cmd	de	mach einen screenshot und füg ihn zu meinen notizen hinzu	screenshot this and add it to my notes
+cmd	de	erinnere mich heute abend daran	remind me about this tonight
+cmd	de	erinnere mich morgen daran	remind me about this tomorrow
+cmd	de	öffne den capri browser	open capri browser
+cmd	de	öffne meine eigenen aufgaben	open custom jobs
+cmd	de	was sind {n} prozent von {m}	what's {n}% of {m}
+cmd	pt	avança {n} segundos	skip {n} seconds
+cmd	pt	avança {n} minutos	skip {n} minutes
+cmd	pt	volta {n} segundos	go back {n} seconds
+cmd	pt	próximo vídeo	next video
+cmd	pt	pula o anúncio	skip the ad
+cmd	pt	volta para o vídeo anterior	go back to the last video
+cmd	pt	reabre essa aba	reopen that tab
+cmd	pt	o que eu perdi	what did i miss
+cmd	pt	resume esta página e adiciona às minhas notas	summarise this page and add it to my notes
+cmd	pt	adiciona {x} às minhas notas	add to my notes {x}
+cmd	pt	tira um print e adiciona às minhas notas	screenshot this and add it to my notes
+cmd	pt	me lembra disso hoje à noite	remind me about this tonight
+cmd	pt	me lembra disso amanhã	remind me about this tomorrow
+cmd	pt	abre o navegador da capri	open capri browser
+cmd	pt	abre minhas tarefas personalizadas	open custom jobs
+cmd	pt	quanto é {n} por cento de {m}	what's {n}% of {m}
+cmd	zh-hans	快进{n}秒	skip {n} seconds
+cmd	zh-hans	快进{n}分钟	skip {n} minutes
+cmd	zh-hans	后退{n}秒	go back {n} seconds
+cmd	zh-hans	下一个视频	next video
+cmd	zh-hans	跳过广告	skip the ad
+cmd	zh-hans	回到上一个视频	go back to the last video
+cmd	zh-hans	重新打开那个标签页	reopen that tab
+cmd	zh-hans	我错过了什么	what did i miss
+cmd	zh-hans	总结这个页面并添加到我的笔记	summarise this page and add it to my notes
+cmd	zh-hans	把{x}添加到我的笔记	add to my notes {x}
+cmd	zh-hans	截图并添加到我的笔记	screenshot this and add it to my notes
+cmd	zh-hans	今晚提醒我这个	remind me about this tonight
+cmd	zh-hans	明天提醒我这个	remind me about this tomorrow
+cmd	zh-hans	打开capri浏览器	open capri browser
+cmd	zh-hans	打开我的自定义任务	open custom jobs
+cmd	zh-hans	{m}的百分之{n}是多少	what's {n}% of {m}
+cmd	it	vai avanti di {n} secondi	skip {n} seconds
+cmd	it	vai avanti di {n} minuti	skip {n} minutes
+cmd	it	torna indietro di {n} secondi	go back {n} seconds
+cmd	it	prossimo video	next video
+cmd	it	salta la pubblicità	skip the ad
+cmd	it	torna al video precedente	go back to the last video
+cmd	it	riapri quella scheda	reopen that tab
+cmd	it	cosa mi sono perso	what did i miss
+cmd	it	riassumi questa pagina e aggiungila alle mie note	summarise this page and add it to my notes
+cmd	it	aggiungi {x} alle mie note	add to my notes {x}
+cmd	it	fai uno screenshot e aggiungilo alle mie note	screenshot this and add it to my notes
+cmd	it	ricordamelo stasera	remind me about this tonight
+cmd	it	ricordamelo domani	remind me about this tomorrow
+cmd	it	apri il browser di capri	open capri browser
+cmd	it	apri i miei lavori personalizzati	open custom jobs
+cmd	it	quanto fa il {n} per cento di {m}	what's {n}% of {m}
+cmd	ru	перемотай на {n} секунд вперёд	skip {n} seconds
+cmd	ru	перемотай на {n} минут вперёд	skip {n} minutes
+cmd	ru	перемотай на {n} секунд назад	go back {n} seconds
+cmd	ru	следующее видео	next video
+cmd	ru	пропусти рекламу	skip the ad
+cmd	ru	вернись к прошлому видео	go back to the last video
+cmd	ru	открой эту вкладку снова	reopen that tab
+cmd	ru	что я пропустил	what did i miss
+cmd	ru	перескажи эту страницу и добавь в мои заметки	summarise this page and add it to my notes
+cmd	ru	добавь {x} в мои заметки	add to my notes {x}
+cmd	ru	сделай скриншот и добавь в мои заметки	screenshot this and add it to my notes
+cmd	ru	напомни мне об этом вечером	remind me about this tonight
+cmd	ru	напомни мне об этом завтра	remind me about this tomorrow
+cmd	ru	открой браузер capri	open capri browser
+cmd	ru	открой мои задания	open custom jobs
+cmd	ru	сколько будет {n} процентов от {m}	what's {n}% of {m}
+cmd	ar	قدّم {n} ثانية	skip {n} seconds
+cmd	ar	قدّم {n} دقائق	skip {n} minutes
+cmd	ar	ارجع {n} ثانية	go back {n} seconds
+cmd	ar	الفيديو التالي	next video
+cmd	ar	تخطَّ الإعلان	skip the ad
+cmd	ar	ارجع إلى الفيديو السابق	go back to the last video
+cmd	ar	أعد فتح تلك العلامة	reopen that tab
+cmd	ar	ماذا فاتني	what did i miss
+cmd	ar	لخّص هذه الصفحة وأضفها إلى ملاحظاتي	summarise this page and add it to my notes
+cmd	ar	أضف {x} إلى ملاحظاتي	add to my notes {x}
+cmd	ar	التقط صورة للشاشة وأضفها إلى ملاحظاتي	screenshot this and add it to my notes
+cmd	ar	ذكّرني بهذا الليلة	remind me about this tonight
+cmd	ar	ذكّرني بهذا غدًا	remind me about this tomorrow
+cmd	ar	افتح متصفح كابري	open capri browser
+cmd	ar	افتح مهامي المخصصة	open custom jobs
+cmd	ar	كم {n} بالمئة من {m}	what's {n}% of {m}
+cmd	hi	{n} सेकंड आगे करो	skip {n} seconds
+cmd	hi	{n} मिनट आगे करो	skip {n} minutes
+cmd	hi	{n} सेकंड पीछे करो	go back {n} seconds
+cmd	hi	अगला वीडियो	next video
+cmd	hi	विज्ञापन छोड़ो	skip the ad
+cmd	hi	पिछले वीडियो पर वापस जाओ	go back to the last video
+cmd	hi	वह टैब फिर से खोलो	reopen that tab
+cmd	hi	मैंने क्या मिस किया	what did i miss
+cmd	hi	इस पेज का सारांश बनाओ और मेरे नोट्स में जोड़ो	summarise this page and add it to my notes
+cmd	hi	{x} मेरे नोट्स में जोड़ो	add to my notes {x}
+cmd	hi	स्क्रीनशॉट लो और मेरे नोट्स में जोड़ो	screenshot this and add it to my notes
+cmd	hi	आज रात मुझे इसकी याद दिलाना	remind me about this tonight
+cmd	hi	कल मुझे इसकी याद दिलाना	remind me about this tomorrow
+cmd	hi	कैप्री ब्राउज़र खोलो	open capri browser
+cmd	hi	मेरे कस्टम जॉब्स खोलो	open custom jobs
+cmd	hi	{m} का {n} प्रतिशत कितना है	what's {n}% of {m}
+cmd	ja	{n}秒進めて	skip {n} seconds
+cmd	ja	{n}分進めて	skip {n} minutes
+cmd	ja	{n}秒戻して	go back {n} seconds
+cmd	ja	次の動画	next video
+cmd	ja	広告をスキップして	skip the ad
+cmd	ja	前の動画に戻って	go back to the last video
+cmd	ja	そのタブをもう一度開いて	reopen that tab
+cmd	ja	何か見逃した	what did i miss
+cmd	ja	このページを要約してメモに追加して	summarise this page and add it to my notes
+cmd	ja	{x}をメモに追加して	add to my notes {x}
+cmd	ja	スクショを撮ってメモに追加して	screenshot this and add it to my notes
+cmd	ja	今夜これをリマインドして	remind me about this tonight
+cmd	ja	明日これをリマインドして	remind me about this tomorrow
+cmd	ja	capriブラウザを開いて	open capri browser
+cmd	ja	カスタムジョブを開いて	open custom jobs
+cmd	ja	{m}の{n}パーセントは	what's {n}% of {m}
+cmd	ko	{n}초 앞으로 가줘	skip {n} seconds
+cmd	ko	{n}분 앞으로 가줘	skip {n} minutes
+cmd	ko	{n}초 뒤로 가줘	go back {n} seconds
+cmd	ko	다음 영상	next video
+cmd	ko	광고 건너뛰어	skip the ad
+cmd	ko	이전 영상으로 돌아가줘	go back to the last video
+cmd	ko	그 탭 다시 열어줘	reopen that tab
+cmd	ko	내가 뭘 놓쳤어	what did i miss
+cmd	ko	이 페이지 요약해서 내 노트에 추가해줘	summarise this page and add it to my notes
+cmd	ko	{x} 내 노트에 추가해줘	add to my notes {x}
+cmd	ko	스크린샷 찍어서 내 노트에 추가해줘	screenshot this and add it to my notes
+cmd	ko	오늘 밤에 이거 알려줘	remind me about this tonight
+cmd	ko	내일 이거 알려줘	remind me about this tomorrow
+cmd	ko	카프리 브라우저 열어줘	open capri browser
+cmd	ko	내 커스텀 작업 열어줘	open custom jobs
+cmd	ko	{m}의 {n}퍼센트는 얼마야	what's {n}% of {m}
+cmd	fil	i-skip ng {n} segundo	skip {n} seconds
+cmd	fil	i-skip ng {n} minuto	skip {n} minutes
+cmd	fil	bumalik ng {n} segundo	go back {n} seconds
+cmd	fil	susunod na video	next video
+cmd	fil	i-skip ang ad	skip the ad
+cmd	fil	bumalik sa nakaraang video	go back to the last video
+cmd	fil	buksan ulit ang tab na iyon	reopen that tab
+cmd	fil	ano ang na-miss ko	what did i miss
+cmd	fil	i-summarize ang page na ito at idagdag sa notes ko	summarise this page and add it to my notes
+cmd	fil	idagdag ang {x} sa notes ko	add to my notes {x}
+cmd	fil	mag-screenshot at idagdag sa notes ko	screenshot this and add it to my notes
+cmd	fil	ipaalala mo ito sa akin mamayang gabi	remind me about this tonight
+cmd	fil	ipaalala mo ito sa akin bukas	remind me about this tomorrow
+cmd	fil	buksan ang capri browser	open capri browser
+cmd	fil	buksan ang custom jobs ko	open custom jobs
+cmd	fil	ilan ang {n} porsyento ng {m}	what's {n}% of {m}
+cmd	nl	spoel {n} seconden vooruit	skip {n} seconds
+cmd	nl	spoel {n} minuten vooruit	skip {n} minutes
+cmd	nl	spoel {n} seconden terug	go back {n} seconds
+cmd	nl	volgende video	next video
+cmd	nl	sla de advertentie over	skip the ad
+cmd	nl	ga terug naar de vorige video	go back to the last video
+cmd	nl	open dat tabblad opnieuw	reopen that tab
+cmd	nl	wat heb ik gemist	what did i miss
+cmd	nl	vat deze pagina samen en zet het in mijn notities	summarise this page and add it to my notes
+cmd	nl	zet {x} in mijn notities	add to my notes {x}
+cmd	nl	maak een screenshot en zet het in mijn notities	screenshot this and add it to my notes
+cmd	nl	herinner me er vanavond aan	remind me about this tonight
+cmd	nl	herinner me er morgen aan	remind me about this tomorrow
+cmd	nl	open de capri browser	open capri browser
+cmd	nl	open mijn eigen taken	open custom jobs
+cmd	nl	hoeveel is {n} procent van {m}	what's {n}% of {m}
+cmd	pl	przewiń {n} sekund do przodu	skip {n} seconds
+cmd	pl	przewiń {n} minut do przodu	skip {n} minutes
+cmd	pl	cofnij o {n} sekund	go back {n} seconds
+cmd	pl	następny film	next video
+cmd	pl	pomiń reklamę	skip the ad
+cmd	pl	wróć do poprzedniego filmu	go back to the last video
+cmd	pl	otwórz ponownie tę kartę	reopen that tab
+cmd	pl	co mnie ominęło	what did i miss
+cmd	pl	streść tę stronę i dodaj do moich notatek	summarise this page and add it to my notes
+cmd	pl	dodaj {x} do moich notatek	add to my notes {x}
+cmd	pl	zrób zrzut ekranu i dodaj do moich notatek	screenshot this and add it to my notes
+cmd	pl	przypomnij mi o tym wieczorem	remind me about this tonight
+cmd	pl	przypomnij mi o tym jutro	remind me about this tomorrow
+cmd	pl	otwórz przeglądarkę capri	open capri browser
+cmd	pl	otwórz moje własne zadania	open custom jobs
+cmd	pl	ile to {n} procent z {m}	what's {n}% of {m}
+cmd	tr	{n} saniye ileri sar	skip {n} seconds
+cmd	tr	{n} dakika ileri sar	skip {n} minutes
+cmd	tr	{n} saniye geri sar	go back {n} seconds
+cmd	tr	sonraki video	next video
+cmd	tr	reklamı geç	skip the ad
+cmd	tr	önceki videoya dön	go back to the last video
+cmd	tr	o sekmeyi tekrar aç	reopen that tab
+cmd	tr	neyi kaçırdım	what did i miss
+cmd	tr	bu sayfayı özetle ve notlarıma ekle	summarise this page and add it to my notes
+cmd	tr	{x} notlarıma ekle	add to my notes {x}
+cmd	tr	ekran görüntüsü al ve notlarıma ekle	screenshot this and add it to my notes
+cmd	tr	bunu bu akşam bana hatırlat	remind me about this tonight
+cmd	tr	bunu yarın bana hatırlat	remind me about this tomorrow
+cmd	tr	capri tarayıcısını aç	open capri browser
+cmd	tr	özel görevlerimi aç	open custom jobs
+cmd	tr	{m} sayısının yüzde {n} kaç	what's {n}% of {m}
+cmd	uk	перемотай на {n} секунд уперед	skip {n} seconds
+cmd	uk	перемотай на {n} хвилин уперед	skip {n} minutes
+cmd	uk	перемотай на {n} секунд назад	go back {n} seconds
+cmd	uk	наступне відео	next video
+cmd	uk	пропусти рекламу	skip the ad
+cmd	uk	повернися до попереднього відео	go back to the last video
+cmd	uk	відкрий цю вкладку знову	reopen that tab
+cmd	uk	що я пропустив	what did i miss
+cmd	uk	підсумуй цю сторінку і додай до моїх нотаток	summarise this page and add it to my notes
+cmd	uk	додай {x} до моїх нотаток	add to my notes {x}
+cmd	uk	зроби скриншот і додай до моїх нотаток	screenshot this and add it to my notes
+cmd	uk	нагадай мені про це ввечері	remind me about this tonight
+cmd	uk	нагадай мені про це завтра	remind me about this tomorrow
+cmd	uk	відкрий браузер capri	open capri browser
+cmd	uk	відкрий мої завдання	open custom jobs
+cmd	uk	скільки буде {n} відсотків від {m}	what's {n}% of {m}
+cmd	bn	{n} সেকেন্ড এগিয়ে দাও	skip {n} seconds
+cmd	bn	{n} মিনিট এগিয়ে দাও	skip {n} minutes
+cmd	bn	{n} সেকেন্ড পিছিয়ে দাও	go back {n} seconds
+cmd	bn	পরের ভিডিও	next video
+cmd	bn	বিজ্ঞাপন বাদ দাও	skip the ad
+cmd	bn	আগের ভিডিওতে ফিরে যাও	go back to the last video
+cmd	bn	ওই ট্যাবটা আবার খোলো	reopen that tab
+cmd	bn	আমি কী মিস করেছি	what did i miss
+cmd	bn	এই পেজের সারাংশ করে আমার নোটে যোগ করো	summarise this page and add it to my notes
+cmd	bn	{x} আমার নোটে যোগ করো	add to my notes {x}
+cmd	bn	স্ক্রিনশট নিয়ে আমার নোটে যোগ করো	screenshot this and add it to my notes
+cmd	bn	আজ রাতে আমাকে এটা মনে করিয়ে দিও	remind me about this tonight
+cmd	bn	কাল আমাকে এটা মনে করিয়ে দিও	remind me about this tomorrow
+cmd	bn	ক্যাপ্রি ব্রাউজার খোলো	open capri browser
+cmd	bn	আমার কাস্টম কাজ খোলো	open custom jobs
+cmd	bn	{m} এর {n} শতাংশ কত	what's {n}% of {m}
+cmd	zh-hant	快轉{n}秒	skip {n} seconds
+cmd	zh-hant	快轉{n}分鐘	skip {n} minutes
+cmd	zh-hant	倒退{n}秒	go back {n} seconds
+cmd	zh-hant	下一部影片	next video
+cmd	zh-hant	跳過廣告	skip the ad
+cmd	zh-hant	回到上一部影片	go back to the last video
+cmd	zh-hant	重新開啟那個分頁	reopen that tab
+cmd	zh-hant	我錯過了什麼	what did i miss
+cmd	zh-hant	總結這個頁面並加到我的筆記	summarise this page and add it to my notes
+cmd	zh-hant	把{x}加到我的筆記	add to my notes {x}
+cmd	zh-hant	截圖並加到我的筆記	screenshot this and add it to my notes
+cmd	zh-hant	今晚提醒我這個	remind me about this tonight
+cmd	zh-hant	明天提醒我這個	remind me about this tomorrow
+cmd	zh-hant	打開capri瀏覽器	open capri browser
+cmd	zh-hant	打開我的自訂任務	open custom jobs
+cmd	zh-hant	{m}的百分之{n}是多少	what's {n}% of {m}
+cmd	vi	tua tới {n} giây	skip {n} seconds
+cmd	vi	tua tới {n} phút	skip {n} minutes
+cmd	vi	tua lại {n} giây	go back {n} seconds
+cmd	vi	video tiếp theo	next video
+cmd	vi	bỏ qua quảng cáo	skip the ad
+cmd	vi	quay lại video trước	go back to the last video
+cmd	vi	mở lại tab đó	reopen that tab
+cmd	vi	tôi đã bỏ lỡ gì	what did i miss
+cmd	vi	tóm tắt trang này và thêm vào ghi chú của tôi	summarise this page and add it to my notes
+cmd	vi	thêm {x} vào ghi chú của tôi	add to my notes {x}
+cmd	vi	chụp màn hình và thêm vào ghi chú của tôi	screenshot this and add it to my notes
+cmd	vi	nhắc tôi việc này tối nay	remind me about this tonight
+cmd	vi	nhắc tôi việc này ngày mai	remind me about this tomorrow
+cmd	vi	mở trình duyệt capri	open capri browser
+cmd	vi	mở công việc tùy chỉnh của tôi	open custom jobs
+cmd	vi	{n} phần trăm của {m} là bao nhiêu	what's {n}% of {m}
+cmd	th	ข้ามไป {n} วินาที	skip {n} seconds
+cmd	th	ข้ามไป {n} นาที	skip {n} minutes
+cmd	th	ย้อนกลับ {n} วินาที	go back {n} seconds
+cmd	th	วิดีโอถัดไป	next video
+cmd	th	ข้ามโฆษณา	skip the ad
+cmd	th	กลับไปวิดีโอก่อนหน้า	go back to the last video
+cmd	th	เปิดแท็บนั้นอีกครั้ง	reopen that tab
+cmd	th	ฉันพลาดอะไรไปบ้าง	what did i miss
+cmd	th	สรุปหน้านี้แล้วเพิ่มลงในโน้ตของฉัน	summarise this page and add it to my notes
+cmd	th	เพิ่ม {x} ลงในโน้ตของฉัน	add to my notes {x}
+cmd	th	แคปหน้าจอแล้วเพิ่มลงในโน้ตของฉัน	screenshot this and add it to my notes
+cmd	th	เตือนฉันเรื่องนี้คืนนี้	remind me about this tonight
+cmd	th	เตือนฉันเรื่องนี้พรุ่งนี้	remind me about this tomorrow
+cmd	th	เปิดเบราว์เซอร์ capri	open capri browser
+cmd	th	เปิดงานที่กำหนดเองของฉัน	open custom jobs
+cmd	th	{n} เปอร์เซ็นต์ของ {m} คือเท่าไหร่	what's {n}% of {m}
+cmd	id	maju {n} detik	skip {n} seconds
+cmd	id	maju {n} menit	skip {n} minutes
+cmd	id	mundur {n} detik	go back {n} seconds
+cmd	id	video berikutnya	next video
+cmd	id	lewati iklan	skip the ad
+cmd	id	kembali ke video sebelumnya	go back to the last video
+cmd	id	buka lagi tab itu	reopen that tab
+cmd	id	apa yang aku lewatkan	what did i miss
+cmd	id	ringkas halaman ini dan tambahkan ke catatanku	summarise this page and add it to my notes
+cmd	id	tambahkan {x} ke catatanku	add to my notes {x}
+cmd	id	ambil tangkapan layar dan tambahkan ke catatanku	screenshot this and add it to my notes
+cmd	id	ingatkan aku soal ini nanti malam	remind me about this tonight
+cmd	id	ingatkan aku soal ini besok	remind me about this tomorrow
+cmd	id	buka browser capri	open capri browser
+cmd	id	buka tugas kustomku	open custom jobs
+cmd	id	berapa {n} persen dari {m}	what's {n}% of {m}
+cmd	sv	spola fram {n} sekunder	skip {n} seconds
+cmd	sv	spola fram {n} minuter	skip {n} minutes
+cmd	sv	spola tillbaka {n} sekunder	go back {n} seconds
+cmd	sv	nästa video	next video
+cmd	sv	hoppa över reklamen	skip the ad
+cmd	sv	gå tillbaka till förra videon	go back to the last video
+cmd	sv	öppna den fliken igen	reopen that tab
+cmd	sv	vad missade jag	what did i miss
+cmd	sv	sammanfatta den här sidan och lägg till i mina anteckningar	summarise this page and add it to my notes
+cmd	sv	lägg till {x} i mina anteckningar	add to my notes {x}
+cmd	sv	ta en skärmbild och lägg till i mina anteckningar	screenshot this and add it to my notes
+cmd	sv	påminn mig om det här i kväll	remind me about this tonight
+cmd	sv	påminn mig om det här i morgon	remind me about this tomorrow
+cmd	sv	öppna capri browser	open capri browser
+cmd	sv	öppna mina egna jobb	open custom jobs
+cmd	sv	hur mycket är {n} procent av {m}	what's {n}% of {m}
+# guide: the top of the Custom jobs page in that language.
+guide	es	Crea tus propios comandos. Di las palabras entre comillas y Capri hará los pasos. Escribe un paso por línea, por ejemplo: play, full screen, volume 40.
+guide	fr	Crée tes propres commandes. Dis les mots entre guillemets et Capri fait les étapes. Une étape par ligne, par exemple : play, full screen, volume 40.
+guide	de	Mach deine eigenen Befehle. Sag die Wörter in Anführungszeichen und Capri erledigt die Schritte. Ein Schritt pro Zeile, zum Beispiel: play, full screen, volume 40.
+guide	pt	Crie seus próprios comandos. Diga as palavras entre aspas e a Capri faz os passos. Um passo por linha, por exemplo: play, full screen, volume 40.
+guide	zh-hans	创建你自己的命令。说出引号里的话，Capri 就会执行这些步骤。每行一个步骤，例如：play、full screen、volume 40。
+guide	it	Crea i tuoi comandi. Di le parole tra virgolette e Capri esegue i passaggi. Un passaggio per riga, per esempio: play, full screen, volume 40.
+guide	ru	Создавай свои команды. Скажи слова в кавычках, и Capri выполнит шаги. Один шаг на строку, например: play, full screen, volume 40.
+guide	ar	أنشئ أوامرك الخاصة. قل الكلمات بين علامتي الاقتباس وستنفذ كابري الخطوات. خطوة واحدة في كل سطر، مثل: play و full screen و volume 40.
+guide	hi	अपने खुद के कमांड बनाओ। कोट्स में लिखे शब्द बोलो और कैप्री कदम पूरे करेगी। हर लाइन में एक कदम, जैसे: play, full screen, volume 40.
+guide	ja	自分だけのコマンドを作ろう。引用符の中の言葉を言うと、Capri が手順を実行します。1行に1つの手順、例：play、full screen、volume 40。
+guide	ko	나만의 명령을 만들어 봐. 따옴표 안의 말을 하면 카프리가 단계를 실행해. 한 줄에 한 단계씩, 예: play, full screen, volume 40.
+guide	fil	Gumawa ng sarili mong mga utos. Sabihin ang mga salitang nasa quotes at gagawin ni Capri ang mga hakbang. Isang hakbang bawat linya, halimbawa: play, full screen, volume 40.
+guide	nl	Maak je eigen opdrachten. Zeg de woorden tussen aanhalingstekens en Capri doet de stappen. Eén stap per regel, bijvoorbeeld: play, full screen, volume 40.
+guide	pl	Twórz własne polecenia. Powiedz słowa w cudzysłowie, a Capri wykona kroki. Jeden krok w wierszu, na przykład: play, full screen, volume 40.
+guide	tr	Kendi komutlarını oluştur. Tırnak içindeki kelimeleri söyle, Capri adımları yapsın. Her satıra bir adım, örneğin: play, full screen, volume 40.
+guide	uk	Створюй власні команди. Скажи слова в лапках, і Capri виконає кроки. Один крок на рядок, наприклад: play, full screen, volume 40.
+guide	bn	নিজের কমান্ড বানাও। উদ্ধৃতির ভেতরের কথাগুলো বলো, ক্যাপ্রি ধাপগুলো করবে। প্রতি লাইনে একটি ধাপ, যেমন: play, full screen, volume 40.
+guide	zh-hant	建立你自己的指令。說出引號裡的話，Capri 就會執行這些步驟。每行一個步驟，例如：play、full screen、volume 40。
+guide	vi	Tạo lệnh của riêng bạn. Nói những từ trong ngoặc kép và Capri sẽ làm các bước. Mỗi dòng một bước, ví dụ: play, full screen, volume 40.
+guide	th	สร้างคำสั่งของคุณเอง พูดคำในเครื่องหมายคำพูด แล้ว Capri จะทำตามขั้นตอน หนึ่งขั้นตอนต่อหนึ่งบรรทัด เช่น play, full screen, volume 40
+guide	id	Buat perintahmu sendiri. Ucapkan kata-kata dalam tanda kutip dan Capri akan menjalankan langkahnya. Satu langkah per baris, misalnya: play, full screen, volume 40.
+guide	sv	Gör dina egna kommandon. Säg orden inom citattecken så gör Capri stegen. Ett steg per rad, till exempel: play, full screen, volume 40.

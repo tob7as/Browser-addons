@@ -1,3 +1,20 @@
+Capri Browser 2.0 (needs Capri 0.9.4 or newer)
+• A much stronger ad blocker: tens of thousands of ad servers and trackers from the free EasyList and EasyPrivacy lists, ad boxes hidden on pages, invisible layers that open ads when you click are taken away, and pop-ups and sneaky redirects from clicking on nothing are stopped. Fake Download buttons get a red outline and a warning.
+• Click the shield for Privacy Protection: ads, trackers and pop-ups stopped on the page, each with Turn off for this site, and the list of blocked trackers.
+• Scam pages that say your PC is infected and to call a number: Capri warns you and offers to close them.
+• Offer to skip (Settings > Capri features, off until you turn it on): when Skip ad, Skip intro or Skip recap shows up, Capri asks, and on your yes the mouse goes over and presses it. She never skips by herself any more.
+• Say "skip 2 minutes", "go back 30 seconds", "skip to 3:20", "next video", "skip the ad" or "go back to the last video".
+• The real mouse moves to what Capri clicks, skips or plays, with the takeover animation. Turn it off in Settings > Capri features.
+• "Reopen that tab" brings back the last tab you closed, and the menu has Recently closed.
+• Notes are a full notes app: make your own notebooks (Shopping, School, Game ideas...), search, and see when each note changed. Capri uses your notebooks and asks first: "Should I add it to Shopping notes, choom?"
+• "Summarise this page and add it to my notes" does both, saving the summary with the page name, link and date. Works for "find the price and put it in my Shopping notes" too.
+• Custom jobs: make your own commands with a link and steps, like "movie night". Find them in the sidebar or say "open custom jobs".
+• Quick answers right away: "what's 20% of 85", "what time is it in Tokyo", "5 km in miles".
+• "What did I miss?" sums up what changed on a tab you left open. "Remind me about this tonight" brings the page back later.
+• Watch-along (off until you turn it on): Capri reacts now and then while you watch.
+• Voice commands work in 22 more languages.
+• The mod is readable code now, so Capri can check it before you install it.
+
 Capri Browser 1.9.9
 • Guess the Anime Character: a popular character appears blurred and slowly sharpens. Pick the right name from four, faster for more points. Hint shows the anime for half points. Three lives. Find it on the Games page.
 • Guess the Celebrity: a famous face from music, film, sport, the internet or history, blurred. Same rules, and the hint shows what they're known for.

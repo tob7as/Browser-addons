@@ -23,6 +23,8 @@ They live here instead of inside the mod, so the mod stays small. Capri Browser 
 | `pages/pages.css` | The look of the results, Games and History pages, in that order, split by `%%` lines. Style rules only, same tokens as home.css. |
 | `data/lists.txt` | Video sites, sites Capri can open by name, search engines, achievements, a few things Capri says, and words left out of searches. One per line, fields split by tabs. |
 | `pages/welcome.html` | Capri Browser's Welcome page: its styling, a `%%` line, then the page. Shown with scripts and outside loads blocked, and only its own buttons work. Put %DL% where the download progress should show. |
+| `data/adblock.txt` | The ad blocker's lists: ad servers (`ad`), trackers (`track`) and page parts to hide (`hide`, a CSS selector and optionally the sites it's for). Made from [EasyList and EasyPrivacy](https://easylist.to) (dual licensed CC BY-SA 3.0 and GPLv3, so this file keeps that licence) and [Peter Lowe's ad server list](https://pgl.yoyo.org/adservers/). Capri Browser keeps it as a file in its own folder. |
+| `data/commands.txt` | Voice commands in other languages (`cmd`: language, what they say, the English command) and the Custom jobs guide in each language (`guide`). |
 | `whats-new.txt` | The update notes. Shown under "What's new" in the Updates section, and Capri reads them when asked what's new. Plain text, newest first. |
 
 Games of type `none` (Quiz, Minecraft with Capri) need no files; downloading them just switches them on.
@@ -32,6 +34,8 @@ Games of type `none` (Quiz, Minecraft with Capri) need no files; downloading the
 - Language files are words only. Capri Browser removes anything that could be code or page markup before using them.
 - Page games open in a tab of their own, which has no access to the browser's settings, notes or history. They can only report a score.
 - Lists only hold names and `https://` addresses.
+- Ad blocker lists are only host names and plain CSS selectors. Anything else in them is ignored.
+- Command lines only turn other languages' words into Capri Browser's own English commands.
 
 ## Adding a game
 
