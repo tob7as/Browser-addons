@@ -33,9 +33,10 @@ Games of type `none` (Quiz, Minecraft with Capri) need no files; downloading the
 
 [LEADERBOARD.md](LEADERBOARD.md) has weekly top 10s for hours watched, videos finished, sites visited, survival, Guess the Site and typing speed. They start fresh every Monday at 00:00 UTC.
 
-- In Capri Browser, open **Games**, add a leaderboard name, then press **Send my week**. That opens a GitHub issue filled in with only your name and six numbers. You sign in and create it yourself.
-- [.github/leaderboard.js](.github/leaderboard.js) checks each one: the name has to be clean and not someone else's (names belong to the GitHub account that first used them), and the numbers have to be believable and from this week. It updates the board, replies and closes the issue.
-- Only the leaderboard name and the numbers are kept, in [leaderboard/](leaderboard). Capri Browser holds no keys or tokens for this. The numbers are what players send, so treat the board as for fun.
+- In Capri Browser, open **Games**, add a leaderboard name, then press **Send my week**. Only your leaderboard name and six numbers are sent, straight to Capri Browser's own server on Cloudflare. No account needed.
+- The server ([worker/](worker)) checks each one: the name has to be clean and not someone else's (a name belongs to the copy of Capri Browser that first used it, through a random key only that copy has), and the numbers have to be believable and from this week.
+- Only leaderboard names and numbers are kept. A GitHub Action copies the boards into LEADERBOARD.md every few hours. The numbers are what players send, so treat the board as for fun.
+- The bug and idea form on Getting started goes to the same server, privately, with no account. If it can't be reached, it opens GitHub instead.
 
 ## Safety
 

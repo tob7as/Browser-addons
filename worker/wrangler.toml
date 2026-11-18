@@ -1,0 +1,15 @@
+# Cloudflare settings for the Capri Browser worker. Deploy with: npx wrangler deploy (from this folder).
+# No secrets live here: the database id only works for someone logged in to this Cloudflare account.
+name = "capri-browser"
+main = "capri-worker.js"
+compatibility_date = "2026-11-01"
+workers_dev = true
+preview_urls = false
+
+[[d1_databases]]
+binding = "DB"
+database_name = "capri-browser"
+database_id = "75e4f359-4439-41f7-8a9e-5c935b2cd4a3"
+
+[observability]
+enabled = true

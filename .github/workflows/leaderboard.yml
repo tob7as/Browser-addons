@@ -1,38 +1,33 @@
-# Weekly leaderboards: reads "[Leaderboard] <name>" issues sent from Capri Browser and updates LEADERBOARD.md.
-# The issue text is only read by .github/leaderboard.js as data; it's never put into a command here.
+# Copies the weekly leaderboards from Capri Browser's own server (worker/ on Cloudflare) into LEADERBOARD.md.
+# It only downloads the board as text; nothing it gets is ever run. No keys: the server's board is public.
 name: Leaderboard
 
 on:
-  issues:
-    types: [opened]
   schedule:
-    - cron: '5 0 * * 1'   # Mondays 00:05 UTC: last week is archived and the boards start fresh
+    - cron: '17 */3 * * *'   # every 3 hours
   workflow_dispatch:
 
 permissions:
   contents: write
-  issues: write
 
 concurrency:
   group: leaderboard
   cancel-in-progress: false
 
 jobs:
-  board:
-    if: github.event_name != 'issues' || startsWith(github.event.issue.title, '[Leaderboard]')
+  copy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-      - name: Update the boards
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: node .github/leaderboard.js
+      - name: Copy the boards
+        run: |
+          curl -fsS --max-time 30 https://capri-browser.tobiasprojects77.workers.dev/board.md -o board.md
+          head -n 1 board.md | grep -qx '# Capri Browser leaderboards'
+          [ "$(wc -c < board.md)" -lt 200000 ]
+          mv board.md LEADERBOARD.md
       - name: Save
         run: |
           git config user.name "capri-leaderboard"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add LEADERBOARD.md leaderboard
-          git diff --cached --quiet || (git commit -m "Leaderboard update" && git pull --rebase && git push)
+          git add LEADERBOARD.md
+          git diff --cached --quiet || (git commit -m "Leaderboard copy" && git pull --rebase && git push)

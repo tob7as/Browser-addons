@@ -2,7 +2,7 @@
 
 Weekly top 10s from [Capri Browser](README.md). They start fresh every Monday at 00:00 UTC.
 
-To compete, open **Games** in Capri Browser, add a leaderboard name and press **Send my week**. Only your leaderboard name and your numbers show here.
+To compete, open **Games** in Capri Browser, add a leaderboard name and press **Send my week**. No account needed. Only your leaderboard name and your numbers show here.
 
 **This week:** 2026w47
 

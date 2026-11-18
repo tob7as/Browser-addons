@@ -1,3 +1,0 @@
-# Capri Browser leaderboards, made by .github/leaderboard.js. Only leaderboard names and numbers.
-week	2026w47
-updated	2026-11-18T21:22Z
