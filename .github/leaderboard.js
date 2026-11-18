@@ -12,6 +12,8 @@ const DIR = path.join(ROOT, 'leaderboard');
 const NAMES = path.join(DIR, 'names.json');
 const SCORES = path.join(DIR, 'scores.json');
 const BOARD = path.join(ROOT, 'LEADERBOARD.md');
+// What Capri Browser's Leaderboards tab reads: only names and numbers, one per line, split by tabs.
+const BOARD_TXT = path.join(DIR, 'board.txt');
 
 // The six boards: key, title, line in the form, unit, highest believable value in a week.
 const BOARDS = [
@@ -87,6 +89,16 @@ function render(scores) {
     for (const c of scores.last.champions) md += '- **' + c.board + ':** ' + c.name + ' (' + show(c.value, BOARDS.find((b) => b[1] === c.board)) + ')\n';
   }
   fs.writeFileSync(BOARD, md);
+  // The same boards for Capri Browser: week, when it changed, each board's top 10 in order, then last week's champions.
+  const num = (v, b) => (b[0] === 'hours' ? v.toFixed(1) : String(v));
+  let txt = '# Capri Browser leaderboards, made by .github/leaderboard.js. Only leaderboard names and numbers.\n'
+    + 'week\t' + scores.week + '\nupdated\t' + new Date().toISOString().slice(0, 16) + 'Z\n';
+  for (const b of BOARDS) for (const p of top(scores, b[0])) txt += 'row\t' + b[0] + '\t' + p.name + '\t' + num(p[b[0]], b) + '\n';
+  if (scores.last && scores.last.champions.length) {
+    txt += 'lastweek\t' + scores.last.week + '\n';
+    for (const c of scores.last.champions) { const b = BOARDS.find((x) => x[1] === c.board); txt += 'last\t' + b[0] + '\t' + c.name + '\t' + num(c.value, b) + '\n'; }
+  }
+  fs.writeFileSync(BOARD_TXT, txt);
 }
 
 async function github(method, url, body) {
@@ -156,4 +168,4 @@ async function main() {
 }
 
 if (require.main === module) main().catch((e) => { console.error(e); process.exit(1); });
-module.exports = { badName, weekOf, parse, nameKey };
+module.exports = { badName, weekOf, parse, nameKey, render };
