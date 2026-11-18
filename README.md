@@ -17,11 +17,11 @@ They live here instead of inside the mod, so the mod stays small. Capri Browser 
 | `games.txt` | The game list. One game per line: id, title, description and type, separated by tabs. |
 | `games/<id>.html` | A game that's a page of its own (type `page`). |
 | `games/<id>.txt` | A built-in game's lists, such as the sites for Guess the Site (type `data`). |
-| `settings.css` | The look of Capri Browser's Settings page. Style rules only. |
+| `settings.css` | The look of Capri Browser's Settings page, including the setting tips' hover box. Style rules only, with %C0% to %C6% for Capri's colours. |
 | `help.txt` | The "What Capri can do" and shortcuts text in Settings. |
 | `pages/home.css` | The look of the Speed Dial (new tab) page. Style rules only, with %C0% to %C6% for Capri's colours and %P<n>% for sizes. |
 | `pages/pages.css` | The look of the results, Games and History pages, in that order, split by `%%` lines. Style rules only, same tokens as home.css. |
-| `data/lists.txt` | Video sites, sites Capri can open by name, search engines, achievements, a few things Capri says, and words left out of searches. One per line, fields split by tabs. |
+| `data/lists.txt` | Video sites, sites Capri can open by name, search engines, achievements, things Capri says, the hover tips on settings (`tip`), places for "what time is it in" (`zone`), and words left out of searches. One per line, fields split by tabs. |
 | `pages/welcome.html` | Capri Browser's Welcome page: its styling, a `%%` line, then the page. Shown with scripts and outside loads blocked, and only its own buttons work. Put %DL% where the download progress should show. |
 | `data/adblock.txt` | The ad blocker's lists: ad servers (`ad`), trackers (`track`) and page parts to hide (`hide`, a CSS selector and optionally the sites it's for). Made from [EasyList and EasyPrivacy](https://easylist.to) (dual licensed CC BY-SA 3.0 and GPLv3, so this file keeps that licence) and [Peter Lowe's ad server list](https://pgl.yoyo.org/adservers/). Capri Browser keeps it as a file in its own folder. |
 | `data/commands.txt` | Voice commands in other languages (`cmd`: language, what they say, the English command) and the Custom jobs guide in each language (`guide`). |

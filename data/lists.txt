@@ -110,3 +110,86 @@ say	jobstart	Say less, choom.
 say	jobstart	Here we go, choom.
 say	scamtext	Choom, careful. That page is a scam. Your PC isn't infected, and real companies never put a phone number in a warning like that. Don't call it. Want me to close it?
 say	scamtext	Whoa, scam alert, choom. That "your PC is infected" stuff is fake. Don't call any number on it. Want me to close the tab?
+# say: cheaperpoint, cheaperfound, cheapernone (find it cheaper), catchask (a tab changed), shotask, shotpick, shotdone (screenshots), cleanstart, cleandone (the cleaner), extadded (an extension), blockredirect, blockpopup, blocklayer (the shield)
+say	cheaperpoint	Put your mouse where the product name or picture is and I'll find cheaper ones, choom!
+say	cheapernone	Couldn't find it cheaper anywhere, choom. Looks like a decent price.
+say	cheaperfound	I found one that's cheaper, choom. Shall I bring it up?
+say	catchask	That tab changed while you were away, choom. Want me to catch you up?
+say	shotask	What part of the page should I screenshot, choom? The whole page, what's on screen, or a bit you pick?
+say	shotask	Which part, choom? All of it, just what's on screen, or do you wanna drag over the bit you want?
+say	shotpick	Drag over the bit you want, choom.
+say	shotpick	Go on, drag over it, choom. Esc if you change your mind.
+say	cleanstart	Getting rid of all the gunk!
+say	cleandone	All clean, choom. Fresh as new.
+say	extadded	Extension's in, choom. Reload a page to see it work.
+say	extadded	Got it installed, choom. Give the page a reload.
+say	shotdone	Got it, choom. Saved in your Pictures and copied, so you can paste it anywhere.
+say	shotdone	Snapped it, choom. It's copied and saved.
+say	shotdone	Done, choom. Screenshot's on your clipboard and in Pictures.
+say	blockredirect	Nope. That site tried to yank you off to an ad, choom. Not on my watch.
+say	blockredirect	Sneaky redirect, blocked. You're welcome, choom.
+say	blockredirect	Ugh, this site keeps trying to drag you somewhere shady. I've got you.
+say	blockredirect	That link was a trap, choom. Shut it down.
+say	blockpopup	Pop-up ad tried to sneak in. Blocked it, choom.
+say	blockpopup	Another pop-up? Not today, choom.
+say	blockpopup	Caught a pop-up trying to open behind your back. Gone.
+say	blockpopup	This site really wants you to see an ad. I said no.
+say	blocklayer	There was an invisible ad sitting over your video, choom. Peeled it off.
+say	blocklayer	Found a see-through ad layer eating your clicks. Removed it.
+say	blocklayer	Invisible click trap, gone. Try it now, choom.
+# tip: the hover box on a setting in Settings. The setting (its key, its name, or tNN for the browser's own word number NN), then what it does
+tip	Wallpaper	A picture of yours behind Speed Dial. Right-click Speed Dial to change it quickly.
+tip	control	A short animation plays when Capri takes the wheel to do something on a page for you.
+tip	discordmsg	Capri can send Discord messages for you in the browser. She always asks before anything is sent.
+tip	skipask	When an ad, intro or recap can be skipped, Capri asks first, then presses Skip if you say yes.
+tip	mouse	When Capri clicks on a page, your real mouse pointer moves there so you can see what she's doing.
+tip	catchup	Come back to a tab that changed a lot after 3 minutes or more, and Capri asks if you want to know what's new. Never on video sites.
+tip	watchalong	While you watch a video, Capri chimes in with a reaction now and then.
+tip	watchoften	Watch-along reactions come more often.
+tip	autofull	Videos Capri opens for you start in full screen.
+tip	react	When a video finishes, Capri says what she thought of it.
+tip	askmenu	Select words on a page, right-click, and pick Ask Capri about this.
+tip	glitch	A glitchy flicker over the screen when Capri takes over.
+tip	hoard	Capri teases you when more than 20 tabs are open.
+tip	achieve	Little pop-ups when you unlock a browser achievement.
+tip	scam	Capri warns you when a site looks like a scam or a fake sign-in page.
+tip	shieldtalk	When the shield stops a sneaky redirect or pop-up, Capri sometimes says something about it.
+tip	downloads	Capri warns you when a download is a program, since programs can change your PC.
+tip	darkweb	Turns bright web sites dark, even ones that have no dark mode of their own.
+tip	timed	Wiki races get a 3-minute timer.
+tip	boot	Capri Browser's start-up animation when it opens.
+tip	sleep	Tabs you haven't used for 20 minutes are put to sleep to save memory. They wake up when you open them.
+tip	autopip	Switch away from a playing video and it pops out into a small window that stays on top.
+tip	Capri's hologram when she talks	Capri's call screen from Holocall, a mod by Issei, shows in the corner of the browser while she talks. Get Holocall from the Capri app's mod browser. Its sounds don't play here.
+tip	t12	The typeface used on Capri Browser's own pages, like Speed Dial and Settings.
+tip	t13	How big the words are on Capri Browser's own pages.
+tip	t33	Sites that have a light and a dark look switch along with your screen mode.
+tip	t21	Shows each Speed Dial site's name above its tile.
+tip	t22	The language Capri Browser's own pages use, and the one Capri answers in.
+tip	t34	Where searches from the address bar and Speed Dial go.
+tip	t36	Stops sites following you around the web. Strict blocks the most, but may break some sites.
+tip	t43	The folder your downloads are saved in.
+tip	t46	When Capri Browser opens, the tabs you had open last time come back.
+# zone: places for "what time is it in ...". Place names split by |, then the Windows time zone
+zone	london|uk|england|britain|scotland|wales|dublin|ireland	GMT Standard Time
+zone	paris|france|berlin|germany|madrid|spain|rome|italy|amsterdam|netherlands|brussels|belgium|vienna|austria|stockholm|sweden|oslo|norway|copenhagen|denmark|warsaw|poland|prague|zurich|switzerland	W. Europe Standard Time
+zone	athens|greece|helsinki|finland|kyiv|kiev|ukraine|cairo|egypt|bucharest|romania	E. Europe Standard Time
+zone	moscow|russia|istanbul|turkey	Russian Standard Time
+zone	dubai|uae|abu dhabi	Arabian Standard Time
+zone	india|delhi|mumbai|bangalore|kolkata	India Standard Time
+zone	bangkok|thailand|jakarta|vietnam|hanoi	SE Asia Standard Time
+zone	beijing|china|shanghai|hong kong|singapore|taipei|taiwan|manila|philippines|perth|kuala lumpur|malaysia	China Standard Time
+zone	tokyo|japan|osaka	Tokyo Standard Time
+zone	seoul|korea	Korea Standard Time
+zone	sydney|melbourne|canberra	AUS Eastern Standard Time
+zone	brisbane|queensland	E. Australia Standard Time
+zone	adelaide	Cen. Australia Standard Time
+zone	auckland|new zealand|wellington	New Zealand Standard Time
+zone	new york|nyc|boston|miami|toronto|washington|atlanta|east coast	Eastern Standard Time
+zone	chicago|texas|dallas|houston|mexico city	Central Standard Time
+zone	denver|colorado|phoenix	Mountain Standard Time
+zone	los angeles|la|california|san francisco|seattle|vancouver|las vegas|west coast	Pacific Standard Time
+zone	hawaii|honolulu	Hawaiian Standard Time
+zone	sao paulo|brazil|rio|buenos aires|argentina	E. South America Standard Time
+zone	johannesburg|south africa|cape town	South Africa Standard Time
+zone	lagos|nigeria	W. Central Africa Standard Time
