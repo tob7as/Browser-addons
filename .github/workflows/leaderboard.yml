@@ -1,0 +1,38 @@
+# Weekly leaderboards: reads "[Leaderboard] <name>" issues sent from Capri Browser and updates LEADERBOARD.md.
+# The issue text is only read by .github/leaderboard.js as data; it's never put into a command here.
+name: Leaderboard
+
+on:
+  issues:
+    types: [opened]
+  schedule:
+    - cron: '5 0 * * 1'   # Mondays 00:05 UTC: last week is archived and the boards start fresh
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: leaderboard
+  cancel-in-progress: false
+
+jobs:
+  board:
+    if: github.event_name != 'issues' || startsWith(github.event.issue.title, '[Leaderboard]')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Update the boards
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node .github/leaderboard.js
+      - name: Save
+        run: |
+          git config user.name "capri-leaderboard"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add LEADERBOARD.md leaderboard
+          git diff --cached --quiet || (git commit -m "Leaderboard update" && git pull --rebase && git push)

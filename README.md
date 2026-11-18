@@ -29,6 +29,14 @@ They live here instead of inside the mod, so the mod stays small. Capri Browser 
 
 Games of type `none` (Quiz, Minecraft with Capri) need no files; downloading them just switches them on.
 
+## Leaderboards
+
+[LEADERBOARD.md](LEADERBOARD.md) has weekly top 10s for hours watched, videos finished, sites visited, survival, Guess the Site and typing speed. They start fresh every Monday at 00:00 UTC.
+
+- In Capri Browser, open **Games**, add a leaderboard name, then press **Send my week**. That opens a GitHub issue filled in with only your name and six numbers. You sign in and create it yourself.
+- [.github/leaderboard.js](.github/leaderboard.js) checks each one: the name has to be clean and not someone else's (names belong to the GitHub account that first used them), and the numbers have to be believable and from this week. It updates the board, replies and closes the issue.
+- Only the leaderboard name and the numbers are kept, in [leaderboard/](leaderboard). Capri Browser holds no keys or tokens for this. The numbers are what players send, so treat the board as for fun.
+
 ## Safety
 
 - Language files are words only. Capri Browser removes anything that could be code or page markup before using them.
