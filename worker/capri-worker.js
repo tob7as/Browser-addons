@@ -4,13 +4,14 @@
 //   GET  /board.md   the same as LEADERBOARD.md, which a GitHub Action copies into the repo
 //   POST /name       {name, key}                   claims a leaderboard name for this install
 //   POST /week       {name, key, week, hours, ...} puts this install's week on the boards
-//   POST /feedback   {kind, title, text, windows, version} saves a bug or idea privately for tob7as to read
+//   POST /feedback   {kind, title, text, windows, version, key} saves a bug or idea privately for tob7as to read
 //
 // Safety:
 // - There are no accounts. Each install makes a random key and keeps it; only its SHA-256 is stored, and only that key
 //   can update its name. Nothing personal is sent or kept.
 // - Internet addresses are never stored. Rate limits count a salted hash of the address that changes every day.
-// - Names and numbers get the same checks as .github/leaderboard.js and Capri Browser's BadName.
+// - Names and numbers get the same checks as Capri Browser's BadName, plus checks that the numbers fit the time that has
+//   passed. Cheaters can be hidden from the boards (see SETUP.md).
 // - Bugs and ideas are kept privately in the database, never put on a public page. Emails, phone numbers and anything
 //   that looks like a key are still blanked first, so personal details aren't kept by accident.
 // - There's no GitHub key or any other secret: nothing here could be leaked to get into anything.
@@ -58,15 +59,22 @@ const wkLabel = (n) => Math.floor(n / 100) + 'w' + (n % 100);
 
 const SCHEMA = [
   'CREATE TABLE IF NOT EXISTS meta (k TEXT PRIMARY KEY, v TEXT NOT NULL)',
-  'CREATE TABLE IF NOT EXISTS names (namekey TEXT PRIMARY KEY, name TEXT NOT NULL, owner TEXT NOT NULL UNIQUE)',
-  'CREATE TABLE IF NOT EXISTS scores (wk INTEGER NOT NULL, owner TEXT NOT NULL, name TEXT NOT NULL, hours REAL NOT NULL, videos INTEGER NOT NULL, sites INTEGER NOT NULL, survival INTEGER NOT NULL, guess INTEGER NOT NULL, wpm INTEGER NOT NULL, at INTEGER NOT NULL, PRIMARY KEY (wk, owner))',
+  'CREATE TABLE IF NOT EXISTS names (namekey TEXT PRIMARY KEY, name TEXT NOT NULL, owner TEXT NOT NULL UNIQUE, used INTEGER NOT NULL DEFAULT 0)',
+  'CREATE TABLE IF NOT EXISTS scores (wk INTEGER NOT NULL, owner TEXT NOT NULL, name TEXT NOT NULL, hours REAL NOT NULL, videos INTEGER NOT NULL, sites INTEGER NOT NULL, survival INTEGER NOT NULL, guess INTEGER NOT NULL, wpm INTEGER NOT NULL, at INTEGER NOT NULL, sent INTEGER NOT NULL DEFAULT 0, PRIMARY KEY (wk, owner))',
   'CREATE TABLE IF NOT EXISTS hits (k TEXT PRIMARY KEY, n INTEGER NOT NULL, until INTEGER NOT NULL)',
+  // Players tob7as has hidden for cheating (owner hashes). Their sends still say "ok", but they never show on a board.
+  'CREATE TABLE IF NOT EXISTS hidden (owner TEXT PRIMARY KEY)',
   'CREATE TABLE IF NOT EXISTS feedback (id INTEGER PRIMARY KEY AUTOINCREMENT, at TEXT NOT NULL, kind TEXT NOT NULL, title TEXT NOT NULL, text TEXT NOT NULL, version TEXT NOT NULL, windows TEXT NOT NULL)',
 ];
 let ready = false;
 async function setUp(db) {
   if (ready) return;
   await db.batch(SCHEMA.map((s) => db.prepare(s)));
+  // Databases made before names had a "last used" time get it here (it fails harmlessly once it's there).
+  try { await db.prepare('ALTER TABLE names ADD COLUMN used INTEGER NOT NULL DEFAULT 0').run(); } catch (e) { }
+  // Names from before then count as used now, so nobody can take them straight away.
+  await db.prepare('UPDATE names SET used = ?1 WHERE used = 0').bind(Date.now()).run();
+  try { await db.prepare('ALTER TABLE scores ADD COLUMN sent INTEGER NOT NULL DEFAULT 0').run(); } catch (e) { }
   ready = true;
 }
 
@@ -105,23 +113,27 @@ async function body(request) {
 // The install's key: random hex made by Capri Browser. Only its hash is kept.
 const ownerOf = async (key) => (typeof key === 'string' && /^[a-f0-9]{32,64}$/.test(key) ? sha('owner:' + key) : null);
 
+// A name nobody has picked or sent a week with for 8 weeks is free again (for someone who reinstalled and lost their key).
+const NAME_KEPT_MS = 56 * 86400000;
+
 // Claims name for owner. Returns why not, or null.
 async function claim(db, name, owner) {
-  const key = nameKey(name);
-  const had = await db.prepare('SELECT owner, name FROM names WHERE namekey = ?1').bind(key).first();
-  if (had && had.owner !== owner) return 'Someone already has the name ' + had.name + '. Pick another, choom.';
+  const key = nameKey(name), now = Date.now();
+  const had = await db.prepare('SELECT owner, name, used FROM names WHERE namekey = ?1').bind(key).first();
+  if (had && had.owner !== owner && had.used > now - NAME_KEPT_MS) return 'Someone already has the name ' + had.name + '. Pick another, choom.';
   // One name per install: a new one frees the old one.
   await db.batch([
     db.prepare('DELETE FROM names WHERE owner = ?1 AND namekey != ?2').bind(owner, key),
-    db.prepare('INSERT INTO names (namekey, name, owner) VALUES (?1, ?2, ?3) ON CONFLICT(namekey) DO UPDATE SET name = excluded.name').bind(key, name, owner),
+    db.prepare('INSERT INTO names (namekey, name, owner, used) VALUES (?1, ?2, ?3, ?4) ON CONFLICT(namekey) DO UPDATE SET name = excluded.name, owner = excluded.owner, used = excluded.used').bind(key, name, owner, now),
   ]);
   return null;
 }
 
 async function postName(db, got, who) {
-  if (await over(db, 'name:' + who, 20, 3600)) return no(429, SLOW);
+  if (await over(db, 'name:' + who, 60, 3600)) return no(429, SLOW);
   const owner = await ownerOf(got.key);
   if (!owner) return no(400, "Capri Browser's key is missing. Update Capri Browser and try again.");
+  if (await over(db, 'nameby:' + owner, 10, 3600)) return no(429, SLOW);
   const bad = badName(got.name);
   if (bad) return no(400, bad);
   const why = await claim(db, got.name, owner);
@@ -131,7 +143,7 @@ async function postName(db, got, who) {
 async function postWeek(db, got, who) {
   const owner = await ownerOf(got.key);
   if (!owner) return no(400, "Capri Browser's key is missing. Update Capri Browser and try again.");
-  if (await over(db, 'week:' + who, 20, 3600)) return no(429, SLOW);
+  if (await over(db, 'week:' + who, 120, 3600)) return no(429, SLOW);
   const bad = badName(got.name);
   if (bad) return no(400, bad + ' Pick another name and send your week again.');
   const now = new Date();
@@ -144,14 +156,22 @@ async function postWeek(db, got, who) {
     if (!/^\d{1,5}(\.\d)?$/.test(raw) || !(n >= 0) || n > b[4] || (b[0] !== 'hours' && !Number.isInteger(n))) return no(400, 'The ' + b[2].toLowerCase() + " number doesn't look right.");
     v[b[0]] = n;
   }
+  // Numbers that time makes impossible. The week started on Monday (or 1 January), up to 14 hours earlier in time zones ahead
+  // of UTC. You can't have watched more hours than have passed, and watch time can only grow as fast as real time between
+  // sends (half as fast again, in case two players were counted). Videos and sites get generous per-hour limits.
+  const wkStart = Math.max(Date.UTC(now.getUTCFullYear(), 0, 1), Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()) - ((now.getUTCDay() + 6) % 7) * 86400000);
+  const sinceStart = (now.getTime() - wkStart) / 3600000 + 14;
+  if (v.hours > sinceStart * 1.5 + 0.5 || v.videos > sinceStart * 30 + 30 || v.sites > sinceStart * 300 + 100) return no(400, "Those numbers are more than this week has had time for, so they can't go on the board.");
+  const prev = await db.prepare('SELECT hours, sent FROM scores WHERE wk = ?1 AND owner = ?2').bind(wkNum(weekOf(now)), owner).first();
+  if (prev && prev.sent && v.hours - prev.hours > ((now.getTime() - prev.sent) / 3600000) * 1.5 + 0.5) return no(400, "Your hours went up faster than time has passed since you last sent, so I can't use them.");
   // One good send every 2 minutes per install (refused ones don't count).
   if (await over(db, 'weekby:' + owner, 1, 120)) return no(429, SLOW);
   const why = await claim(db, got.name, owner);
   if (why) return no(409, why);
   const wk = wkNum(weekOf(now));
   // Keeps the best of each number for the week.
-  await db.prepare('INSERT INTO scores (wk, owner, name, hours, videos, sites, survival, guess, wpm, at) VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10) '
-    + 'ON CONFLICT(wk, owner) DO UPDATE SET name = excluded.name, hours = max(hours, excluded.hours), videos = max(videos, excluded.videos), sites = max(sites, excluded.sites), '
+  await db.prepare('INSERT INTO scores (wk, owner, name, hours, videos, sites, survival, guess, wpm, at, sent) VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?10) '
+    + 'ON CONFLICT(wk, owner) DO UPDATE SET name = excluded.name, sent = excluded.sent, hours = max(hours, excluded.hours), videos = max(videos, excluded.videos), sites = max(sites, excluded.sites), '
     + 'survival = max(survival, excluded.survival), guess = max(guess, excluded.guess), wpm = max(wpm, excluded.wpm)')
     .bind(wk, owner, got.name, v.hours, v.videos, v.sites, v.survival, v.guess, v.wpm, Date.now()).run();
   // Old weeks' names follow a rename too, so a freed name doesn't stay on an old board as someone else's.
@@ -163,18 +183,22 @@ async function postWeek(db, got, who) {
 export function scrub(text) {
   return String(text)
     .replace(/\r\n?/g, '\n')
-    .replace(/[\u0000-\u0008\u000b-\u001f\u007f​-‏‪-‮⁦-⁩]/g, '')
+    .replace(/[\u0000-\u0008\u000b-\u001f\u007f\u200b-\u200f\u202a-\u202e\u2066-\u2069]/g, '')
     .replace(/\b(?:gh[pousr]_|github_pat_|sk-|xox[abp]-|AKIA)[A-Za-z0-9_-]{8,}/g, '[key removed]')
     .replace(/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/g, '[email removed]')
     .replace(/\+?\d[\d \-().]{7,}\d/g, (m) => (m.replace(/\D/g, '').length >= 9 ? '[number removed]' : m))
-    .replace(/(^|[^\w`])@(?=[A-Za-z0-9])/g, '$1@​')
+    .replace(/(^|[^\w`])@(?=[A-Za-z0-9])/g, '$1@\u200b')
     .replace(/\n{4,}/g, '\n\n\n')
     .trim();
 }
 
 async function postFeedback(db, got, who) {
-  if (await over(db, 'fb:' + who, 3, 3600) || await over(db, 'fbday:' + who, 10, 86400)) return no(429, SLOW);
-  if (await over(db, 'fball', 60, 86400)) return no(429, 'The bug and idea box is full for today. Try again tomorrow, choom.');
+  // A whole school or family can share one network, so that limit is loose; each copy of Capri Browser has a tight one.
+  if (await over(db, 'fb:' + who, 15, 3600) || await over(db, 'fbday:' + who, 40, 86400)) return no(429, SLOW);
+  const owner = await ownerOf(got.key);
+  if (owner && (await over(db, 'fbby:' + owner, 3, 3600) || await over(db, 'fbbyday:' + owner, 10, 86400))) return no(429, SLOW);
+  // Capri Browser offers GitHub instead when it sees "full": true.
+  if (await over(db, 'fball', 150, 86400)) return json(429, { ok: false, full: true, why: 'The bug and idea box is full for today.' });
   const bug = got.kind === 'bug';
   if (!bug && got.kind !== 'idea') return no(400, 'Pick bug or idea.');
   const title = scrub(got.title || '').replace(/\s+/g, ' ');
@@ -194,13 +218,13 @@ async function boards(db) {
   const wk = wkNum(weekOf(new Date()));
   const out = { wk, rows: {}, last: null, champs: {} };
   for (const b of BOARDS) {
-    out.rows[b[0]] = (await db.prepare('SELECT name, ' + b[0] + ' AS v FROM scores WHERE wk = ?1 AND ' + b[0] + ' > 0 ORDER BY ' + b[0] + ' DESC, at ASC LIMIT 10').bind(wk).all()).results;
+    out.rows[b[0]] = (await db.prepare('SELECT name, ' + b[0] + ' AS v FROM scores WHERE wk = ?1 AND ' + b[0] + ' > 0 AND owner NOT IN (SELECT owner FROM hidden) ORDER BY ' + b[0] + ' DESC, at ASC LIMIT 10').bind(wk).all()).results;
   }
   const last = await db.prepare('SELECT MAX(wk) AS wk FROM scores WHERE wk < ?1').bind(wk).first();
   if (last && last.wk) {
     out.last = last.wk;
     for (const b of BOARDS) {
-      const c = await db.prepare('SELECT name, ' + b[0] + ' AS v FROM scores WHERE wk = ?1 AND ' + b[0] + ' > 0 ORDER BY ' + b[0] + ' DESC, at ASC LIMIT 1').bind(last.wk).first();
+      const c = await db.prepare('SELECT name, ' + b[0] + ' AS v FROM scores WHERE wk = ?1 AND ' + b[0] + ' > 0 AND owner NOT IN (SELECT owner FROM hidden) ORDER BY ' + b[0] + ' DESC, at ASC LIMIT 1').bind(last.wk).first();
       if (c) out.champs[b[0]] = c;
     }
   }
@@ -239,7 +263,25 @@ export function boardMd(d) {
   return md;
 }
 
+// Keeps as little as possible, for players and for us: run once a day by Cloudflare (the cron in wrangler.toml).
+// Boards older than a year, bugs and ideas older than 6 months, names unused for a year and old spam counters are deleted.
+export async function tidy(db) {
+  await setUp(db);
+  const now = Date.now();
+  const yearAgo = wkNum(weekOf(new Date(now - 365 * 86400000)));
+  await db.batch([
+    db.prepare('DELETE FROM scores WHERE wk < ?1').bind(yearAgo),
+    db.prepare('DELETE FROM feedback WHERE at < ?1').bind(new Date(now - 182 * 86400000).toISOString().slice(0, 16).replace('T', ' ')),
+    db.prepare('DELETE FROM names WHERE used < ?1').bind(now - 365 * 86400000),
+    db.prepare('DELETE FROM hits WHERE until < ?1').bind(Math.floor(now / 1000)),
+  ]);
+}
+
 export default {
+  async scheduled(event, env, ctx) {
+    if (env.DB) ctx.waitUntil(tidy(env.DB));
+  },
+
   async fetch(request, env) {
     try {
       if (!env.DB) return no(503, 'The database is not connected yet (add a D1 binding called DB).');
@@ -262,6 +304,7 @@ export default {
       if (path === '/feedback') return await postFeedback(db, got, who);
       return no(404, 'Not here.');
     } catch (e) {
+      // Only the error's own message, never anything the player sent.
       console.log('worker error', e && e.message);
       return no(500, 'Something went wrong on the leaderboard server. Try again in a bit, choom.');
     }

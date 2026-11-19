@@ -11,5 +11,10 @@ binding = "DB"
 database_name = "capri-browser"
 database_id = "75e4f359-4439-41f7-8a9e-5c935b2cd4a3"
 
+# Once a day at 03:30 UTC: delete old boards, bugs, names and spam counters (tidy() in capri-worker.js).
+[triggers]
+crons = ["30 3 * * *"]
+
+# Off on purpose: Cloudflare's request logs would keep details of every visit. Errors still show live in "wrangler tail".
 [observability]
-enabled = true
+enabled = false

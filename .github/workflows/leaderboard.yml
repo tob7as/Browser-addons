@@ -1,5 +1,6 @@
 # Copies the weekly leaderboards from Capri Browser's own server (worker/ on Cloudflare) into LEADERBOARD.md.
-# It only downloads the board as text; nothing it gets is ever run. No keys: the server's board is public.
+# It only downloads the board as text; nothing it gets is ever run, and only lines shaped like the board are allowed in.
+# No keys: the server's board is public.
 name: Leaderboard
 
 on:
@@ -22,8 +23,10 @@ jobs:
       - name: Copy the boards
         run: |
           curl -fsS --max-time 30 https://capri-browser.tobiasprojects77.workers.dev/board.md -o board.md
-          head -n 1 board.md | grep -qx '# Capri Browser leaderboards'
           [ "$(wc -c < board.md)" -lt 200000 ]
+          # Every line must be one the board makes (names, numbers, headings), so nothing else can ever get into the repo,
+          # not even if the server were broken into. One odd line and nothing is copied.
+          if grep -vxEf .github/board-lines.txt board.md; then echo "Unexpected lines above: not copying the board."; exit 1; fi
           mv board.md LEADERBOARD.md
       - name: Save
         run: |
