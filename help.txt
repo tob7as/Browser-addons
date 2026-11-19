@@ -20,7 +20,14 @@ Ask Capri in chat, for example:
 • "any new Discord messages?": she says who, reads them on your yes, and can reply for you
 • "bookmark this" to save the page to Speed Dial
 • "add to my notes ...", "note this down", "write that down"
-• "research this" or "look into ...": she looks it up and saves it as a note
+• "research ..." or "look into ...": she reads several sites in the background while you carry on, then asks to bring it up, put it in your notes, or both
+• "what's the best ..." for top picks, or "what's the best website for ..."
+• "fact check ..." or "is it true that ..."
+• "compare my tabs", "which of these should I buy?" or "what have I got open?"
+• Put a question, a screenshot or a file in Noted, then say "work out my last note"
+• "watch this page" or "tell me when the price drops": she checks every 20 minutes
+• "fill in this form with ...": never passwords or card details, and she asks before sending
+• "bring up my research" or "add my research to my notes" for the last thing she found
 • "let's play snake", "play wiki race", "quiz me"
 • In a wiki race, press HELP or say "give me a hint"; pick Easy, Hard or Challenging on the Games page
 • "read this page to me" or "translate this page"
@@ -28,6 +35,7 @@ Ask Capri in chat, for example:
 
 In the browser:
 • Highlight text, right-click, then Ask Capri about this
+• Highlight text, right-click, then Let Capri research this
 • YouTube ads are skipped automatically
 • Games, stats and achievements are on the sidebar
 • The ≡ menu has screenshot to notes, dark mode for sites and pop-out video

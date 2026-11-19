@@ -142,6 +142,11 @@ say	blocklayer	Invisible click trap, gone. Try it now, choom.
 tip	Wallpaper	A picture of yours behind Speed Dial. Right-click Speed Dial to change it quickly.
 tip	control	A short animation plays when Capri takes the wheel to do something on a page for you.
 tip	discordmsg	Capri can send Discord messages for you in the browser. She always asks before anything is sent.
+tip	capmenu	The right-click menu on pages in Capri's colours, with her own options at the top. Turn it off for Edge's usual menu.
+tip	lookask	When a question needs the web, Capri asks if she should look it up first. Off: she just looks it up.
+tip	researchmenu	Highlight words on a page and right-click for Let Capri research this.
+tip	watch	Say "watch this page" or "tell me when the price drops". Capri checks up to 5 pages every 20 minutes while Capri is running, for up to 2 weeks.
+tip	formfill	Say "fill in this form with ...". Capri never fills in passwords, card, bank or ID numbers, outlines what she filled, and asks before sending.
 tip	readdiscord	With Discord open and signed in on a tab here (not the Discord app), Capri says who messaged you and only reads it out if you say yes. To reply she repeats your exact words and sends them only on another yes. Login codes are never read out.
 tip	readwhatsapp	With WhatsApp Web open and signed in on a tab here, Capri says who messaged you (not muted chats) and only reads it out if you say yes. To reply she repeats your exact words and sends them only on another yes. Login codes are never read out.
 tip	skipask	When an ad, intro or recap can be skipped, Capri asks first, then presses Skip if you say yes.
