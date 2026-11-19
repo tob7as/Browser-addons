@@ -7,6 +7,8 @@
 //   POST /week       the same, from Capri Browsers that still send a week (its numbers only ever raise yours)
 //   POST /rank       {key}                         this install's own place on each board (nobody else's)
 //   POST /feedback   {kind, title, text, windows, version, key} saves a bug or idea privately for tob7as to read
+//   POST /admin/feedback {admin}                 the bugs and ideas, for tob7as only (needs the ADMIN_KEY secret)
+//   POST /admin/delete   {admin, id}             deletes one, for tob7as only
 //
 // Safety:
 // - There are no accounts. Each install makes a random key and keeps it; only its SHA-256 is stored, and only that key
@@ -16,9 +18,10 @@
 //   passed.
 // - Bugs and ideas are kept privately in the database, never put on a public page. Emails, phone numbers and anything
 //   that looks like a key are still blanked first, so personal details aren't kept by accident.
-// - There's no GitHub key or any other secret: nothing here could be leaked to get into anything.
+// - There's no GitHub key. The one secret, ADMIN_KEY, only lets its holder read and delete bugs and ideas; without it set,
+//   the admin requests are switched off. Wrong keys are rate limited.
 // - Only JSON is accepted, so a web page can't quietly post here from someone's browser.
-// - Bindings: DB (a D1 database). No secrets.
+// - Bindings: DB (a D1 database). Secret: ADMIN_KEY (optional).
 
 const BOARDS = [
   ['hours', 'Most hours watched', 'Hours watched', 'h', 100000],
@@ -194,6 +197,30 @@ async function postRank(db, got, who) {
   return json(200, { ok: true, message: out.join(';') });
 }
 
+// Only the holder of the ADMIN_KEY secret: compared as hashes so the time taken says nothing about the key.
+async function isAdmin(env, db, got, who) {
+  if (await over(db, 'admin:' + who, 60, 3600)) return false;
+  const real = env.ADMIN_KEY;
+  if (typeof real !== 'string' || real.length < 32 || typeof got.admin !== 'string' || got.admin.length > 200) return false;
+  return (await sha('admin:' + got.admin)) === (await sha('admin:' + real));
+}
+
+// The bugs and ideas, newest first, one per line: id, time, kind, title, text, version, Windows, each URI-encoded and split by tabs.
+async function adminFeedback(env, db, got, who) {
+  if (!(await isAdmin(env, db, got, who))) return new Response('Not here.\n', { status: 404 });
+  const rows = (await db.prepare('SELECT id, at, kind, title, text, version, windows FROM feedback ORDER BY id DESC LIMIT 500').all()).results;
+  const txt = rows.map((r) => [r.id, r.at, r.kind, r.title, r.text, r.version, r.windows].map((v) => encodeURIComponent(String(v))).join('\t')).join('\n');
+  return new Response(txt, { headers: { 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' } });
+}
+
+async function adminDelete(env, db, got, who) {
+  if (!(await isAdmin(env, db, got, who))) return new Response('Not here.\n', { status: 404 });
+  const id = Number(got.id);
+  if (!Number.isInteger(id) || id < 1) return no(400, 'Which one?');
+  await db.prepare('DELETE FROM feedback WHERE id = ?1').bind(id).run();
+  return json(200, { ok: true, message: 'Deleted.' });
+}
+
 // Blanks what shouldn't go on a public page, and stops @mentions pinging anyone.
 export function scrub(text) {
   return String(text)
@@ -300,6 +327,8 @@ export default {
       if (path === '/stats' || path === '/week') return await postStats(db, got, who);
       if (path === '/rank') return await postRank(db, got, who);
       if (path === '/feedback') return await postFeedback(db, got, who);
+      if (path === '/admin/feedback') return await adminFeedback(env, db, got, who);
+      if (path === '/admin/delete') return await adminDelete(env, db, got, who);
       return no(404, 'Not here.');
     } catch (e) {
       // Only the error's own message, never anything the player sent.
