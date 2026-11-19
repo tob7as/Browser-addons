@@ -8,19 +8,19 @@ To join, open **Games** in Capri Browser, add a leaderboard name and press **Sen
 
 | # | Name | Hours watched |
 | ---: | --- | ---: |
-| 1 | Tobias | 7.1h |
+| 1 | Tobias | 7.4h |
 
 ## Most videos finished
 
 | # | Name | Videos finished |
 | ---: | --- | ---: |
-| 1 | Tobias | 2 |
+| 1 | Tobias | 4 |
 
 ## Most sites visited
 
 | # | Name | Sites visited |
 | ---: | --- | ---: |
-| 1 | Tobias | 891 |
+| 1 | Tobias | 929 |
 
 ## Best survival run
 
