@@ -8,34 +8,34 @@ To join, open **Games** in Capri Browser, add a leaderboard name and press **Sen
 
 | # | Name | Hours watched |
 | ---: | --- | ---: |
-| 1 | Tobias | 7.4h |
+| 1 | Toby | 7.5h |
 
 ## Most videos finished
 
 | # | Name | Videos finished |
 | ---: | --- | ---: |
-| 1 | Tobias | 4 |
+| 1 | Toby | 4 |
 
 ## Most sites visited
 
 | # | Name | Sites visited |
 | ---: | --- | ---: |
-| 1 | Tobias | 1028 |
+| 1 | Toby | 1128 |
 
 ## Best survival run
 
 | # | Name | Best survival run |
 | ---: | --- | ---: |
-| 1 | Tobias | 18 words |
+| 1 | Toby | 18 words |
 
 ## Best Guess the Site run
 
 | # | Name | Best guess the site run |
 | ---: | --- | ---: |
-| 1 | Tobias | 3 |
+| 1 | Toby | 9 |
 
 ## Best typing speed
 
 | # | Name | Best typing speed |
 | ---: | --- | ---: |
-| 1 | Tobias | 45 WPM |
+| 1 | Toby | 45 WPM |
