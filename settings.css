@@ -17,3 +17,4 @@ html,body{scroll-padding-top:20px}body{background:#0a0a10 radial-gradient(ellips
 .tb.on{opacity:1;transform:none}
 .tb b{display:block;color:%C5%;font-size:14px;margin-bottom:4px;font-weight:600}
 .bt:active,.oo b:active,.th a:active{transform:scale(.95)}@media (prefers-reduced-motion:reduce){.bt,.oo b,.th a{transition:none}.bt:active,.oo b:active,.th a:active{transform:none}}
+.st .r{border-left:none;background:none;margin:0;padding:13px 0}
