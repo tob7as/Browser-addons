@@ -1,56 +1,65 @@
-Ask Capri in chat, for example:
-• "open YouTube" or "open the Roblox website"
-• "find me a funny video to watch" or "find me an action anime": she picks a title that fits
-• "full screen" or "pop the video out"
-• "skip 30 seconds", "play at 1.5x", "go to 3:20"
-• "next video", "turn on captions", "loop it"
-• "look up ..." to get an answer from the web
-• "summarise this page" or "what does this page say about ..."
-• "find this cheaper" or "any coupon codes for this site?"
-• "take a screenshot and put it in my notes"
-• "click ...", "scroll down", "go back"
-• "show me something random" or "find a random website"
-• "switch to my YouTube tab", "close this tab", "open a new tab"
-• "close the YouTube tab", "move this tab left"
-• "type hello in the search box" then "press enter"
+Just ask Capri in chat. Here's what she can do:
+
+VIDEOS
+• "find me a funny video" or "find me an action anime": she picks one that fits and plays it
 • "play the newest" for the latest upload from a channel or show
-• "find me a Roblox game" (or Steam, itch.io, anything)
-• "open my Discord in my browser and message Sam hi"
-• "message Alex on Discord saying ...": she types it and asks before sending
-• "any new Discord messages?": she says who, reads them on your yes, and can reply for you
+• "pause", "skip 30 seconds", "go to 3:20", "play at 1.5x", "next video", "turn on captions", "loop it"
+• "full screen" or "pop the video out"
+
+BROWSING
+• "open YouTube" or "open the Roblox website"
+• "click ...", "scroll down", "go back", "type hello in the search box" then "press enter"
+• "switch to my YouTube tab", "close this tab", "open a new tab", "move this tab left"
+• "summarise this page", "read this page to me", "translate this page"
+• "what does this page say about ..." or "look up ..." for a quick answer
+• "show me something random" or "find a random website"
 • "bookmark this" to save the page to Speed Dial
-• "add to my notes ...", "note this down", "write that down"
-• "research ..." or "look into ...": she reads several sites in the background while you carry on, then asks to bring it up, put it in your notes, or both
+
+CAPRI RESEARCH (Settings > Research)
+• "research ..." or "look into ...": she reads several sites in the background while you carry on
 • "what's the best ..." for top picks, or "what's the best website for ..."
 • "fact check ..." or "is it true that ..."
 • "compare my tabs", "which of these should I buy?" or "what have I got open?"
 • Put a question, a screenshot or a file in Noted, then say "work out my last note"
 • "watch this page" or "tell me when the price drops": she checks every 20 minutes
 • "fill in this form with ...": never passwords or card details, and she asks before sending
+• When she's done she asks: bring it up, put it in your notes, or both?
 • "bring up my research" or "add my research to my notes" for the last thing she found
+
+NOTES
+• "add to my notes ...", "note this down", "write that down"
+• "take a screenshot and put it in my notes"
+• "summarise this page and add it to my notes"
+
+SHOPPING
+• "find this cheaper" or "any coupon codes for this site?"
+• "find me a Roblox game" (or Steam, itch.io, anything)
+
+MESSAGES (Settings > Discord, off until you turn them on)
+• "any new Discord messages?": she says who messaged, reads it on your yes, and can reply for you
+• "message Alex on Discord saying ...": she types it and asks before sending
+• Works with WhatsApp Web too. She never sends anything without your yes
+
+GAMES
 • "let's play snake", "play wiki race", "quiz me"
 • In a wiki race, press HELP or say "give me a hint"; pick Easy, Hard or Challenging on the Games page
-• "read this page to me" or "translate this page"
-• "what's new in Capri Browser?" for the latest update notes
+• Games, stats and achievements are on the sidebar, and Free Games This Week is on the Games page
 
-In the browser:
-• Highlight text, right-click, then Ask Capri about this
-• Highlight text, right-click, then Let Capri research this
-• YouTube ads are skipped automatically
-• Games, stats and achievements are on the sidebar
-• The ≡ menu has screenshot to notes, dark mode for sites and pop-out video
-• Right-click a tab and choose Add to bookmarks
-• Free Games This Week is on the Games page
-• Settings > Update all installs every game and language that came with your version
+IN THE BROWSER
+• Highlight text and right-click: Ask Capri about this, or Let Capri research this
 • Come back to a tab that changed and she catches you up
-• Drag tabs left or right to reorder them
-• Settings > Video: choose the Anime site and Video site she uses, or paste your own site
-• Extensions: open the Chrome Web Store and press Add to Capri Browser, or add .zip and .crx files
-• Add-ons update themselves when Capri Browser gets a new version
+• The ≡ menu has screenshot to notes, dark mode for sites and pop-out video
+• Right-click a tab and choose Add to bookmarks; drag tabs to reorder them
 • History has a search box: delete the last 7 days, 30 days, or right-click one page to delete it
-• Noted keeps your notes, pictures and research, with quick undo
-• Settings > Discord: she can watch for new direct messages and type messages out of sight (you must be logged in to Discord)
-• In Settings: watch-along reactions and skipping ads, intros and recaps (she asks first)
+• Extensions: open the Chrome Web Store and press Add to Capri Browser, or add .zip and .crx files
+
+IN SETTINGS
+• Capri features: watch-along reactions, the takeover animation, and moving the mouse
+• Research: how hard she looks, asking before looking things up, watching pages, filling in forms
+• Video player: offer to skip ads, intros and recaps (she asks first), and the Anime and Video sites she uses
+• Appearance: 20 themes and the Capri-styled right-click menu
+• Update all installs every game and language that came with your version
+• "what's new in Capri Browser?" for the latest update notes
 %%
 ≡  the menu: zoom, print, screenshot, translate...
 Right-click a tab  duplicate, mute, close others
