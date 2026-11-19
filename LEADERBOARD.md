@@ -1,35 +1,41 @@
 # Capri Browser leaderboards
 
-Weekly top 10s from [Capri Browser](README.md). They start fresh every Monday at 00:00 UTC.
+Top 10s from [Capri Browser](README.md), all time. Everyone's stats update by themselves every week, or when they press **Send my stats**.
 
-To compete, open **Games** in Capri Browser, add a leaderboard name and press **Send my week**. No account needed. Only your leaderboard name and your numbers show here.
-
-**This week:** 2026w47
+To join, open **Games** in Capri Browser, add a leaderboard name and press **Send my stats**. No account needed. Only your leaderboard name and your numbers show here.
 
 ## Most hours watched
 
 | # | Name | Hours watched |
 | ---: | --- | ---: |
-| 1 | Tobias | 6.6h |
+| 1 | Tobias | 7.1h |
 
 ## Most videos finished
 
-_Nobody yet this week. Be the first!_
+| # | Name | Videos finished |
+| ---: | --- | ---: |
+| 1 | Tobias | 2 |
 
 ## Most sites visited
 
 | # | Name | Sites visited |
 | ---: | --- | ---: |
-| 1 | Tobias | 763 |
+| 1 | Tobias | 891 |
 
 ## Best survival run
 
-_Nobody yet this week. Be the first!_
+| # | Name | Best survival run |
+| ---: | --- | ---: |
+| 1 | Tobias | 18 words |
 
 ## Best Guess the Site run
 
-_Nobody yet this week. Be the first!_
+| # | Name | Best guess the site run |
+| ---: | --- | ---: |
+| 1 | Tobias | 3 |
 
 ## Best typing speed
 
-_Nobody yet this week. Be the first!_
+| # | Name | Best typing speed |
+| ---: | --- | ---: |
+| 1 | Tobias | 45 WPM |
