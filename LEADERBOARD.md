@@ -20,7 +20,7 @@ To join, open **Games** in Capri Browser, add a leaderboard name and press **Sen
 
 | # | Name | Sites visited |
 | ---: | --- | ---: |
-| 1 | Tobias | 929 |
+| 1 | Tobias | 1028 |
 
 ## Best survival run
 
