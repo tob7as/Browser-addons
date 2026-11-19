@@ -1,2 +1,26 @@
 Pizza,Moon,Minecraft,Albert_Einstein,Japan,Cat,Bitcoin,Australia,Dinosaur,Batman,Coffee,Piracy,Volcano,Shark,Elvis_Presley,Spider-Man,Olympic_Games,Antarctica,Black_hole,Tyrannosaurus,Leonardo_da_Vinci,Harry_Potter,Pokémon,Super_Mario,Lightning,Moon_landing,Ancient_Rome,Samurai,Space_Shuttle,YouTube,Anime,Tetris,Video_game,Wolf,Honey,Chocolate,Taylor_Swift,Eiffel_Tower,Great_Wall_of_China,FIFA_World_Cup,Star_Wars,Hot_dog,Earthquake,Elephant,Rubik%27s_Cube,Napoleon,The_Beatles,Ghost
 Banana,Lego,Tokyo,Penguin,Chess,Rainbow,Ninja,Titanic,Guitar,Mars,Skateboarding,Sushi,Vikings,Mount_Everest,Basketball,Robot,Ice_cream,Egyptian_pyramids,Octopus,Snow,Internet,Association_football,Pancake,Tornado,Toaster,Hamster,Bubble_wrap,Kite,Cheese,Lighthouse,Cyberpunk,Tokyo_Tower,Nintendo,Electricity,William_Shakespeare,Bee,Saturn,Pizza_Hut,Mummy,Zombie,Dragon,Spaghetti,Mona_Lisa,Wi-Fi,Flamingo,Jellyfish,Rocket,Ice_hockey,Cactus,Smartphone,Popcorn,Disneyland,Snowman,Unicorn,Tsunami,Sloth,Selfie
+easy|Lego|Spain|Volcano
+easy|Lego|Cornwall|Olympic Games
+easy|Snowman|Calvin and Hobbes|Dinosaur
+easy|Flamingo|Rome|Napoleon
+easy|Vikings|Down feather|Dinosaur
+easy|Snow|Light|Black hole
+easy|Disneyland|Pirates of the Caribbean (attraction)|Cat
+easy|Tokyo Tower|Anime|YouTube
+easy|Flamingo|Bird|Cat
+easy|Robot|Megastructure~Astronomical engineering|Great Wall of China
+easy|Tsunami|1958 Lituya Bay earthquake and megatsunami~1958 Lituya Bay, Alaska earthquake and megatsunami|Eiffel Tower
+easy|Egyptian pyramids|Friction|Earthquake
+easy|Zombie|List of films based on video games|Tetris
+easy|Saturn|Io (moon)|Pizza
+hard|Cisna|Vehicle registration plate~Car plate|Brazil|Sloth
+hard|Siegmund Jakob Baumgarten|Rector (academia)|Slovenia|Hedgehog
+hard|Joaquín Larraín Gandarillas|Chile|Agriculture|Bonsai
+hard|Tympanosclerosis|Otorhinolaryngology~ENT surgery|Pharynx~Nasopharynx|Tardigrade
+hard|Indian, Ontario|Ontario|Fossil fuel~Fossil-fuel|Windmill
+hard|Colley Harman Scotland|Chennai~Madras|Rugby sevens|Frisbee~Flying disc
+hard|Petras Kalpokas|Lithuania|Halloween|Scarecrow~Scarecrows
+hard|Rhaponticum heleniifolium|Trichome~Tomentose|Frost|Igloo
+hard|John M. Herrmann II|China|Colombia|Accordion
+hard|Microsphaeropsis|Genus|Flowering plant~Angiosperms|Bonsai

@@ -22,6 +22,7 @@ Ask Capri in chat, for example:
 • "add to my notes ...", "note this down", "write that down"
 • "research this" or "look into ...": she looks it up and saves it as a note
 • "let's play snake", "play wiki race", "quiz me"
+• In a wiki race, press HELP or say "give me a hint"; pick Easy, Hard or Challenging on the Games page
 • "read this page to me" or "translate this page"
 • "what's new in Capri Browser?" for the latest update notes
 
