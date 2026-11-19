@@ -137,6 +137,7 @@ say	blockpopup	This site really wants you to see an ad. I said no.
 say	blocklayer	There was an invisible ad sitting over your video, choom. Peeled it off.
 say	blocklayer	Found a see-through ad layer eating your clicks. Removed it.
 say	blocklayer	Invisible click trap, gone. Try it now, choom.
+# theme: more looks for Settings > Appearance. id, name, dark or light, then 7 colors: background, panel, text, faded text, first accent, second accent, border
 # tip: the hover box on a setting in Settings. The setting (its key, its name, or tNN for the browser's own word number NN), then what it does
 tip	Wallpaper	A picture of yours behind Speed Dial. Right-click Speed Dial to change it quickly.
 tip	control	A short animation plays when Capri takes the wheel to do something on a page for you.
@@ -195,3 +196,14 @@ zone	hawaii|honolulu	Hawaiian Standard Time
 zone	sao paulo|brazil|rio|buenos aires|argentina	E. South America Standard Time
 zone	johannesburg|south africa|cape town	South Africa Standard Time
 zone	lagos|nigeria	W. Central Africa Standard Time
+theme	sunset	Sunset	dark	#160b0e	#211117	#fbeee6	#a8868a	#ff9e5e	#ff4f6d	#40202a
+theme	midnight	Midnight	dark	#070b18	#0d1426	#e6ecff	#8792b0	#7aa2ff	#c792ea	#1c2744
+theme	matrix	Matrix	dark	#030805	#07120a	#d8ffe0	#6f9c78	#39ff7a	#00c2a8	#11331c
+theme	ember	Ember	dark	#120806	#1c0d09	#f6e7df	#a0857a	#ff6a2b	#ffc145	#40180d
+theme	violet	Violet	dark	#100c16	#191324	#f3eefc	#9a90ad	#d58cff	#5ef0f6	#2f2342
+theme	gold	Gold	dark	#0b0a07	#15130d	#f4efe2	#9b937e	#e6b94a	#e8574a	#3a321c
+theme	coffee	Coffee	dark	#140f0b	#1e1712	#f1e6da	#a09080	#d9a066	#9fc79a	#3b2b1f
+theme	cyber	Cyber	dark	#0b0b06	#15150c	#f4f4e6	#9a9a85	#fcee0a	#00f0ff	#3a3a10
+theme	arctic	Arctic	light	#eef6fa	#ffffff	#13232e	#5d7380	#0077a8	#6a4ce0	#cfe2ec
+theme	sakura	Sakura	light	#fdf0f3	#ffffff	#3a1f28	#8d6874	#c9336a	#7d5ba6	#f1d3dc
+theme	mint	Mint	light	#eef8f3	#ffffff	#15302a	#5d7a70	#0b8064	#c4621c	#cfe8dc
