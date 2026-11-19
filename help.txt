@@ -35,8 +35,8 @@ In the browser:
 • Settings > Update all installs every game and language that came with your version
 • Come back to a tab that changed and she catches you up
 • Drag tabs left or right to reorder them
-• Settings > Video: choose the Anime site and Video site she uses
-• Extensions: add several .zip or .crx files at once
+• Settings > Video: choose the Anime site and Video site she uses, or paste your own site
+• Extensions: open the Chrome Web Store and press Add to Capri Browser, or add .zip and .crx files
 • Add-ons update themselves when Capri Browser gets a new version
 • History has a search box: delete the last 7 days, 30 days, or right-click one page to delete it
 • Noted keeps your notes, pictures and research, with quick undo
