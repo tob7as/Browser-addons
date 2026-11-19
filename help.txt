@@ -16,7 +16,8 @@ BROWSING
 • "bookmark this" to save the page to Speed Dial
 
 CAPRI RESEARCH (Settings > Research)
-• "research ..." or "look into ...": she reads several sites in the background while you carry on
+• "research ..." or "look into ...": she reads several sites while you carry on (in hidden views of her browser when it's open, out of your tabs and history)
+• Safe search is always on, and she won't research adult or dangerous topics
 • "what's the best ..." for top picks, or "what's the best website for ..."
 • "fact check ..." or "is it true that ..."
 • "compare my tabs", "which of these should I buy?" or "what have I got open?"
