@@ -5,6 +5,7 @@
 //   POST /name       {name, key}                   claims a leaderboard name for this install
 //   POST /stats      {name, key, hours, ...}       puts this install's stats (all time) on the boards
 //   POST /week       the same, from Capri Browsers that still send a week (its numbers only ever raise yours)
+//   POST /rank       {key}                         this install's own place on each board (nobody else's)
 //   POST /feedback   {kind, title, text, windows, version, key} saves a bug or idea privately for tob7as to read
 //
 // Safety:
@@ -177,6 +178,22 @@ async function postStats(db, got, who) {
   return json(200, { ok: true, message: "You're on the boards as " + got.name + ', choom. Your stats update by themselves every week, or press Send my stats any time.' });
 }
 
+// This install's own place on each board, as the top 10s order them (higher first, then whoever got there first), and how
+// many players there are. Only the key's owner can ask, so nobody can look up someone else's place.
+async function postRank(db, got, who) {
+  const owner = await ownerOf(got.key);
+  if (!owner) return no(400, "Capri Browser's key is missing. Update Capri Browser and try again.");
+  if (await over(db, 'rank:' + who, 240, 3600)) return no(429, SLOW);
+  const mine = await db.prepare('SELECT hours, videos, sites, survival, guess, wpm, at FROM scores WHERE wk = ?1 AND owner = ?2').bind(ALL, owner).first();
+  if (!mine) return json(200, { ok: true, message: '' });
+  const ahead = BOARDS.map((b, i) => 'SUM(CASE WHEN ' + b[0] + ' > ?' + (i + 3) + ' OR (' + b[0] + ' = ?' + (i + 3) + ' AND at < ?9) THEN 1 ELSE 0 END) AS ' + b[0]).join(', ');
+  const n = await db.prepare('SELECT COUNT(*) AS total, ' + ahead + ' FROM scores WHERE wk = ?1 AND owner != ?2 AND owner NOT IN (SELECT owner FROM hidden)')
+    .bind(ALL, owner, ...BOARDS.map((b) => mine[b[0]]), mine.at).first();
+  // "total=312;hours=57:7.4;videos=3:120;..." (place:number), so older Capri Browsers can read it as a plain message.
+  const out = ['total=' + ((n.total || 0) + 1)].concat(BOARDS.map((b) => b[0] + '=' + ((n[b[0]] || 0) + 1) + ':' + num(mine[b[0]], b)));
+  return json(200, { ok: true, message: out.join(';') });
+}
+
 // Blanks what shouldn't go on a public page, and stops @mentions pinging anyone.
 export function scrub(text) {
   return String(text)
@@ -281,6 +298,7 @@ export default {
       const who = (await sha((await salt(db)) + new Date().toISOString().slice(0, 10) + ip)).slice(0, 32);
       if (path === '/name') return await postName(db, got, who);
       if (path === '/stats' || path === '/week') return await postStats(db, got, who);
+      if (path === '/rank') return await postRank(db, got, who);
       if (path === '/feedback') return await postFeedback(db, got, who);
       return no(404, 'Not here.');
     } catch (e) {
