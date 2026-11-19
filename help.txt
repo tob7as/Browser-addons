@@ -39,7 +39,7 @@ SHOPPING
 MESSAGES (Settings > Discord, off until you turn them on)
 • "any new Discord messages?": she says who messaged, reads it on your yes, and can reply for you
 • "message Alex on Discord saying ...": she types it and asks before sending
-• Works with WhatsApp Web too. She never sends anything without your yes
+• She never sends anything without your yes
 
 GAMES
 • "let's play snake", "play wiki race", "quiz me"
