@@ -13,7 +13,9 @@
 //   POST /admin/ban      {admin, name}           removes a name and its stats, and bans the name, for tob7as only
 //   POST /admin/banned   {admin}                 the banned names, for tob7as only
 //   POST /admin/unban    {admin, name}           lets a banned name be used again, for tob7as only
-//   POST /admin/reset    {admin}                 empties the leaderboards; only what players do after it counts, for tob7as only
+//   POST /admin/reset    {admin}                 starts a new leaderboard round now, for tob7as only
+//   GET  /featured.txt   the Featured boxes on Capri Browser's Games page (title, text, https link)
+//   POST /admin/featured {admin, slot, title, text, link}  sets Featured box 1-3 (an empty title clears it), for tob7as only
 //
 // Safety:
 // - There are no accounts. Each install makes a random key and keeps it; only its SHA-256 is stored, and only that key
@@ -78,6 +80,8 @@ const SCHEMA = [
   'CREATE TABLE IF NOT EXISTS hidden (owner TEXT PRIMARY KEY)',
   // Names tob7as removed: nobody can take them again.
   'CREATE TABLE IF NOT EXISTS banned (namekey TEXT PRIMARY KEY)',
+  // The Featured boxes on the Games page: slot 1 to 3.
+  'CREATE TABLE IF NOT EXISTS featured (slot INTEGER PRIMARY KEY, title TEXT NOT NULL, text TEXT NOT NULL, link TEXT NOT NULL)',
   'CREATE TABLE IF NOT EXISTS feedback (id INTEGER PRIMARY KEY AUTOINCREMENT, at TEXT NOT NULL, kind TEXT NOT NULL, title TEXT NOT NULL, text TEXT NOT NULL, version TEXT NOT NULL, windows TEXT NOT NULL)',
 ];
 let ready = false;
@@ -285,6 +289,36 @@ async function adminReset(env, db, got, who) {
   return json(200, { ok: true, message: 'Reset. A new round started: ' + players + ' player' + (players === 1 ? '' : 's') + ' start again from 0.' });
 }
 
+// The Featured boxes: "featured<TAB>slot<TAB>title<TAB>text<TAB>link" a line, with no tabs or new lines inside.
+export const FEATURE_LIMITS = { title: 40, text: 200, link: 300 };
+export function featureLink(link) {
+  if (typeof link !== 'string' || link.length > FEATURE_LIMITS.link || !/^https:\/\/[A-Za-z0-9.-]+\.[A-Za-z]{2,}(?::\d{1,5})?(?:[/?#][^\s<>"'`\\]*)?$/.test(link)) return null;
+  try { const u = new URL(link); return u.protocol === 'https:' && !u.username && !u.password ? u.href : null; } catch (e) { return null; }
+}
+async function featuredTxt(db) {
+  const rows = (await db.prepare('SELECT slot, title, text, link FROM featured WHERE slot BETWEEN 1 AND 3 ORDER BY slot').all()).results;
+  return '# Capri Browser featured\n' + rows.map((r) => ['featured', r.slot, r.title, r.text, r.link].join('\t')).join('\n') + (rows.length ? '\n' : '');
+}
+
+// Sets or clears a Featured box. Plain text only: control characters and tabs go, and the link must be https.
+async function adminFeatured(env, db, got, who) {
+  if (!(await isAdmin(env, db, got, who))) return new Response('Not here.\n', { status: 404 });
+  const slot = got.slot;
+  if (slot !== 1 && slot !== 2 && slot !== 3) return no(400, 'Which box (1, 2 or 3)?');
+  const clean = (v) => (typeof v === 'string' ? v : '').replace(/[\u0000-\u001f\u007f\u200b-\u200f\u202a-\u202e\u2066-\u2069]/g, ' ').replace(/ {2,}/g, ' ').trim();
+  const title = clean(got.title), text = clean(got.text);
+  if (!title) {
+    await db.prepare('DELETE FROM featured WHERE slot = ?1').bind(slot).run();
+    return json(200, { ok: true, message: 'Box ' + slot + ' cleared.' });
+  }
+  if (title.length > FEATURE_LIMITS.title) return no(400, 'The title is up to ' + FEATURE_LIMITS.title + ' characters.');
+  if (text.length > FEATURE_LIMITS.text) return no(400, 'The text is up to ' + FEATURE_LIMITS.text + ' characters.');
+  const link = clean(got.link) ? featureLink(clean(got.link)) : '';
+  if (link === null) return no(400, 'The link has to be a full https:// address, like https://example.com.');
+  await db.prepare('INSERT OR REPLACE INTO featured (slot, title, text, link) VALUES (?1, ?2, ?3, ?4)').bind(slot, title, text, link).run();
+  return json(200, { ok: true, message: 'Box ' + slot + ' saved.' });
+}
+
 // Blanks what shouldn't go on a public page, and stops @mentions pinging anyone.
 export function scrub(text) {
   return String(text)
@@ -377,7 +411,7 @@ export default {
       await setUp(db);
       const path = new URL(request.url).pathname;
       if (request.method === 'GET' || request.method === 'HEAD') {
-        const text = path === '/board.txt' ? boardTxt(await boards(db)) : path === '/board.md' ? boardMd(await boards(db)) : path === '/' ? 'Capri Browser worker. Nothing to see here, choom.\n' : null;
+        const text = path === '/board.txt' ? boardTxt(await boards(db)) : path === '/board.md' ? boardMd(await boards(db)) : path === '/featured.txt' ? await featuredTxt(db) : path === '/' ? 'Capri Browser worker. Nothing to see here, choom.\n' : null;
         if (text === null) return new Response('Not here.\n', { status: 404 });
         return new Response(request.method === 'HEAD' ? null : text, { headers: { 'Content-Type': (path.endsWith('.md') ? 'text/markdown' : 'text/plain') + '; charset=utf-8', 'Cache-Control': 'public, max-age=60', 'X-Content-Type-Options': 'nosniff' } });
       }
@@ -398,6 +432,7 @@ export default {
       if (path === '/admin/banned') return await adminBanned(env, db, got, who);
       if (path === '/admin/unban') return await adminUnban(env, db, got, who);
       if (path === '/admin/reset') return await adminReset(env, db, got, who);
+      if (path === '/admin/featured') return await adminFeatured(env, db, got, who);
       return no(404, 'Not here.');
     } catch (e) {
       // Only the error's own message, never anything the player sent.
