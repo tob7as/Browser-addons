@@ -8,7 +8,9 @@ To compete, open **Games** in Capri Browser, add a leaderboard name and press **
 
 ## Most hours watched
 
-_Nobody yet this week. Be the first!_
+| # | Name | Hours watched |
+| ---: | --- | ---: |
+| 1 | Tobias | 6.6h |
 
 ## Most videos finished
 
@@ -16,7 +18,9 @@ _Nobody yet this week. Be the first!_
 
 ## Most sites visited
 
-_Nobody yet this week. Be the first!_
+| # | Name | Sites visited |
+| ---: | --- | ---: |
+| 1 | Tobias | 763 |
 
 ## Best survival run
 
