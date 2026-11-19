@@ -190,7 +190,7 @@ async function postStats(db, got, who) {
   return json(200, { ok: true, message: "You're on the boards as " + got.name + ', choom. Your stats update by themselves every week, or press Send my stats any time.' });
 }
 
-// This install's own place on each board, as the top 10s order them (higher first, then whoever got there first), and how
+// This install's own place on each board, as the boards order them (higher first, then whoever got there first), and how
 // many players there are. Only the key's owner can ask, so nobody can look up someone else's place.
 async function postRank(db, got, who) {
   const owner = await ownerOf(got.key);
@@ -285,11 +285,11 @@ async function postFeedback(db, got, who) {
   return json(200, { ok: true, message: 'Sent, choom. Thanks!' });
 }
 
-// The top 10 of each board, all time. Everyone who has sent their stats is on every board, even with 0.
+// The top 100 of each board, all time (LEADERBOARD.md shows the top 10). Everyone who has sent their stats is on every board, even with 0.
 async function boards(db) {
   const out = { rows: {} };
   for (const b of BOARDS) {
-    out.rows[b[0]] = (await db.prepare('SELECT name, ' + b[0] + ' AS v FROM scores WHERE wk = ?1 AND owner NOT IN (SELECT owner FROM hidden) ORDER BY ' + b[0] + ' DESC, at ASC LIMIT 10').bind(ALL).all()).results;
+    out.rows[b[0]] = (await db.prepare('SELECT name, ' + b[0] + ' AS v FROM scores WHERE wk = ?1 AND owner NOT IN (SELECT owner FROM hidden) ORDER BY ' + b[0] + ' DESC, at ASC LIMIT 100').bind(ALL).all()).results;
   }
   return out;
 }
@@ -308,7 +308,7 @@ export function boardMd(d) {
   let md = "# Capri Browser leaderboards\n\nTop 10s from [Capri Browser](README.md), all time. Everyone's stats update by themselves every week, or when they press **Send my stats**.\n\n"
     + 'To join, open **Games** in Capri Browser, add a leaderboard name and press **Send my stats**. No account needed. Only your leaderboard name and your numbers show here.\n';
   for (const b of BOARDS) {
-    const rows = d.rows[b[0]];
+    const rows = d.rows[b[0]].slice(0, 10);
     md += '\n## ' + b[1] + '\n\n';
     if (!rows.length) { md += '_Nobody yet. Be the first!_\n'; continue; }
     md += '| # | Name | ' + b[2] + ' |\n| ---: | --- | ---: |\n';
