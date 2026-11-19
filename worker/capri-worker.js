@@ -13,7 +13,7 @@
 //   can update its name. Nothing personal is sent or kept.
 // - Internet addresses are never stored. Rate limits count a salted hash of the address that changes every day.
 // - Names and numbers get the same checks as Capri Browser's BadName, plus checks that the numbers fit the time that has
-//   passed. Cheaters can be hidden from the boards (see SETUP.md).
+//   passed.
 // - Bugs and ideas are kept privately in the database, never put on a public page. Emails, phone numbers and anything
 //   that looks like a key are still blanked first, so personal details aren't kept by accident.
 // - There's no GitHub key or any other secret: nothing here could be leaked to get into anything.
@@ -65,7 +65,7 @@ const SCHEMA = [
   'CREATE TABLE IF NOT EXISTS names (namekey TEXT PRIMARY KEY, name TEXT NOT NULL, owner TEXT NOT NULL UNIQUE, used INTEGER NOT NULL DEFAULT 0)',
   'CREATE TABLE IF NOT EXISTS scores (wk INTEGER NOT NULL, owner TEXT NOT NULL, name TEXT NOT NULL, hours REAL NOT NULL, videos INTEGER NOT NULL, sites INTEGER NOT NULL, survival INTEGER NOT NULL, guess INTEGER NOT NULL, wpm INTEGER NOT NULL, at INTEGER NOT NULL, sent INTEGER NOT NULL DEFAULT 0, PRIMARY KEY (wk, owner))',
   'CREATE TABLE IF NOT EXISTS hits (k TEXT PRIMARY KEY, n INTEGER NOT NULL, until INTEGER NOT NULL)',
-  // Players tob7as has hidden for cheating (owner hashes). Their sends still say "ok", but they never show on a board.
+  // Players kept off the boards (owner hashes).
   'CREATE TABLE IF NOT EXISTS hidden (owner TEXT PRIMARY KEY)',
   'CREATE TABLE IF NOT EXISTS feedback (id INTEGER PRIMARY KEY AUTOINCREMENT, at TEXT NOT NULL, kind TEXT NOT NULL, title TEXT NOT NULL, text TEXT NOT NULL, version TEXT NOT NULL, windows TEXT NOT NULL)',
 ];
