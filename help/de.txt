@@ -1,0 +1,89 @@
+Frag Capri einfach im Chat. Das kann sie:
+
+VIDEOS
+• „such mir ein lustiges Video" oder „such mir einen Action-Anime": sie wählt etwas Passendes und spielt es ab
+• „spiel das Neueste" für den letzten Upload eines Kanals oder einer Serie
+• „Pause", „spring 30 Sekunden vor", „geh zu 3:20", „spiel mit 1.5x", „nächstes Video", „Untertitel an", „in Schleife"
+• „Vollbild" oder „Video in ein eigenes Fenster"
+
+SURFEN
+• „öffne YouTube" oder „öffne die Roblox-Website"
+• „klick auf ...", „scroll runter", „geh zurück", „tipp hallo in die Suche" und dann „drück Enter"
+• „wechsel zu meinem YouTube-Tab", „schließ diesen Tab", „öffne einen neuen Tab", „schieb diesen Tab nach links"
+• „fass diese Seite zusammen", „lies mir diese Seite vor", „übersetze diese Seite"
+• „was sagt diese Seite über ...?" oder „schlag ... nach" für eine schnelle Antwort
+• „zeig mir was Zufälliges" oder „finde eine zufällige Website"
+• „merk dir das" speichert die Seite in Speed Dial
+
+CAPRI RESEARCH (Einstellungen > Recherche)
+• „recherchiere ..." oder „schau dir ... genauer an": sie liest mehrere Websites, während du weitermachst (in versteckten Ansichten ihres Browsers, wenn er offen ist, außerhalb deiner Tabs und deines Verlaufs)
+• SafeSearch ist immer an, und sie recherchiert keine Erwachsenen- oder gefährlichen Themen
+• „was ist das beste ...?" für Top-Empfehlungen, oder „was ist die beste Website für ...?"
+• „prüf mal ..." oder „stimmt es, dass ...?"
+• „vergleich meine Tabs", „welches davon soll ich kaufen?" oder „was hab ich offen?"
+• Leg eine Frage, einen Screenshot oder eine Datei in Noted ab und sag „löse meine letzte Notiz"
+• „behalte diese Seite im Blick" oder „sag mir, wenn der Preis fällt": sie prüft alle 20 Minuten
+• „füll dieses Formular aus mit ...": nie Passwörter oder Kartendaten, und sie fragt vor dem Absenden
+• Wenn sie fertig ist, fragt sie: anzeigen, in deine Notizen, oder beides?
+• „zeig meine Recherche" oder „füg meine Recherche zu meinen Notizen hinzu" für das zuletzt Gefundene
+
+NOTIZEN
+• „füg zu meinen Notizen hinzu ...", „notier das", „schreib das auf"
+• „mach einen Screenshot und pack ihn in meine Notizen"
+• „fass diese Seite zusammen und füg sie zu meinen Notizen hinzu"
+
+SHOPPING
+• „finde das günstiger" oder „gibt es Gutscheincodes für diese Seite?"
+• „such mir ein Roblox-Spiel" (oder Steam, itch.io, egal was)
+
+NACHRICHTEN (Einstellungen > Discord, aus, bis du es einschaltest)
+• „neue Discord-Nachrichten?": sie sagt, wer geschrieben hat, liest es auf dein Ja vor und kann für dich antworten
+• „schreib Alex auf Discord ...": sie tippt es und fragt vor dem Senden
+• Sie sendet nie etwas ohne dein Ja
+
+SPIELE
+• „lass uns Snake spielen", „spiel Wiki Race", „mach ein Quiz mit mir"
+• Im Wiki Race drück HELP oder sag „gib mir einen Tipp"; wähle Easy, Hard oder Challenging auf der Spieleseite
+• Spiele, Statistiken und Erfolge sind in der Seitenleiste, und Free Games This Week ist auf der Spieleseite
+• Bestenlisten: gib einen Namen an, um bei den wöchentlichen Top 100 mitzumachen; jeden Montag fangen alle wieder bei 0 an
+• Die Allzeit-Statistiken sind nur für dich: nie zurückgesetzt und nie gesendet
+• Hervorgehobene Kästen oben auf der Spieleseite (in den Einstellungen abschaltbar)
+
+IM BROWSER
+• Text markieren und rechtsklicken: Ask Capri about this oder Let Capri research this
+• Komm zu einem Tab zurück, der sich geändert hat, und sie bringt dich auf den neuesten Stand
+• Das ≡-Menü hat Screenshot in Notizen, Dunkelmodus für Websites und Video im Fenster
+• Rechtsklick auf einen Tab und Add to bookmarks wählen; Tabs zum Sortieren ziehen
+• Der Verlauf hat eine Suche: lösche die letzten 7 oder 30 Tage, oder rechtsklicke eine Seite zum Löschen
+• Erweiterungen: öffne den Chrome Web Store und drück Add to Capri Browser, oder füge .zip- und .crx-Dateien hinzu
+• Menü ≡ > Useful information hat die Willkommenstipps, dazu Report a bug und Suggest an idea
+
+IN DEN EINSTELLUNGEN
+• Capri-Funktionen: Reaktionen beim Zuschauen, die Übernahme-Animation und Mausbewegung
+• Recherche: wie gründlich sie sucht, vorher fragen, Seiten beobachten, Formulare ausfüllen
+• Videoplayer: anbieten, Werbung, Intros und Rückblicke zu überspringen (sie fragt zuerst), und die Anime- und Videoseiten, die sie nutzt
+• Darstellung: 20 Themes und das Rechtsklickmenü im Capri-Stil
+• Update all installiert jedes Spiel und jede Sprache, die zu deiner Version gehören
+• „was ist neu in Capri Browser?" für die neuesten Änderungen
+%%
+≡  das Menü: Zoom, Drucken, Screenshot, Übersetzen...
+Rechtsklick auf einen Tab  duplizieren, stummschalten, andere schließen
+Strg+T  neuer Tab
+Strg+Umschalt+N  privater Tab
+Strg+W  Tab schließen (oder mit dem Mausrad klicken)
+Strg+Umschalt+T  geschlossenen Tab wieder öffnen
+Strg+Tab  nächster Tab
+Strg+Umschalt+Bild auf / Bild ab  Tab nach links / rechts schieben
+Strg+L  in die Leiste tippen
+Strg+F  auf der Seite suchen
+Strg+Plus / Strg+Minus  Zoom
+Strg+P  drucken
+Strg+H  Verlauf
+Strg+J  Downloads
+F5  neu laden
+F11  Vollbild
+Strg+D  diese Seite zu Speed Dial hinzufügen
+Strg+Umschalt+S  Capri fasst die Seite zusammen
+Strg+Umschalt+A  Capri zur Seite fragen (oder ?Frage in die Leiste tippen)
+Strg+M  Tab stumm oder laut schalten
+Alt+Links / Alt+Rechts  zurück / vor

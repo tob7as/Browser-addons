@@ -1,0 +1,89 @@
+Po prostu poproś Capri na czacie. Oto co potrafi:
+
+FILMY
+• „znajdź mi śmieszny filmik" albo „znajdź mi anime akcji": wybiera coś pasującego i odtwarza
+• „puść najnowszy" dla ostatniego filmu z kanału lub serialu
+• „pauza", „przewiń 30 sekund", „idź do 3:20", „odtwarzaj w 1.5x", „następny film", „włącz napisy", „zapętl"
+• „pełny ekran" albo „wyciągnij film do okna"
+
+PRZEGLĄDANIE
+• „otwórz YouTube" albo „otwórz stronę Roblox"
+• „kliknij ...", „przewiń w dół", „wróć", „wpisz cześć w wyszukiwarkę", a potem „naciśnij enter"
+• „przełącz na moją kartę YouTube", „zamknij tę kartę", „otwórz nową kartę", „przesuń tę kartę w lewo"
+• „streść tę stronę", „przeczytaj mi tę stronę", „przetłumacz tę stronę"
+• „co ta strona mówi o ...?" albo „wyszukaj ..." dla szybkiej odpowiedzi
+• „pokaż mi coś losowego" albo „znajdź losową stronę"
+• „zapisz to", żeby dodać stronę do Speed Dial
+
+CAPRI RESEARCH (Ustawienia > Wyszukiwanie)
+• „zbadaj ..." albo „dowiedz się o ...": czyta kilka stron, a ty robisz swoje (w ukrytych widokach swojej przeglądarki, gdy jest otwarta, poza twoimi kartami i historią)
+• Bezpieczne wyszukiwanie jest zawsze włączone i nie bada tematów dla dorosłych ani niebezpiecznych
+• „jaki jest najlepszy ...?" dla najlepszych propozycji albo „jaka jest najlepsza strona do ...?"
+• „sprawdź, czy ..." albo „czy to prawda, że ...?"
+• „porównaj moje karty", „które z tych kupić?" albo „co mam otwarte?"
+• Wrzuć pytanie, zrzut ekranu lub plik do Noted i powiedz „rozwiąż moją ostatnią notatkę"
+• „obserwuj tę stronę" albo „daj znać, gdy cena spadnie": sprawdza co 20 minut
+• „wypełnij ten formularz ...": nigdy hasła ani danych karty, i pyta przed wysłaniem
+• Gdy skończy, pyta: pokazać, dodać do notatek, czy jedno i drugie?
+• „pokaż moje wyszukiwanie" albo „dodaj moje wyszukiwanie do notatek" dla ostatniego wyniku
+
+NOTATKI
+• „dodaj do notatek ...", „zanotuj to", „zapisz to"
+• „zrób zrzut ekranu i dodaj go do notatek"
+• „streść tę stronę i dodaj do notatek"
+
+ZAKUPY
+• „znajdź to taniej" albo „są kody rabatowe na tę stronę?"
+• „znajdź mi grę w Roblox" (albo na Steam, itch.io, cokolwiek)
+
+WIADOMOŚCI (Ustawienia > Discord, wyłączone, dopóki ich nie włączysz)
+• „są nowe wiadomości na Discordzie?": mówi, kto napisał, czyta na twoje „tak" i może odpisać za ciebie
+• „napisz do Alex na Discordzie ...": wpisuje i pyta przed wysłaniem
+• Nigdy nic nie wysyła bez twojego „tak"
+
+GRY
+• „zagrajmy w snake", „zagraj w wiki race", „zrób mi quiz"
+• W wiki race naciśnij HELP albo powiedz „daj mi podpowiedź"; wybierz Easy, Hard lub Challenging na stronie gier
+• Gry, statystyki i osiągnięcia są na pasku bocznym, a Free Games This Week na stronie gier
+• Rankingi: dodaj nazwę, żeby wejść do cotygodniowych top 100; w każdy poniedziałek wszyscy zaczynają od 0
+• Statystyki z całego czasu są tylko dla ciebie: nigdy się nie zerują i nigdy nie są wysyłane
+• Wyróżnione okienka na górze strony gier (można je wyłączyć w Ustawieniach)
+
+W PRZEGLĄDARCE
+• Zaznacz tekst i kliknij prawym: Ask Capri about this albo Let Capri research this
+• Wróć do karty, która się zmieniła, a ona powie ci, co przegapiłeś
+• Menu ≡ ma zrzut do notatek, tryb ciemny dla stron i film w oknie
+• Kliknij kartę prawym i wybierz Add to bookmarks; przeciągaj karty, żeby zmienić kolejność
+• Historia ma wyszukiwarkę: usuń ostatnie 7 lub 30 dni albo kliknij stronę prawym, żeby ją usunąć
+• Rozszerzenia: otwórz Chrome Web Store i naciśnij Add to Capri Browser albo dodaj pliki .zip i .crx
+• Menu ≡ > Useful information ma porady na start, plus Report a bug i Suggest an idea
+
+W USTAWIENIACH
+• Funkcje Capri: reakcje podczas oglądania, animacja przejęcia i ruszanie myszą
+• Wyszukiwanie: jak dokładnie szuka, pytanie przed szukaniem, obserwowanie stron, wypełnianie formularzy
+• Odtwarzacz: proponowanie pominięcia reklam, czołówek i streszczeń (najpierw pyta) oraz strony z anime i filmami, których używa
+• Wygląd: 20 motywów i menu prawego przycisku w stylu Capri
+• Update all instaluje każdą grę i język dołączone do twojej wersji
+• „co nowego w Capri Browser?" dla najnowszych zmian
+%%
+≡  menu: powiększenie, drukuj, zrzut ekranu, tłumacz...
+Prawy przycisk na karcie  duplikuj, wycisz, zamknij pozostałe
+Ctrl+T  nowa karta
+Ctrl+Shift+N  karta prywatna
+Ctrl+W  zamknij kartę (albo kliknij kółkiem)
+Ctrl+Shift+T  przywróć zamkniętą kartę
+Ctrl+Tab  następna karta
+Ctrl+Shift+PgUp / PgDn  przesuń kartę w lewo / prawo
+Ctrl+L  pisz w pasku
+Ctrl+F  znajdź na stronie
+Ctrl+Plus / Ctrl+Minus  powiększenie
+Ctrl+P  drukuj
+Ctrl+H  historia
+Ctrl+J  pobrane
+F5  odśwież
+F11  pełny ekran
+Ctrl+D  dodaj tę stronę do Speed Dial
+Ctrl+Shift+S  Capri streszcza stronę
+Ctrl+Shift+A  zapytaj Capri o stronę (albo wpisz ?pytanie w pasku)
+Ctrl+M  wycisz lub włącz dźwięk karty
+Alt+Lewo / Alt+Prawo  wstecz / dalej

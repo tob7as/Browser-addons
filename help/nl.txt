@@ -1,0 +1,89 @@
+Vraag het Capri gewoon in de chat. Dit kan ze:
+
+VIDEO'S
+• "zoek een grappige video" of "zoek een actie-anime": ze kiest er een die past en speelt hem af
+• "speel de nieuwste" voor de laatste upload van een kanaal of serie
+• "pauze", "spoel 30 seconden door", "ga naar 3:20", "speel af op 1.5x", "volgende video", "zet ondertiteling aan", "herhaal hem"
+• "volledig scherm" of "zet de video in een eigen venster"
+
+SURFEN
+• "open YouTube" of "open de Roblox-website"
+• "klik op ...", "scroll naar beneden", "ga terug", "typ hallo in het zoekvak" en dan "druk op enter"
+• "ga naar mijn YouTube-tabblad", "sluit dit tabblad", "open een nieuw tabblad", "zet dit tabblad naar links"
+• "vat deze pagina samen", "lees deze pagina voor", "vertaal deze pagina"
+• "wat zegt deze pagina over ...?" of "zoek ... op" voor een snel antwoord
+• "laat me iets willekeurigs zien" of "zoek een willekeurige website"
+• "bewaar dit" zet de pagina in Speed Dial
+
+CAPRI RESEARCH (Instellingen > Onderzoek)
+• "onderzoek ..." of "zoek uit hoe het zit met ...": ze leest meerdere sites terwijl jij verdergaat (in verborgen weergaven van haar browser als die open is, buiten je tabbladen en geschiedenis)
+• Veilig zoeken staat altijd aan, en ze onderzoekt geen onderwerpen voor volwassenen of gevaarlijke onderwerpen
+• "wat is de beste ...?" voor de beste keuzes, of "wat is de beste website voor ...?"
+• "check of ..." of "klopt het dat ...?"
+• "vergelijk mijn tabbladen", "welke van deze moet ik kopen?" of "wat heb ik open?"
+• Zet een vraag, screenshot of bestand in Noted en zeg dan "werk mijn laatste notitie uit"
+• "hou deze pagina in de gaten" of "laat het weten als de prijs zakt": ze kijkt elke 20 minuten
+• "vul dit formulier in met ...": nooit wachtwoorden of kaartgegevens, en ze vraagt het voor ze verstuurt
+• Als ze klaar is vraagt ze: laten zien, in je notities zetten, of allebei?
+• "laat mijn onderzoek zien" of "zet mijn onderzoek in mijn notities" voor het laatste wat ze vond
+
+NOTITIES
+• "zet in mijn notities ...", "noteer dit", "schrijf dat op"
+• "maak een screenshot en zet het in mijn notities"
+• "vat deze pagina samen en zet het in mijn notities"
+
+WINKELEN
+• "vind dit goedkoper" of "zijn er kortingscodes voor deze site?"
+• "zoek een Roblox-game voor me" (of Steam, itch.io, wat dan ook)
+
+BERICHTEN (Instellingen > Discord, uit tot je het aanzet)
+• "nieuwe Discord-berichten?": ze zegt wie je een bericht stuurde, leest het voor op je ja en kan voor je antwoorden
+• "stuur Alex op Discord ...": ze typt het en vraagt het voor ze verstuurt
+• Ze verstuurt nooit iets zonder je ja
+
+SPELLETJES
+• "laten we snake spelen", "speel wiki race", "overhoor me"
+• Druk in een wiki race op HELP of zeg "geef me een hint"; kies Easy, Hard of Challenging op de Games-pagina
+• Spelletjes, statistieken en prestaties staan in de zijbalk, en Free Games This Week op de Games-pagina
+• Ranglijsten: voeg een naam toe om mee te doen aan de wekelijkse top 100; iedereen begint elke maandag weer bij 0
+• Statistieken van altijd zijn alleen voor jou: nooit gereset en nooit verstuurd
+• Uitgelichte vakken bovenaan de Games-pagina (uit te zetten in Instellingen)
+
+IN DE BROWSER
+• Selecteer tekst en klik met rechts: Ask Capri about this of Let Capri research this
+• Kom terug op een tabblad dat veranderd is en ze praat je bij
+• Het ≡-menu heeft screenshot naar notities, donkere modus voor sites en video in een venster
+• Klik met rechts op een tabblad en kies Add to bookmarks; sleep tabbladen om ze te ordenen
+• De geschiedenis heeft een zoekvak: wis de laatste 7 of 30 dagen, of klik met rechts op een pagina om die te wissen
+• Extensies: open de Chrome Web Store en druk op Add to Capri Browser, of voeg .zip- en .crx-bestanden toe
+• Menu ≡ > Useful information heeft de welkomsttips, plus Report a bug en Suggest an idea
+
+IN INSTELLINGEN
+• Capri-functies: reacties tijdens het kijken, de overname-animatie en de muis bewegen
+• Onderzoek: hoe grondig ze zoekt, eerst vragen voor ze zoekt, pagina's in de gaten houden, formulieren invullen
+• Videospeler: aanbieden om advertenties, intro's en samenvattingen over te slaan (ze vraagt eerst), en de anime- en videosites die ze gebruikt
+• Uiterlijk: 20 thema's en het rechtsklikmenu in Capri-stijl
+• Update all installeert elk spel en elke taal die bij je versie hoort
+• "wat is er nieuw in Capri Browser?" voor de laatste updates
+%%
+≡  het menu: zoom, afdrukken, screenshot, vertalen...
+Rechtsklik op een tabblad  dupliceren, dempen, andere sluiten
+Ctrl+T  nieuw tabblad
+Ctrl+Shift+N  privétabblad
+Ctrl+W  tabblad sluiten (of klik met het muiswiel)
+Ctrl+Shift+T  gesloten tabblad heropenen
+Ctrl+Tab  volgend tabblad
+Ctrl+Shift+PgUp / PgDn  tabblad naar links / rechts
+Ctrl+L  typen in de balk
+Ctrl+F  zoeken op de pagina
+Ctrl+Plus / Ctrl+Min  zoom
+Ctrl+P  afdrukken
+Ctrl+H  geschiedenis
+Ctrl+J  downloads
+F5  vernieuwen
+F11  volledig scherm
+Ctrl+D  deze site toevoegen aan Speed Dial
+Ctrl+Shift+S  Capri vat de pagina samen
+Ctrl+Shift+A  Capri iets vragen over de pagina (of typ ?vraag in de balk)
+Ctrl+M  tabblad dempen of weer geluid aan
+Alt+Links / Alt+Rechts  terug / vooruit

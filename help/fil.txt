@@ -1,0 +1,89 @@
+Sabihin mo lang kay Capri sa chat. Ito ang kaya niyang gawin:
+
+MGA VIDEO
+• "hanapan mo ako ng nakakatawang video" o "hanapan mo ako ng action anime": pipili siya ng bagay at ipe-play ito
+• "i-play ang pinakabago" para sa huling upload ng isang channel o palabas
+• "pause", "skip ng 30 segundo", "punta sa 3:20", "i-play sa 1.5x", "susunod na video", "i-on ang captions", "i-loop"
+• "full screen" o "ilabas ang video sa sariling window"
+
+PAG-BROWSE
+• "buksan ang YouTube" o "buksan ang website ng Roblox"
+• "i-click ang ...", "mag-scroll pababa", "bumalik", "i-type ang hello sa search box" tapos "pindutin ang enter"
+• "lipat sa YouTube tab ko", "isara ang tab na ito", "magbukas ng bagong tab", "ilipat pakaliwa ang tab na ito"
+• "i-summarise ang page na ito", "basahin mo sa akin ang page na ito", "i-translate ang page na ito"
+• "ano ang sinasabi ng page na ito tungkol sa ...?" o "hanapin ang ..." para sa mabilis na sagot
+• "magpakita ka ng kahit ano" o "maghanap ng random na website"
+• "i-save ito" para idagdag ang page sa Speed Dial
+
+CAPRI RESEARCH (Settings > Pananaliksik)
+• "mag-research tungkol sa ..." o "alamin ang tungkol sa ...": nagbabasa siya ng ilang site habang tuloy ka sa ginagawa mo (sa mga nakatagong view ng browser niya kapag bukas ito, hiwalay sa mga tab at history mo)
+• Laging naka-on ang safe search, at hindi siya magre-research ng pang-adulto o mapanganib na paksa
+• "ano ang pinakamagandang ...?" para sa top picks, o "ano ang pinakamagandang website para sa ...?"
+• "i-fact check ang ..." o "totoo ba na ...?"
+• "ikumpara ang mga tab ko", "alin dito ang dapat kong bilhin?" o "ano ang bukas ko?"
+• Maglagay ng tanong, screenshot o file sa Noted, tapos sabihin ang "sagutin ang huling note ko"
+• "bantayan ang page na ito" o "sabihan mo ako kapag bumaba ang presyo": tinitingnan niya kada 20 minuto
+• "punan ang form na ito ng ...": hindi kailanman password o detalye ng card, at nagtatanong siya bago mag-send
+• Pagkatapos, magtatanong siya: ilabas ito, ilagay sa notes mo, o pareho?
+• "ilabas ang research ko" o "idagdag ang research ko sa notes ko" para sa huling nahanap niya
+
+NOTES
+• "idagdag sa notes ko ...", "i-note ito", "isulat mo iyan"
+• "mag-screenshot at ilagay sa notes ko"
+• "i-summarise ang page na ito at idagdag sa notes ko"
+
+PAMIMILI
+• "hanapan ito ng mas mura" o "may coupon code ba para sa site na ito?"
+• "hanapan mo ako ng Roblox game" (o Steam, itch.io, kahit ano)
+
+MGA MENSAHE (Settings > Discord, naka-off hangga't hindi mo ino-on)
+• "may bagong Discord message ba?": sasabihin niya kung sino ang nag-message, babasahin kapag pumayag ka, at puwede siyang sumagot para sa iyo
+• "i-message si Alex sa Discord ...": ita-type niya at magtatanong bago i-send
+• Hindi siya magse-send ng kahit ano nang walang oo mo
+
+MGA LARO
+• "laro tayo ng snake", "maglaro ng wiki race", "i-quiz mo ako"
+• Sa wiki race, pindutin ang HELP o sabihin ang "bigyan mo ako ng hint"; piliin ang Easy, Hard o Challenging sa Games page
+• Nasa sidebar ang mga laro, stats at achievements, at nasa Games page ang Free Games This Week
+• Leaderboards: maglagay ng pangalan para sumali sa lingguhang top 100; lahat ay nagsisimula ulit sa 0 tuwing Lunes
+• Para sa iyo lang ang all-time stats: hindi nire-reset at hindi kailanman ipinapadala
+• Mga featured box sa itaas ng Games page (puwedeng i-off sa Settings)
+
+SA BROWSER
+• I-highlight ang text at mag-right-click: Ask Capri about this o Let Capri research this
+• Bumalik sa tab na nagbago at ikukuwento niya kung ano ang na-miss mo
+• Nasa ≡ menu ang screenshot papunta sa notes, dark mode para sa mga site at pop-out video
+• Mag-right-click sa tab at piliin ang Add to bookmarks; i-drag ang mga tab para ayusin ang pagkakasunod
+• May search box ang History: burahin ang huling 7 o 30 araw, o mag-right-click sa isang page para burahin ito
+• Extensions: buksan ang Chrome Web Store at pindutin ang Add to Capri Browser, o magdagdag ng .zip at .crx na file
+• Nasa ≡ menu > Useful information ang mga welcome tip, pati Report a bug at Suggest an idea
+
+SA SETTINGS
+• Mga feature ng Capri: reaksyon habang nanonood, ang takeover animation, at paggalaw ng mouse
+• Pananaliksik: gaano kalalim siya maghanap, pagtatanong bago maghanap, pagbabantay ng pages, pagpuno ng forms
+• Video player: alok na i-skip ang ads, intro at recap (nagtatanong muna siya), at ang mga anime at video site na ginagamit niya
+• Hitsura: 20 theme at ang Capri-style na right-click menu
+• Ini-install ng Update all ang bawat laro at wika na kasama ng bersyon mo
+• "ano ang bago sa Capri Browser?" para sa pinakabagong update notes
+%%
+≡  ang menu: zoom, print, screenshot, translate...
+Right-click sa tab  duplicate, mute, isara ang iba
+Ctrl+T  bagong tab
+Ctrl+Shift+N  private tab
+Ctrl+W  isara ang tab (o i-middle-click)
+Ctrl+Shift+T  buksan ulit ang isinarang tab
+Ctrl+Tab  susunod na tab
+Ctrl+Shift+PgUp / PgDn  ilipat ang tab pakaliwa / pakanan
+Ctrl+L  mag-type sa bar
+Ctrl+F  maghanap sa page
+Ctrl+Plus / Ctrl+Minus  zoom
+Ctrl+P  print
+Ctrl+H  history
+Ctrl+J  downloads
+F5  reload
+F11  full screen
+Ctrl+D  idagdag ang site na ito sa Speed Dial
+Ctrl+Shift+S  i-summarise ni Capri ang page
+Ctrl+Shift+A  tanungin si Capri tungkol sa page (o i-type ang ?tanong sa bar)
+Ctrl+M  i-mute o i-unmute ang tab
+Alt+Left / Alt+Right  bumalik / sumulong

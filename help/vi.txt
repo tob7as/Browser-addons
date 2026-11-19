@@ -1,0 +1,89 @@
+Chỉ cần nhờ Capri trong khung chat. Đây là những gì cô ấy làm được:
+
+VIDEO
+• "tìm cho mình một video hài" hoặc "tìm cho mình một anime hành động": cô ấy chọn một cái phù hợp và phát
+• "phát cái mới nhất" cho video mới nhất của một kênh hoặc chương trình
+• "tạm dừng", "tua 30 giây", "chuyển đến 3:20", "phát tốc độ 1.5x", "video tiếp theo", "bật phụ đề", "lặp lại"
+• "toàn màn hình" hoặc "mở video ra cửa sổ riêng"
+
+DUYỆT WEB
+• "mở YouTube" hoặc "mở trang web Roblox"
+• "bấm vào ...", "cuộn xuống", "quay lại", "gõ xin chào vào ô tìm kiếm" rồi "nhấn enter"
+• "chuyển sang tab YouTube của mình", "đóng tab này", "mở tab mới", "chuyển tab này sang trái"
+• "tóm tắt trang này", "đọc trang này cho mình nghe", "dịch trang này"
+• "trang này nói gì về ...?" hoặc "tra ..." để có câu trả lời nhanh
+• "cho mình xem gì đó ngẫu nhiên" hoặc "tìm một trang web ngẫu nhiên"
+• "lưu cái này" để thêm trang vào Speed Dial
+
+CAPRI RESEARCH (Cài đặt > Nghiên cứu)
+• "nghiên cứu về ..." hoặc "tìm hiểu kỹ ...": cô ấy đọc nhiều trang trong khi bạn làm việc khác (trong các khung ẩn của trình duyệt khi nó đang mở, ngoài các tab và lịch sử của bạn)
+• Tìm kiếm an toàn luôn bật, và cô ấy không nghiên cứu chủ đề người lớn hoặc nguy hiểm
+• "... nào tốt nhất?" để xem lựa chọn hàng đầu, hoặc "trang web nào tốt nhất để ...?"
+• "kiểm chứng ..." hoặc "có thật là ... không?"
+• "so sánh các tab của mình", "nên mua cái nào trong mấy cái này?" hoặc "mình đang mở gì?"
+• Đặt một câu hỏi, ảnh chụp màn hình hoặc tệp vào Noted, rồi nói "giải ghi chú mới nhất của mình"
+• "theo dõi trang này" hoặc "báo mình khi giá giảm": cô ấy kiểm tra mỗi 20 phút
+• "điền biểu mẫu này với ...": không bao giờ điền mật khẩu hay thông tin thẻ, và hỏi trước khi gửi
+• Xong việc cô ấy hỏi: mở ra, đưa vào ghi chú, hay cả hai?
+• "mở nghiên cứu của mình" hoặc "thêm nghiên cứu vào ghi chú" cho thứ cô ấy tìm được gần nhất
+
+GHI CHÚ
+• "thêm vào ghi chú của mình ...", "ghi lại cái này", "viết cái đó ra"
+• "chụp màn hình và đưa vào ghi chú của mình"
+• "tóm tắt trang này và thêm vào ghi chú"
+
+MUA SẮM
+• "tìm cái này rẻ hơn" hoặc "có mã giảm giá cho trang này không?"
+• "tìm cho mình một game Roblox" (hoặc Steam, itch.io, gì cũng được)
+
+TIN NHẮN (Cài đặt > Discord, tắt cho đến khi bạn bật)
+• "có tin nhắn Discord mới không?": cô ấy nói ai nhắn, đọc khi bạn đồng ý, và có thể trả lời thay bạn
+• "nhắn cho Alex trên Discord ...": cô ấy gõ và hỏi trước khi gửi
+• Cô ấy không bao giờ gửi gì khi chưa có sự đồng ý của bạn
+
+TRÒ CHƠI
+• "chơi rắn săn mồi đi", "chơi wiki race", "đố mình đi"
+• Trong wiki race, nhấn HELP hoặc nói "gợi ý cho mình"; chọn Easy, Hard hoặc Challenging ở trang Trò chơi
+• Trò chơi, thống kê và thành tích ở thanh bên, còn Free Games This Week ở trang Trò chơi
+• Bảng xếp hạng: thêm một cái tên để tham gia top 100 hằng tuần; mọi người bắt đầu lại từ 0 vào mỗi thứ Hai
+• Thống kê mọi thời đại chỉ dành cho bạn: không bao giờ đặt lại và không bao giờ được gửi đi
+• Các ô nổi bật ở đầu trang Trò chơi (có thể tắt trong Cài đặt)
+
+TRONG TRÌNH DUYỆT
+• Bôi đen chữ rồi nhấp chuột phải: Ask Capri about this hoặc Let Capri research this
+• Quay lại một tab đã thay đổi và cô ấy kể bạn nghe những gì đã bỏ lỡ
+• Menu ≡ có chụp màn hình vào ghi chú, chế độ tối cho trang web và video cửa sổ nổi
+• Nhấp chuột phải vào tab và chọn Add to bookmarks; kéo tab để sắp xếp lại
+• Lịch sử có ô tìm kiếm: xóa 7 ngày, 30 ngày gần nhất, hoặc nhấp chuột phải vào một trang để xóa
+• Tiện ích: mở Chrome Web Store và nhấn Add to Capri Browser, hoặc thêm tệp .zip và .crx
+• Menu ≡ > Useful information có mẹo chào mừng, cùng Report a bug và Suggest an idea
+
+TRONG CÀI ĐẶT
+• Tính năng của Capri: phản ứng khi xem cùng, hoạt ảnh tiếp quản và di chuyển chuột
+• Nghiên cứu: cô ấy tìm kỹ đến đâu, hỏi trước khi tra cứu, theo dõi trang, điền biểu mẫu
+• Trình phát video: đề nghị bỏ qua quảng cáo, phần mở đầu và tóm tắt (cô ấy hỏi trước), và các trang anime, video cô ấy dùng
+• Giao diện: 20 chủ đề và menu chuột phải kiểu Capri
+• Update all cài mọi trò chơi và ngôn ngữ đi kèm phiên bản của bạn
+• "Capri Browser có gì mới?" để xem ghi chú cập nhật mới nhất
+%%
+≡  menu: thu phóng, in, chụp màn hình, dịch...
+Chuột phải vào tab  nhân bản, tắt tiếng, đóng các tab khác
+Ctrl+T  tab mới
+Ctrl+Shift+N  tab riêng tư
+Ctrl+W  đóng tab (hoặc bấm nút giữa chuột)
+Ctrl+Shift+T  mở lại tab đã đóng
+Ctrl+Tab  tab tiếp theo
+Ctrl+Shift+PgUp / PgDn  chuyển tab sang trái / phải
+Ctrl+L  gõ vào thanh địa chỉ
+Ctrl+F  tìm trên trang
+Ctrl+Cộng / Ctrl+Trừ  thu phóng
+Ctrl+P  in
+Ctrl+H  lịch sử
+Ctrl+J  tải xuống
+F5  tải lại
+F11  toàn màn hình
+Ctrl+D  thêm trang này vào Speed Dial
+Ctrl+Shift+S  Capri tóm tắt trang
+Ctrl+Shift+A  hỏi Capri về trang (hoặc gõ ?câu hỏi vào thanh)
+Ctrl+M  tắt hoặc bật tiếng tab
+Alt+Trái / Alt+Phải  lùi / tới

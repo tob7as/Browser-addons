@@ -1,0 +1,89 @@
+Solo pídeselo a Capri en el chat. Esto es lo que puede hacer:
+
+VÍDEOS
+• "búscame un vídeo divertido" o "búscame un anime de acción": elige uno que encaje y lo reproduce
+• "pon lo más nuevo" para la última subida de un canal o serie
+• "pausa", "salta 30 segundos", "ve al 3:20", "reproduce a 1.5x", "siguiente video", "activa los subtítulos", "ponlo en bucle"
+• "pantalla completa" o "saca el vídeo en una ventana"
+
+NAVEGAR
+• "abre YouTube" o "abre la web de Roblox"
+• "haz clic en ...", "baja", "vuelve atrás", "escribe hola en el buscador" y luego "pulsa intro"
+• "cambia a mi pestaña de YouTube", "cierra esta pestaña", "abre una pestaña nueva", "mueve esta pestaña a la izquierda"
+• "resume esta página", "léeme esta página", "traduce esta página"
+• "¿qué dice esta página sobre ...?" o "busca ..." para una respuesta rápida
+• "enséñame algo al azar" o "busca una web al azar"
+• "guarda esto" para añadir la página a Speed Dial
+
+CAPRI RESEARCH (Ajustes > Investigación)
+• "investiga ..." o "infórmate sobre ...": lee varias webs mientras tú sigues a lo tuyo (en vistas ocultas de su navegador cuando está abierto, fuera de tus pestañas e historial)
+• La búsqueda segura siempre está activada, y no investiga temas para adultos o peligrosos
+• "¿cuál es el mejor ...?" para las mejores opciones, o "¿cuál es la mejor web para ...?"
+• "comprueba si ..." o "¿es verdad que ...?"
+• "compara mis pestañas", "¿cuál de estos debería comprar?" o "¿qué tengo abierto?"
+• Pon una pregunta, una captura o un archivo en Noted y luego di "resuelve mi última nota"
+• "vigila esta página" o "avísame cuando baje el precio": la revisa cada 20 minutos
+• "rellena este formulario con ...": nunca contraseñas ni datos de tarjeta, y pregunta antes de enviar
+• Cuando termina te pregunta: ¿lo abro, lo pongo en tus notas, o las dos cosas?
+• "abre mi investigación" o "añade mi investigación a mis notas" para lo último que encontró
+
+NOTAS
+• "añade a mis notas ...", "apunta esto", "anota eso"
+• "haz una captura y ponla en mis notas"
+• "resume esta página y añádela a mis notas"
+
+COMPRAS
+• "encuentra esto más barato" o "¿hay códigos de descuento para esta web?"
+• "búscame un juego de Roblox" (o de Steam, itch.io, lo que sea)
+
+MENSAJES (Ajustes > Discord, desactivado hasta que lo actives)
+• "¿tengo mensajes nuevos en Discord?": te dice quién escribió, lo lee si dices que sí y puede responder por ti
+• "mándale a Alex por Discord ...": lo escribe y pregunta antes de enviarlo
+• Nunca envía nada sin tu sí
+
+JUEGOS
+• "juguemos a snake", "juega a wiki race", "hazme un quiz"
+• En una wiki race pulsa HELP o di "dame una pista"; elige Easy, Hard o Challenging en la página de juegos
+• Juegos, estadísticas y logros están en la barra lateral, y Free Games This Week está en la página de juegos
+• Clasificaciones: añade un nombre para entrar en los top 100 semanales; todos empiezan de 0 cada lunes
+• Las estadísticas de siempre son solo para ti: nunca se reinician ni se envían
+• Cuadros destacados arriba en la página de juegos (se pueden desactivar en Ajustes)
+
+EN EL NAVEGADOR
+• Selecciona texto y haz clic derecho: Ask Capri about this o Let Capri research this
+• Vuelve a una pestaña que cambió y te pone al día
+• El menú ≡ tiene captura a notas, modo oscuro para webs y vídeo en ventana
+• Clic derecho en una pestaña y elige Add to bookmarks; arrastra las pestañas para ordenarlas
+• El historial tiene buscador: borra los últimos 7 días, 30 días, o haz clic derecho en una página para borrarla
+• Extensiones: abre la Chrome Web Store y pulsa Add to Capri Browser, o añade archivos .zip y .crx
+• Menú ≡ > Useful information tiene los consejos de bienvenida, más Report a bug y Suggest an idea
+
+EN AJUSTES
+• Funciones de Capri: reacciones al ver vídeos, la animación de toma de control y mover el ratón
+• Investigación: cuánto busca, preguntar antes de buscar, vigilar páginas, rellenar formularios
+• Reproductor: ofrecer saltar anuncios, intros y resúmenes (pregunta antes), y las webs de anime y vídeo que usa
+• Apariencia: 20 temas y el menú de clic derecho al estilo Capri
+• Update all instala cada juego e idioma que vino con tu versión
+• "¿qué hay de nuevo en Capri Browser?" para las últimas novedades
+%%
+≡  el menú: zoom, imprimir, captura, traducir...
+Clic derecho en una pestaña  duplicar, silenciar, cerrar las demás
+Ctrl+T  pestaña nueva
+Ctrl+Shift+N  pestaña privada
+Ctrl+W  cerrar pestaña (o clic con la rueda)
+Ctrl+Shift+T  reabrir una pestaña cerrada
+Ctrl+Tab  siguiente pestaña
+Ctrl+Shift+RePág / AvPág  mover la pestaña a la izquierda / derecha
+Ctrl+L  escribir en la barra
+Ctrl+F  buscar en la página
+Ctrl+Más / Ctrl+Menos  zoom
+Ctrl+P  imprimir
+Ctrl+H  historial
+Ctrl+J  descargas
+F5  recargar
+F11  pantalla completa
+Ctrl+D  añadir esta web a Speed Dial
+Ctrl+Shift+S  Capri resume la página
+Ctrl+Shift+A  preguntar a Capri sobre la página (o escribe ?pregunta en la barra)
+Ctrl+M  silenciar o activar el sonido de la pestaña
+Alt+Izquierda / Alt+Derecha  atrás / adelante

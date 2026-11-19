@@ -1,0 +1,89 @@
+É só pedir à Capri no chat. Veja o que ela consegue fazer:
+
+VÍDEOS
+• "encontra um vídeo engraçado" ou "encontra um anime de ação": ela escolhe um que combine e põe a tocar
+• "põe o mais novo" para o último envio de um canal ou série
+• "pausa", "pula 30 segundos", "vai para 3:20", "toca em 1.5x", "próximo vídeo", "liga as legendas", "repete"
+• "tela cheia" ou "abre o vídeo numa janela"
+
+NAVEGAR
+• "abre o YouTube" ou "abre o site do Roblox"
+• "clica em ...", "desce", "volta", "escreve olá na pesquisa" e depois "aperta enter"
+• "muda para a minha aba do YouTube", "fecha esta aba", "abre uma aba nova", "move esta aba para a esquerda"
+• "resume esta página", "lê esta página para mim", "traduz esta página"
+• "o que esta página diz sobre ...?" ou "pesquisa ..." para uma resposta rápida
+• "me mostra algo aleatório" ou "encontra um site aleatório"
+• "guarda isto" para salvar a página no Speed Dial
+
+CAPRI RESEARCH (Configurações > Pesquisa)
+• "pesquisa sobre ..." ou "investiga ...": ela lê vários sites enquanto você continua (em visualizações ocultas do navegador dela quando ele está aberto, fora das suas abas e do histórico)
+• A pesquisa segura está sempre ligada, e ela não pesquisa temas adultos ou perigosos
+• "qual é o melhor ...?" para as melhores opções, ou "qual é o melhor site para ...?"
+• "verifica se ..." ou "é verdade que ...?"
+• "compara as minhas abas", "qual destes devo comprar?" ou "o que eu tenho aberto?"
+• Coloque uma pergunta, uma captura ou um arquivo no Noted e diga "resolve a minha última nota"
+• "vigia esta página" ou "me avisa quando o preço baixar": ela verifica a cada 20 minutos
+• "preenche este formulário com ...": nunca senhas ou dados de cartão, e ela pergunta antes de enviar
+• Quando termina, ela pergunta: mostrar, pôr nas suas notas, ou os dois?
+• "mostra a minha pesquisa" ou "adiciona a minha pesquisa às notas" para a última coisa que ela encontrou
+
+NOTAS
+• "adiciona às minhas notas ...", "anota isto", "escreve isso"
+• "tira uma captura e põe nas minhas notas"
+• "resume esta página e adiciona às minhas notas"
+
+COMPRAS
+• "encontra isto mais barato" ou "tem cupons para este site?"
+• "encontra um jogo de Roblox" (ou Steam, itch.io, qualquer coisa)
+
+MENSAGENS (Configurações > Discord, desligado até você ligar)
+• "alguma mensagem nova no Discord?": ela diz quem mandou, lê se você disser sim, e pode responder por você
+• "manda para o Alex no Discord ...": ela escreve e pergunta antes de enviar
+• Ela nunca envia nada sem o seu sim
+
+JOGOS
+• "vamos jogar snake", "joga wiki race", "faz um quiz comigo"
+• Numa wiki race, aperte HELP ou diga "me dá uma dica"; escolha Easy, Hard ou Challenging na página de jogos
+• Jogos, estatísticas e conquistas ficam na barra lateral, e Free Games This Week fica na página de jogos
+• Rankings: adicione um nome para entrar nos top 100 semanais; todos recomeçam do 0 toda segunda-feira
+• As estatísticas de sempre são só para você: nunca zeram e nunca são enviadas
+• Caixas em destaque no topo da página de jogos (dá para desligar nas Configurações)
+
+NO NAVEGADOR
+• Selecione um texto e clique com o botão direito: Ask Capri about this ou Let Capri research this
+• Volte a uma aba que mudou e ela te conta o que você perdeu
+• O menu ≡ tem captura para as notas, modo escuro para sites e vídeo em janela
+• Clique com o botão direito numa aba e escolha Add to bookmarks; arraste as abas para reorganizar
+• O histórico tem pesquisa: apague os últimos 7 ou 30 dias, ou clique com o botão direito numa página para apagá-la
+• Extensões: abra a Chrome Web Store e aperte Add to Capri Browser, ou adicione arquivos .zip e .crx
+• Menu ≡ > Useful information tem as dicas de boas-vindas, mais Report a bug e Suggest an idea
+
+NAS CONFIGURAÇÕES
+• Recursos da Capri: reações enquanto assiste, a animação de controle e mover o mouse
+• Pesquisa: o quanto ela procura, perguntar antes de pesquisar, vigiar páginas, preencher formulários
+• Player de vídeo: oferecer pular anúncios, aberturas e resumos (ela pergunta antes), e os sites de anime e vídeo que ela usa
+• Aparência: 20 temas e o menu de botão direito no estilo Capri
+• Update all instala cada jogo e idioma que veio com a sua versão
+• "o que há de novo no Capri Browser?" para as últimas novidades
+%%
+≡  o menu: zoom, imprimir, captura, traduzir...
+Botão direito numa aba  duplicar, silenciar, fechar as outras
+Ctrl+T  nova aba
+Ctrl+Shift+N  aba privada
+Ctrl+W  fechar aba (ou clique com a roda)
+Ctrl+Shift+T  reabrir uma aba fechada
+Ctrl+Tab  próxima aba
+Ctrl+Shift+PgUp / PgDn  mover a aba para a esquerda / direita
+Ctrl+L  escrever na barra
+Ctrl+F  procurar na página
+Ctrl+Mais / Ctrl+Menos  zoom
+Ctrl+P  imprimir
+Ctrl+H  histórico
+Ctrl+J  downloads
+F5  recarregar
+F11  tela cheia
+Ctrl+D  adicionar este site ao Speed Dial
+Ctrl+Shift+S  a Capri resume a página
+Ctrl+Shift+A  perguntar à Capri sobre a página (ou digite ?pergunta na barra)
+Ctrl+M  silenciar ou ativar o som da aba
+Alt+Esquerda / Alt+Direita  voltar / avançar

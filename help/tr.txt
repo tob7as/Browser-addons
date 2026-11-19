@@ -1,0 +1,89 @@
+Sohbette Capri'ye söylemen yeterli. İşte yapabildikleri:
+
+VİDEOLAR
+• "bana komik bir video bul" ya da "bana bir aksiyon animesi bul": uygun birini seçip oynatır
+• "en yenisini oynat": bir kanalın ya da dizinin son yüklemesi için
+• "durdur", "30 saniye atla", "3:20'ye git", "1.5x hızda oynat", "sonraki video", "altyazıyı aç", "döngüye al"
+• "tam ekran" ya da "videoyu ayrı pencerede aç"
+
+GEZİNME
+• "YouTube'u aç" ya da "Roblox sitesini aç"
+• "...'e tıkla", "aşağı kaydır", "geri git", "arama kutusuna merhaba yaz" sonra "enter'a bas"
+• "YouTube sekmeme geç", "bu sekmeyi kapat", "yeni sekme aç", "bu sekmeyi sola taşı"
+• "bu sayfayı özetle", "bu sayfayı bana oku", "bu sayfayı çevir"
+• "bu sayfa ... hakkında ne diyor?" ya da "... ara": hızlı bir cevap için
+• "bana rastgele bir şey göster" ya da "rastgele bir site bul"
+• "bunu kaydet": sayfayı Speed Dial'a ekler
+
+CAPRI RESEARCH (Ayarlar > Araştırma)
+• "... hakkında araştırma yap" ya da "...'i incele": sen işine devam ederken birkaç siteyi okur (tarayıcısı açıksa kendi gizli görünümlerinde, sekmelerinin ve geçmişinin dışında)
+• Güvenli arama her zaman açık, yetişkin ya da tehlikeli konuları araştırmaz
+• "en iyi ... hangisi?" en iyi seçenekler için, ya da "... için en iyi site hangisi?"
+• "... doğru mu kontrol et" ya da "... olduğu doğru mu?"
+• "sekmelerimi karşılaştır", "bunlardan hangisini almalıyım?" ya da "neler açık?"
+• Noted'a bir soru, ekran görüntüsü ya da dosya koy, sonra "son notumu çöz" de
+• "bu sayfayı takip et" ya da "fiyat düşünce haber ver": her 20 dakikada bir bakar
+• "bu formu ... ile doldur": asla şifre ya da kart bilgisi girmez, göndermeden önce sorar
+• Bitince sorar: açayım mı, notlarına ekleyeyim mi, ikisi de mi?
+• "araştırmamı aç" ya da "araştırmamı notlarıma ekle": en son bulduğu şey için
+
+NOTLAR
+• "notlarıma ekle ...", "bunu not al", "şunu yaz"
+• "ekran görüntüsü al ve notlarıma koy"
+• "bu sayfayı özetle ve notlarıma ekle"
+
+ALIŞVERİŞ
+• "bunu daha ucuza bul" ya da "bu site için indirim kodu var mı?"
+• "bana bir Roblox oyunu bul" (ya da Steam, itch.io, ne olursa)
+
+MESAJLAR (Ayarlar > Discord, sen açana kadar kapalı)
+• "yeni Discord mesajı var mı?": kimin yazdığını söyler, evet dersen okur ve senin yerine cevap verebilir
+• "Discord'da Alex'e ... yaz": yazar ve göndermeden önce sorar
+• Senin evetin olmadan hiçbir şey göndermez
+
+OYUNLAR
+• "hadi snake oynayalım", "wiki race oyna", "bana bilgi yarışması yap"
+• Wiki race'te HELP'e bas ya da "bana ipucu ver" de; Oyunlar sayfasında Easy, Hard ya da Challenging seç
+• Oyunlar, istatistikler ve başarımlar kenar çubuğunda, Free Games This Week ise Oyunlar sayfasında
+• Lider tabloları: haftalık ilk 100'e katılmak için bir isim ekle; herkes her pazartesi 0'dan başlar
+• Tüm zamanların istatistikleri sadece senin için: asla sıfırlanmaz ve asla gönderilmez
+• Oyunlar sayfasının üstünde öne çıkan kutular (Ayarlar'dan kapatılabilir)
+
+TARAYICIDA
+• Bir metni seçip sağ tıkla: Ask Capri about this ya da Let Capri research this
+• Değişen bir sekmeye dön, kaçırdıklarını anlatsın
+• ≡ menüsünde notlara ekran görüntüsü, siteler için karanlık mod ve açılır video var
+• Bir sekmeye sağ tıklayıp Add to bookmarks seç; sıralamak için sekmeleri sürükle
+• Geçmişte arama kutusu var: son 7 ya da 30 günü sil, ya da bir sayfaya sağ tıklayıp sil
+• Uzantılar: Chrome Web Mağazası'nı aç ve Add to Capri Browser'a bas, ya da .zip ve .crx dosyaları ekle
+• ≡ menüsü > Useful information'da hoş geldin ipuçları, ayrıca Report a bug ve Suggest an idea var
+
+AYARLARDA
+• Capri özellikleri: birlikte izlerken tepkiler, kontrolü alma animasyonu ve fareyi hareket ettirme
+• Araştırma: ne kadar derin aradığı, aramadan önce sorma, sayfaları takip etme, form doldurma
+• Video oynatıcı: reklamları, girişleri ve özetleri atlamayı teklif etme (önce sorar), ve kullandığı anime ve video siteleri
+• Görünüm: 20 tema ve Capri tarzı sağ tık menüsü
+• Update all, sürümünle gelen her oyunu ve dili yükler
+• "Capri Browser'da yeni ne var?" en son güncelleme notları için
+%%
+≡  menü: yakınlaştır, yazdır, ekran görüntüsü, çevir...
+Sekmeye sağ tık  çoğalt, sesi kapat, diğerlerini kapat
+Ctrl+T  yeni sekme
+Ctrl+Shift+N  gizli sekme
+Ctrl+W  sekmeyi kapat (ya da tekerlekle tıkla)
+Ctrl+Shift+T  kapatılan sekmeyi yeniden aç
+Ctrl+Tab  sonraki sekme
+Ctrl+Shift+PgUp / PgDn  sekmeyi sola / sağa taşı
+Ctrl+L  çubuğa yaz
+Ctrl+F  sayfada bul
+Ctrl+Artı / Ctrl+Eksi  yakınlaştır
+Ctrl+P  yazdır
+Ctrl+H  geçmiş
+Ctrl+J  indirilenler
+F5  yenile
+F11  tam ekran
+Ctrl+D  bu siteyi Speed Dial'a ekle
+Ctrl+Shift+S  Capri sayfayı özetler
+Ctrl+Shift+A  Capri'ye sayfayı sor (ya da çubuğa ?soru yaz)
+Ctrl+M  sekmenin sesini kapat ya da aç
+Alt+Sol / Alt+Sağ  geri / ileri

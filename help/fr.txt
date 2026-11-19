@@ -1,0 +1,89 @@
+Demande simplement à Capri dans le chat. Voici ce qu'elle sait faire :
+
+VIDÉOS
+• « trouve-moi une vidéo drôle » ou « trouve-moi un anime d'action » : elle en choisit une qui convient et la lance
+• « mets la plus récente » pour la dernière vidéo d'une chaîne ou d'une série
+• « pause », « avance de 30 secondes », « va à 3:20 », « lis en 1.5x », « vidéo suivante », « active les sous-titres », « mets en boucle »
+• « plein écran » ou « sors la vidéo dans une fenêtre »
+
+NAVIGATION
+• « ouvre YouTube » ou « ouvre le site de Roblox »
+• « clique sur ... », « descends », « reviens en arrière », « écris bonjour dans la recherche » puis « appuie sur entrée »
+• « va sur mon onglet YouTube », « ferme cet onglet », « ouvre un nouvel onglet », « déplace cet onglet à gauche »
+• « résume cette page », « lis-moi cette page », « traduis cette page »
+• « que dit cette page sur ... ? » ou « cherche ... » pour une réponse rapide
+• « montre-moi un truc au hasard » ou « trouve un site au hasard »
+• « garde ça » pour ajouter la page à Speed Dial
+
+CAPRI RESEARCH (Paramètres > Recherche)
+• « fais des recherches sur ... » ou « renseigne-toi sur ... » : elle lit plusieurs sites pendant que tu continues (dans des vues cachées de son navigateur quand il est ouvert, hors de tes onglets et de ton historique)
+• La recherche sécurisée est toujours active, et elle ne fait pas de recherches sur des sujets pour adultes ou dangereux
+• « quel est le meilleur ... ? » pour les meilleurs choix, ou « quel est le meilleur site pour ... ? »
+• « vérifie si ... » ou « est-ce vrai que ... ? »
+• « compare mes onglets », « lequel je devrais acheter ? » ou « qu'est-ce que j'ai d'ouvert ? »
+• Mets une question, une capture ou un fichier dans Noted, puis dis « résous ma dernière note »
+• « surveille cette page » ou « préviens-moi quand le prix baisse » : elle vérifie toutes les 20 minutes
+• « remplis ce formulaire avec ... » : jamais de mots de passe ni de carte, et elle demande avant d'envoyer
+• Quand elle a fini, elle demande : l'afficher, le mettre dans tes notes, ou les deux ?
+• « montre ma recherche » ou « ajoute ma recherche à mes notes » pour la dernière chose trouvée
+
+NOTES
+• « ajoute à mes notes ... », « note ça », « écris ça »
+• « fais une capture et mets-la dans mes notes »
+• « résume cette page et ajoute-la à mes notes »
+
+ACHATS
+• « trouve ça moins cher » ou « des codes promo pour ce site ? »
+• « trouve-moi un jeu Roblox » (ou Steam, itch.io, n'importe quoi)
+
+MESSAGES (Paramètres > Discord, désactivé jusqu'à ce que tu l'actives)
+• « des nouveaux messages Discord ? » : elle dit qui a écrit, le lit si tu dis oui, et peut répondre pour toi
+• « envoie à Alex sur Discord ... » : elle l'écrit et demande avant d'envoyer
+• Elle n'envoie jamais rien sans ton oui
+
+JEUX
+• « on joue à snake », « joue à wiki race », « fais-moi un quiz »
+• Dans une wiki race, appuie sur HELP ou dis « donne-moi un indice » ; choisis Easy, Hard ou Challenging sur la page des jeux
+• Jeux, stats et succès sont dans la barre latérale, et Free Games This Week est sur la page des jeux
+• Classements : ajoute un pseudo pour entrer dans les top 100 de la semaine ; tout le monde repart de 0 chaque lundi
+• Les stats de tous les temps sont rien qu'à toi : jamais remises à zéro ni envoyées
+• Des encadrés à la une en haut de la page des jeux (désactivables dans les Paramètres)
+
+DANS LE NAVIGATEUR
+• Sélectionne du texte et fais un clic droit : Ask Capri about this ou Let Capri research this
+• Reviens sur un onglet qui a changé et elle te résume ce que tu as raté
+• Le menu ≡ a capture vers les notes, mode sombre pour les sites et vidéo en fenêtre
+• Clic droit sur un onglet puis Add to bookmarks ; glisse les onglets pour les réordonner
+• L'historique a une recherche : efface les 7 ou 30 derniers jours, ou fais un clic droit sur une page pour l'effacer
+• Extensions : ouvre le Chrome Web Store et appuie sur Add to Capri Browser, ou ajoute des fichiers .zip et .crx
+• Menu ≡ > Useful information contient les conseils de bienvenue, plus Report a bug et Suggest an idea
+
+DANS LES PARAMÈTRES
+• Fonctionnalités de Capri : réactions pendant les vidéos, l'animation de prise de contrôle et le déplacement de la souris
+• Recherche : à quel point elle cherche, demander avant de chercher, surveiller des pages, remplir des formulaires
+• Lecteur vidéo : proposer de passer pubs, génériques et résumés (elle demande d'abord), et les sites d'anime et de vidéo qu'elle utilise
+• Apparence : 20 thèmes et le menu clic droit façon Capri
+• Update all installe chaque jeu et langue fournis avec ta version
+• « quoi de neuf dans Capri Browser ? » pour les dernières notes de mise à jour
+%%
+≡  le menu : zoom, imprimer, capture, traduire...
+Clic droit sur un onglet  dupliquer, couper le son, fermer les autres
+Ctrl+T  nouvel onglet
+Ctrl+Shift+N  onglet privé
+Ctrl+W  fermer l'onglet (ou clic molette)
+Ctrl+Shift+T  rouvrir un onglet fermé
+Ctrl+Tab  onglet suivant
+Ctrl+Shift+PgPréc / PgSuiv  déplacer l'onglet à gauche / droite
+Ctrl+L  écrire dans la barre
+Ctrl+F  chercher dans la page
+Ctrl+Plus / Ctrl+Moins  zoom
+Ctrl+P  imprimer
+Ctrl+H  historique
+Ctrl+J  téléchargements
+F5  recharger
+F11  plein écran
+Ctrl+D  ajouter ce site à Speed Dial
+Ctrl+Shift+S  Capri résume la page
+Ctrl+Shift+A  demander à Capri à propos de la page (ou tape ?question dans la barre)
+Ctrl+M  couper ou remettre le son de l'onglet
+Alt+Gauche / Alt+Droite  précédent / suivant

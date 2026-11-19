@@ -1,0 +1,89 @@
+Cukup minta ke Capri di chat. Ini yang bisa dia lakukan:
+
+VIDEO
+• "carikan video lucu" atau "carikan anime aksi": dia memilih yang cocok lalu memutarnya
+• "putar yang terbaru" untuk unggahan terakhir dari channel atau acara
+• "jeda", "lewati 30 detik", "ke 3:20", "putar 1.5x", "video berikutnya", "nyalakan subtitle", "ulangi terus"
+• "layar penuh" atau "keluarkan videonya ke jendela sendiri"
+
+MENJELAJAH
+• "buka YouTube" atau "buka situs Roblox"
+• "klik ...", "gulir ke bawah", "kembali", "ketik halo di kotak pencarian" lalu "tekan enter"
+• "pindah ke tab YouTube-ku", "tutup tab ini", "buka tab baru", "geser tab ini ke kiri"
+• "ringkas halaman ini", "bacakan halaman ini", "terjemahkan halaman ini"
+• "apa kata halaman ini tentang ...?" atau "cari ..." untuk jawaban cepat
+• "tunjukkan sesuatu yang acak" atau "cari situs acak"
+• "simpan ini" untuk menambahkan halaman ke Speed Dial
+
+CAPRI RESEARCH (Pengaturan > Riset)
+• "riset tentang ..." atau "cari tahu soal ...": dia membaca beberapa situs sementara kamu lanjut (di tampilan tersembunyi browsernya saat terbuka, di luar tab dan riwayatmu)
+• Pencarian aman selalu aktif, dan dia tidak meriset topik dewasa atau berbahaya
+• "... apa yang terbaik?" untuk pilihan teratas, atau "situs terbaik untuk ... apa?"
+• "cek fakta ..." atau "benarkah bahwa ...?"
+• "bandingkan tab-ku", "mana yang sebaiknya kubeli?" atau "apa saja yang terbuka?"
+• Taruh pertanyaan, tangkapan layar, atau file di Noted, lalu bilang "kerjakan catatan terakhirku"
+• "pantau halaman ini" atau "kabari kalau harganya turun": dia mengecek tiap 20 menit
+• "isi formulir ini dengan ...": tidak pernah mengisi kata sandi atau data kartu, dan bertanya sebelum mengirim
+• Setelah selesai dia bertanya: tampilkan, masukkan ke catatan, atau keduanya?
+• "tampilkan risetku" atau "tambahkan risetku ke catatan" untuk temuan terakhirnya
+
+CATATAN
+• "tambahkan ke catatanku ...", "catat ini", "tulis itu"
+• "ambil tangkapan layar dan taruh di catatanku"
+• "ringkas halaman ini dan tambahkan ke catatanku"
+
+BELANJA
+• "cari ini yang lebih murah" atau "ada kode kupon untuk situs ini?"
+• "carikan game Roblox" (atau Steam, itch.io, apa saja)
+
+PESAN (Pengaturan > Discord, mati sampai kamu menyalakannya)
+• "ada pesan Discord baru?": dia bilang siapa yang mengirim, membacakannya kalau kamu setuju, dan bisa membalas untukmu
+• "kirim ke Alex di Discord ...": dia mengetiknya dan bertanya sebelum mengirim
+• Dia tidak pernah mengirim apa pun tanpa persetujuanmu
+
+GAME
+• "ayo main snake", "main wiki race", "kasih aku kuis"
+• Di wiki race, tekan HELP atau bilang "kasih petunjuk"; pilih Easy, Hard, atau Challenging di halaman Game
+• Game, statistik, dan pencapaian ada di bilah samping, dan Free Games This Week ada di halaman Game
+• Papan peringkat: tambahkan nama untuk ikut top 100 mingguan; semua mulai lagi dari 0 setiap Senin
+• Statistik sepanjang masa hanya untukmu: tidak pernah direset dan tidak pernah dikirim
+• Kotak unggulan di atas halaman Game (bisa dimatikan di Pengaturan)
+
+DI BROWSER
+• Sorot teks lalu klik kanan: Ask Capri about this atau Let Capri research this
+• Kembali ke tab yang berubah dan dia akan menceritakan yang kamu lewatkan
+• Menu ≡ punya tangkapan layar ke catatan, mode gelap untuk situs, dan video pop-out
+• Klik kanan tab lalu pilih Add to bookmarks; seret tab untuk mengatur urutan
+• Riwayat punya kotak pencarian: hapus 7 hari atau 30 hari terakhir, atau klik kanan satu halaman untuk menghapusnya
+• Ekstensi: buka Chrome Web Store dan tekan Add to Capri Browser, atau tambahkan file .zip dan .crx
+• Menu ≡ > Useful information berisi tips sambutan, plus Report a bug dan Suggest an idea
+
+DI PENGATURAN
+• Fitur Capri: reaksi saat nonton bareng, animasi pengambilalihan, dan menggerakkan mouse
+• Riset: seberapa dalam dia mencari, bertanya sebelum mencari, memantau halaman, mengisi formulir
+• Pemutar video: menawarkan lewati iklan, intro, dan rekap (dia bertanya dulu), serta situs anime dan video yang dia pakai
+• Tampilan: 20 tema dan menu klik kanan bergaya Capri
+• Update all memasang setiap game dan bahasa yang ikut dengan versimu
+• "apa yang baru di Capri Browser?" untuk catatan pembaruan terbaru
+%%
+≡  menu: zoom, cetak, tangkapan layar, terjemahkan...
+Klik kanan tab  duplikat, bisukan, tutup yang lain
+Ctrl+T  tab baru
+Ctrl+Shift+N  tab pribadi
+Ctrl+W  tutup tab (atau klik tengah)
+Ctrl+Shift+T  buka lagi tab yang ditutup
+Ctrl+Tab  tab berikutnya
+Ctrl+Shift+PgUp / PgDn  geser tab ke kiri / kanan
+Ctrl+L  ketik di bilah
+Ctrl+F  cari di halaman
+Ctrl+Plus / Ctrl+Minus  zoom
+Ctrl+P  cetak
+Ctrl+H  riwayat
+Ctrl+J  unduhan
+F5  muat ulang
+F11  layar penuh
+Ctrl+D  tambahkan situs ini ke Speed Dial
+Ctrl+Shift+S  Capri meringkas halaman
+Ctrl+Shift+A  tanya Capri tentang halaman (atau ketik ?pertanyaan di bilah)
+Ctrl+M  bisukan atau bunyikan tab
+Alt+Kiri / Alt+Kanan  mundur / maju

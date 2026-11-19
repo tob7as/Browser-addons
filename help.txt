@@ -45,6 +45,9 @@ GAMES
 • "let's play snake", "play wiki race", "quiz me"
 • In a wiki race, press HELP or say "give me a hint"; pick Easy, Hard or Challenging on the Games page
 • Games, stats and achievements are on the sidebar, and Free Games This Week is on the Games page
+• Leaderboards: add a leaderboard name to join the weekly top 100s; everyone starts again from 0 every Monday
+• All-time stats are only for you: they never reset and are never sent
+• Featured boxes at the top of the Games page (can be turned off in Settings)
 
 IN THE BROWSER
 • Highlight text and right-click: Ask Capri about this, or Let Capri research this
@@ -53,6 +56,7 @@ IN THE BROWSER
 • Right-click a tab and choose Add to bookmarks; drag tabs to reorder them
 • History has a search box: delete the last 7 days, 30 days, or right-click one page to delete it
 • Extensions: open the Chrome Web Store and press Add to Capri Browser, or add .zip and .crx files
+• The ≡ menu > Useful information has the welcome tips, plus Report a bug and Suggest an idea
 
 IN SETTINGS
 • Capri features: watch-along reactions, the takeover animation, and moving the mouse

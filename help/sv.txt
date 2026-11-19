@@ -1,0 +1,89 @@
+Fråga bara Capri i chatten. Det här kan hon göra:
+
+VIDEOR
+• "hitta en rolig video" eller "hitta en actionanime": hon väljer en som passar och spelar den
+• "spela den senaste" för det senaste från en kanal eller serie
+• "pausa", "hoppa 30 sekunder", "gå till 3:20", "spela i 1.5x", "nästa video", "slå på undertexter", "spela i loop"
+• "helskärm" eller "lägg videon i ett eget fönster"
+
+SURFA
+• "öppna YouTube" eller "öppna Robloxs webbplats"
+• "klicka på ...", "scrolla ner", "gå tillbaka", "skriv hej i sökrutan" och sedan "tryck enter"
+• "byt till min YouTube-flik", "stäng den här fliken", "öppna en ny flik", "flytta den här fliken åt vänster"
+• "sammanfatta den här sidan", "läs upp den här sidan", "översätt den här sidan"
+• "vad säger sidan om ...?" eller "slå upp ..." för ett snabbt svar
+• "visa något slumpmässigt" eller "hitta en slumpmässig webbplats"
+• "spara det här" lägger till sidan i Speed Dial
+
+CAPRI RESEARCH (Inställningar > Efterforskning)
+• "undersök ..." eller "kolla upp ...": hon läser flera webbplatser medan du fortsätter (i dolda vyer i hennes webbläsare när den är öppen, utanför dina flikar och din historik)
+• Säker sökning är alltid på, och hon undersöker inte vuxna eller farliga ämnen
+• "vilken är den bästa ...?" för toppval, eller "vilken är den bästa webbplatsen för ...?"
+• "faktakolla ..." eller "stämmer det att ...?"
+• "jämför mina flikar", "vilken av de här ska jag köpa?" eller "vad har jag öppet?"
+• Lägg en fråga, en skärmbild eller en fil i Noted och säg sedan "lös min senaste anteckning"
+• "bevaka den här sidan" eller "säg till när priset sjunker": hon kollar var 20:e minut
+• "fyll i formuläret med ...": aldrig lösenord eller kortuppgifter, och hon frågar innan hon skickar
+• När hon är klar frågar hon: visa det, lägga det i dina anteckningar, eller båda?
+• "visa min efterforskning" eller "lägg till min efterforskning i anteckningarna" för det senaste hon hittade
+
+ANTECKNINGAR
+• "lägg till i mina anteckningar ...", "anteckna det här", "skriv ner det"
+• "ta en skärmbild och lägg den i mina anteckningar"
+• "sammanfatta sidan och lägg till den i mina anteckningar"
+
+SHOPPING
+• "hitta det här billigare" eller "finns det rabattkoder för den här sidan?"
+• "hitta ett Roblox-spel" (eller Steam, itch.io, vad som helst)
+
+MEDDELANDEN (Inställningar > Discord, avstängt tills du slår på det)
+• "några nya Discord-meddelanden?": hon säger vem som skrev, läser upp det på ditt ja och kan svara åt dig
+• "skicka till Alex på Discord ...": hon skriver det och frågar innan hon skickar
+• Hon skickar aldrig något utan ditt ja
+
+SPEL
+• "vi spelar snake", "spela wiki race", "förhör mig"
+• I wiki race, tryck HELP eller säg "ge mig en ledtråd"; välj Easy, Hard eller Challenging på spelsidan
+• Spel, statistik och prestationer finns i sidofältet, och Free Games This Week på spelsidan
+• Topplistor: lägg till ett namn för att vara med på veckans topp 100; alla börjar om från 0 varje måndag
+• Statistik för all tid är bara för dig: den nollställs aldrig och skickas aldrig
+• Utvalda rutor högst upp på spelsidan (kan stängas av i Inställningar)
+
+I WEBBLÄSAREN
+• Markera text och högerklicka: Ask Capri about this eller Let Capri research this
+• Kom tillbaka till en flik som ändrats så berättar hon vad du missade
+• ≡-menyn har skärmbild till anteckningar, mörkt läge för webbplatser och video i fönster
+• Högerklicka på en flik och välj Add to bookmarks; dra flikar för att ändra ordning
+• Historiken har en sökruta: radera de senaste 7 eller 30 dagarna, eller högerklicka på en sida för att radera den
+• Tillägg: öppna Chrome Web Store och tryck Add to Capri Browser, eller lägg till .zip- och .crx-filer
+• Menyn ≡ > Useful information har välkomsttipsen, plus Report a bug och Suggest an idea
+
+I INSTÄLLNINGAR
+• Capri-funktioner: reaktioner när ni tittar, övertagningsanimationen och att flytta musen
+• Efterforskning: hur noga hon letar, fråga innan hon söker, bevaka sidor, fylla i formulär
+• Videospelare: erbjud att hoppa över reklam, intron och sammanfattningar (hon frågar först), och anime- och videosidorna hon använder
+• Utseende: 20 teman och högerklicksmenyn i Capri-stil
+• Update all installerar alla spel och språk som hör till din version
+• "vad är nytt i Capri Browser?" för de senaste uppdateringarna
+%%
+≡  menyn: zoom, skriv ut, skärmbild, översätt...
+Högerklicka på en flik  duplicera, stäng av ljud, stäng andra
+Ctrl+T  ny flik
+Ctrl+Shift+N  privat flik
+Ctrl+W  stäng fliken (eller klicka med mushjulet)
+Ctrl+Shift+T  öppna en stängd flik igen
+Ctrl+Tab  nästa flik
+Ctrl+Shift+PgUp / PgDn  flytta fliken åt vänster / höger
+Ctrl+L  skriv i fältet
+Ctrl+F  sök på sidan
+Ctrl+Plus / Ctrl+Minus  zoom
+Ctrl+P  skriv ut
+Ctrl+H  historik
+Ctrl+J  hämtningar
+F5  ladda om
+F11  helskärm
+Ctrl+D  lägg till sidan i Speed Dial
+Ctrl+Shift+S  Capri sammanfattar sidan
+Ctrl+Shift+A  fråga Capri om sidan (eller skriv ?fråga i fältet)
+Ctrl+M  stäng av eller slå på flikens ljud
+Alt+Vänster / Alt+Höger  bakåt / framåt
