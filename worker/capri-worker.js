@@ -11,6 +11,9 @@
 //   POST /admin/delete   {admin, id}             deletes one, for tob7as only
 //   POST /admin/names    {admin}                 every leaderboard name, for tob7as only
 //   POST /admin/ban      {admin, name}           removes a name and its stats, and bans the name, for tob7as only
+//   POST /admin/banned   {admin}                 the banned names, for tob7as only
+//   POST /admin/unban    {admin, name}           lets a banned name be used again, for tob7as only
+//   POST /admin/reset    {admin}                 empties the leaderboards; only what players do after it counts, for tob7as only
 //
 // Safety:
 // - There are no accounts. Each install makes a random key and keeps it; only its SHA-256 is stored, and only that key
@@ -76,6 +79,8 @@ const SCHEMA = [
   'CREATE TABLE IF NOT EXISTS hidden (owner TEXT PRIMARY KEY)',
   // Names tob7as removed: nobody can take them again.
   'CREATE TABLE IF NOT EXISTS banned (namekey TEXT PRIMARY KEY)',
+  // Each player's numbers when the boards were last reset: totals count from here, and bests must beat these.
+  'CREATE TABLE IF NOT EXISTS base (owner TEXT PRIMARY KEY, hours REAL NOT NULL, videos INTEGER NOT NULL, sites INTEGER NOT NULL, survival INTEGER NOT NULL, guess INTEGER NOT NULL, wpm INTEGER NOT NULL)',
   'CREATE TABLE IF NOT EXISTS feedback (id INTEGER PRIMARY KEY AUTOINCREMENT, at TEXT NOT NULL, kind TEXT NOT NULL, title TEXT NOT NULL, text TEXT NOT NULL, version TEXT NOT NULL, windows TEXT NOT NULL)',
 ];
 let ready = false;
@@ -168,6 +173,13 @@ async function postStats(db, got, who) {
     if (!/^\d{1,8}(\.\d)?$/.test(raw) || !(n >= 0) || n > b[4] || (b[0] !== 'hours' && !Number.isInteger(n))) return no(400, 'The ' + b[2].toLowerCase() + " number doesn't look right.");
     v[b[0]] = n;
   }
+  // Since the last reset: totals count from the starting line, and a best only counts once it beats the old one.
+  const line = await db.prepare('SELECT hours, videos, sites, survival, guess, wpm FROM base WHERE owner = ?1').bind(owner).first();
+  if (line) for (const b of BOARDS) {
+    const k = b[0];
+    if (k === 'hours' || k === 'videos' || k === 'sites') v[k] = Math.max(0, Math.round((v[k] - line[k]) * 10) / 10);
+    else if (v[k] <= line[k]) v[k] = 0;
+  }
   // Numbers that time makes impossible: since the last send, watch time can only grow as fast as real time (half as fast
   // again, in case two players were counted), and videos and sites get generous per-hour limits.
   const now = Date.now();
@@ -249,6 +261,34 @@ async function adminBan(env, db, got, who) {
   out.push(db.prepare('DELETE FROM scores WHERE name = ?1').bind(got.name));
   await db.batch(out);
   return json(200, { ok: true, message: 'Removed and banned.' });
+}
+
+// The banned names (as compared: lower case, no spaces, - or _), one per line, URI-encoded.
+async function adminBanned(env, db, got, who) {
+  if (!(await isAdmin(env, db, got, who))) return new Response('Not here.\n', { status: 404 });
+  const rows = (await db.prepare('SELECT namekey FROM banned ORDER BY namekey LIMIT 1000').all()).results;
+  return new Response(rows.map((r) => encodeURIComponent(r.namekey)).join('\n'), { headers: { 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' } });
+}
+
+// Unbans a name: anyone can pick it again (the stats it had were deleted when it was banned).
+async function adminUnban(env, db, got, who) {
+  if (!(await isAdmin(env, db, got, who))) return new Response('Not here.\n', { status: 404 });
+  if (typeof got.name !== 'string' || got.name.length < 1 || got.name.length > 40) return no(400, 'Which name?');
+  await db.prepare('DELETE FROM banned WHERE namekey = ?1').bind(nameKey(got.name)).run();
+  return json(200, { ok: true, message: 'Unbanned.' });
+}
+
+// Empties the leaderboards. Everyone's numbers so far become their starting line (added to any earlier one), so their next
+// send only counts what they did after this. Names stay.
+async function adminReset(env, db, got, who) {
+  if (!(await isAdmin(env, db, got, who))) return new Response('Not here.\n', { status: 404 });
+  const rows = (await db.prepare('SELECT s.owner AS owner, s.hours + COALESCE(b.hours, 0) AS hours, s.videos + COALESCE(b.videos, 0) AS videos, s.sites + COALESCE(b.sites, 0) AS sites, '
+    + 'max(s.survival, COALESCE(b.survival, 0)) AS survival, max(s.guess, COALESCE(b.guess, 0)) AS guess, max(s.wpm, COALESCE(b.wpm, 0)) AS wpm FROM scores s LEFT JOIN base b ON b.owner = s.owner WHERE s.wk = ?1').bind(ALL).all()).results;
+  const out = rows.map((r) => db.prepare('INSERT OR REPLACE INTO base (owner, hours, videos, sites, survival, guess, wpm) VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7)')
+    .bind(r.owner, r.hours, r.videos, r.sites, r.survival, r.guess, r.wpm));
+  out.push(db.prepare('DELETE FROM scores'));
+  await db.batch(out);
+  return json(200, { ok: true, message: 'Reset. ' + rows.length + ' players start again from 0.' });
 }
 
 // Blanks what shouldn't go on a public page, and stops @mentions pinging anyone.
@@ -361,6 +401,9 @@ export default {
       if (path === '/admin/delete') return await adminDelete(env, db, got, who);
       if (path === '/admin/names') return await adminNames(env, db, got, who);
       if (path === '/admin/ban') return await adminBan(env, db, got, who);
+      if (path === '/admin/banned') return await adminBanned(env, db, got, who);
+      if (path === '/admin/unban') return await adminUnban(env, db, got, who);
+      if (path === '/admin/reset') return await adminReset(env, db, got, who);
       return no(404, 'Not here.');
     } catch (e) {
       // Only the error's own message, never anything the player sent.
