@@ -1,6 +1,6 @@
 Ask Capri in chat, for example:
 • "open YouTube" or "open the Roblox website"
-• "find me a funny video to watch"
+• "find me a funny video to watch" or "find me an action anime": she picks a title that fits
 • "full screen" or "pop the video out"
 • "skip 30 seconds", "play at 1.5x", "go to 3:20"
 • "next video", "turn on captions", "loop it"
@@ -11,12 +11,13 @@ Ask Capri in chat, for example:
 • "click ...", "scroll down", "go back"
 • "show me something random" or "find a random website"
 • "switch to my YouTube tab", "close this tab", "open a new tab"
+• "close the YouTube tab", "move this tab left"
 • "type hello in the search box" then "press enter"
 • "play the newest" for the latest upload from a channel or show
 • "find me a Roblox game" (or Steam, itch.io, anything)
 • "open my Discord in my browser and message Sam hi"
 • "message Alex on Discord saying ...": she types it and asks before sending
-• "any new Discord messages?": she reads them out and can reply for you
+• "any new Discord messages?": she says who, reads them on your yes, and can reply for you
 • "bookmark this" to save the page to Speed Dial
 • "add to my notes ...", "note this down", "write that down"
 • "research this" or "look into ...": she looks it up and saves it as a note
@@ -33,6 +34,9 @@ In the browser:
 • Free Games This Week is on the Games page
 • Settings > Update all installs every game and language that came with your version
 • Come back to a tab that changed and she catches you up
+• Drag tabs left or right to reorder them
+• Settings > Video: choose the Anime site and Video site she uses
+• Extensions: add several .zip or .crx files at once
 • Add-ons update themselves when Capri Browser gets a new version
 • History has a search box: delete the last 7 days, 30 days, or right-click one page to delete it
 • Noted keeps your notes, pictures and research, with quick undo
@@ -46,6 +50,7 @@ Ctrl+Shift+N  private tab
 Ctrl+W  close tab (or middle-click it)
 Ctrl+Shift+T  reopen a closed tab
 Ctrl+Tab  next tab
+Ctrl+Shift+PgUp / PgDn  move the tab left / right
 Ctrl+L  type in the bar
 Ctrl+F  find on the page
 Ctrl+Plus / Ctrl+Minus  zoom
