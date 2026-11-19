@@ -15,6 +15,8 @@ Ask Capri in chat, for example:
 • "play the newest" for the latest upload from a channel or show
 • "find me a Roblox game" (or Steam, itch.io, anything)
 • "open my Discord in my browser and message Sam hi"
+• "message Alex on Discord saying ...": she types it and asks before sending
+• "any new Discord messages?": she reads them out and can reply for you
 • "bookmark this" to save the page to Speed Dial
 • "add to my notes ...", "note this down", "write that down"
 • "research this" or "look into ...": she looks it up and saves it as a note
@@ -30,6 +32,12 @@ In the browser:
 • Right-click a tab and choose Add to bookmarks
 • Free Games This Week is on the Games page
 • Settings > Update all installs every game and language that came with your version
+• Come back to a tab that changed and she catches you up
+• Add-ons update themselves when Capri Browser gets a new version
+• History has a search box: delete the last 7 days, 30 days, or right-click one page to delete it
+• Noted keeps your notes, pictures and research, with quick undo
+• Settings > Discord: she can watch for new direct messages and type messages out of sight (you must be logged in to Discord)
+• In Settings: watch-along reactions and skipping ads, intros and recaps (she asks first)
 %%
 ≡  the menu: zoom, print, screenshot, translate...
 Right-click a tab  duplicate, mute, close others
