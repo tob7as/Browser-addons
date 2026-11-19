@@ -58,17 +58,16 @@ export function badName(name) {
   return null;
 }
 
-// Capri Browser's week label ("2026w47"): weeks start on Monday and week 1 holds 1 January.
-export function weekOf(date) {
-  const y = date.getUTCFullYear();
-  const jan1 = Date.UTC(y, 0, 1);
-  const day = Math.floor((Date.UTC(y, date.getUTCMonth(), date.getUTCDate()) - jan1) / 86400000);
-  const jan1Monday = (new Date(jan1).getUTCDay() + 6) % 7;
-  return y + 'w' + (Math.floor((day + jan1Monday) / 7) + 1);
+// The boards are weekly. A round starts every Monday at 00:00 UTC, or when tob7as resets the boards, and everyone's numbers
+// in it start from 0. A round's number is the week (Mondays since 1970) times 100, plus how many resets that week had.
+// Rows from older rounds (and wk 0, the old all-time rows) are tidied away.
+export const weekNo = (ms) => Math.floor((ms / 86400000 + 3) / 7);
+async function roundNow(db) {
+  const first = weekNo(Date.now()) * 100;
+  const got = await db.prepare("SELECT v FROM meta WHERE k = 'round'").first();
+  const r = got ? Number(got.v) : 0;
+  return r >= first ? r : first;
 }
-const wkNum = (w) => { const m = /^(\d{4})w(\d{1,2})$/.exec(w); return m ? +m[1] * 100 + +m[2] : 0; };
-// The boards are all time: everyone's stats live in one row each, under wk 0. Other rows are weeks from before.
-const ALL = 0;
 
 const SCHEMA = [
   'CREATE TABLE IF NOT EXISTS meta (k TEXT PRIMARY KEY, v TEXT NOT NULL)',
@@ -79,8 +78,6 @@ const SCHEMA = [
   'CREATE TABLE IF NOT EXISTS hidden (owner TEXT PRIMARY KEY)',
   // Names tob7as removed: nobody can take them again.
   'CREATE TABLE IF NOT EXISTS banned (namekey TEXT PRIMARY KEY)',
-  // Each player's numbers when the boards were last reset: totals count from here, and bests must beat these.
-  'CREATE TABLE IF NOT EXISTS base (owner TEXT PRIMARY KEY, hours REAL NOT NULL, videos INTEGER NOT NULL, sites INTEGER NOT NULL, survival INTEGER NOT NULL, guess INTEGER NOT NULL, wpm INTEGER NOT NULL)',
   'CREATE TABLE IF NOT EXISTS feedback (id INTEGER PRIMARY KEY AUTOINCREMENT, at TEXT NOT NULL, kind TEXT NOT NULL, title TEXT NOT NULL, text TEXT NOT NULL, version TEXT NOT NULL, windows TEXT NOT NULL)',
 ];
 let ready = false;
@@ -166,6 +163,10 @@ async function postStats(db, got, who) {
   if (await over(db, 'week:' + who, 120, 3600)) return no(429, SLOW);
   const bad = badName(got.name);
   if (bad) return no(400, bad + ' Pick another name and send your stats again.');
+  // The boards are weekly now: a Capri Browser that doesn't say which round its numbers are from is sending all-time totals.
+  const round = await roundNow(db);
+  if (typeof got.round !== 'number') return no(400, 'The leaderboards are weekly now. Update Capri Browser to its newest version, then send your stats again.');
+  if (got.round !== round) return no(409, 'A new round started on the boards, so everyone starts again from 0. Your stats will send for the new round.');
   const v = {};
   for (const b of BOARDS) {
     const raw = got[b[0]] === undefined ? '0' : String(got[b[0]]);
@@ -173,17 +174,10 @@ async function postStats(db, got, who) {
     if (!/^\d{1,8}(\.\d)?$/.test(raw) || !(n >= 0) || n > b[4] || (b[0] !== 'hours' && !Number.isInteger(n))) return no(400, 'The ' + b[2].toLowerCase() + " number doesn't look right.");
     v[b[0]] = n;
   }
-  // Since the last reset: totals count from the starting line, and a best only counts once it beats the old one.
-  const line = await db.prepare('SELECT hours, videos, sites, survival, guess, wpm FROM base WHERE owner = ?1').bind(owner).first();
-  if (line) for (const b of BOARDS) {
-    const k = b[0];
-    if (k === 'hours' || k === 'videos' || k === 'sites') v[k] = Math.max(0, Math.round((v[k] - line[k]) * 10) / 10);
-    else if (v[k] <= line[k]) v[k] = 0;
-  }
   // Numbers that time makes impossible: since the last send, watch time can only grow as fast as real time (half as fast
   // again, in case two players were counted), and videos and sites get generous per-hour limits.
   const now = Date.now();
-  const prev = await db.prepare('SELECT hours, videos, sites, sent FROM scores WHERE wk = ?1 AND owner = ?2').bind(ALL, owner).first();
+  const prev = await db.prepare('SELECT hours, videos, sites, sent FROM scores WHERE wk = ?1 AND owner = ?2').bind(round, owner).first();
   if (prev && prev.sent) {
     const hrs = (now - prev.sent) / 3600000;
     if (v.hours - prev.hours > hrs * 1.5 + 0.5 || v.videos - prev.videos > hrs * 30 + 30 || v.sites - prev.sites > hrs * 300 + 100) return no(400, "Your numbers went up faster than time has passed since you last sent, so I can't use them.");
@@ -196,10 +190,10 @@ async function postStats(db, got, who) {
   await db.prepare('INSERT INTO scores (wk, owner, name, hours, videos, sites, survival, guess, wpm, at, sent) VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?10) '
     + 'ON CONFLICT(wk, owner) DO UPDATE SET name = excluded.name, sent = excluded.sent, hours = max(hours, excluded.hours), videos = max(videos, excluded.videos), sites = max(sites, excluded.sites), '
     + 'survival = max(survival, excluded.survival), guess = max(guess, excluded.guess), wpm = max(wpm, excluded.wpm)')
-    .bind(ALL, owner, got.name, v.hours, v.videos, v.sites, v.survival, v.guess, v.wpm, now).run();
+    .bind(round, owner, got.name, v.hours, v.videos, v.sites, v.survival, v.guess, v.wpm, now).run();
   // Old rows follow a rename too, so a freed name doesn't stay on them as someone else's.
   await db.prepare('UPDATE scores SET name = ?1 WHERE owner = ?2').bind(got.name, owner).run();
-  return json(200, { ok: true, message: "You're on the boards as " + got.name + ', choom. Your stats update by themselves every week, or press Send my stats any time.' });
+  return json(200, { ok: true, message: "You're on the boards as " + got.name + ', choom. Your stats for this week send by themselves, or press Send my stats any time. The boards start again every Monday.' });
 }
 
 // This install's own place on each board, as the boards order them (higher first, then whoever got there first), and how
@@ -208,11 +202,12 @@ async function postRank(db, got, who) {
   const owner = await ownerOf(got.key);
   if (!owner) return no(400, "Capri Browser's key is missing. Update Capri Browser and try again.");
   if (await over(db, 'rank:' + who, 240, 3600)) return no(429, SLOW);
-  const mine = await db.prepare('SELECT hours, videos, sites, survival, guess, wpm, at FROM scores WHERE wk = ?1 AND owner = ?2').bind(ALL, owner).first();
+  const round = await roundNow(db);
+  const mine = await db.prepare('SELECT hours, videos, sites, survival, guess, wpm, at FROM scores WHERE wk = ?1 AND owner = ?2').bind(round, owner).first();
   if (!mine) return json(200, { ok: true, message: '' });
   const ahead = BOARDS.map((b, i) => 'SUM(CASE WHEN ' + b[0] + ' > ?' + (i + 3) + ' OR (' + b[0] + ' = ?' + (i + 3) + ' AND at < ?9) THEN 1 ELSE 0 END) AS ' + b[0]).join(', ');
   const n = await db.prepare('SELECT COUNT(*) AS total, ' + ahead + ' FROM scores WHERE wk = ?1 AND owner != ?2 AND owner NOT IN (SELECT owner FROM hidden)')
-    .bind(ALL, owner, ...BOARDS.map((b) => mine[b[0]]), mine.at).first();
+    .bind(round, owner, ...BOARDS.map((b) => mine[b[0]]), mine.at).first();
   // "total=312;hours=57:7.4;videos=3:120;..." (place:number), so older Capri Browsers can read it as a plain message.
   const out = ['total=' + ((n.total || 0) + 1)].concat(BOARDS.map((b) => b[0] + '=' + ((n[b[0]] || 0) + 1) + ':' + num(mine[b[0]], b)));
   return json(200, { ok: true, message: out.join(';') });
@@ -245,7 +240,7 @@ async function adminDelete(env, db, got, who) {
 // Every name, newest first: name, hours, best typing speed, when last used (ms), one per line, URI-encoded and split by tabs.
 async function adminNames(env, db, got, who) {
   if (!(await isAdmin(env, db, got, who))) return new Response('Not here.\n', { status: 404 });
-  const rows = (await db.prepare('SELECT n.name AS name, COALESCE(s.hours, 0) AS hours, COALESCE(s.wpm, 0) AS wpm, n.used AS used FROM names n LEFT JOIN scores s ON s.owner = n.owner AND s.wk = ?1 ORDER BY n.used DESC LIMIT 1000').bind(ALL).all()).results;
+  const rows = (await db.prepare('SELECT n.name AS name, COALESCE(s.hours, 0) AS hours, COALESCE(s.wpm, 0) AS wpm, n.used AS used FROM names n LEFT JOIN scores s ON s.owner = n.owner AND s.wk = ?1 ORDER BY n.used DESC LIMIT 1000').bind(await roundNow(db)).all()).results;
   const txt = rows.map((r) => [r.name, r.hours, r.wpm, r.used].map((v) => encodeURIComponent(String(v))).join('\t')).join('\n');
   return new Response(txt, { headers: { 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' } });
 }
@@ -278,17 +273,16 @@ async function adminUnban(env, db, got, who) {
   return json(200, { ok: true, message: 'Unbanned.' });
 }
 
-// Empties the leaderboards. Everyone's numbers so far become their starting line (added to any earlier one), so their next
-// send only counts what they did after this. Names stay.
+// Starts a new round now: the boards empty, and everyone's Capri Browser starts its numbers for the round from 0. Names stay.
 async function adminReset(env, db, got, who) {
   if (!(await isAdmin(env, db, got, who))) return new Response('Not here.\n', { status: 404 });
-  const rows = (await db.prepare('SELECT s.owner AS owner, s.hours + COALESCE(b.hours, 0) AS hours, s.videos + COALESCE(b.videos, 0) AS videos, s.sites + COALESCE(b.sites, 0) AS sites, '
-    + 'max(s.survival, COALESCE(b.survival, 0)) AS survival, max(s.guess, COALESCE(b.guess, 0)) AS guess, max(s.wpm, COALESCE(b.wpm, 0)) AS wpm FROM scores s LEFT JOIN base b ON b.owner = s.owner WHERE s.wk = ?1').bind(ALL).all()).results;
-  const out = rows.map((r) => db.prepare('INSERT OR REPLACE INTO base (owner, hours, videos, sites, survival, guess, wpm) VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7)')
-    .bind(r.owner, r.hours, r.videos, r.sites, r.survival, r.guess, r.wpm));
-  out.push(db.prepare('DELETE FROM scores'));
-  await db.batch(out);
-  return json(200, { ok: true, message: 'Reset. ' + rows.length + ' players start again from 0.' });
+  const round = (await roundNow(db)) + 1;
+  const players = (await db.prepare('SELECT COUNT(*) AS n FROM scores WHERE wk = ?1').bind(round - 1).first()).n;
+  await db.batch([
+    db.prepare("INSERT OR REPLACE INTO meta (k, v) VALUES ('round', ?1)").bind(String(round)),
+    db.prepare('DELETE FROM scores WHERE wk < ?1').bind(round),
+  ]);
+  return json(200, { ok: true, message: 'Reset. A new round started: ' + players + ' player' + (players === 1 ? '' : 's') + ' start again from 0.' });
 }
 
 // Blanks what shouldn't go on a public page, and stops @mentions pinging anyone.
@@ -325,11 +319,12 @@ async function postFeedback(db, got, who) {
   return json(200, { ok: true, message: 'Sent, choom. Thanks!' });
 }
 
-// The top 100 of each board, all time (LEADERBOARD.md shows the top 10). Everyone who has sent their stats is on every board, even with 0.
+// This round's top 100 of each board (LEADERBOARD.md shows the top 10). Everyone who has sent their stats is on every board, even with 0.
 async function boards(db) {
-  const out = { rows: {} };
+  const round = await roundNow(db);
+  const out = { rows: {}, round };
   for (const b of BOARDS) {
-    out.rows[b[0]] = (await db.prepare('SELECT name, ' + b[0] + ' AS v FROM scores WHERE wk = ?1 AND owner NOT IN (SELECT owner FROM hidden) ORDER BY ' + b[0] + ' DESC, at ASC LIMIT 100').bind(ALL).all()).results;
+    out.rows[b[0]] = (await db.prepare('SELECT name, ' + b[0] + ' AS v FROM scores WHERE wk = ?1 AND owner NOT IN (SELECT owner FROM hidden) ORDER BY ' + b[0] + ' DESC, at ASC LIMIT 100').bind(round).all()).results;
   }
   return out;
 }
@@ -338,14 +333,14 @@ const num = (v, b) => (b[0] === 'hours' ? Number(v).toFixed(1) : String(v));
 
 export function boardTxt(d) {
   let txt = '# Capri Browser leaderboards, made by the Capri Browser worker. Only leaderboard names and numbers.\n'
-    + 'updated\t' + new Date().toISOString().slice(0, 16) + 'Z\n';
+    + 'updated\t' + new Date().toISOString().slice(0, 16) + 'Z\n' + 'round\t' + d.round + '\n';
   for (const b of BOARDS) for (const p of d.rows[b[0]]) txt += 'row\t' + b[0] + '\t' + p.name + '\t' + num(p.v, b) + '\n';
   return txt;
 }
 
 export function boardMd(d) {
   const show = (v, b) => num(v, b) + b[3];
-  let md = "# Capri Browser leaderboards\n\nTop 10s from [Capri Browser](README.md), all time. Everyone's stats update by themselves every week, or when they press **Send my stats**.\n\n"
+  let md = "# Capri Browser leaderboards\n\nThis week's top 10s from [Capri Browser](README.md). The boards start again every Monday at 00:00 UTC.\n\n"
     + 'To join, open **Games** in Capri Browser, add a leaderboard name and press **Send my stats**. No account needed. Only your leaderboard name and your numbers show here.\n';
   for (const b of BOARDS) {
     const rows = d.rows[b[0]].slice(0, 10);
@@ -362,9 +357,8 @@ export function boardMd(d) {
 export async function tidy(db) {
   await setUp(db);
   const now = Date.now();
-  const yearAgo = wkNum(weekOf(new Date(now - 365 * 86400000)));
   await db.batch([
-    db.prepare('DELETE FROM scores WHERE wk > 0 AND wk < ?1').bind(yearAgo),
+    db.prepare('DELETE FROM scores WHERE wk < ?1').bind(await roundNow(db)),
     db.prepare('DELETE FROM feedback WHERE at < ?1').bind(new Date(now - 182 * 86400000).toISOString().slice(0, 16).replace('T', ' ')),
     db.prepare('DELETE FROM names WHERE used < ?1').bind(now - 365 * 86400000),
     db.prepare('DELETE FROM hits WHERE until < ?1').bind(Math.floor(now / 1000)),

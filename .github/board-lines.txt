@@ -13,3 +13,4 @@ _Nobody yet this week\. Be the first!_
 ## Last week's champions \([0-9]{4}w[0-9]{1,2}\)
 - \*\*(Most hours watched|Most videos finished|Most sites visited|Best survival run|Best Guess the Site run|Best typing speed):\*\* [A-Za-z0-9][A-Za-z0-9 _-]{1,14}[A-Za-z0-9] \([0-9]{1,8}(\.[0-9])?(h| words| WPM)?\)
 
+This week's top 10s from \[Capri Browser\]\(README\.md\)\. The boards start again every Monday at 00:00 UTC\.

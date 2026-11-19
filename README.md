@@ -13,7 +13,7 @@ Capri Browser only downloads files from the exact version of this repo it was bu
 
 ## Leaderboards
 
-[LEADERBOARD.md](LEADERBOARD.md) has the all-time top 10s for hours watched, videos finished, sites visited, survival, Guess the Site and typing speed. In Capri Browser each board shows the top 100, and you also see your own place on every board.
+[LEADERBOARD.md](LEADERBOARD.md) has this week's top 10s for hours watched, videos finished, sites visited, survival, Guess the Site and typing speed. The boards start again from 0 every Monday at 00:00 UTC. In Capri Browser each board shows the top 100, and you also see your own place on every board.
 
 To join, open **Games**, add a leaderboard name and press **Send my stats**. Your stats then update by themselves every week. No account needed: only your leaderboard name and those six numbers are sent, to Capri Browser's own server ([worker/](worker)).
 
