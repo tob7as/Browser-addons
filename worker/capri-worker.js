@@ -9,6 +9,8 @@
 //   POST /feedback   {kind, title, text, windows, version, key} saves a bug or idea privately for tob7as to read
 //   POST /admin/feedback {admin}                 the bugs and ideas, for tob7as only (needs the ADMIN_KEY secret)
 //   POST /admin/delete   {admin, id}             deletes one, for tob7as only
+//   POST /admin/names    {admin}                 every leaderboard name, for tob7as only
+//   POST /admin/ban      {admin, name}           removes a name and its stats, and bans the name, for tob7as only
 //
 // Safety:
 // - There are no accounts. Each install makes a random key and keeps it; only its SHA-256 is stored, and only that key
@@ -33,8 +35,10 @@ const BOARDS = [
 ];
 
 // Same lists as Capri Browser's BadName and .github/leaderboard.js.
-const RUDE_BITS = ['fuck', 'fuk', 'fack', 'fcker', 'phuck', 'shit', 'cunt', 'bitch', 'nigg', 'niga', 'nigr', 'fag', 'retard', 'whore', 'slut', 'pussy', 'penis', 'vagina', 'porn', 'nazi', 'hitler', 'kkk', 'twat', 'wanker', 'jizz', 'killyourself', 'tranny', 'molest', 'pedo', 'bastard', 'asshole', 'dildo', 'boob', 'titty', 'horny', 'nude', 'naked', 'admin', 'moderator', 'official'];
-const RUDE_WORDS = ['sex', 'rape', 'cock', 'dick', 'cum', 'anal', 'tits', 'spic', 'chink', 'kike', 'coon', 'paki', 'gook', 'dyke', 'isis', 'kys', 'rapist', 'wank', 'ass', 'arse', 'hoe', 'capri', 'tobtas', 'lachy', 'staff', 'system', 'null', 'everyone', 'anthropic'];
+const RUDE_BITS = ['fuck', 'fuk', 'fck', 'fcuk', 'fack', 'fcker', 'phuck', 'shit', 'cunt', 'bitch', 'biatch', 'nigg', 'niga', 'nigr', 'negro', 'fag', 'retard', 'spastic', 'whore', 'slut', 'skank', 'pussy', 'penis', 'vagin', 'porn', 'nazi', 'hitler', 'heil', 'kkk', 'twat', 'wank', 'jizz', 'killyourself', 'killurself', 'suicide', 'tranny', 'molest', 'pedo', 'paedo', 'bastard', 'asshole', 'arsehole', 'dumbass', 'jackass', 'asshat', 'asswipe', 'dildo', 'vibrator', 'buttplug', 'boob', 'titty', 'titties', 'tits', 'nipple', 'horny', 'nude', 'naked', 'cock', 'dick', 'sex', 'raper', 'sexx', 'sexual', 'sexting', 'cumshot', 'cumming', 'semen', 'sperm', 'orgasm', 'orgy', 'blowjob', 'handjob', 'rimjob', 'boner', 'erection', 'hentai', 'milf', 'xxx', 'nsfw', 'onlyfans', 'rapist', 'raping', 'raped', 'chink', 'kike', 'dyke', 'piss', 'prick', 'bollock', 'bellend', 'knob', 'cocaine', 'heroin', 'admin', 'moderat', 'official'];
+const RUDE_WORDS = ['sex', 'rape', 'cum', 'anal', 'anus', 'ass', 'arse', 'hoe', 'thot', 'shag', 'spic', 'coon', 'paki', 'gook', 'isis', 'kys', 'kms', 'meth', 'capri', 'tobtas', 'lachy', 'staff', 'system', 'null', 'everyone', 'anthropic'];
+// Real words that only look rude, taken out before the check (Sussex, Scunthorpe, peacock, torpedo...).
+const ALLOWED = ['essex', 'sussex', 'wessex', 'middlesex', 'scunthorpe', 'penistone', 'peacock', 'hancock', 'woodcock', 'babcock', 'hitchcock', 'cockatoo', 'cockatiel', 'cockpit', 'cockney', 'cockroach', 'shuttlecock', 'dickens', 'dickinson', 'dickson', 'torpedo', 'speedo', 'pedometer', 'knobbly', 'therapist', 'scraper', 'scrapper', 'draper', 'grapes'];
 
 export const nameKey = (n) => n.toLowerCase().replace(/[ _-]/g, '');
 
@@ -42,10 +46,10 @@ export function badName(name) {
   if (typeof name !== 'string' || !/^[A-Za-z0-9][A-Za-z0-9 _-]{1,14}[A-Za-z0-9]$/.test(name) || name.includes('  ')) return 'Names are 3 to 16 letters or numbers (spaces, - and _ in the middle are fine).';
   const leet = { '0': 'o', '1': 'i', '3': 'e', '4': 'a', '5': 's', '7': 't', '8': 'b', '9': 'g' };
   const plain = name.replace(/[_-]/g, ' ').replace(/([a-z])([A-Z])/g, '$1 $2').toLowerCase().split('').map((c) => leet[c] || c).filter((c) => /[a-z ]/.test(c)).join('');
-  const joined = plain.replace(/ /g, '');
   const squash = (w) => w.replace(/(.)\1+/g, '$1');
-  const squashed = squash(joined);
-  if (RUDE_BITS.some((b) => squashed.includes(b) || joined.includes(b))) return "That name isn't allowed on the board.";
+  const joined = plain.replace(/ /g, ''), squashed = squash(joined);
+  const allow = (w) => ALLOWED.reduce((t, a) => t.split(a).join('').split(squash(a)).join(''), w);
+  if (RUDE_BITS.some((b) => allow(squashed).includes(b) || allow(joined).includes(b))) return "That name isn't allowed on the board.";
   const words = plain.split(' ').filter(Boolean).concat([joined, squashed]);
   if (words.some((w) => RUDE_WORDS.some((b) => w === b || squash(w) === b || w === b + 's'))) return "That name isn't allowed on the board.";
   return null;
@@ -70,6 +74,8 @@ const SCHEMA = [
   'CREATE TABLE IF NOT EXISTS hits (k TEXT PRIMARY KEY, n INTEGER NOT NULL, until INTEGER NOT NULL)',
   // Players kept off the boards (owner hashes).
   'CREATE TABLE IF NOT EXISTS hidden (owner TEXT PRIMARY KEY)',
+  // Names tob7as removed: nobody can take them again.
+  'CREATE TABLE IF NOT EXISTS banned (namekey TEXT PRIMARY KEY)',
   'CREATE TABLE IF NOT EXISTS feedback (id INTEGER PRIMARY KEY AUTOINCREMENT, at TEXT NOT NULL, kind TEXT NOT NULL, title TEXT NOT NULL, text TEXT NOT NULL, version TEXT NOT NULL, windows TEXT NOT NULL)',
 ];
 let ready = false;
@@ -125,6 +131,7 @@ const NAME_KEPT_MS = 56 * 86400000;
 // Claims name for owner. Returns why not, or null.
 async function claim(db, name, owner) {
   const key = nameKey(name), now = Date.now();
+  if (await db.prepare('SELECT 1 AS b FROM banned WHERE namekey = ?1').bind(key).first()) return "That name isn't allowed on the board.";
   const had = await db.prepare('SELECT owner, name, used FROM names WHERE namekey = ?1').bind(key).first();
   if (had && had.owner !== owner && had.used > now - NAME_KEPT_MS) return 'Someone already has the name ' + had.name + '. Pick another, choom.';
   // One name per install: a new one frees the old one.
@@ -143,7 +150,9 @@ async function postName(db, got, who) {
   const bad = badName(got.name);
   if (bad) return no(400, bad);
   const why = await claim(db, got.name, owner);
-  return why ? no(409, why) : json(200, { ok: true, name: got.name });
+  if (why) return no(409, why);
+  await db.prepare('UPDATE scores SET name = ?1 WHERE owner = ?2').bind(got.name, owner).run();
+  return json(200, { ok: true, name: got.name });
 }
 
 async function postStats(db, got, who) {
@@ -219,6 +228,27 @@ async function adminDelete(env, db, got, who) {
   if (!Number.isInteger(id) || id < 1) return no(400, 'Which one?');
   await db.prepare('DELETE FROM feedback WHERE id = ?1').bind(id).run();
   return json(200, { ok: true, message: 'Deleted.' });
+}
+
+// Every name, newest first: name, hours, best typing speed, when last used (ms), one per line, URI-encoded and split by tabs.
+async function adminNames(env, db, got, who) {
+  if (!(await isAdmin(env, db, got, who))) return new Response('Not here.\n', { status: 404 });
+  const rows = (await db.prepare('SELECT n.name AS name, COALESCE(s.hours, 0) AS hours, COALESCE(s.wpm, 0) AS wpm, n.used AS used FROM names n LEFT JOIN scores s ON s.owner = n.owner AND s.wk = ?1 ORDER BY n.used DESC LIMIT 1000').bind(ALL).all()).results;
+  const txt = rows.map((r) => [r.name, r.hours, r.wpm, r.used].map((v) => encodeURIComponent(String(v))).join('\t')).join('\n');
+  return new Response(txt, { headers: { 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' } });
+}
+
+// Removes a name: its owner's stats and the name go, and the name is banned so nobody can take it again.
+async function adminBan(env, db, got, who) {
+  if (!(await isAdmin(env, db, got, who))) return new Response('Not here.\n', { status: 404 });
+  if (typeof got.name !== 'string' || got.name.length < 1 || got.name.length > 40) return no(400, 'Which name?');
+  const key = nameKey(got.name);
+  const had = await db.prepare('SELECT owner FROM names WHERE namekey = ?1').bind(key).first();
+  const out = [db.prepare('INSERT OR IGNORE INTO banned (namekey) VALUES (?1)').bind(key), db.prepare('DELETE FROM names WHERE namekey = ?1').bind(key)];
+  if (had) out.push(db.prepare('DELETE FROM scores WHERE owner = ?1').bind(had.owner));
+  out.push(db.prepare('DELETE FROM scores WHERE name = ?1').bind(got.name));
+  await db.batch(out);
+  return json(200, { ok: true, message: 'Removed and banned.' });
 }
 
 // Blanks what shouldn't go on a public page, and stops @mentions pinging anyone.
@@ -329,6 +359,8 @@ export default {
       if (path === '/feedback') return await postFeedback(db, got, who);
       if (path === '/admin/feedback') return await adminFeedback(env, db, got, who);
       if (path === '/admin/delete') return await adminDelete(env, db, got, who);
+      if (path === '/admin/names') return await adminNames(env, db, got, who);
+      if (path === '/admin/ban') return await adminBan(env, db, got, who);
       return no(404, 'Not here.');
     } catch (e) {
       // Only the error's own message, never anything the player sent.
