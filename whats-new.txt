@@ -3,7 +3,7 @@ Capri Browser 2.0 (needs Capri 0.9.4 or newer)
 • She can watch a page and tell you when the price drops or it changes, and fill in forms with what you tell her (never passwords or card details), asking before she sends.
 • The right-click menu now looks like Capri, and she understands more ways to say yes and no, in other languages too.
 • Discord message reader (Settings > Discord, off until you turn it on): signed in to Discord in Capri Browser, Capri says who messaged you and reads it out only if you say yes. She repeats your reply word for word and sends it only on another yes.
-• Leaderboards: weekly top 10s for hours watched, videos, sites, survival, Guess the Site and typing, in their own tab. Pick a name on the Games page to compete.
+• Leaderboards: weekly top 100s for hours watched, videos, sites, survival, Guess the Site and typing, starting again from 0 every Monday. Pick a name on the Games page to compete.
 • Found a bug or got an idea? Write it at the bottom of the Getting started page and send it to GitHub.
 • Smoother: tabs fade in when you switch, closing things slides away quicker, and buttons press in.
 • A much stronger ad blocker: tens of thousands of ad servers and trackers from the free EasyList and EasyPrivacy lists, ad boxes hidden on pages, invisible layers that open ads when you click are taken away, and pop-ups and sneaky redirects from clicking on nothing are stopped. Fake Download buttons get a red outline and a warning.

@@ -26,3 +26,76 @@ NASA	https://www.nasa.gov/
 Etsy	https://www.etsy.com/
 Khan Academy	https://www.khanacademy.org/
 Google Maps	https://www.google.com/maps
+X	https://x.com/
+Facebook	https://www.facebook.com/
+LinkedIn	https://www.linkedin.com/
+Quora	https://www.quora.com/
+Tumblr	https://www.tumblr.com/
+Bing	https://www.bing.com/
+DuckDuckGo	https://duckduckgo.com/
+Yahoo	https://www.yahoo.com/
+Google	https://www.google.com/
+Dropbox	https://www.dropbox.com/
+Notion	https://www.notion.so/
+Canva	https://www.canva.com/
+Figma	https://www.figma.com/
+Trello	https://trello.com/
+Slack	https://slack.com/
+Zoom	https://zoom.us/
+CNN	https://www.cnn.com/
+The Guardian	https://www.theguardian.com/
+New York Times	https://www.nytimes.com/
+Weather.com	https://weather.com/
+ESPN	https://www.espn.com/
+Walmart	https://www.walmart.com/
+Target	https://www.target.com/
+IKEA	https://www.ikea.com/
+Best Buy	https://www.bestbuy.com/
+AliExpress	https://www.aliexpress.com/
+Booking.com	https://www.booking.com/
+Airbnb	https://www.airbnb.com/
+Tripadvisor	https://www.tripadvisor.com/
+Uber	https://www.uber.com/
+PayPal	https://www.paypal.com/
+Disney+	https://www.disneyplus.com/
+Prime Video	https://www.primevideo.com/
+Hulu	https://www.hulu.com/
+SoundCloud	https://soundcloud.com/
+Apple Music	https://music.apple.com/
+Shazam	https://www.shazam.com/
+Genius	https://genius.com/
+Vimeo	https://vimeo.com/
+Kick	https://kick.com/
+Fandom	https://www.fandom.com/
+Goodreads	https://www.goodreads.com/
+Medium	https://medium.com/
+Coursera	https://www.coursera.org/
+Scratch	https://scratch.mit.edu/
+Codecademy	https://www.codecademy.com/
+W3Schools	https://www.w3schools.com/
+MDN	https://developer.mozilla.org/
+Python	https://www.python.org/
+npm	https://www.npmjs.com/
+Google Translate	https://translate.google.com/
+Wolfram Alpha	https://www.wolframalpha.com/
+Desmos	https://www.desmos.com/calculator
+Chess.com	https://www.chess.com/
+Lichess	https://lichess.org/
+Nintendo	https://www.nintendo.com/
+PlayStation	https://www.playstation.com/
+Xbox	https://www.xbox.com/
+itch.io	https://itch.io/
+Speedrun.com	https://www.speedrun.com/
+Fortnite	https://www.fortnite.com/
+Mozilla	https://www.mozilla.org/
+OpenStreetMap	https://www.openstreetmap.org/
+National Geographic	https://www.nationalgeographic.com/
+Lego	https://www.lego.com/
+Nike	https://www.nike.com/
+Adidas	https://www.adidas.com/
+Samsung	https://www.samsung.com/
+Tesla	https://www.tesla.com/
+Archive.org	https://archive.org/
+Wiktionary	https://en.wiktionary.org/wiki/Wiktionary:Main_Page
+Imgur	https://imgur.com/
+Giphy	https://giphy.com/
