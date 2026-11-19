@@ -1,4 +1,7 @@
 # Capri Browser leaderboards
+Top 10s from \[Capri Browser\]\(README\.md\), all time\. Everyone's stats update by themselves every week, or when they press \*\*Send my stats\*\*\.
+To join, open \*\*Games\*\* in Capri Browser, add a leaderboard name and press \*\*Send my stats\*\*\. No account needed\. Only your leaderboard name and your numbers show here\.
+_Nobody yet\. Be the first!_
 Weekly top 10s from \[Capri Browser\]\(README\.md\)\. They start fresh every Monday at 00:00 UTC\.
 To compete, open \*\*Games\*\* in Capri Browser, add a leaderboard name and press \*\*Send my week\*\*\. No account needed\. Only your leaderboard name and your numbers show here\.
 \*\*This week:\*\* [0-9]{4}w[0-9]{1,2}
@@ -6,7 +9,7 @@ To compete, open \*\*Games\*\* in Capri Browser, add a leaderboard name and pres
 _Nobody yet this week\. Be the first!_
 \| # \| Name \| (Hours watched|Videos finished|Sites visited|Best survival run|Best guess the site run|Best typing speed) \|
 \| ---: \| --- \| ---: \|
-\| [0-9]{1,2} \| [A-Za-z0-9][A-Za-z0-9 _-]{1,14}[A-Za-z0-9] \| [0-9]{1,5}(\.[0-9])?(h| words| WPM)? \|
+\| [0-9]{1,2} \| [A-Za-z0-9][A-Za-z0-9 _-]{1,14}[A-Za-z0-9] \| [0-9]{1,8}(\.[0-9])?(h| words| WPM)? \|
 ## Last week's champions \([0-9]{4}w[0-9]{1,2}\)
-- \*\*(Most hours watched|Most videos finished|Most sites visited|Best survival run|Best Guess the Site run|Best typing speed):\*\* [A-Za-z0-9][A-Za-z0-9 _-]{1,14}[A-Za-z0-9] \([0-9]{1,5}(\.[0-9])?(h| words| WPM)?\)
+- \*\*(Most hours watched|Most videos finished|Most sites visited|Best survival run|Best Guess the Site run|Best typing speed):\*\* [A-Za-z0-9][A-Za-z0-9 _-]{1,14}[A-Za-z0-9] \([0-9]{1,8}(\.[0-9])?(h| words| WPM)?\)
 

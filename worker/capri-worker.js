@@ -1,9 +1,10 @@
 // Capri Browser's leaderboards and bug/idea box, run as a Cloudflare Worker, so nobody needs a GitHub account.
 //
-//   GET  /board.txt  this week's boards for the Leaderboards tab (only leaderboard names and numbers)
+//   GET  /board.txt  the boards for the Leaderboards tab (only leaderboard names and numbers)
 //   GET  /board.md   the same as LEADERBOARD.md, which a GitHub Action copies into the repo
 //   POST /name       {name, key}                   claims a leaderboard name for this install
-//   POST /week       {name, key, week, hours, ...} puts this install's week on the boards
+//   POST /stats      {name, key, hours, ...}       puts this install's stats (all time) on the boards
+//   POST /week       the same, from Capri Browsers that still send a week (its numbers only ever raise yours)
 //   POST /feedback   {kind, title, text, windows, version, key} saves a bug or idea privately for tob7as to read
 //
 // Safety:
@@ -19,9 +20,9 @@
 // - Bindings: DB (a D1 database). No secrets.
 
 const BOARDS = [
-  ['hours', 'Most hours watched', 'Hours watched', 'h', 168],
-  ['videos', 'Most videos finished', 'Videos finished', '', 3000],
-  ['sites', 'Most sites visited', 'Sites visited', '', 30000],
+  ['hours', 'Most hours watched', 'Hours watched', 'h', 100000],
+  ['videos', 'Most videos finished', 'Videos finished', '', 1000000],
+  ['sites', 'Most sites visited', 'Sites visited', '', 10000000],
   ['survival', 'Best survival run', 'Best survival run', ' words', 400],
   ['guess', 'Best Guess the Site run', 'Best guess the site run', '', 400],
   ['wpm', 'Best typing speed', 'Best typing speed', ' WPM', 250],
@@ -55,7 +56,8 @@ export function weekOf(date) {
   return y + 'w' + (Math.floor((day + jan1Monday) / 7) + 1);
 }
 const wkNum = (w) => { const m = /^(\d{4})w(\d{1,2})$/.exec(w); return m ? +m[1] * 100 + +m[2] : 0; };
-const wkLabel = (n) => Math.floor(n / 100) + 'w' + (n % 100);
+// The boards are all time: everyone's stats live in one row each, under wk 0. Other rows are weeks from before.
+const ALL = 0;
 
 const SCHEMA = [
   'CREATE TABLE IF NOT EXISTS meta (k TEXT PRIMARY KEY, v TEXT NOT NULL)',
@@ -140,43 +142,39 @@ async function postName(db, got, who) {
   return why ? no(409, why) : json(200, { ok: true, name: got.name });
 }
 
-async function postWeek(db, got, who) {
+async function postStats(db, got, who) {
   const owner = await ownerOf(got.key);
   if (!owner) return no(400, "Capri Browser's key is missing. Update Capri Browser and try again.");
   if (await over(db, 'week:' + who, 120, 3600)) return no(429, SLOW);
   const bad = badName(got.name);
-  if (bad) return no(400, bad + ' Pick another name and send your week again.');
-  const now = new Date();
-  const fits = [-12, -6, 0, 6, 14].map((h) => weekOf(new Date(now.getTime() + h * 3600000)));
-  if (typeof got.week !== 'string' || !fits.includes(got.week)) return no(400, "These numbers are from an earlier week, so they can't go on this week's boards.");
+  if (bad) return no(400, bad + ' Pick another name and send your stats again.');
   const v = {};
   for (const b of BOARDS) {
     const raw = got[b[0]] === undefined ? '0' : String(got[b[0]]);
     const n = Number(raw);
-    if (!/^\d{1,5}(\.\d)?$/.test(raw) || !(n >= 0) || n > b[4] || (b[0] !== 'hours' && !Number.isInteger(n))) return no(400, 'The ' + b[2].toLowerCase() + " number doesn't look right.");
+    if (!/^\d{1,8}(\.\d)?$/.test(raw) || !(n >= 0) || n > b[4] || (b[0] !== 'hours' && !Number.isInteger(n))) return no(400, 'The ' + b[2].toLowerCase() + " number doesn't look right.");
     v[b[0]] = n;
   }
-  // Numbers that time makes impossible. The week started on Monday (or 1 January), up to 14 hours earlier in time zones ahead
-  // of UTC. You can't have watched more hours than have passed, and watch time can only grow as fast as real time between
-  // sends (half as fast again, in case two players were counted). Videos and sites get generous per-hour limits.
-  const wkStart = Math.max(Date.UTC(now.getUTCFullYear(), 0, 1), Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()) - ((now.getUTCDay() + 6) % 7) * 86400000);
-  const sinceStart = (now.getTime() - wkStart) / 3600000 + 14;
-  if (v.hours > sinceStart * 1.5 + 0.5 || v.videos > sinceStart * 30 + 30 || v.sites > sinceStart * 300 + 100) return no(400, "Those numbers are more than this week has had time for, so they can't go on the board.");
-  const prev = await db.prepare('SELECT hours, sent FROM scores WHERE wk = ?1 AND owner = ?2').bind(wkNum(weekOf(now)), owner).first();
-  if (prev && prev.sent && v.hours - prev.hours > ((now.getTime() - prev.sent) / 3600000) * 1.5 + 0.5) return no(400, "Your hours went up faster than time has passed since you last sent, so I can't use them.");
+  // Numbers that time makes impossible: since the last send, watch time can only grow as fast as real time (half as fast
+  // again, in case two players were counted), and videos and sites get generous per-hour limits.
+  const now = Date.now();
+  const prev = await db.prepare('SELECT hours, videos, sites, sent FROM scores WHERE wk = ?1 AND owner = ?2').bind(ALL, owner).first();
+  if (prev && prev.sent) {
+    const hrs = (now - prev.sent) / 3600000;
+    if (v.hours - prev.hours > hrs * 1.5 + 0.5 || v.videos - prev.videos > hrs * 30 + 30 || v.sites - prev.sites > hrs * 300 + 100) return no(400, "Your numbers went up faster than time has passed since you last sent, so I can't use them.");
+  }
   // One good send every 2 minutes per install (refused ones don't count).
   if (await over(db, 'weekby:' + owner, 1, 120)) return no(429, SLOW);
   const why = await claim(db, got.name, owner);
   if (why) return no(409, why);
-  const wk = wkNum(weekOf(now));
-  // Keeps the best of each number for the week.
+  // Keeps the best of each number.
   await db.prepare('INSERT INTO scores (wk, owner, name, hours, videos, sites, survival, guess, wpm, at, sent) VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?10) '
     + 'ON CONFLICT(wk, owner) DO UPDATE SET name = excluded.name, sent = excluded.sent, hours = max(hours, excluded.hours), videos = max(videos, excluded.videos), sites = max(sites, excluded.sites), '
     + 'survival = max(survival, excluded.survival), guess = max(guess, excluded.guess), wpm = max(wpm, excluded.wpm)')
-    .bind(wk, owner, got.name, v.hours, v.videos, v.sites, v.survival, v.guess, v.wpm, Date.now()).run();
-  // Old weeks' names follow a rename too, so a freed name doesn't stay on an old board as someone else's.
+    .bind(ALL, owner, got.name, v.hours, v.videos, v.sites, v.survival, v.guess, v.wpm, now).run();
+  // Old rows follow a rename too, so a freed name doesn't stay on them as someone else's.
   await db.prepare('UPDATE scores SET name = ?1 WHERE owner = ?2').bind(got.name, owner).run();
-  return json(200, { ok: true, message: "You're on this week's boards as " + got.name + ', choom. Send your week again any time to update your numbers.' });
+  return json(200, { ok: true, message: "You're on the boards as " + got.name + ', choom. Your stats update by themselves every week, or press Send my stats any time.' });
 }
 
 // Blanks what shouldn't go on a public page, and stops @mentions pinging anyone.
@@ -213,20 +211,11 @@ async function postFeedback(db, got, who) {
   return json(200, { ok: true, message: 'Sent, choom. Thanks!' });
 }
 
-// This week's top 10s and last week's champions.
+// The top 10 of each board, all time. Everyone who has sent their stats is on every board, even with 0.
 async function boards(db) {
-  const wk = wkNum(weekOf(new Date()));
-  const out = { wk, rows: {}, last: null, champs: {} };
+  const out = { rows: {} };
   for (const b of BOARDS) {
-    out.rows[b[0]] = (await db.prepare('SELECT name, ' + b[0] + ' AS v FROM scores WHERE wk = ?1 AND ' + b[0] + ' > 0 AND owner NOT IN (SELECT owner FROM hidden) ORDER BY ' + b[0] + ' DESC, at ASC LIMIT 10').bind(wk).all()).results;
-  }
-  const last = await db.prepare('SELECT MAX(wk) AS wk FROM scores WHERE wk < ?1').bind(wk).first();
-  if (last && last.wk) {
-    out.last = last.wk;
-    for (const b of BOARDS) {
-      const c = await db.prepare('SELECT name, ' + b[0] + ' AS v FROM scores WHERE wk = ?1 AND ' + b[0] + ' > 0 AND owner NOT IN (SELECT owner FROM hidden) ORDER BY ' + b[0] + ' DESC, at ASC LIMIT 1').bind(last.wk).first();
-      if (c) out.champs[b[0]] = c;
-    }
+    out.rows[b[0]] = (await db.prepare('SELECT name, ' + b[0] + ' AS v FROM scores WHERE wk = ?1 AND owner NOT IN (SELECT owner FROM hidden) ORDER BY ' + b[0] + ' DESC, at ASC LIMIT 10').bind(ALL).all()).results;
   }
   return out;
 }
@@ -235,42 +224,33 @@ const num = (v, b) => (b[0] === 'hours' ? Number(v).toFixed(1) : String(v));
 
 export function boardTxt(d) {
   let txt = '# Capri Browser leaderboards, made by the Capri Browser worker. Only leaderboard names and numbers.\n'
-    + 'week\t' + wkLabel(d.wk) + '\nupdated\t' + new Date().toISOString().slice(0, 16) + 'Z\n';
+    + 'updated\t' + new Date().toISOString().slice(0, 16) + 'Z\n';
   for (const b of BOARDS) for (const p of d.rows[b[0]]) txt += 'row\t' + b[0] + '\t' + p.name + '\t' + num(p.v, b) + '\n';
-  if (d.last && Object.keys(d.champs).length) {
-    txt += 'lastweek\t' + wkLabel(d.last) + '\n';
-    for (const b of BOARDS) if (d.champs[b[0]]) txt += 'last\t' + b[0] + '\t' + d.champs[b[0]].name + '\t' + num(d.champs[b[0]].v, b) + '\n';
-  }
   return txt;
 }
 
 export function boardMd(d) {
   const show = (v, b) => num(v, b) + b[3];
-  let md = '# Capri Browser leaderboards\n\nWeekly top 10s from [Capri Browser](README.md). They start fresh every Monday at 00:00 UTC.\n\n'
-    + 'To compete, open **Games** in Capri Browser, add a leaderboard name and press **Send my week**. No account needed. Only your leaderboard name and your numbers show here.\n\n'
-    + '**This week:** ' + wkLabel(d.wk) + '\n';
+  let md = "# Capri Browser leaderboards\n\nTop 10s from [Capri Browser](README.md), all time. Everyone's stats update by themselves every week, or when they press **Send my stats**.\n\n"
+    + 'To join, open **Games** in Capri Browser, add a leaderboard name and press **Send my stats**. No account needed. Only your leaderboard name and your numbers show here.\n';
   for (const b of BOARDS) {
     const rows = d.rows[b[0]];
     md += '\n## ' + b[1] + '\n\n';
-    if (!rows.length) { md += '_Nobody yet this week. Be the first!_\n'; continue; }
+    if (!rows.length) { md += '_Nobody yet. Be the first!_\n'; continue; }
     md += '| # | Name | ' + b[2] + ' |\n| ---: | --- | ---: |\n';
     rows.forEach((p, i) => { md += '| ' + (i + 1) + ' | ' + p.name + ' | ' + show(p.v, b) + ' |\n'; });
-  }
-  if (d.last && Object.keys(d.champs).length) {
-    md += "\n## Last week's champions (" + wkLabel(d.last) + ')\n\n';
-    for (const b of BOARDS) if (d.champs[b[0]]) md += '- **' + b[1] + ':** ' + d.champs[b[0]].name + ' (' + show(d.champs[b[0]].v, b) + ')\n';
   }
   return md;
 }
 
 // Keeps as little as possible, for players and for us: run once a day by Cloudflare (the cron in wrangler.toml).
-// Boards older than a year, bugs and ideas older than 6 months, names unused for a year and old spam counters are deleted.
+// Weekly rows from before the boards were all time once they're a year old (never the all-time ones), bugs and ideas older than 6 months, names unused for a year and old spam counters are deleted.
 export async function tidy(db) {
   await setUp(db);
   const now = Date.now();
   const yearAgo = wkNum(weekOf(new Date(now - 365 * 86400000)));
   await db.batch([
-    db.prepare('DELETE FROM scores WHERE wk < ?1').bind(yearAgo),
+    db.prepare('DELETE FROM scores WHERE wk > 0 AND wk < ?1').bind(yearAgo),
     db.prepare('DELETE FROM feedback WHERE at < ?1').bind(new Date(now - 182 * 86400000).toISOString().slice(0, 16).replace('T', ' ')),
     db.prepare('DELETE FROM names WHERE used < ?1').bind(now - 365 * 86400000),
     db.prepare('DELETE FROM hits WHERE until < ?1').bind(Math.floor(now / 1000)),
@@ -300,7 +280,7 @@ export default {
       const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
       const who = (await sha((await salt(db)) + new Date().toISOString().slice(0, 10) + ip)).slice(0, 32);
       if (path === '/name') return await postName(db, got, who);
-      if (path === '/week') return await postWeek(db, got, who);
+      if (path === '/stats' || path === '/week') return await postStats(db, got, who);
       if (path === '/feedback') return await postFeedback(db, got, who);
       return no(404, 'Not here.');
     } catch (e) {
