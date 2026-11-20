@@ -35,6 +35,11 @@ CAPRI RESEARCH（設定 > リサーチ）
 • 「スクリーンショットを撮ってメモに入れて」
 • 「このページを要約してメモに追加して」
 
+カスタムジョブ
+• "open custom jobs"（またはサイドバー）：「movie night」のような自分だけのコマンド。リンクと、好きな言葉で書いた手順を設定できます
+• 手順には彼女のどのコマンドも使えます。"check the comments"、"ask Ready?"（あなたの「はい」を待つ）、"wait for it to load" など。ジョブには複数の名前を付けられます："movie night / film time"
+• "make a job called movie night: open youtube.com, full screen", "what jobs do I have?", "delete my movie night job"
+
 ショッピング
 • 「これをもっと安く探して」や「このサイトのクーポンコードある？」
 • 「Roblox のゲームを探して」（Steam、itch.io など何でも）

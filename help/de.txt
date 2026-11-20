@@ -35,6 +35,11 @@ NOTIZEN
 • „mach einen Screenshot und pack ihn in meine Notizen"
 • „fass diese Seite zusammen und füg sie zu meinen Notizen hinzu"
 
+EIGENE JOBS
+• "open custom jobs" (oder die Seitenleiste): deine eigenen Befehle, wie "movie night", mit einem Link und Schritten in deinen eigenen Worten
+• Ein Schritt kann jeder ihrer Befehle sein, "check the comments", "ask Ready?" (wartet auf dein Ja) oder "wait for it to load"; ein Job kann mehrere Namen haben: "movie night / film time"
+• "make a job called movie night: open youtube.com, full screen", "what jobs do I have?", "delete my movie night job"
+
 SHOPPING
 • „finde das günstiger" oder „gibt es Gutscheincodes für diese Seite?"
 • „such mir ein Roblox-Spiel" (oder Steam, itch.io, egal was)

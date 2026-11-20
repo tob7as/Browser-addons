@@ -35,6 +35,11 @@ CAPRI RESEARCH (설정 > 리서치)
 • "스크린샷 찍어서 노트에 넣어줘"
 • "이 페이지 요약해서 노트에 추가해줘"
 
+커스텀 작업
+• "open custom jobs" (또는 사이드바): "movie night" 같은 나만의 명령. 링크와 원하는 말로 쓴 단계를 넣을 수 있어요
+• 단계에는 그녀의 어떤 명령이든 쓸 수 있어요. "check the comments", "ask Ready?" (네 대답을 기다림), "wait for it to load" 등. 작업에 여러 이름을 붙일 수 있어요: "movie night / film time"
+• "make a job called movie night: open youtube.com, full screen", "what jobs do I have?", "delete my movie night job"
+
 쇼핑
 • "이거 더 싸게 찾아줘" 또는 "이 사이트 쿠폰 코드 있어?"
 • "Roblox 게임 찾아줘" (Steam, itch.io, 뭐든지)

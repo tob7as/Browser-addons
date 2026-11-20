@@ -35,6 +35,11 @@ CAPRI RESEARCH (Налаштування > Дослідження)
 • «зроби скриншот і додай у нотатки»
 • «перекажи цю сторінку й додай у нотатки»
 
+СВОЇ ЗАВДАННЯ
+• "open custom jobs" (або бічна панель): твої власні команди, як-от "movie night", з посиланням і кроками будь-якими словами
+• Кроком може бути будь-яка її команда, "check the comments", "ask Ready?" (чекає на твоє «так») або "wait for it to load"; у завдання може бути кілька назв: "movie night / film time"
+• "make a job called movie night: open youtube.com, full screen", "what jobs do I have?", "delete my movie night job"
+
 ПОКУПКИ
 • «знайди це дешевше» або «є промокоди для цього сайту?»
 • «знайди мені гру в Roblox» (або в Steam, на itch.io, будь-де)

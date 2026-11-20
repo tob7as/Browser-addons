@@ -35,6 +35,11 @@ NOTES
 • « fais une capture et mets-la dans mes notes »
 • « résume cette page et ajoute-la à mes notes »
 
+TÂCHES PERSO
+• "open custom jobs" (ou la barre latérale) : tes propres commandes, comme "movie night", avec un lien et des étapes dans tes propres mots
+• Une étape peut être n'importe laquelle de ses commandes, "check the comments", "ask Ready?" (attend ton oui) ou "wait for it to load" ; donne plusieurs noms à une tâche : "movie night / film time"
+• "make a job called movie night: open youtube.com, full screen", "what jobs do I have?", "delete my movie night job"
+
 ACHATS
 • « trouve ça moins cher » ou « des codes promo pour ce site ? »
 • « trouve-moi un jeu Roblox » (ou Steam, itch.io, n'importe quoi)

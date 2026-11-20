@@ -35,6 +35,11 @@ ANTECKNINGAR
 • "ta en skärmbild och lägg den i mina anteckningar"
 • "sammanfatta sidan och lägg till den i mina anteckningar"
 
+EGNA JOBB
+• "open custom jobs" (eller sidofältet): dina egna kommandon, som "movie night", med en länk och steg med dina egna ord
+• Ett steg kan vara vilket av hennes kommandon som helst, "check the comments", "ask Ready?" (väntar på ditt ja) eller "wait for it to load"; ge ett jobb flera namn: "movie night / film time"
+• "make a job called movie night: open youtube.com, full screen", "what jobs do I have?", "delete my movie night job"
+
 SHOPPING
 • "hitta det här billigare" eller "finns det rabattkoder för den här sidan?"
 • "hitta ett Roblox-spel" (eller Steam, itch.io, vad som helst)

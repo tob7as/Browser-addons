@@ -35,6 +35,11 @@ NOTAS
 • "tira uma captura e põe nas minhas notas"
 • "resume esta página e adiciona às minhas notas"
 
+TAREFAS PERSONALIZADAS
+• "open custom jobs" (ou a barra lateral): os teus próprios comandos, como "movie night", com um link e passos nas palavras que quiseres
+• Um passo pode ser qualquer um dos comandos dela, "check the comments", "ask Ready?" (espera pelo teu sim) ou "wait for it to load"; dá vários nomes a uma tarefa: "movie night / film time"
+• "make a job called movie night: open youtube.com, full screen", "what jobs do I have?", "delete my movie night job"
+
 COMPRAS
 • "encontra isto mais barato" ou "tem cupons para este site?"
 • "encontra um jogo de Roblox" (ou Steam, itch.io, qualquer coisa)

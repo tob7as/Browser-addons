@@ -35,6 +35,11 @@ CAPRI RESEARCH (सेटिंग्स > रिसर्च)
 • "स्क्रीनशॉट लेकर मेरे नोट्स में डालो"
 • "इस पेज का सारांश बनाकर मेरे नोट्स में जोड़ो"
 
+कस्टम जॉब
+• "open custom jobs" (या साइडबार): तुम्हारे अपने कमांड, जैसे "movie night", एक लिंक और अपने शब्दों में लिखे स्टेप के साथ
+• स्टेप उसका कोई भी कमांड हो सकता है, "check the comments", "ask Ready?" (तुम्हारी हाँ का इंतज़ार करता है) या "wait for it to load"; एक जॉब के कई नाम रख सकते हो: "movie night / film time"
+• "make a job called movie night: open youtube.com, full screen", "what jobs do I have?", "delete my movie night job"
+
 शॉपिंग
 • "इसे सस्ता ढूँढो" या "इस साइट के लिए कोई कूपन कोड है?"
 • "कोई Roblox गेम ढूँढो" (या Steam, itch.io, कुछ भी)

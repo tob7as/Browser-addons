@@ -35,6 +35,11 @@ NOTITIES
 • "maak een screenshot en zet het in mijn notities"
 • "vat deze pagina samen en zet het in mijn notities"
 
+EIGEN TAKEN
+• "open custom jobs" (of de zijbalk): je eigen commando's, zoals "movie night", met een link en stappen in je eigen woorden
+• Een stap kan elk van haar commando's zijn, "check the comments", "ask Ready?" (wacht op je ja) of "wait for it to load"; geef een taak meerdere namen: "movie night / film time"
+• "make a job called movie night: open youtube.com, full screen", "what jobs do I have?", "delete my movie night job"
+
 WINKELEN
 • "vind dit goedkoper" of "zijn er kortingscodes voor deze site?"
 • "zoek een Roblox-game voor me" (of Steam, itch.io, wat dan ook)

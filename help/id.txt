@@ -35,6 +35,11 @@ CATATAN
 • "ambil tangkapan layar dan taruh di catatanku"
 • "ringkas halaman ini dan tambahkan ke catatanku"
 
+TUGAS KUSTOM
+• "open custom jobs" (atau sidebar): perintahmu sendiri, seperti "movie night", dengan tautan dan langkah dengan kata-katamu sendiri
+• Langkah bisa berupa perintahnya yang mana saja, "check the comments", "ask Ready?" (menunggu jawaban ya darimu) atau "wait for it to load"; beri tugas beberapa nama: "movie night / film time"
+• "make a job called movie night: open youtube.com, full screen", "what jobs do I have?", "delete my movie night job"
+
 BELANJA
 • "cari ini yang lebih murah" atau "ada kode kupon untuk situs ini?"
 • "carikan game Roblox" (atau Steam, itch.io, apa saja)

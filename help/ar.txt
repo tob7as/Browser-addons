@@ -35,6 +35,11 @@ CAPRI RESEARCH (الإعدادات > البحث)
 • "التقطي صورة للشاشة وضعيها في ملاحظاتي"
 • "لخّصي هذه الصفحة وأضيفيها إلى ملاحظاتي"
 
+المهام المخصّصة
+• "open custom jobs" (أو الشريط الجانبي): أوامرك الخاصة، مثل "movie night"، مع رابط وخطوات بأي كلمات تريدها
+• يمكن أن تكون الخطوة أيًّا من أوامرها، أو "check the comments"، أو "ask Ready?" (تنتظر موافقتك) أو "wait for it to load"؛ ويمكن إعطاء المهمة عدة أسماء: "movie night / film time"
+• "make a job called movie night: open youtube.com, full screen", "what jobs do I have?", "delete my movie night job"
+
 التسوّق
 • "ابحثي عن هذا بسعر أرخص" أو "هل توجد أكواد خصم لهذا الموقع؟"
 • "ابحثي لي عن لعبة Roblox" (أو Steam أو itch.io أو أي شيء)

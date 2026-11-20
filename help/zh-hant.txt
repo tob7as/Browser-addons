@@ -35,6 +35,11 @@ CAPRI RESEARCH（設定 > 研究）
 • 「截個圖放進我的筆記」
 • 「摘要這個頁面並加到我的筆記」
 
+自訂任務
+• "open custom jobs"（或側邊欄）：你自己的指令，例如 "movie night"，可以加一個連結和用你自己的話寫的步驟
+• 步驟可以是她的任何指令、"check the comments"、"ask Ready?"（等你說好）或 "wait for it to load"；一個任務可以有幾個名字："movie night / film time"
+• "make a job called movie night: open youtube.com, full screen", "what jobs do I have?", "delete my movie night job"
+
 購物
 • 「找更便宜的」或「這個網站有優惠碼嗎？」
 • 「幫我找個 Roblox 遊戲」（或 Steam、itch.io，什麼都行）

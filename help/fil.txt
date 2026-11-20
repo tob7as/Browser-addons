@@ -35,6 +35,11 @@ NOTES
 • "mag-screenshot at ilagay sa notes ko"
 • "i-summarise ang page na ito at idagdag sa notes ko"
 
+CUSTOM JOBS
+• "open custom jobs" (o ang sidebar): sarili mong mga utos, tulad ng "movie night", may link at mga hakbang sa kahit anong salita
+• Ang hakbang ay puwedeng kahit alin sa mga utos niya, "check the comments", "ask Ready?" (hinihintay ang oo mo) o "wait for it to load"; puwedeng bigyan ng ilang pangalan ang job: "movie night / film time"
+• "make a job called movie night: open youtube.com, full screen", "what jobs do I have?", "delete my movie night job"
+
 PAMIMILI
 • "hanapan ito ng mas mura" o "may coupon code ba para sa site na ito?"
 • "hanapan mo ako ng Roblox game" (o Steam, itch.io, kahit ano)

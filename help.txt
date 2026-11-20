@@ -35,6 +35,11 @@ NOTES
 • "take a screenshot and put it in my notes"
 • "summarise this page and add it to my notes"
 
+CUSTOM JOBS
+• "open custom jobs" (or the sidebar): your own commands, like "movie night", with a link and steps in whatever words you like
+• A step can be any of her commands, "check the comments", "ask Ready?" (waits for your yes) or "wait for it to load"; give a job a few names: "movie night / film time"
+• "make a job called movie night: open youtube.com, full screen", "what jobs do I have?", "delete my movie night job"
+
 SHOPPING
 • "find this cheaper" or "any coupon codes for this site?"
 • "find me a Roblox game" (or Steam, itch.io, anything)

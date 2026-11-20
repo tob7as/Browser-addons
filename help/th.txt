@@ -35,6 +35,11 @@ CAPRI RESEARCH (การตั้งค่า > ค้นคว้า)
 • "ถ่ายภาพหน้าจอแล้วใส่ในโน้ตของฉัน"
 • "สรุปหน้านี้แล้วเพิ่มลงโน้ตของฉัน"
 
+งานที่กำหนดเอง
+• "open custom jobs" (หรือแถบด้านข้าง): คำสั่งของคุณเอง เช่น "movie night" พร้อมลิงก์และขั้นตอนเป็นคำพูดของคุณเอง
+• ขั้นตอนเป็นคำสั่งไหนของเธอก็ได้ เช่น "check the comments", "ask Ready?" (รอให้คุณตอบตกลง) หรือ "wait for it to load"; ตั้งได้หลายชื่อ: "movie night / film time"
+• "make a job called movie night: open youtube.com, full screen", "what jobs do I have?", "delete my movie night job"
+
 ช้อปปิ้ง
 • "หาอันนี้ที่ถูกกว่า" หรือ "มีโค้ดส่วนลดสำหรับเว็บนี้ไหม?"
 • "หาเกม Roblox ให้หน่อย" (หรือ Steam, itch.io อะไรก็ได้)

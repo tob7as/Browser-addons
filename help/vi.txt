@@ -35,6 +35,11 @@ GHI CHÚ
 • "chụp màn hình và đưa vào ghi chú của mình"
 • "tóm tắt trang này và thêm vào ghi chú"
 
+VIỆC TÙY CHỈNH
+• "open custom jobs" (hoặc thanh bên): lệnh của riêng bạn, như "movie night", với một liên kết và các bước bằng lời của bạn
+• Một bước có thể là bất kỳ lệnh nào của cô ấy, "check the comments", "ask Ready?" (chờ bạn đồng ý) hoặc "wait for it to load"; đặt nhiều tên cho một việc: "movie night / film time"
+• "make a job called movie night: open youtube.com, full screen", "what jobs do I have?", "delete my movie night job"
+
 MUA SẮM
 • "tìm cái này rẻ hơn" hoặc "có mã giảm giá cho trang này không?"
 • "tìm cho mình một game Roblox" (hoặc Steam, itch.io, gì cũng được)

@@ -35,6 +35,11 @@ NOTATKI
 • „zrób zrzut ekranu i dodaj go do notatek"
 • „streść tę stronę i dodaj do notatek"
 
+WŁASNE ZADANIA
+• "open custom jobs" (lub pasek boczny): twoje własne komendy, jak "movie night", z linkiem i krokami twoimi słowami
+• Krokiem może być każda jej komenda, "check the comments", "ask Ready?" (czeka na twoje tak) albo "wait for it to load"; zadanie może mieć kilka nazw: "movie night / film time"
+• "make a job called movie night: open youtube.com, full screen", "what jobs do I have?", "delete my movie night job"
+
 ZAKUPY
 • „znajdź to taniej" albo „są kody rabatowe na tę stronę?"
 • „znajdź mi grę w Roblox" (albo na Steam, itch.io, cokolwiek)

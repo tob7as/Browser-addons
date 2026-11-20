@@ -35,6 +35,11 @@ NOTLAR
 • "ekran görüntüsü al ve notlarıma koy"
 • "bu sayfayı özetle ve notlarıma ekle"
 
+ÖZEL İŞLER
+• "open custom jobs" (veya kenar çubuğu): "movie night" gibi kendi komutların; bir bağlantı ve istediğin kelimelerle adımlar
+• Bir adım onun herhangi bir komutu olabilir: "check the comments", "ask Ready?" (evetini bekler) veya "wait for it to load"; bir işe birkaç ad verebilirsin: "movie night / film time"
+• "make a job called movie night: open youtube.com, full screen", "what jobs do I have?", "delete my movie night job"
+
 ALIŞVERİŞ
 • "bunu daha ucuza bul" ya da "bu site için indirim kodu var mı?"
 • "bana bir Roblox oyunu bul" (ya da Steam, itch.io, ne olursa)

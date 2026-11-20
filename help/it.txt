@@ -35,6 +35,11 @@ NOTE
 • "fai uno screenshot e mettilo nelle mie note"
 • "riassumi questa pagina e aggiungila alle mie note"
 
+LAVORI PERSONALIZZATI
+• "open custom jobs" (o la barra laterale): i tuoi comandi, come "movie night", con un link e passaggi con le parole che vuoi
+• Un passaggio può essere uno qualsiasi dei suoi comandi, "check the comments", "ask Ready?" (aspetta il tuo sì) o "wait for it to load"; dai più nomi a un lavoro: "movie night / film time"
+• "make a job called movie night: open youtube.com, full screen", "what jobs do I have?", "delete my movie night job"
+
 ACQUISTI
 • "trovalo a meno" o "ci sono codici sconto per questo sito?"
 • "trovami un gioco di Roblox" (o Steam, itch.io, qualsiasi cosa)

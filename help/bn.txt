@@ -35,6 +35,11 @@ CAPRI RESEARCH (সেটিংস > গবেষণা)
 • "একটা স্ক্রিনশট নিয়ে আমার নোটে রাখো"
 • "এই পেজের সারাংশ করে আমার নোটে যোগ করো"
 
+কাস্টম জব
+• "open custom jobs" (বা সাইডবার): তোমার নিজের কমান্ড, যেমন "movie night", একটা লিঙ্ক আর যেকোনো শব্দে লেখা ধাপ সহ
+• একটা ধাপ তার যেকোনো কমান্ড হতে পারে, "check the comments", "ask Ready?" (তোমার হ্যাঁ-এর জন্য অপেক্ষা করে) বা "wait for it to load"; একটা জবের কয়েকটা নাম দিতে পারো: "movie night / film time"
+• "make a job called movie night: open youtube.com, full screen", "what jobs do I have?", "delete my movie night job"
+
 কেনাকাটা
 • "এটা আরও সস্তায় খোঁজো" বা "এই সাইটের কোনো কুপন কোড আছে?"
 • "একটা Roblox গেম খুঁজে দাও" (বা Steam, itch.io, যেকোনো কিছু)

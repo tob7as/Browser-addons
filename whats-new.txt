@@ -16,7 +16,7 @@ Capri Browser 2.0 (needs Capri 0.9.4 or newer)
 • "Reopen that tab" brings back the last tab you closed, and the menu has Recently closed.
 • Notes are a full notes app: make your own notebooks (Shopping, School, Game ideas...), search, and see when each note changed. Capri uses your notebooks and asks first: "Should I add it to Shopping notes, choom?"
 • "Summarise this page and add it to my notes" does both, saving the summary with the page name, link and date. Works for "find the price and put it in my Shopping notes" too.
-• Custom jobs: make your own commands with a link and steps, like "movie night". Find them in the sidebar or say "open custom jobs".
+• Custom jobs: make your own commands with a link and steps in your own words, like "movie night". Any of her commands works as a step, "check the comments" reads just that part, "ask Ready?" waits for your yes. A cooler page with step ideas to click, or just say "make a job called movie night: open youtube.com, full screen".
 • Quick answers right away: "what's 20% of 85", "what time is it in Tokyo", "5 km in miles".
 • "What did I miss?" sums up what changed on a tab you left open. "Remind me about this tonight" brings the page back later.
 • Watch-along (off until you turn it on): Capri reacts now and then while you watch.
