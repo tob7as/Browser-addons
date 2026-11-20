@@ -1,4 +1,4 @@
-Sohbette Capri'ye söylemen yeterli. İşte yapabildikleri:
+Capri'ye sohbetten kendi sözlerinle sor. İşte yapabildikleri:
 
 VİDEOLAR
 • "bana komik bir video bul" ya da "bana bir aksiyon animesi bul": uygun birini seçip oynatır
@@ -14,6 +14,8 @@ GEZİNME
 • "bu sayfa ... hakkında ne diyor?" ya da "... ara": hızlı bir cevap için
 • "bana rastgele bir şey göster" ya da "rastgele bir site bul"
 • "bunu kaydet": sayfayı Speed Dial'a ekler
+• "bana bir YouTube logosu bul" ya da "bana anime profil fotoğrafı bul": güvenli aramayla görsel sonuçları
+• "bölünmüş ekran" (ya da bir sekmeye sağ tıkla) iki sekmeyi yan yana gösterir; 20 dakikadır kullanmadığın sekmeler bellek için uyur
 
 CAPRI RESEARCH (Ayarlar > Araştırma)
 • "... hakkında araştırma yap" ya da "...'i incele": sen işine devam ederken birkaç siteyi okur (tarayıcısı açıksa kendi gizli görünümlerinde, sekmelerinin ve geçmişinin dışında)
@@ -21,8 +23,9 @@ CAPRI RESEARCH (Ayarlar > Araştırma)
 • "en iyi ... hangisi?" en iyi seçenekler için, ya da "... için en iyi site hangisi?"
 • "... doğru mu kontrol et" ya da "... olduğu doğru mu?"
 • "sekmelerimi karşılaştır", "bunlardan hangisini almalıyım?" ya da "neler açık?"
-• Noted'a bir soru, ekran görüntüsü ya da dosya koy, sonra "son notumu çöz" de
+• Noted'a bir soru, ekran görüntüsü ya da dosya koy, sonra "son notumu çöz" ya da "Okul notlarımı çöz" de (ya da bir nota sağ tıkla > Work on this)
 • "bu sayfayı takip et" ya da "fiyat düşünce haber ver": her 20 dakikada bir bakar
+• "sayfamda yeni değişiklik var mı?": takip ettiği sayfaları hemen kontrol eder
 • "bu formu ... ile doldur": asla şifre ya da kart bilgisi girmez, göndermeden önce sorar
 • Bitince sorar: açayım mı, notlarına ekleyeyim mi, ikisi de mi?
 • "araştırmamı aç" ya da "araştırmamı notlarıma ekle": en son bulduğu şey için
@@ -54,6 +57,7 @@ TARAYICIDA
 • Değişen bir sekmeye dön, kaçırdıklarını anlatsın
 • ≡ menüsünde notlara ekran görüntüsü, siteler için karanlık mod ve açılır video var
 • Bir sekmeye sağ tıklayıp Add to bookmarks seç; sıralamak için sekmeleri sürükle
+• Kontrolü bırakması için istediğin an Esc'ye bas
 • Geçmişte arama kutusu var: son 7 ya da 30 günü sil, ya da bir sayfaya sağ tıklayıp sil
 • Uzantılar: Chrome Web Mağazası'nı aç ve Add to Capri Browser'a bas, ya da .zip ve .crx dosyaları ekle
 • ≡ menüsü > Useful information'da hoş geldin ipuçları, ayrıca Report a bug ve Suggest an idea var

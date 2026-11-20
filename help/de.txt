@@ -1,4 +1,4 @@
-Frag Capri einfach im Chat. Das kann sie:
+Frag Capri einfach im Chat, mit deinen eigenen Worten. Das kann sie:
 
 VIDEOS
 • „such mir ein lustiges Video" oder „such mir einen Action-Anime": sie wählt etwas Passendes und spielt es ab
@@ -14,6 +14,8 @@ SURFEN
 • „was sagt diese Seite über ...?" oder „schlag ... nach" für eine schnelle Antwort
 • „zeig mir was Zufälliges" oder „finde eine zufällige Website"
 • „merk dir das" speichert die Seite in Speed Dial
+• „such mir ein YouTube-Logo" oder „such mir ein Anime-Profilbild": Bildergebnisse, mit SafeSearch
+• „geteilter Bildschirm" (oder Rechtsklick auf einen Tab) zeigt zwei Tabs nebeneinander; Tabs, die du 20 Minuten nicht benutzt hast, schlafen, um Speicher zu sparen
 
 CAPRI RESEARCH (Einstellungen > Recherche)
 • „recherchiere ..." oder „schau dir ... genauer an": sie liest mehrere Websites, während du weitermachst (in versteckten Ansichten ihres Browsers, wenn er offen ist, außerhalb deiner Tabs und deines Verlaufs)
@@ -21,8 +23,9 @@ CAPRI RESEARCH (Einstellungen > Recherche)
 • „was ist das beste ...?" für Top-Empfehlungen, oder „was ist die beste Website für ...?"
 • „prüf mal ..." oder „stimmt es, dass ...?"
 • „vergleich meine Tabs", „welches davon soll ich kaufen?" oder „was hab ich offen?"
-• Leg eine Frage, einen Screenshot oder eine Datei in Noted ab und sag „löse meine letzte Notiz"
+• Leg eine Frage, einen Screenshot oder eine Datei in Noted ab und sag „löse meine letzte Notiz" oder „löse meine Schule-Notizen" (oder Rechtsklick auf eine Notiz > Work on this)
 • „behalte diese Seite im Blick" oder „sag mir, wenn der Preis fällt": sie prüft alle 20 Minuten
+• „gibt es Neues auf meiner Seite?": sie prüft sofort die Seiten, die sie beobachtet
 • „füll dieses Formular aus mit ...": nie Passwörter oder Kartendaten, und sie fragt vor dem Absenden
 • Wenn sie fertig ist, fragt sie: anzeigen, in deine Notizen, oder beides?
 • „zeig meine Recherche" oder „füg meine Recherche zu meinen Notizen hinzu" für das zuletzt Gefundene
@@ -54,6 +57,7 @@ IM BROWSER
 • Komm zu einem Tab zurück, der sich geändert hat, und sie bringt dich auf den neuesten Stand
 • Das ≡-Menü hat Screenshot in Notizen, Dunkelmodus für Websites und Video im Fenster
 • Rechtsklick auf einen Tab und Add to bookmarks wählen; Tabs zum Sortieren ziehen
+• Drück jederzeit Esc, damit sie die Kontrolle abgibt
 • Der Verlauf hat eine Suche: lösche die letzten 7 oder 30 Tage, oder rechtsklicke eine Seite zum Löschen
 • Erweiterungen: öffne den Chrome Web Store und drück Add to Capri Browser, oder füge .zip- und .crx-Dateien hinzu
 • Menü ≡ > Useful information hat die Willkommenstipps, dazu Report a bug und Suggest an idea

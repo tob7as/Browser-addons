@@ -1,4 +1,4 @@
-Solo pídeselo a Capri en el chat. Esto es lo que puede hacer:
+Solo pídeselo a Capri en el chat, con tus propias palabras. Esto es lo que puede hacer:
 
 VÍDEOS
 • "búscame un vídeo divertido" o "búscame un anime de acción": elige uno que encaje y lo reproduce
@@ -14,6 +14,8 @@ NAVEGAR
 • "¿qué dice esta página sobre ...?" o "busca ..." para una respuesta rápida
 • "enséñame algo al azar" o "busca una web al azar"
 • "guarda esto" para añadir la página a Speed Dial
+• "búscame un logo de YouTube" o "búscame una foto de perfil de anime": resultados de imágenes, con búsqueda segura
+• "pantalla dividida" (o clic derecho en una pestaña) muestra dos pestañas lado a lado; las pestañas que no usas en 20 minutos se duermen para ahorrar memoria
 
 CAPRI RESEARCH (Ajustes > Investigación)
 • "investiga ..." o "infórmate sobre ...": lee varias webs mientras tú sigues a lo tuyo (en vistas ocultas de su navegador cuando está abierto, fuera de tus pestañas e historial)
@@ -21,8 +23,9 @@ CAPRI RESEARCH (Ajustes > Investigación)
 • "¿cuál es el mejor ...?" para las mejores opciones, o "¿cuál es la mejor web para ...?"
 • "comprueba si ..." o "¿es verdad que ...?"
 • "compara mis pestañas", "¿cuál de estos debería comprar?" o "¿qué tengo abierto?"
-• Pon una pregunta, una captura o un archivo en Noted y luego di "resuelve mi última nota"
+• Pon una pregunta, una captura o un archivo en Noted y luego di "resuelve mi última nota" o "resuelve mis notas de Clase" (o clic derecho en una nota > Work on this)
 • "vigila esta página" o "avísame cuando baje el precio": la revisa cada 20 minutos
+• "¿hay cambios nuevos en mi página?": revisa ahora mismo las páginas que vigila
 • "rellena este formulario con ...": nunca contraseñas ni datos de tarjeta, y pregunta antes de enviar
 • Cuando termina te pregunta: ¿lo abro, lo pongo en tus notas, o las dos cosas?
 • "abre mi investigación" o "añade mi investigación a mis notas" para lo último que encontró
@@ -54,6 +57,7 @@ EN EL NAVEGADOR
 • Vuelve a una pestaña que cambió y te pone al día
 • El menú ≡ tiene captura a notas, modo oscuro para webs y vídeo en ventana
 • Clic derecho en una pestaña y elige Add to bookmarks; arrastra las pestañas para ordenarlas
+• Pulsa Esc en cualquier momento para que deje de tomar el control
 • El historial tiene buscador: borra los últimos 7 días, 30 días, o haz clic derecho en una página para borrarla
 • Extensiones: abre la Chrome Web Store y pulsa Add to Capri Browser, o añade archivos .zip y .crx
 • Menú ≡ > Useful information tiene los consejos de bienvenida, más Report a bug y Suggest an idea

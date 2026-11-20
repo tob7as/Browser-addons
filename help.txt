@@ -1,4 +1,4 @@
-Just ask Capri in chat. Here's what she can do:
+Just ask Capri in chat, in your own words. Here's what she can do:
 
 VIDEOS
 • "find me a funny video" or "find me an action anime": she picks one that fits and plays it
@@ -14,6 +14,8 @@ BROWSING
 • "what does this page say about ..." or "look up ..." for a quick answer
 • "show me something random" or "find a random website"
 • "bookmark this" to save the page to Speed Dial
+• "find me a YouTube logo" or "find me an anime pfp": picture results, with safe search on
+• "split screen" (or right-click a tab) shows two tabs side by side; tabs you haven't used for 20 minutes snooze to save memory
 
 CAPRI RESEARCH (Settings > Research)
 • "research ..." or "look into ...": she reads several sites while you carry on (in hidden views of her browser when it's open, out of your tabs and history)
@@ -21,8 +23,9 @@ CAPRI RESEARCH (Settings > Research)
 • "what's the best ..." for top picks, or "what's the best website for ..."
 • "fact check ..." or "is it true that ..."
 • "compare my tabs", "which of these should I buy?" or "what have I got open?"
-• Put a question, a screenshot or a file in Noted, then say "work out my last note"
+• Put a question, a screenshot or a file in Noted, then say "work out my last note" or "work out my School notes" (or right-click a note > Work on this)
 • "watch this page" or "tell me when the price drops": she checks every 20 minutes
+• "any new changes on my page?": she checks the pages she's watching right now
 • "fill in this form with ...": never passwords or card details, and she asks before sending
 • When she's done she asks: bring it up, put it in your notes, or both?
 • "bring up my research" or "add my research to my notes" for the last thing she found
@@ -54,6 +57,7 @@ IN THE BROWSER
 • Come back to a tab that changed and she catches you up
 • The ≡ menu has screenshot to notes, dark mode for sites and pop-out video
 • Right-click a tab and choose Add to bookmarks; drag tabs to reorder them
+• Press Esc any time to stop her taking control
 • History has a search box: delete the last 7 days, 30 days, or right-click one page to delete it
 • Extensions: open the Chrome Web Store and press Add to Capri Browser, or add .zip and .crx files
 • The ≡ menu > Useful information has the welcome tips, plus Report a bug and Suggest an idea

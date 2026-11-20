@@ -1,4 +1,4 @@
-Fråga bara Capri i chatten. Det här kan hon göra:
+Fråga bara Capri i chatten, med dina egna ord. Det här kan hon:
 
 VIDEOR
 • "hitta en rolig video" eller "hitta en actionanime": hon väljer en som passar och spelar den
@@ -14,6 +14,8 @@ SURFA
 • "vad säger sidan om ...?" eller "slå upp ..." för ett snabbt svar
 • "visa något slumpmässigt" eller "hitta en slumpmässig webbplats"
 • "spara det här" lägger till sidan i Speed Dial
+• "hitta en YouTube-logga åt mig" eller "hitta en anime-profilbild": bildresultat, med säker sökning
+• "delad skärm" (eller högerklicka på en flik) visar två flikar sida vid sida; flikar du inte använt på 20 minuter somnar för att spara minne
 
 CAPRI RESEARCH (Inställningar > Efterforskning)
 • "undersök ..." eller "kolla upp ...": hon läser flera webbplatser medan du fortsätter (i dolda vyer i hennes webbläsare när den är öppen, utanför dina flikar och din historik)
@@ -21,8 +23,9 @@ CAPRI RESEARCH (Inställningar > Efterforskning)
 • "vilken är den bästa ...?" för toppval, eller "vilken är den bästa webbplatsen för ...?"
 • "faktakolla ..." eller "stämmer det att ...?"
 • "jämför mina flikar", "vilken av de här ska jag köpa?" eller "vad har jag öppet?"
-• Lägg en fråga, en skärmbild eller en fil i Noted och säg sedan "lös min senaste anteckning"
+• Lägg en fråga, en skärmbild eller en fil i Noted och säg "lös min senaste anteckning" eller "lös mina Skola-anteckningar" (eller högerklicka på en anteckning > Work on this)
 • "bevaka den här sidan" eller "säg till när priset sjunker": hon kollar var 20:e minut
+• "några nya ändringar på min sida?": hon kollar direkt sidorna hon bevakar
 • "fyll i formuläret med ...": aldrig lösenord eller kortuppgifter, och hon frågar innan hon skickar
 • När hon är klar frågar hon: visa det, lägga det i dina anteckningar, eller båda?
 • "visa min efterforskning" eller "lägg till min efterforskning i anteckningarna" för det senaste hon hittade
@@ -54,6 +57,7 @@ I WEBBLÄSAREN
 • Kom tillbaka till en flik som ändrats så berättar hon vad du missade
 • ≡-menyn har skärmbild till anteckningar, mörkt läge för webbplatser och video i fönster
 • Högerklicka på en flik och välj Add to bookmarks; dra flikar för att ändra ordning
+• Tryck på Esc när som helst för att få henne att sluta ta över
 • Historiken har en sökruta: radera de senaste 7 eller 30 dagarna, eller högerklicka på en sida för att radera den
 • Tillägg: öppna Chrome Web Store och tryck Add to Capri Browser, eller lägg till .zip- och .crx-filer
 • Menyn ≡ > Useful information har välkomsttipsen, plus Report a bug och Suggest an idea

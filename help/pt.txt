@@ -1,4 +1,4 @@
-É só pedir à Capri no chat. Veja o que ela consegue fazer:
+É só pedir à Capri no chat, com as suas palavras. Veja o que ela sabe fazer:
 
 VÍDEOS
 • "encontra um vídeo engraçado" ou "encontra um anime de ação": ela escolhe um que combine e põe a tocar
@@ -14,6 +14,8 @@ NAVEGAR
 • "o que esta página diz sobre ...?" ou "pesquisa ..." para uma resposta rápida
 • "me mostra algo aleatório" ou "encontra um site aleatório"
 • "guarda isto" para salvar a página no Speed Dial
+• "me encontra um logo do YouTube" ou "me encontra uma foto de perfil de anime": resultados de imagens, com pesquisa segura
+• "tela dividida" (ou clique direito numa aba) mostra duas abas lado a lado; abas que você não usa há 20 minutos adormecem para poupar memória
 
 CAPRI RESEARCH (Configurações > Pesquisa)
 • "pesquisa sobre ..." ou "investiga ...": ela lê vários sites enquanto você continua (em visualizações ocultas do navegador dela quando ele está aberto, fora das suas abas e do histórico)
@@ -21,8 +23,9 @@ CAPRI RESEARCH (Configurações > Pesquisa)
 • "qual é o melhor ...?" para as melhores opções, ou "qual é o melhor site para ...?"
 • "verifica se ..." ou "é verdade que ...?"
 • "compara as minhas abas", "qual destes devo comprar?" ou "o que eu tenho aberto?"
-• Coloque uma pergunta, uma captura ou um arquivo no Noted e diga "resolve a minha última nota"
+• Coloque uma pergunta, uma captura ou um arquivo no Noted e diga "resolve minha última nota" ou "resolve minhas notas de Escola" (ou clique direito numa nota > Work on this)
 • "vigia esta página" ou "me avisa quando o preço baixar": ela verifica a cada 20 minutos
+• "tem alguma mudança nova na minha página?": ela verifica agora as páginas que está vigiando
 • "preenche este formulário com ...": nunca senhas ou dados de cartão, e ela pergunta antes de enviar
 • Quando termina, ela pergunta: mostrar, pôr nas suas notas, ou os dois?
 • "mostra a minha pesquisa" ou "adiciona a minha pesquisa às notas" para a última coisa que ela encontrou
@@ -54,6 +57,7 @@ NO NAVEGADOR
 • Volte a uma aba que mudou e ela te conta o que você perdeu
 • O menu ≡ tem captura para as notas, modo escuro para sites e vídeo em janela
 • Clique com o botão direito numa aba e escolha Add to bookmarks; arraste as abas para reorganizar
+• Aperte Esc a qualquer momento para ela parar de assumir o controle
 • O histórico tem pesquisa: apague os últimos 7 ou 30 dias, ou clique com o botão direito numa página para apagá-la
 • Extensões: abra a Chrome Web Store e aperte Add to Capri Browser, ou adicione arquivos .zip e .crx
 • Menu ≡ > Useful information tem as dicas de boas-vindas, mais Report a bug e Suggest an idea

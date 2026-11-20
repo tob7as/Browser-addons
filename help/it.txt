@@ -1,4 +1,4 @@
-Basta chiedere a Capri in chat. Ecco cosa sa fare:
+Chiedi a Capri in chat, con parole tue. Ecco cosa sa fare:
 
 VIDEO
 • "trovami un video divertente" o "trovami un anime d'azione": ne sceglie uno adatto e lo fa partire
@@ -14,6 +14,8 @@ NAVIGARE
 • "cosa dice questa pagina su ...?" o "cerca ..." per una risposta veloce
 • "mostrami qualcosa a caso" o "trova un sito a caso"
 • "salva questo" per aggiungere la pagina a Speed Dial
+• "trovami un logo di YouTube" o "trovami una foto profilo anime": risultati di immagini, con ricerca sicura
+• "schermo diviso" (o clic destro su una scheda) mostra due schede affiancate; le schede non usate da 20 minuti vanno in pausa per risparmiare memoria
 
 CAPRI RESEARCH (Impostazioni > Ricerca)
 • "fai una ricerca su ..." o "approfondisci ...": legge diversi siti mentre tu continui (in viste nascoste del suo browser quando è aperto, fuori dalle tue schede e dalla cronologia)
@@ -21,8 +23,9 @@ CAPRI RESEARCH (Impostazioni > Ricerca)
 • "qual è il miglior ...?" per le scelte migliori, o "qual è il miglior sito per ...?"
 • "verifica se ..." o "è vero che ...?"
 • "confronta le mie schede", "quale di questi dovrei comprare?" o "cosa ho aperto?"
-• Metti una domanda, uno screenshot o un file in Noted, poi di' "risolvi la mia ultima nota"
+• Metti una domanda, uno screenshot o un file in Noted, poi di' "risolvi la mia ultima nota" o "risolvi le mie note di Scuola" (o clic destro su una nota > Work on this)
 • "tieni d'occhio questa pagina" o "avvisami quando il prezzo scende": controlla ogni 20 minuti
+• "ci sono novità sulla mia pagina?": controlla subito le pagine che sta tenendo d'occhio
 • "compila questo modulo con ...": mai password o dati della carta, e chiede prima di inviare
 • Quando ha finito chiede: lo apro, lo metto nelle tue note, o entrambi?
 • "apri la mia ricerca" o "aggiungi la mia ricerca alle note" per l'ultima cosa trovata
@@ -54,6 +57,7 @@ NEL BROWSER
 • Torna su una scheda che è cambiata e lei ti aggiorna
 • Il menu ≡ ha screenshot nelle note, modalità scura per i siti e video in finestra
 • Clic destro su una scheda e scegli Add to bookmarks; trascina le schede per riordinarle
+• Premi Esc in qualsiasi momento per farle smettere di prendere il controllo
 • La cronologia ha una ricerca: elimina gli ultimi 7 o 30 giorni, o fai clic destro su una pagina per eliminarla
 • Estensioni: apri il Chrome Web Store e premi Add to Capri Browser, o aggiungi file .zip e .crx
 • Menu ≡ > Useful information ha i consigli di benvenuto, più Report a bug e Suggest an idea

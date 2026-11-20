@@ -1,4 +1,4 @@
-Chỉ cần nhờ Capri trong khung chat. Đây là những gì cô ấy làm được:
+Chỉ cần nhờ Capri trong chat, bằng lời của bạn. Đây là những gì cô ấy làm được:
 
 VIDEO
 • "tìm cho mình một video hài" hoặc "tìm cho mình một anime hành động": cô ấy chọn một cái phù hợp và phát
@@ -14,6 +14,8 @@ DUYỆT WEB
 • "trang này nói gì về ...?" hoặc "tra ..." để có câu trả lời nhanh
 • "cho mình xem gì đó ngẫu nhiên" hoặc "tìm một trang web ngẫu nhiên"
 • "lưu cái này" để thêm trang vào Speed Dial
+• "tìm cho tôi logo YouTube" hoặc "tìm cho tôi ảnh đại diện anime": kết quả hình ảnh, có tìm kiếm an toàn
+• "chia đôi màn hình" (hoặc nhấp chuột phải vào một tab) hiện hai tab cạnh nhau; tab không dùng trong 20 phút sẽ ngủ để tiết kiệm bộ nhớ
 
 CAPRI RESEARCH (Cài đặt > Nghiên cứu)
 • "nghiên cứu về ..." hoặc "tìm hiểu kỹ ...": cô ấy đọc nhiều trang trong khi bạn làm việc khác (trong các khung ẩn của trình duyệt khi nó đang mở, ngoài các tab và lịch sử của bạn)
@@ -21,8 +23,9 @@ CAPRI RESEARCH (Cài đặt > Nghiên cứu)
 • "... nào tốt nhất?" để xem lựa chọn hàng đầu, hoặc "trang web nào tốt nhất để ...?"
 • "kiểm chứng ..." hoặc "có thật là ... không?"
 • "so sánh các tab của mình", "nên mua cái nào trong mấy cái này?" hoặc "mình đang mở gì?"
-• Đặt một câu hỏi, ảnh chụp màn hình hoặc tệp vào Noted, rồi nói "giải ghi chú mới nhất của mình"
+• Đặt câu hỏi, ảnh chụp màn hình hoặc tệp vào Noted, rồi nói "giải ghi chú mới nhất của tôi" hoặc "giải ghi chú Trường học của tôi" (hoặc nhấp chuột phải vào ghi chú > Work on this)
 • "theo dõi trang này" hoặc "báo mình khi giá giảm": cô ấy kiểm tra mỗi 20 phút
+• "trang của tôi có gì mới không?": cô ấy kiểm tra ngay các trang đang theo dõi
 • "điền biểu mẫu này với ...": không bao giờ điền mật khẩu hay thông tin thẻ, và hỏi trước khi gửi
 • Xong việc cô ấy hỏi: mở ra, đưa vào ghi chú, hay cả hai?
 • "mở nghiên cứu của mình" hoặc "thêm nghiên cứu vào ghi chú" cho thứ cô ấy tìm được gần nhất
@@ -54,6 +57,7 @@ TRONG TRÌNH DUYỆT
 • Quay lại một tab đã thay đổi và cô ấy kể bạn nghe những gì đã bỏ lỡ
 • Menu ≡ có chụp màn hình vào ghi chú, chế độ tối cho trang web và video cửa sổ nổi
 • Nhấp chuột phải vào tab và chọn Add to bookmarks; kéo tab để sắp xếp lại
+• Nhấn Esc bất cứ lúc nào để cô ấy ngừng điều khiển
 • Lịch sử có ô tìm kiếm: xóa 7 ngày, 30 ngày gần nhất, hoặc nhấp chuột phải vào một trang để xóa
 • Tiện ích: mở Chrome Web Store và nhấn Add to Capri Browser, hoặc thêm tệp .zip và .crx
 • Menu ≡ > Useful information có mẹo chào mừng, cùng Report a bug và Suggest an idea

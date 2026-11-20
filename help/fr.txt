@@ -1,4 +1,4 @@
-Demande simplement à Capri dans le chat. Voici ce qu'elle sait faire :
+Demande simplement à Capri dans le chat, avec tes propres mots. Voici ce qu'elle sait faire :
 
 VIDÉOS
 • « trouve-moi une vidéo drôle » ou « trouve-moi un anime d'action » : elle en choisit une qui convient et la lance
@@ -14,6 +14,8 @@ NAVIGATION
 • « que dit cette page sur ... ? » ou « cherche ... » pour une réponse rapide
 • « montre-moi un truc au hasard » ou « trouve un site au hasard »
 • « garde ça » pour ajouter la page à Speed Dial
+• « trouve-moi un logo YouTube » ou « trouve-moi une photo de profil anime » : des résultats d'images, avec la recherche sécurisée
+• « écran partagé » (ou clic droit sur un onglet) affiche deux onglets côte à côte ; les onglets inutilisés depuis 20 minutes se mettent en veille pour économiser la mémoire
 
 CAPRI RESEARCH (Paramètres > Recherche)
 • « fais des recherches sur ... » ou « renseigne-toi sur ... » : elle lit plusieurs sites pendant que tu continues (dans des vues cachées de son navigateur quand il est ouvert, hors de tes onglets et de ton historique)
@@ -21,8 +23,9 @@ CAPRI RESEARCH (Paramètres > Recherche)
 • « quel est le meilleur ... ? » pour les meilleurs choix, ou « quel est le meilleur site pour ... ? »
 • « vérifie si ... » ou « est-ce vrai que ... ? »
 • « compare mes onglets », « lequel je devrais acheter ? » ou « qu'est-ce que j'ai d'ouvert ? »
-• Mets une question, une capture ou un fichier dans Noted, puis dis « résous ma dernière note »
+• Mets une question, une capture ou un fichier dans Noted, puis dis « résous ma dernière note » ou « résous mes notes École » (ou clic droit sur une note > Work on this)
 • « surveille cette page » ou « préviens-moi quand le prix baisse » : elle vérifie toutes les 20 minutes
+• « du nouveau sur ma page ? » : elle vérifie tout de suite les pages qu'elle surveille
 • « remplis ce formulaire avec ... » : jamais de mots de passe ni de carte, et elle demande avant d'envoyer
 • Quand elle a fini, elle demande : l'afficher, le mettre dans tes notes, ou les deux ?
 • « montre ma recherche » ou « ajoute ma recherche à mes notes » pour la dernière chose trouvée
@@ -54,6 +57,7 @@ DANS LE NAVIGATEUR
 • Reviens sur un onglet qui a changé et elle te résume ce que tu as raté
 • Le menu ≡ a capture vers les notes, mode sombre pour les sites et vidéo en fenêtre
 • Clic droit sur un onglet puis Add to bookmarks ; glisse les onglets pour les réordonner
+• Appuie sur Échap à tout moment pour qu'elle arrête de prendre le contrôle
 • L'historique a une recherche : efface les 7 ou 30 derniers jours, ou fais un clic droit sur une page pour l'effacer
 • Extensions : ouvre le Chrome Web Store et appuie sur Add to Capri Browser, ou ajoute des fichiers .zip et .crx
 • Menu ≡ > Useful information contient les conseils de bienvenue, plus Report a bug et Suggest an idea

@@ -1,4 +1,4 @@
-Po prostu poproś Capri na czacie. Oto co potrafi:
+Po prostu poproś Capri na czacie, własnymi słowami. Oto, co potrafi:
 
 FILMY
 • „znajdź mi śmieszny filmik" albo „znajdź mi anime akcji": wybiera coś pasującego i odtwarza
@@ -14,6 +14,8 @@ PRZEGLĄDANIE
 • „co ta strona mówi o ...?" albo „wyszukaj ..." dla szybkiej odpowiedzi
 • „pokaż mi coś losowego" albo „znajdź losową stronę"
 • „zapisz to", żeby dodać stronę do Speed Dial
+• „znajdź mi logo YouTube" albo „znajdź mi zdjęcie profilowe z anime": wyniki obrazów, z bezpiecznym wyszukiwaniem
+• „podziel ekran" (albo prawy klik na karcie) pokazuje dwie karty obok siebie; karty nieużywane przez 20 minut usypiają, by oszczędzać pamięć
 
 CAPRI RESEARCH (Ustawienia > Wyszukiwanie)
 • „zbadaj ..." albo „dowiedz się o ...": czyta kilka stron, a ty robisz swoje (w ukrytych widokach swojej przeglądarki, gdy jest otwarta, poza twoimi kartami i historią)
@@ -21,8 +23,9 @@ CAPRI RESEARCH (Ustawienia > Wyszukiwanie)
 • „jaki jest najlepszy ...?" dla najlepszych propozycji albo „jaka jest najlepsza strona do ...?"
 • „sprawdź, czy ..." albo „czy to prawda, że ...?"
 • „porównaj moje karty", „które z tych kupić?" albo „co mam otwarte?"
-• Wrzuć pytanie, zrzut ekranu lub plik do Noted i powiedz „rozwiąż moją ostatnią notatkę"
+• Wrzuć pytanie, zrzut ekranu albo plik do Noted i powiedz „rozwiąż moją ostatnią notatkę" albo „rozwiąż moje notatki Szkoła" (albo prawy klik na notatce > Work on this)
 • „obserwuj tę stronę" albo „daj znać, gdy cena spadnie": sprawdza co 20 minut
+• „są jakieś nowe zmiany na mojej stronie?": od razu sprawdza strony, których pilnuje
 • „wypełnij ten formularz ...": nigdy hasła ani danych karty, i pyta przed wysłaniem
 • Gdy skończy, pyta: pokazać, dodać do notatek, czy jedno i drugie?
 • „pokaż moje wyszukiwanie" albo „dodaj moje wyszukiwanie do notatek" dla ostatniego wyniku
@@ -54,6 +57,7 @@ W PRZEGLĄDARCE
 • Wróć do karty, która się zmieniła, a ona powie ci, co przegapiłeś
 • Menu ≡ ma zrzut do notatek, tryb ciemny dla stron i film w oknie
 • Kliknij kartę prawym i wybierz Add to bookmarks; przeciągaj karty, żeby zmienić kolejność
+• Naciśnij Esc w każdej chwili, żeby przestała przejmować sterowanie
 • Historia ma wyszukiwarkę: usuń ostatnie 7 lub 30 dni albo kliknij stronę prawym, żeby ją usunąć
 • Rozszerzenia: otwórz Chrome Web Store i naciśnij Add to Capri Browser albo dodaj pliki .zip i .crx
 • Menu ≡ > Useful information ma porady na start, plus Report a bug i Suggest an idea

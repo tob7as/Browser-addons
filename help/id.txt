@@ -1,4 +1,4 @@
-Cukup minta ke Capri di chat. Ini yang bisa dia lakukan:
+Cukup minta Capri di chat, dengan kata-katamu sendiri. Ini yang bisa dia lakukan:
 
 VIDEO
 • "carikan video lucu" atau "carikan anime aksi": dia memilih yang cocok lalu memutarnya
@@ -14,6 +14,8 @@ MENJELAJAH
 • "apa kata halaman ini tentang ...?" atau "cari ..." untuk jawaban cepat
 • "tunjukkan sesuatu yang acak" atau "cari situs acak"
 • "simpan ini" untuk menambahkan halaman ke Speed Dial
+• "carikan aku logo YouTube" atau "carikan aku foto profil anime": hasil gambar, dengan pencarian aman
+• "layar terbagi" (atau klik kanan tab) menampilkan dua tab berdampingan; tab yang tidak dipakai 20 menit tidur untuk menghemat memori
 
 CAPRI RESEARCH (Pengaturan > Riset)
 • "riset tentang ..." atau "cari tahu soal ...": dia membaca beberapa situs sementara kamu lanjut (di tampilan tersembunyi browsernya saat terbuka, di luar tab dan riwayatmu)
@@ -21,8 +23,9 @@ CAPRI RESEARCH (Pengaturan > Riset)
 • "... apa yang terbaik?" untuk pilihan teratas, atau "situs terbaik untuk ... apa?"
 • "cek fakta ..." atau "benarkah bahwa ...?"
 • "bandingkan tab-ku", "mana yang sebaiknya kubeli?" atau "apa saja yang terbuka?"
-• Taruh pertanyaan, tangkapan layar, atau file di Noted, lalu bilang "kerjakan catatan terakhirku"
+• Taruh pertanyaan, tangkapan layar, atau file di Noted, lalu bilang "kerjakan catatan terakhirku" atau "kerjakan catatan Sekolahku" (atau klik kanan catatan > Work on this)
 • "pantau halaman ini" atau "kabari kalau harganya turun": dia mengecek tiap 20 menit
+• "ada perubahan baru di halamanku?": dia langsung mengecek halaman yang dia pantau
 • "isi formulir ini dengan ...": tidak pernah mengisi kata sandi atau data kartu, dan bertanya sebelum mengirim
 • Setelah selesai dia bertanya: tampilkan, masukkan ke catatan, atau keduanya?
 • "tampilkan risetku" atau "tambahkan risetku ke catatan" untuk temuan terakhirnya
@@ -54,6 +57,7 @@ DI BROWSER
 • Kembali ke tab yang berubah dan dia akan menceritakan yang kamu lewatkan
 • Menu ≡ punya tangkapan layar ke catatan, mode gelap untuk situs, dan video pop-out
 • Klik kanan tab lalu pilih Add to bookmarks; seret tab untuk mengatur urutan
+• Tekan Esc kapan saja agar dia berhenti mengambil alih
 • Riwayat punya kotak pencarian: hapus 7 hari atau 30 hari terakhir, atau klik kanan satu halaman untuk menghapusnya
 • Ekstensi: buka Chrome Web Store dan tekan Add to Capri Browser, atau tambahkan file .zip dan .crx
 • Menu ≡ > Useful information berisi tips sambutan, plus Report a bug dan Suggest an idea

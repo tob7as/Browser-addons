@@ -1,4 +1,4 @@
-Vraag het Capri gewoon in de chat. Dit kan ze:
+Vraag het Capri gewoon in de chat, in je eigen woorden. Dit kan ze:
 
 VIDEO'S
 • "zoek een grappige video" of "zoek een actie-anime": ze kiest er een die past en speelt hem af
@@ -14,6 +14,8 @@ SURFEN
 • "wat zegt deze pagina over ...?" of "zoek ... op" voor een snel antwoord
 • "laat me iets willekeurigs zien" of "zoek een willekeurige website"
 • "bewaar dit" zet de pagina in Speed Dial
+• "zoek een YouTube-logo voor me" of "zoek een anime-profielfoto": afbeeldingen, met veilig zoeken aan
+• "gesplitst scherm" (of rechtsklik op een tabblad) toont twee tabbladen naast elkaar; tabbladen die je 20 minuten niet gebruikt, gaan slapen om geheugen te sparen
 
 CAPRI RESEARCH (Instellingen > Onderzoek)
 • "onderzoek ..." of "zoek uit hoe het zit met ...": ze leest meerdere sites terwijl jij verdergaat (in verborgen weergaven van haar browser als die open is, buiten je tabbladen en geschiedenis)
@@ -21,8 +23,9 @@ CAPRI RESEARCH (Instellingen > Onderzoek)
 • "wat is de beste ...?" voor de beste keuzes, of "wat is de beste website voor ...?"
 • "check of ..." of "klopt het dat ...?"
 • "vergelijk mijn tabbladen", "welke van deze moet ik kopen?" of "wat heb ik open?"
-• Zet een vraag, screenshot of bestand in Noted en zeg dan "werk mijn laatste notitie uit"
+• Zet een vraag, screenshot of bestand in Noted en zeg "los mijn laatste notitie op" of "los mijn School-notities op" (of rechtsklik op een notitie > Work on this)
 • "hou deze pagina in de gaten" of "laat het weten als de prijs zakt": ze kijkt elke 20 minuten
+• "is er iets nieuws op mijn pagina?": ze controleert meteen de pagina's die ze in de gaten houdt
 • "vul dit formulier in met ...": nooit wachtwoorden of kaartgegevens, en ze vraagt het voor ze verstuurt
 • Als ze klaar is vraagt ze: laten zien, in je notities zetten, of allebei?
 • "laat mijn onderzoek zien" of "zet mijn onderzoek in mijn notities" voor het laatste wat ze vond
@@ -54,6 +57,7 @@ IN DE BROWSER
 • Kom terug op een tabblad dat veranderd is en ze praat je bij
 • Het ≡-menu heeft screenshot naar notities, donkere modus voor sites en video in een venster
 • Klik met rechts op een tabblad en kies Add to bookmarks; sleep tabbladen om ze te ordenen
+• Druk op elk moment op Esc om haar te laten stoppen met overnemen
 • De geschiedenis heeft een zoekvak: wis de laatste 7 of 30 dagen, of klik met rechts op een pagina om die te wissen
 • Extensies: open de Chrome Web Store en druk op Add to Capri Browser, of voeg .zip- en .crx-bestanden toe
 • Menu ≡ > Useful information heeft de welkomsttips, plus Report a bug en Suggest an idea
