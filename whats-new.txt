@@ -9,6 +9,7 @@ Capri Browser 2.0.1
 • Leaderboards: choose which of your numbers go on the boards. Set a new best and Capri tells you where it would place this week.
 • Code Breach and Mystery Choom have been retired to make room.
 • Useful information (on the sidebar) has a new Games section, select it to jump straight to the Games page, plus more on highlight and right-click, Research, watching pages, custom jobs, the sidebar, passwords and handy keys.
+• Wallpapers: right-click any picture on a page and pick Make wallpaper. Every wallpaper is now fitted and smoothed to your screen, and Change wallpaper lists your newest pictures first (including .jpe and .jfif ones the old picker hid).
 • Tracker blocker: stops more trackers (like the Facebook and LinkedIn pixels), counts Google Analytics and the like as trackers, and works from the start, even if you never pressed Update all.
 • Fixes: Websites can no longer fake game scores or leaderboard results. Capri reminds you to open Capri Browser from Play after an update. Discord message cards type out the whole message again. Update all has moved off the Games page: it's in Settings > Updates.
 
