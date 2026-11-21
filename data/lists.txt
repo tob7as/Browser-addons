@@ -165,6 +165,31 @@ say	blocklayer	There was an invisible ad sitting over your video, choom. Peeled 
 say	blocklayer	Found a see-through ad layer eating your clicks. Removed it.
 say	blocklayer	Invisible click trap, gone. Try it now, choom.
 # theme: more looks for Settings > Appearance. id, name, dark or light, then 7 colors: background, panel, text, faded text, first accent, second accent, border
+# about: the line under a setting in Settings saying what it does. The setting (its key, its name in lower case without spaces, or tNN for the browser's own word number NN), then the words
+about	gameauto	When a game fills your screen, Capri Browser goes super low by itself, and back to normal a little after the game's gone. Browsers and video players don't count.
+about	gamehint	Only if you've never opened Games, after 30 minutes of browsing. Say no once and she never asks again.
+about	lbinvite	After a new best score, if you haven't got a leaderboard name: where it would place this week. Once a week at most.
+about	news	After Capri Browser updates, a tab shows what's new. Only after an update, never on its own.
+about	downloads	When a download looks sketchy (a program from a site you might not trust, or a file pretending to be a picture or document), she asks if you're sure before it saves.
+about	readdiscord	Tells you when someone messages you directly (not servers or groups) and reads it out on your yes. Ask “any new Discord messages?” any time. She keeps Discord open out of sight for it, so she's quick. You must be logged in to Discord in Capri Browser for this to work.
+about	browserreact	She says something now and then when you open a new site, and when you ask what she thinks (“what do you think of this?”, “is this any good?”) she looks at the page and gives you her take. Private tabs, chats, mail and banking are left alone.
+about	quietmsg	Messages are found and typed out of sight in her own hidden Discord, with no tab at the top, instead of Discord coming to the front. She still shows you the message and asks before sending.
+about	discordmsg	Say “message Alex on Discord saying ...”. She types it and asks before sending. You must be logged in to Discord in Capri Browser for this to work.
+about	defaultpermissions	What every site may use and do, unless you change it for that site.
+about	sidebar	Choose its icons and add sites like ChatGPT or Twitch. You can also right-click the sidebar.
+about	caprinotifications	Everything she tells you without being asked. Turn this off for none of them, or just the ones you don't want.
+about	putcaprisbrainfirst	Gives Capri's thinking the PC before the browser's pages. Turning it off can slow her down.
+about	howhardshelooks	Deep reads up to 5 sites, Quick reads 2 and is faster. Off turns research off.
+about	howmuchshewrites	Short is the key facts, Mid is a page, Long goes into detail with examples.
+about	animesite	Where Capri looks when you ask for anime without naming a site.
+about	videosite	Where Capri looks when you ask for a video, show or movie without naming a site.
+about	t41	Blocks major ad networks. Ads served by the site itself, such as on YouTube, are not affected.
+about	t42	Signs you out of websites. History, Speed Dial and saved passwords are kept.
+about	allsites	What sites may use and do: location, camera, microphone, pop-ups, JavaScript and more.
+about	english	22 more languages can be downloaded. They're kept outside the mod, so they don't use its space.
+about	discordbutton	You can also switch this by right-clicking the Discord button.
+about	browsersounds	Soft sounds for opening, closing and switching tabs, menus, panels, buttons and finished downloads.
+about	typingsounds	A soft key sound as you type in the address bar and on pages.
 # tip: the hover box on a setting in Settings. The setting (its key, its name, or tNN for the browser's own word number NN), then what it does
 tip	Wallpaper	A picture of yours behind Speed Dial. Right-click Speed Dial to change it quickly.
 tip	control	A short animation plays when Capri takes the wheel to do something on a page for you.
