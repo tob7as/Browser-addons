@@ -1,3 +1,13 @@
+Capri Browser 2.0.1
+• Games are front and centre: every game shows on the Games page straight away, no downloading first. New: Daily Word Search, a new puzzle every day that's the same for everyone. Keep your streak going and share your time.
+• Ad blocker stats: see how many ads, trackers and pop-ups Capri has stopped, under your Speed Dial and on All-time stats.
+• Free games under the Speed Dial: the most popular games you can claim for free right now.
+• Sketchy downloads: if a download looks dodgy (a program from a site she doesn't know, or a file pretending to be a picture or document), Capri asks if you're sure first.
+• Game mode can switch on by itself when a full-screen game starts (Settings > Capri features).
+• Notifications: turn all of Capri's notifications off with one switch, or just the ones you don't want (Settings > Capri features).
+• Leaderboards: choose which of your numbers go on the boards. Set a new best and Capri tells you where it would place this week.
+• Code Breach and Mystery Choom have been retired to make room.
+
 Capri Browser 2.0 (needs Capri 0.9.4 or newer)
 • New: split screen (right-click a tab), tabs that glide when you move them, and tabs you leave for 20 minutes snooze with a moon on them. Say "find me a YouTube logo" or "an anime pfp" for pictures, "work out my School notes" or right-click a note > Work on this, and "any new changes on my page?". Esc stops her straight away.
 • Capri Research (Settings > Research): say "research ...", "what's the best ...", "best website for ...", "fact check ...", "compare my tabs" or "work out my last note" (she can read screenshots). She works in the background, then asks to bring it up, put it in your notes, or both. Highlight words and right-click for Let Capri research this. With Capri Browser open she searches and reads the sites in hidden views of her own browser, so she reads whole pages. Safe search is always on, and she won't research adult topics.

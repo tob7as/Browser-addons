@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daily Word Search - Capri Browser</title>
+<style>
+  body { margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center; background:#0a0a10 radial-gradient(ellipse 900px 420px at 50% -120px,#360e1a,transparent) no-repeat fixed; color:#ececf1; font-family:Bahnschrift,'Segoe UI',sans-serif; }
+  .card { text-align:center; padding:24px; width:min(620px,100%); }
+  h1 { margin:0 0 4px; color:#e84246; font-size:22px; letter-spacing:5px; font-weight:600; }
+  .sub { margin:0 0 14px; color:#92828c; letter-spacing:2px; font-size:13px; }
+  .sub b { color:#5ef0f6; font-weight:600; }
+  .play { display:flex; gap:18px; align-items:flex-start; justify-content:center; flex-wrap:wrap; }
+  #g { display:grid; grid-template-columns:repeat(12,30px); grid-auto-rows:30px; gap:2px; padding:8px; background:#11101c; box-shadow:inset 0 0 0 1px #5c1824; user-select:none; touch-action:none; }
+  .c { display:flex; align-items:center; justify-content:center; font-size:16px; font-weight:600; color:#c9bcc6; cursor:pointer; transition:background .12s,color .12s; }
+  .c.sel { background:#e84246; color:#fff; }
+  .c.f { color:#5ef0f6; background:rgba(94,240,246,.13); }
+  .c.f.sel { background:#e84246; color:#fff; }
+  #w { list-style:none; margin:0; padding:0; text-align:left; min-width:130px; }
+  #w li { padding:4px 0; letter-spacing:2px; font-size:14px; color:#ececf1; transition:color .3s; }
+  #w li.got { color:#5ef0f6; text-decoration:line-through; opacity:.7; }
+  #t { font-size:20px; color:#5ef0f6; margin:14px 0 10px; letter-spacing:2px; }
+  #done { display:none; margin:10px auto 0; padding:18px; max-width:420px; background:#11101c; box-shadow:inset 0 0 0 1px #5ef0f6, 0 0 24px rgba(94,240,246,.18); animation:pop .45s both; }
+  #done .big { font-size:30px; color:#5ef0f6; letter-spacing:3px; margin:6px 0; }
+  #done .fire { color:#e84246; letter-spacing:2px; }
+  @keyframes pop { from { opacity:0; transform:scale(.92); } to { opacity:1; transform:none; } }
+  a { color:#e84246; text-decoration:none; letter-spacing:2px; margin:0 12px; cursor:pointer; }
+  a.go { display:inline-block; margin-top:12px; padding:8px 16px; color:#0a0a10; background:#5ef0f6; }
+</style>
+</head>
+<body>
+<div class="card">
+  <h1>DAILY WORD SEARCH</h1>
+  <p class="sub">PUZZLE #<b id="n"></b> &middot; THEME: <b id="th"></b> &middot; SAME FOR EVERYONE TODAY</p>
+  <div class="play" id="play">
+    <div id="g"></div>
+    <ul id="w"></ul>
+  </div>
+  <div id="t">0:00</div>
+  <div id="done"></div>
+  <p style="margin-top:14px"><a href="https://capri.dial/play?g=quit">BACK TO GAMES</a></p>
+</div>
+<script>
+var played=0;
+(function () {
+  var THEMES = [
+    ['SPACE', ['PLANET','COMET','GALAXY','ORBIT','ROCKET','NEBULA','METEOR','ASTEROID']],
+    ['GAMING', ['CONSOLE','PIXEL','CONTROLLER','RESPAWN','LEVEL','QUEST','BOSS','COMBO']],
+    ['OCEAN', ['CORAL','WHALE','SHARK','TIDE','REEF','SQUID','DOLPHIN','ANCHOR']],
+    ['MUSIC', ['GUITAR','DRUMS','PIANO','RHYTHM','MELODY','BASS','TEMPO','CHORUS']],
+    ['FOOD', ['PIZZA','BURGER','PASTA','SUSHI','TACO','WAFFLE','NOODLES','DONUT']],
+    ['ANIMALS', ['TIGER','ZEBRA','PANDA','KOALA','OTTER','EAGLE','FALCON','LIZARD']],
+    ['WEATHER', ['THUNDER','STORM','RAINBOW','BREEZE','CLOUD','SLEET','TORNADO','SUNNY']],
+    ['INTERNET', ['BROWSER','EMAIL','WIFI','STREAM','UPLOAD','MEME','EMOJI','DOWNLOAD']],
+    ['SPORTS', ['SOCCER','TENNIS','HOCKEY','RUGBY','GOLF','BOXING','SKATE','CRICKET']],
+    ['CYBERPUNK', ['NEON','CHROME','HACKER','IMPLANT','NETRUNNER','SYNTH','CITY','GLITCH']],
+    ['FANTASY', ['DRAGON','WIZARD','CASTLE','POTION','KNIGHT','ELF','SWORD','GOBLIN']],
+    ['FRUIT', ['MANGO','CHERRY','BANANA','GRAPE','LEMON','PEACH','MELON','KIWI']],
+    ['MOVIES', ['ACTOR','SCENE','POPCORN','SEQUEL','TRAILER','CAMERA','SCRIPT','CINEMA']],
+    ['WINTER', ['SNOW','FROST','SLED','ICICLE','SCARF','COCOA','SKIING','BLIZZARD']],
+    ['SCHOOL', ['PENCIL','LOCKER','LESSON','RULER','TEACHER','RECESS','BACKPACK','EXAM']],
+    ['TECH', ['LAPTOP','CODE','ROBOT','SERVER','CHIP','PYTHON','CURSOR','KEYBOARD']],
+    ['CITY', ['STREET','BRIDGE','SUBWAY','TOWER','TAXI','PARK','MARKET','SKYLINE']],
+    ['CAMPING', ['TENT','FIRE','LANTERN','HIKING','FOREST','CANOE','COMPASS','MARSH']],
+    ['COLOURS', ['CRIMSON','VIOLET','AMBER','TEAL','SILVER','INDIGO','MAGENTA','OLIVE']],
+    ['HALLOWEEN', ['GHOST','PUMPKIN','WITCH','ZOMBIE','CANDY','SPIDER','VAMPIRE','SKULL']],
+    ['ANIME', ['MANGA','SENSEI','NINJA','SAMURAI','MECHA','SHONEN','CHIBI','KAWAII']],
+    ['BEACH', ['SAND','WAVES','SURF','SHELL','TOWEL','SUNSET','PALM','LIFEGUARD']],
+    ['SCIENCE', ['ATOM','LASER','MAGNET','ENERGY','GRAVITY','PRISM','FOSSIL','QUARK']],
+    ['MINECRAFT', ['CREEPER','PICKAXE','DIAMOND','NETHER','REDSTONE','VILLAGER','ENDER','BLOCK']],
+    ['KITCHEN', ['WHISK','KETTLE','SPOON','OVEN','TOASTER','BLENDER','LADLE','FRIDGE']],
+    ['TRAVEL', ['PASSPORT','LUGGAGE','AIRPORT','TICKET','HOTEL','CRUISE','MAP','JOURNEY']],
+    ['JOBS', ['PILOT','CHEF','DOCTOR','ARTIST','FARMER','PLUMBER','NURSE','BAKER']],
+    ['INSECTS', ['BEETLE','HORNET','CRICKET','MOTH','LADYBUG','TERMITE','WASP','FIREFLY']],
+    ['PARTY', ['BALLOON','CAKE','CONFETTI','DANCE','GIFTS','STREAMER','GUESTS','PLAYLIST']],
+    ['STREAMING', ['STREAMER','CHAT','EMOTE','CLIP','RAID','FOLLOW','LIVE','DONATE']]
+  ];
+  var N = 12, DAY = Math.floor((Date.now() - Date.UTC(2026, 10, 1)) / 864e5) + 1;
+  var seed = DAY * 7919 + 13;
+  function rnd() { seed |= 0; seed = seed + 0x6D2B79F5 | 0; var t = Math.imul(seed ^ seed >>> 15, 1 | seed); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; }
+  var theme = THEMES[(DAY * 7) % THEMES.length], words = theme[1].slice();
+  document.getElementById('n').textContent = DAY;
+  document.getElementById('th').textContent = theme[0];
+
+  // The grid: each word placed across, down or diagonally (some backwards), then random letters.
+  var grid = [], i, j, DIRS = [[0, 1], [1, 0], [1, 1], [-1, 1], [0, -1], [1, -1]];
+  for (i = 0; i < N; i++) { grid.push([]); for (j = 0; j < N; j++) grid[i].push(''); }
+  words.sort(function (a, b) { return b.length - a.length; });
+  var placed = [];
+  words.forEach(function (w) {
+    for (var tries = 0; tries < 400; tries++) {
+      var d = DIRS[Math.floor(rnd() * DIRS.length)], r = Math.floor(rnd() * N), c = Math.floor(rnd() * N), ok = true;
+      for (var k = 0; k < w.length; k++) {
+        var rr = r + d[0] * k, cc = c + d[1] * k;
+        if (rr < 0 || rr >= N || cc < 0 || cc >= N || (grid[rr][cc] && grid[rr][cc] != w[k])) { ok = false; break; }
+      }
+      if (!ok) continue;
+      for (k = 0; k < w.length; k++) grid[r + d[0] * k][c + d[1] * k] = w[k];
+      placed.push(w);
+      return;
+    }
+  });
+  var ABC = 'ABCDEFGHIJKLMNOPRSTUVWY';
+  for (i = 0; i < N; i++) for (j = 0; j < N; j++) if (!grid[i][j]) grid[i][j] = ABC[Math.floor(rnd() * ABC.length)];
+
+  var g = document.getElementById('g'), list = document.getElementById('w'), cells = [];
+  for (i = 0; i < N; i++) for (j = 0; j < N; j++) {
+    var e = document.createElement('div'); e.className = 'c'; e.textContent = grid[i][j]; e.dataset.r = i; e.dataset.c = j;
+    g.appendChild(e); cells.push(e);
+  }
+  placed.sort();
+  placed.forEach(function (w) { var li = document.createElement('li'); li.textContent = w; li.id = 'w-' + w; list.appendChild(li); });
+
+  function fmt(s) { return Math.floor(s / 60) + ':' + ('0' + s % 60).slice(-2); }
+  var timer = document.getElementById('t'), started = 0, tick, found = {}, left = placed.length;
+
+  function done(secs, fresh) {
+    clearInterval(tick);
+    var streak = window.streak || 0, box = document.getElementById('done');
+    timer.textContent = fmt(secs);
+    box.innerHTML = '<div style="letter-spacing:3px;color:#92828c">' + (fresh ? 'ALL FOUND' : "TODAY'S DONE") + '</div><div class="big">' + fmt(secs) + '</div>'
+      + (streak > 0 ? '<div class="fire">&#128293; ' + streak + (streak == 1 ? ' DAY' : '-DAY') + ' STREAK</div>' : '')
+      + '<div style="color:#92828c;margin-top:8px">A new puzzle in <span id="nx"></span>. Same one for everyone, so compare times with your friends.</div>'
+      + '<a class="go" href="https://capri.dial/play?g=daily&s=' + secs + '&d=' + DAY + '">COPY MY RESULT</a>';
+    box.style.display = 'block';
+    var next = Date.UTC(2026, 10, 1) + DAY * 864e5;
+    (function count() { var s = Math.max(0, Math.floor((next - Date.now()) / 1000)), el = document.getElementById('nx'); if (el) el.textContent = Math.floor(s / 3600) + 'h ' + Math.floor(s / 60) % 60 + 'm'; setTimeout(count, 30000); })();
+  }
+
+  if (played > 0) {
+    document.getElementById('play').style.opacity = '.35';
+    document.getElementById('play').style.pointerEvents = 'none';
+    done(played, false);
+    return;
+  }
+
+  // Dragging a straight line of letters.
+  var from = null, line = [];
+  function cellAt(x, y) { var el = document.elementFromPoint(x, y); return el && el.classList && el.classList.contains('c') ? el : null; }
+  function paint() { cells.forEach(function (c) { c.classList.remove('sel'); }); line.forEach(function (c) { c.classList.add('sel'); }); }
+  function trace(to) {
+    line = [];
+    if (!from || !to) return paint();
+    var r0 = +from.dataset.r, c0 = +from.dataset.c, r1 = +to.dataset.r, c1 = +to.dataset.c, dr = r1 - r0, dc = c1 - c0;
+    if (dr && dc && Math.abs(dr) != Math.abs(dc)) return paint();
+    var steps = Math.max(Math.abs(dr), Math.abs(dc)), sr = Math.sign(dr), sc = Math.sign(dc);
+    for (var k = 0; k <= steps; k++) line.push(cells[(r0 + sr * k) * N + c0 + sc * k]);
+    paint();
+  }
+  g.addEventListener('pointerdown', function (e) {
+    var c = cellAt(e.clientX, e.clientY); if (!c) return;
+    if (!started) { started = Date.now(); tick = setInterval(function () { timer.textContent = fmt(Math.floor((Date.now() - started) / 1000)); }, 500); }
+    from = c; trace(c); g.setPointerCapture(e.pointerId);
+  });
+  g.addEventListener('pointermove', function (e) { if (from) trace(cellAt(e.clientX, e.clientY)); });
+  g.addEventListener('pointerup', function () {
+    var word = line.map(function (c) { return c.textContent; }).join(''), back = word.split('').reverse().join('');
+    var hit = placed.indexOf(word) >= 0 && !found[word] ? word : placed.indexOf(back) >= 0 && !found[back] ? back : null;
+    if (hit) {
+      found[hit] = 1; left--;
+      line.forEach(function (c) { c.classList.add('f'); });
+      document.getElementById('w-' + hit).classList.add('got');
+      if (left == 0) {
+        var secs = Math.max(1, Math.floor((Date.now() - started) / 1000));
+        window.streak = 0;
+        done(secs, true);
+        location.href = 'https://capri.dial/play?g=daily&s=' + secs + '&d=' + DAY;
+      }
+    }
+    from = null; line = []; paint();
+  });
+})();
+</script>
+</body>
+</html>
