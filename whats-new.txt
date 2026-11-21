@@ -12,6 +12,8 @@ Capri Browser 2.0.1
 • Wallpapers: right-click any picture on a page and pick Make wallpaper. Every wallpaper is now fitted and smoothed to your screen, and Change wallpaper lists your newest pictures first (including .jpe and .jfif ones the old picker hid).
 • Speed Dial: the pencil on a tile now lets you Change image, Edit name or Edit link. The picture and name stay with the tile when you change its link.
 • Themes reach everything: Settings and message notifications now change with your colour theme, and the font and text size you pick in Settings > Appearance work on all of Capri Browser's own pages.
+• Your sites: "find me an anime" and "find me a video" now always use your Anime site and Video site (custom links too) unless you name another one, and she no longer types "picked" into the search box.
+• Jobs stay put: switch tabs while Capri works and she carries on in her tab, and she leaves the mouse alone while you're using it.
 • Tracker blocker: stops more trackers (like the Facebook and LinkedIn pixels), counts Google Analytics and the like as trackers, and works from the start, even if you never pressed Update all.
 • Fixes: Websites can no longer fake game scores or leaderboard results. Capri reminds you to open Capri Browser from Play after an update. Discord message cards type out the whole message again. Update all has moved off the Games page: it's in Settings > Updates.
 
