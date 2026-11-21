@@ -22,7 +22,7 @@ To join, open **Games** in Capri Browser, add a leaderboard name and press **Sen
 
 | # | Name | Sites visited |
 | ---: | --- | ---: |
-| 1 | Toby | 362 |
+| 1 | Toby | 475 |
 | 2 | Joshy | 18 |
 
 ## Best survival run
@@ -43,5 +43,5 @@ To join, open **Games** in Capri Browser, add a leaderboard name and press **Sen
 
 | # | Name | Best typing speed |
 | ---: | --- | ---: |
-| 1 | Joshy | 41 WPM |
-| 2 | Toby | 30 WPM |
+| 1 | Toby | 48 WPM |
+| 2 | Joshy | 41 WPM |
