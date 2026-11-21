@@ -10,7 +10,7 @@ Capri Browser 2.0.1
 • Code Breach and Mystery Choom have been retired to make room.
 • Useful information (on the sidebar) has a new Games section, select it to jump straight to the Games page, plus more on highlight and right-click, Research, watching pages, custom jobs, the sidebar, passwords and handy keys.
 • Tracker blocker: stops more trackers (like the Facebook and LinkedIn pixels), counts Google Analytics and the like as trackers, and works from the start, even if you never pressed Update all.
-• Fixes: Discord message cards type out the whole message again. Update all has moved off the Games page: it's in Settings > Updates.
+• Fixes: Websites can no longer fake game scores or leaderboard results. Capri reminds you to open Capri Browser from Play after an update. Discord message cards type out the whole message again. Update all has moved off the Games page: it's in Settings > Updates.
 
 Capri Browser 2.0 (needs Capri 0.9.4 or newer)
 • New: split screen (right-click a tab), tabs that glide when you move them, and tabs you leave for 20 minutes snooze with a moon on them. Say "find me a YouTube logo" or "an anime pfp" for pictures, "work out my School notes" or right-click a note > Work on this, and "any new changes on my page?". Esc stops her straight away.
