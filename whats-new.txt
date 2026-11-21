@@ -8,6 +8,7 @@ Capri Browser 2.0.1
 • Stats: Daily Word Search in This Week and All-time stats, and a new Capri Helped You section in All-time stats (research, jobs, messages read out, skips). 27 new achievements to unlock.
 • Leaderboards: choose which of your numbers go on the boards. Set a new best and Capri tells you where it would place this week.
 • Code Breach and Mystery Choom have been retired to make room.
+• Fixes: Discord message cards type out the whole message again. Update all has moved off the Games page: it's in Settings > Updates.
 
 Capri Browser 2.0 (needs Capri 0.9.4 or newer)
 • New: split screen (right-click a tab), tabs that glide when you move them, and tabs you leave for 20 minutes snooze with a moon on them. Say "find me a YouTube logo" or "an anime pfp" for pictures, "work out my School notes" or right-click a note > Work on this, and "any new changes on my page?". Esc stops her straight away.
