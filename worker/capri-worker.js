@@ -358,7 +358,7 @@ async function boards(db) {
   const round = await roundNow(db);
   const out = { rows: {}, round };
   for (const b of BOARDS) {
-    out.rows[b[0]] = (await db.prepare('SELECT name, ' + b[0] + ' AS v FROM scores WHERE wk = ?1 AND owner NOT IN (SELECT owner FROM hidden) ORDER BY ' + b[0] + ' DESC, at ASC LIMIT 100').bind(round).all()).results;
+    out.rows[b[0]] = (await db.prepare('SELECT name, ' + b[0] + ' AS v FROM scores WHERE wk = ?1 AND ' + b[0] + ' > 0 AND owner NOT IN (SELECT owner FROM hidden) ORDER BY ' + b[0] + ' DESC, at ASC LIMIT 100').bind(round).all()).results;
   }
   return out;
 }
