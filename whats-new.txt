@@ -5,6 +5,7 @@ Capri Browser 2.0.1
 • Sketchy downloads: if a download looks dodgy (a program from a site she doesn't know, or a file pretending to be a picture or document), Capri asks if you're sure first.
 • Game mode can switch on by itself when a full-screen game starts (Settings > Capri features).
 • Notifications: turn all of Capri's notifications off with one switch, or just the ones you don't want (Settings > Capri features).
+• Research (Settings > Research): choose how much she writes, Short, Mid or Long. When she is done she asks if you want her to keep researching, and you can say "keep researching" any time to go deeper. Big brains will be better: a bigger AI model writes better research.
 • Leaderboards: choose which of your numbers go on the boards. Set a new best and Capri tells you where it would place this week.
 • Code Breach and Mystery Choom have been retired to make room.
 
