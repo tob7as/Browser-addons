@@ -6,6 +6,7 @@ Capri Browser 2.0.1
 • Game mode can switch on by itself when a full-screen game starts (Settings > Capri features).
 • Notifications: turn all of Capri's notifications off with one switch, or just the ones you don't want (Settings > Capri features).
 • Research (Settings > Research): choose how much she writes, Short, Mid or Long. When she is done she asks if you want her to keep researching, and you can say "keep researching" any time to go deeper. Big brains will be better: a bigger AI model writes better research.
+• Stats: a Daily Word Search streak leaderboard, word searches in This Week, and a new Capri Helped You section in All-time stats (research, jobs, messages read out, skips). 27 new achievements to unlock.
 • Leaderboards: choose which of your numbers go on the boards. Set a new best and Capri tells you where it would place this week.
 • Code Breach and Mystery Choom have been retired to make room.
 

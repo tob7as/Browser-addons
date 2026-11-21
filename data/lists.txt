@@ -72,6 +72,33 @@ badge	coop	1	Co-op Champ	Finish a co-op wiki race
 badge	typingbest	60	Keyboard Warrior	Type 60 words per minute
 badge	guess	10	Site Seer	Guess 10 sites right
 badge	survival	40	Survivor	Type 40 words in Typing Survival
+badge	daily	1	Word Nerd	Finish a Daily Word Search
+badge	daily	30	Puzzle Addict	Finish 30 Daily Word Searches
+badge	dailyhard	1	Big Brain	Finish a hard Daily Word Search
+badge	dailyhard	10	Galaxy Brain	Finish 10 hard Daily Word Searches
+badge	dailystreak	3	Warming Up	Keep a 3-day word search streak
+badge	dailystreak	7	On Fire	Keep a 7-day word search streak
+badge	dailystreak	30	Unstoppable	Keep a 30-day word search streak
+badge	researched	1	Curious Choom	Have Capri research something
+badge	researched	25	Know-It-All	Have Capri research 25 things
+badge	jobs	1	Delegator	Have Capri do one of your jobs
+badge	jobs	25	Boss Choom	Have Capri do 25 jobs
+badge	readout	10	Messenger	Have Capri read out 10 messages
+badge	skips	25	No Time To Waste	Have Capri skip 25 ads or intros
+badge	ads	1000	Ad Slayer	Block 1,000 ads
+badge	trackers	1000	Untraceable	Stop 1,000 trackers
+badge	shielded	25	Bouncer	Stop 25 pop-ups and redirects
+badge	extensions	1	Modder	Add an extension
+badge	pages	5000	Living Online	Visit 5,000 pages
+badge	videos	500	Couch Legend	Finish 500 videos
+badge	watchall	360000	Screen Ascended	Watch 100 hours of video
+badge	maxtabs	50	Tab Dragon	Have 50 tabs open
+badge	notes	100	Archivist	Make 100 notes
+badge	roulette	100	Lost in the Net	Spin site roulette 100 times
+badge	wiki	25	Wiki Master	Win 25 wiki races
+badge	guess	100	Site Oracle	Guess 100 sites right
+badge	typingbest	100	Lightning Fingers	Type 100 words per minute
+badge	survival	100	Unbreakable	Type 100 words in Typing Survival
 # say: things Capri says. finding (looking for a video), lazy (when she won't), hoards (too many tabs)
 say	finding	Okay choom, finding one now.
 say	finding	On it choom, give me a sec.
