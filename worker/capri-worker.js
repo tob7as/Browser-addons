@@ -37,7 +37,6 @@ const BOARDS = [
   ['survival', 'Best survival run', 'Best survival run', ' words', 400],
   ['guess', 'Best Guess the Site run', 'Best guess the site run', '', 400],
   ['wpm', 'Best typing speed', 'Best typing speed', ' WPM', 250],
-  ['streak', 'Longest Daily Word Search streak', 'Daily Word Search streak', ' days', 100000],
 ];
 
 // Same lists as Capri Browser's BadName and .github/leaderboard.js.
@@ -94,7 +93,6 @@ async function setUp(db) {
   // Names from before then count as used now, so nobody can take them straight away.
   await db.prepare('UPDATE names SET used = ?1 WHERE used = 0').bind(Date.now()).run();
   try { await db.prepare('ALTER TABLE scores ADD COLUMN sent INTEGER NOT NULL DEFAULT 0').run(); } catch (e) { }
-  try { await db.prepare('ALTER TABLE scores ADD COLUMN streak INTEGER NOT NULL DEFAULT 0').run(); } catch (e) { }
   ready = true;
 }
 
@@ -180,7 +178,6 @@ async function postStats(db, got, who) {
     if (!/^\d{1,8}(\.\d)?$/.test(raw) || !(n >= 0) || n > b[4] || (b[0] !== 'hours' && !Number.isInteger(n))) return no(400, 'The ' + b[2].toLowerCase() + " number doesn't look right.");
     v[b[0]] = n;
   }
-  if (v.streak > Math.floor((Date.now() - Date.UTC(2026, 10, 1)) / 86400000) + 2) return no(400, "The daily streak number doesn't look right.");
   // Numbers that time makes impossible: since the last send, watch time can only grow as fast as real time (half as fast
   // again, in case two players were counted), and videos and sites get generous per-hour limits.
   const now = Date.now();
@@ -194,10 +191,10 @@ async function postStats(db, got, who) {
   const why = await claim(db, got.name, owner);
   if (why) return no(409, why);
   // Keeps the best of each number.
-  await db.prepare('INSERT INTO scores (wk, owner, name, hours, videos, sites, survival, guess, wpm, streak, at, sent) VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?11) '
+  await db.prepare('INSERT INTO scores (wk, owner, name, hours, videos, sites, survival, guess, wpm, at, sent) VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?10) '
     + 'ON CONFLICT(wk, owner) DO UPDATE SET name = excluded.name, sent = excluded.sent, hours = max(hours, excluded.hours), videos = max(videos, excluded.videos), sites = max(sites, excluded.sites), '
-    + 'survival = max(survival, excluded.survival), guess = max(guess, excluded.guess), wpm = max(wpm, excluded.wpm), streak = max(streak, excluded.streak)')
-    .bind(round, owner, got.name, v.hours, v.videos, v.sites, v.survival, v.guess, v.wpm, v.streak, now).run();
+    + 'survival = max(survival, excluded.survival), guess = max(guess, excluded.guess), wpm = max(wpm, excluded.wpm)')
+    .bind(round, owner, got.name, v.hours, v.videos, v.sites, v.survival, v.guess, v.wpm, now).run();
   // Old rows follow a rename too, so a freed name doesn't stay on them as someone else's.
   await db.prepare('UPDATE scores SET name = ?1 WHERE owner = ?2').bind(got.name, owner).run();
   return json(200, { ok: true, message: "You're on the boards as " + got.name + ', choom. Your stats for this week send by themselves, or press Send my stats any time. The boards start again every Monday.' });
@@ -210,9 +207,9 @@ async function postRank(db, got, who) {
   if (!owner) return no(400, "Capri Browser's key is missing. Update Capri Browser and try again.");
   if (await over(db, 'rank:' + who, 240, 3600)) return no(429, SLOW);
   const round = await roundNow(db);
-  const mine = await db.prepare('SELECT hours, videos, sites, survival, guess, wpm, streak, at FROM scores WHERE wk = ?1 AND owner = ?2').bind(round, owner).first();
+  const mine = await db.prepare('SELECT hours, videos, sites, survival, guess, wpm, at FROM scores WHERE wk = ?1 AND owner = ?2').bind(round, owner).first();
   if (!mine) return json(200, { ok: true, message: '' });
-  const ahead = BOARDS.map((b, i) => 'SUM(CASE WHEN ' + b[0] + ' > ?' + (i + 3) + ' OR (' + b[0] + ' = ?' + (i + 3) + ' AND at < ?' + (BOARDS.length + 3) + ') THEN 1 ELSE 0 END) AS ' + b[0]).join(', ');
+  const ahead = BOARDS.map((b, i) => 'SUM(CASE WHEN ' + b[0] + ' > ?' + (i + 3) + ' OR (' + b[0] + ' = ?' + (i + 3) + ' AND at < ?9) THEN 1 ELSE 0 END) AS ' + b[0]).join(', ');
   const n = await db.prepare('SELECT COUNT(*) AS total, ' + ahead + ' FROM scores WHERE wk = ?1 AND owner != ?2 AND owner NOT IN (SELECT owner FROM hidden)')
     .bind(round, owner, ...BOARDS.map((b) => mine[b[0]]), mine.at).first();
   // "total=312;hours=57:7.4;videos=3:120;..." (place:number), so older Capri Browsers can read it as a plain message.
