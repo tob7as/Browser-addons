@@ -1,4 +1,4 @@
-daily	Daily Word Search	A new word search every day, the same one for everyone. Find all eight words, keep your streak going and share your time.	page
+daily	Daily Word Search	A new word search every day, the same one for everyone, from 140 themes. Every third day is a hard one. Keep your streak going and share your time.	page
 wiki	Wiki Race	Reach the target article using only links within Wikipedia. Also needed for co-op races.	data
 guess	Guess the Site	A popular site opens blurred. Pick which one it is. Three lives.	data
 typing	Typing Race	Type a paragraph from the page you were reading, against the clock. Includes Survival mode.	page
