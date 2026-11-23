@@ -6,42 +6,24 @@ To join, open **Games** in Capri Browser, add a leaderboard name and press **Sen
 
 ## Most hours watched
 
-| # | Name | Hours watched |
-| ---: | --- | ---: |
-| 1 | Toby | 6.0h |
-| 2 | Joshy | 0.0h |
+_Nobody yet. Be the first!_
 
 ## Most videos finished
 
-| # | Name | Videos finished |
-| ---: | --- | ---: |
-| 1 | Toby | 14 |
-| 2 | Joshy | 0 |
+_Nobody yet. Be the first!_
 
 ## Most sites visited
 
-| # | Name | Sites visited |
-| ---: | --- | ---: |
-| 1 | Toby | 475 |
-| 2 | Joshy | 18 |
+_Nobody yet. Be the first!_
 
 ## Best survival run
 
-| # | Name | Best survival run |
-| ---: | --- | ---: |
-| 1 | Toby | 13 words |
-| 2 | Joshy | 0 words |
+_Nobody yet. Be the first!_
 
 ## Best Guess the Site run
 
-| # | Name | Best guess the site run |
-| ---: | --- | ---: |
-| 1 | Toby | 13 |
-| 2 | Joshy | 0 |
+_Nobody yet. Be the first!_
 
 ## Best typing speed
 
-| # | Name | Best typing speed |
-| ---: | --- | ---: |
-| 1 | Toby | 48 WPM |
-| 2 | Joshy | 41 WPM |
+_Nobody yet. Be the first!_
