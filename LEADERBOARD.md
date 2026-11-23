@@ -6,24 +6,36 @@ To join, open **Games** in Capri Browser, add a leaderboard name and press **Sen
 
 ## Most hours watched
 
-_Nobody yet. Be the first!_
+| # | Name | Hours watched |
+| ---: | --- | ---: |
+| 1 | ShadowGarden20 | 1.4h |
 
 ## Most videos finished
 
-_Nobody yet. Be the first!_
+| # | Name | Videos finished |
+| ---: | --- | ---: |
+| 1 | ShadowGarden20 | 0 |
 
 ## Most sites visited
 
-_Nobody yet. Be the first!_
+| # | Name | Sites visited |
+| ---: | --- | ---: |
+| 1 | ShadowGarden20 | 174 |
 
 ## Best survival run
 
-_Nobody yet. Be the first!_
+| # | Name | Best survival run |
+| ---: | --- | ---: |
+| 1 | ShadowGarden20 | 0 words |
 
 ## Best Guess the Site run
 
-_Nobody yet. Be the first!_
+| # | Name | Best guess the site run |
+| ---: | --- | ---: |
+| 1 | ShadowGarden20 | 0 |
 
 ## Best typing speed
 
-_Nobody yet. Be the first!_
+| # | Name | Best typing speed |
+| ---: | --- | ---: |
+| 1 | ShadowGarden20 | 41 WPM |
