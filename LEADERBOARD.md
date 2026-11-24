@@ -9,33 +9,39 @@ To join, open **Games** in Capri Browser, add a leaderboard name and press **Sen
 | # | Name | Hours watched |
 | ---: | --- | ---: |
 | 1 | ShadowGarden20 | 1.4h |
+| 2 | Toby | 0.0h |
 
 ## Most videos finished
 
 | # | Name | Videos finished |
 | ---: | --- | ---: |
 | 1 | ShadowGarden20 | 0 |
+| 2 | Toby | 0 |
 
 ## Most sites visited
 
 | # | Name | Sites visited |
 | ---: | --- | ---: |
 | 1 | ShadowGarden20 | 174 |
+| 2 | Toby | 67 |
 
 ## Best survival run
 
 | # | Name | Best survival run |
 | ---: | --- | ---: |
 | 1 | ShadowGarden20 | 0 words |
+| 2 | Toby | 0 words |
 
 ## Best Guess the Site run
 
 | # | Name | Best guess the site run |
 | ---: | --- | ---: |
 | 1 | ShadowGarden20 | 0 |
+| 2 | Toby | 0 |
 
 ## Best typing speed
 
 | # | Name | Best typing speed |
 | ---: | --- | ---: |
 | 1 | ShadowGarden20 | 41 WPM |
+| 2 | Toby | 0 WPM |
