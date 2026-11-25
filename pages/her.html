@@ -22,6 +22,7 @@
 .hp.br:not(.room){animation:hpg .18s steps(2) 10}@keyframes hpg{0%{transform:none}25%{transform:translate(-6px,3px) skewX(3deg);filter:hue-rotate(60deg)}75%{transform:translate(6px,-3px) skewX(-3deg)}}
 .hp.br:not(.room)[data-g='1']{animation:hpg1 .3s steps(3) 6}.hp.br:not(.room)[data-g='3']{animation:hpg1 .6s steps(2) 3}.hp.br:not(.room)[data-g='2']{animation:hpg2 .6s linear 3}.hp.br:not(.room)[data-g='4']{animation:hpg3 .5s ease-in-out 4}.hp.br:not(.room)[data-g='5']{animation:hpg4 .9s steps(4) 2}.hp.br:not(.room)[data-g='6']{animation:hpg5 1.8s steps(6)}
 @keyframes hpg1{0%{clip-path:inset(0 0 60% 0)}33%{clip-path:inset(35% 0 20% 0);transform:translateX(14px)}66%{clip-path:inset(60% 0 0 0);transform:translateX(-14px)}}@keyframes hpg2{50%{transform:translateY(-40px);filter:blur(2px)}}@keyframes hpg3{50%{transform:skewX(8deg) scaleY(.97);filter:hue-rotate(140deg)}}@keyframes hpg4{50%{transform:scaleX(-1)}}@keyframes hpg5{50%{filter:grayscale(1) contrast(1.6)}}
+.hp .art{max-width:100%;max-height:180px;display:block}
 .hp .frs{display:grid;grid-template-columns:1fr 1fr;gap:12px}.hp .fr{border:1px solid %C6%;padding:8px;font-size:13px}.hp .fr.on{border-color:%C4%}.hp .fr input{display:none}.hp .fr b{display:block;margin:6px 0 2px}.hp .fr button{padding:4px 9px;font-size:13px}.hp .pic{height:112px;background:%C0%;display:flex;align-items:center;justify-content:center;font-size:30px;color:%C3%;cursor:pointer}.hp .pic img{max-width:100%;max-height:100%}
 .hp .x{float:right;color:%C3%;cursor:pointer;padding:0 4px}.hp .x:hover{color:%C5%}
 .hp canvas,.hp .ui{display:none}
@@ -126,6 +127,15 @@ if(!L.length)L.push('I don\'t know you that well yet. Suspicious.');
 L.slice(0,4).forEach(function(x){add(c,el('p','',x))});
 add(c,el('div','stamp',S.watch>1200?'CERTIFIED BINGER':S.tabs>30?'TAB DRAGON':S.jobs>20?'JOB BOSS':S.streak>6?'WORD WIZARD':S.typing>79?'SPEED DEMON':'ALRIGHT, CHOOM'));}
 add(c,el('div'),btn(v.hide?'Show my stats':'Hide my stats',function(){v.hide=!v.hide;draw();save();}),el('div','f','From this PC only. Nothing here is sent anywhere.'));}draw();})(c);
+// ---- live: what's playing, her job, her Discord. The browser sends these while the room is in front; nothing of them is kept.
+var MUS=null,JOB=null,DC=null;
+(function(){var m=card('NOW PLAYING','music'),pic=el('img','art'),a=el('p'),b=el('p','f'),row=el('div');add(row,btn('\u23EE',function(){send('media=back')}),btn('\u23EF',function(){send('media=toggle')}),btn('\u23ED',function(){send('media=next')}));add(m,pic,a,b,row);
+function drawM(){a.textContent=MUS?MUS.t:'Nothing playing. Put something on, in any app.';b.textContent=MUS?[MUS.a,MUS.app].filter(Boolean).join(', '):'';pic.style.display=MUS&&MUS.pic?'':'none';if(MUS&&MUS.pic)pic.src=MUS.pic.src;row.style.display=MUS?'':'none'}drawM();
+window.herMusic=function(o){if(!o||typeof o.t!='string'){MUS=null;return drawM()}var old=MUS;o.at=performance.now()/1000;o.app=String(o.app||'');o.a=String(o.a||'');if(old&&old.t==o.t&&old.a==o.a)o.pic=old.pic;MUS=o;if(/^data:image\/jpeg;base64,/.test(o.art||'')){var i=new Image();i.onload=function(){if(MUS&&MUS.t==o.t){MUS.pic=i;drawM()}};i.src=o.art}o.art='';if(!old||old.t!=o.t||old.on!=o.on||old.pic!=o.pic)drawM();if(o.on&&(!old||old.t!=o.t)&&old!==null)say(any(['Ooh. Good one.','Turn it up.','This is going on my list.']))};
+var j=card('WHAT I\'M DOING','job'),jt=el('p'),jf=el('p','f'),jT=0;add(j,jt,jf);function drawJ(){jt.textContent=JOB?JOB.t:'Nothing right now. Ask me to do a job and watch it here.';jf.textContent=JOB&&JOB.n?'Step '+JOB.i+' of '+JOB.n:''}drawJ();
+window.herJob=function(o){clearTimeout(jT);if(o&&typeof o.t=='string'){JOB=o;drawJ()}else if(JOB&&!JOB.done){JOB.done=true;jT=setTimeout(function(){JOB=null;drawJ()},6000)}};
+var d=card('MY SECRET DISCORD','dc'),dt=el('p'),dn=0;add(d,dt,el('p','f','The screen is blurred until you click it. Its picture is never saved or sent.'));function drawD(){dt.textContent=DC==null?'My screen is off. Turn on "Show Capri\'s hidden Discord on a screen in her room" in Settings, under Discord.':DC?'That\'s what I\'m looking at. Eyes on your own screen.':'I haven\'t got it open right now.'}drawD();
+window.herDc=function(u){var n=++dn;if(u==null){DC=null;return drawD()}if(!/^data:image\/jpeg;base64,/.test(u)){DC='';return drawD()}var i=new Image();i.onload=function(){if(n==dn){DC=i;drawD()}};i.src=u}})();
 c=card('PICTURE FRAMES','gifts');S.pics=[0,1,2,3].map(function(n){var p=(S.pics||[])[n];return typeof p=='string'&&/^data:image\/jpeg;base64,/.test(p)?p:''});
 // Made small here and kept on this PC only. Wide and high: each frame's own shape.
 var SHAPE=[[320,400],[400,300],[400,282],[300,400]],slots=[],frames=el('div','frs');add(c,frames,el('p','f','Choose a picture, or drop one on a frame. They stay on this PC.'));
@@ -237,6 +247,25 @@ return null}
 var KIND={neon:0,screen:1,tv:1,arcade:1,marquee:1,window:2,vend:3,lamp:4,neonv:5,gift:6,holo:7,globe:8,beam:9};
 // a frame's own picture, over whatever was in it
 function hang(n){var f=fxs.filter(function(x){return x.name=='gift'+n})[0];if(!f)return;function put(t){gl.deleteTexture(f.t);f.t=t}if(!S.pics[n])return put(paint({k:'gift',n:f.name}));var i=new Image();i.onload=function(){if(S.pics[n]==i.src)put(canvas(i.width,i.height,function(x){x.drawImage(i,0,0)}))};i.src=S.pics[n]}
+// screens that change while you look: drawn on a canvas of their own, put back when there's nothing to show
+var LIVE={};
+function screenOf(n){return fxs.filter(function(f){return f.name==n})[0]}
+function live(n,w,h,draw){var f=screenOf(n),L=LIVE[n];if(!f)return;if(!draw){if(L&&f.t==L.t)f.t=L.base;return}
+if(!L){var c=document.createElement('canvas');c.width=w;c.height=h;L=LIVE[n]={c:c,x:c.getContext('2d'),base:f.t};L.t=tex(c,true)}
+var x=L.x;x.globalAlpha=1;x.filter='none';x.textAlign='left';x.fillStyle='#010304';x.fillRect(0,0,w,h);draw(x,w,h);f.t=L.t;
+gl.bindTexture(3553,L.t);gl.pixelStorei(37440,1);put(L.c);gl.generateMipmap(3553);gl.pixelStorei(37440,0)}
+function border(x,w,h,col,title){x.strokeStyle=x.fillStyle=col;x.lineWidth=3;x.strokeRect(8,8,w-16,h-16);x.fillRect(22,22,w-44,40);x.fillStyle='#000';x.font='bold 26px Bahnschrift,sans-serif';x.fillText(title,34,51);x.fillStyle=col}
+function cover(x,i,a,b,w,h){var k=Math.max(w/i.width,h/i.height),sw=w/k,sh=h/k;x.drawImage(i,(i.width-sw)/2,(i.height-sh)/2,sw,sh,a,b,w,h)}
+function clock(s){s=Math.max(0,Math.floor(s));return Math.floor(s/60)+':'+('0'+s%60).slice(-2)}
+var livAt=0;
+function screens(now){if(now-livAt<(calm?1000:110))return;livAt=now;var F="Bahnschrift,'Segoe UI',sans-serif",t=now/1000,M=MUS;
+live('hud',800,576,M&&function(x,w,h){var C='#35ffb0',i,p=M.pos+(M.on?t-M.at:0);border(x,w,h,C,M.on?'NOW PLAYING':'PAUSED');x.textAlign='right';x.fillStyle='#000';x.font='bold 22px '+F;x.fillText(M.app.toUpperCase(),w-34,50);x.textAlign='left';
+x.strokeStyle=C;x.strokeRect(38,92,250,250);if(M.pic)cover(x,M.pic,42,96,242,242);else{x.beginPath();x.arc(163,217,84,0,7);x.stroke();x.beginPath();x.arc(163,217,20,0,7);x.stroke();x.beginPath();x.moveTo(163,217);x.lineTo(163+84*Math.cos(t*2),217+84*Math.sin(t*2));x.stroke()}
+x.fillStyle='#fff';x.font='bold 42px '+F;words(x,M.t,318,136,w-356,50,3);x.fillStyle=C;x.font='30px '+F;words(x,M.a,318,300,w-356,36,1);
+for(i=0;i<36;i++){var b=M.on?8+96*Math.abs(Math.sin(t*(2.1+i%5*.7)+i*1.9)*Math.sin(t*1.3+i*.45)):5;x.globalAlpha=.45+.5*b/104;x.fillRect(40+i*20.2,478-b,14,b)}x.globalAlpha=1;
+if(M.len>0){x.globalAlpha=.25;x.fillRect(40,498,w-80,12);x.globalAlpha=1;x.fillRect(40,498,(w-80)*Math.min(1,p/M.len),12);x.font='24px '+F;x.fillText(clock(Math.min(p,M.len)),40,545);x.textAlign='right';x.fillText(clock(M.len),w-40,545);x.textAlign='left'}});
+var J=JOB;live('scr1',560,326,J&&function(x,w,h){var C=J.done?'#5dff9c':'#ffd24a';border(x,w,h,C,J.done?'FINISHED':'ON A JOB'+(J.n?'  '+J.i+' / '+J.n:''));x.font='29px '+F;x.fillStyle='#fff';words(x,J.t,34,112,w-68,38,4);x.fillStyle=C;var n=J.n||8,g=(w-68)/n;for(var i=0;i<n;i++){x.globalAlpha=J.done||J.n&&i<J.i-1?1:J.n?(i==J.i-1?.35+.5*Math.abs(Math.sin(t*4)):.16):(i==Math.floor(t*6)%n?1:.16);x.fillRect(34+i*g,272,g-4,24)}x.globalAlpha=1});
+live('scr2',480,360,DC!=null&&function(x,w,h){border(x,w,h,'#8f9bff',DC?'MY SECRET DISCORD':'DISCORD: ASLEEP');if(DC){x.save();x.beginPath();x.rect(22,70,w-44,h-92);x.clip();if(zoomed!='scr2')x.filter='blur(10px)';cover(x,DC,22,70,w-44,h-92);x.restore();x.filter='none';if(zoomed!='scr2'){x.fillStyle='#fff';x.font='bold 28px '+F;x.textAlign='center';x.fillText('CLICK TO PEEK',w/2,h/2+30)}}else{x.font='24px '+F;words(x,'She hasn\'t got it open right now.',40,130,w-80,32,3)}})}
 var fb={},mesh={},fxs=[],items=[],blades,bot,quad,dust=[];
 function build(d){
 gl=canv.getContext('webgl2',{antialias:false,alpha:false,powerPreference:'low-power'});if(!gl)throw new Error('no webgl2');
@@ -247,6 +276,7 @@ mesh.v=vao([[buf(new Int16Array(bytes(d.p))),3,5122,false],[buf(new Uint16Array(
 d.fx.forEach(function(f){fxs.push({v:vao([[buf(new Float32Array(f.p)),3,5126,false],[buf(new Float32Array(f.u)),2,5126,false]]),n:f.p.length/3,k:KIND[f.k]||0,c:f.c,b:f.b,t:paint(f),name:f.n})});
 S.pics.forEach(function(p,n){if(p)hang(n)});
 // every frame can be clicked
+['hud','scr1','scr2'].forEach(function(n){var d1=d.fx.filter(function(f){return f.n==n})[0];if(!d1)return;var p=d1.p;R.spots[n]=[[0,1,2].map(function(a){return Math.min(p[a],p[a+3],p[a+6])-.05}),[0,1,2].map(function(a){return Math.max(p[a],p[a+3],p[a+6])+.05})]});
 delete R.spots.gifts;fxs.forEach(function(x,n){if(x.name.slice(0,4)!='gift')return;var p=d.fx[n].p,lo=[0,1,2].map(function(a){return Math.min(p[a],p[a+3],p[a+6])-.06}),hi=[0,1,2].map(function(a){return Math.max(p[a],p[a+3],p[a+6])+.06});R.spots[x.name]=[lo,hi]});
 d.items.forEach(function(i){var p=new Int16Array(bytes(i.p));items.push({v:vao([[buf(p),3,5122,false],[buf(new Uint8Array(bytes(i.c))),3,5121,true],[buf(new Int8Array(bytes(i.n))),3,5120,true]]),n:p.length/3})});
 // the fan's blades
@@ -281,7 +311,7 @@ window.herRoom=function(d){try{if(!gl)build(d)}catch(e){fail(e.message)}};
 window.herNoRoom=function(){fail('not downloaded')};
 function clip(n){return art[n]||art.idle||art.face}
 function wander(now,dt){
-her.ct+=dt;her.left-=dt;her.talkT-=dt;her.g=Math.max(0,her.g-dt*1.6);
+her.ct+=dt;her.left-=dt;var jam=MUS&&MUS.on&&!JOB;if(JOB&&!JOB.done&&her.s.n!='desk'&&!her.gone&&!her.to&&!zoomed){her.gone=SPOTS[0];her.ct=0;zap(0)}if(JOB&&!her.gone&&!her.to)her.left=Math.max(her.left,4);if(jam&&her.c=='idle'&&art.dance&&!her.to){her.c='dance';her.ct=0}else if(!jam&&her.c=='dance'&&her.s.c!='dance'&&!her.to)her.c=her.s.c;her.talkT-=dt;her.g=Math.max(0,her.g-dt*1.6);
 if(her.to){var d=sub(her.to.p,her.p),l=Math.hypot(d[0],d[1]);if(l<.05){her.s=her.to;her.to=null;her.p=her.s.p.slice();her.c=her.s.c;her.ct=0;her.left=14+Math.random()*16}else{var st=Math.min(l,dt*.85);her.p[0]+=d[0]/l*st;her.p[1]+=d[1]/l*st;her.flip=dot(cam.s,d)<0;her.c='walk'}}
 else if(her.c=='arrive'){var A=art.arrive;if(her.ct>(A?A.n/A.fps:.5)){her.c=her.s.c;her.ct=0;her.left=14+Math.random()*18}}
 else if(her.gone){her.g=1;if(her.ct>.45){her.s=her.gone;her.gone=null;her.p=her.s.p.slice();her.c='arrive';her.ct=0;zap(.9);her.flip=false}}
@@ -291,18 +321,18 @@ if(her.talkT<0&&!her.to&&!her.gone){her.talkT=26+Math.random()*30;if(!zoomed)say
 // ---- picking
 function ray(x,y){var w=canv.clientWidth,h=canv.clientHeight,t=Math.tan(FOV/2),a=w/h,nx=(x/w*2-1)*t*a,ny=(1-y/h*2)*t;return norm([0,1,2].map(function(i){return cam.f[i]+cam.s[i]*nx+cam.u[i]*ny}))}
 function hit(o,d,lo,hi){var a=-1e9,b=1e9;for(var i=0;i<3;i++){var q=1/(Math.abs(d[i])<1e-6?1e-6:d[i]),x=(lo[i]-o[i])*q,y=(hi[i]-o[i])*q;a=Math.max(a,Math.min(x,y));b=Math.min(b,Math.max(x,y))}return b>=a&&b>0?a:-1}
-var NAMES={desk:'Her desk',diary:'Diary',shelf:'Her shelf',arcade:'Today\'s question',door:'That door',tv:'Her story',safe:'Top secret',about:'About you',notes:'Guestbook',table:'Review of the day'};
-var CARD={door:'story',tv:'story',gift0:'gifts',gift1:'gifts',gift2:'gifts',gift3:'gifts'};[0,1,2,3].forEach(function(n){NAMES['gift'+n]='Frame '+(n+1)+': put a picture in it'});
+var NAMES={desk:'Her desk',diary:'Diary',shelf:'Her shelf',hud:'What\'s playing',scr1:'What she\'s doing',scr2:'Her secret Discord',arcade:'Today\'s question',door:'That door',tv:'Her story',safe:'Top secret',about:'About you',notes:'Guestbook',table:'Review of the day'};
+var CARD={hud:'music',scr1:'job',scr2:'dc',door:'story',tv:'story',gift0:'gifts',gift1:'gifts',gift2:'gifts',gift3:'gifts'};[0,1,2,3].forEach(function(n){NAMES['gift'+n]='Frame '+(n+1)+': put a picture in it'});
 var HIDE=[[-3.1,-3.2,1.05],[1.75,-1,.72],[-1.2,-2.85,1.05],[2.9,3,2.25],[-3.7,3.6,6.05],[3.05,2.75,4.4],[2.5,-3.25,.5],[-.05,-1.3,.65],[-.75,3.5,4.35],[-2.6,-3.5,.65],[-3.2,3.3,2.35],[.43,3.65,4.5]],hidAt=HIDE[pick(HIDE,13)];
 function under(x,y){var o=cam.e,d=ray(x,y),best=null,bd=1e9;function t(n,lo,hi,pad){var k=hit(o,d,lo,hi);if(k>=0&&k<bd+(pad||0)){bd=Math.min(bd,k);best=n}}
-Object.keys(R.spots).forEach(function(n){t(n,R.spots[n][0],R.spots[n][1])});
+Object.keys(R.spots).forEach(function(n){t(n,R.spots[n][0],R.spots[n][1],/^scr/.test(n)?1.4:0)});
 var me=touch(o,d);if(me&&me.k<bd+.8){best=me.n;bd=Math.min(bd,me.k)}
 R.shelf.forEach(function(p,n){t('item'+n,[p[0]-.16,p[1]-.2,p[2]],[p[0]+.2,p[1]+.2,p[2]+.44],.9)});
 if(hidden>=0)t('hid',hidAt.map(function(q){return q-.22}),hidAt.map(function(q){return q+.22}),3);return best}
 function nameOf(n){if(!n)return'';if(n=='her')return'Capri';if(n=='face')return'Her face';if(n=='hid')return'Huh? What\'s that?';if(n.slice(0,4)=='item'){var i=+n.slice(4),x=ITEMS[i];return own(i)?x[0]:x[1]=='room'?'??? Hidden in here some days':x[1]=='web'?'??? Turns up while you browse':'??? '+x[3]+' ('+Math.min(have(x),x[2])+'/'+x[2]+')'}return NAMES[n]||''}
 function go(n){if(!n)return leave();if(n=='face'){zap(.75);poke();return}if(n=='her'){if(her.g<.1)zap(.35);say(any(['Hands off the jacket.','Personal space, choom.','Missed my face. Good.','That tickles. Stop.','Use your words.']));return}if(n=='hid'){foundHidden();say('You found it! I was wondering where that went.');return}
 var k=n.slice(0,4)=='item'?'shelf':n,s=R.spots[k],c=[0,1,2].map(function(i){return(s[0][i]+s[1][i])/2});
-zoomed=k;var big=Math.max(s[1][0]-s[0][0],s[1][1]-s[0][1],s[1][2]-s[0][2]);want.t=c;want.d=Math.max(5.2,big*3.1+2);want.yaw=c[0]<-3.4?1.18:k=='safe'?.6:.42;want.pitch=k=='table'?.72:.22;
+zoomed=k;var big=Math.max(s[1][0]-s[0][0],s[1][1]-s[0][1],s[1][2]-s[0][2]);want.t=c;want.d=Math.max(5.2,big*3.1+2);want.yaw=c[0]<-3.4?1.18:k=='safe'?.6:.42;want.pitch=k=='table'?.72:.22;if(/^scr|hud/.test(k)){want.d=big*2.4+(k=='hud'?1.4:1.9);want.pitch=.14}if(k=='scr2'){want.yaw=.4;want.pitch=.3}if(k=='scr1')want.yaw=-.2;
 // the panel covers the right side: look a little to the right of it, so it sits on the left
 if(canv.clientWidth>820){var sh=want.d*.11;want.t=[c[0]+Math.cos(want.yaw)*sh,c[1]+Math.sin(want.yaw)*sh,c[2]]}
 open(CARD[k]||k);if(CARD[k]=='gifts')frameMark(+k.slice(4));if(her.s.n==k&&Math.random()<.6)say(any(LINE[k]))}
@@ -337,7 +367,7 @@ raf=0;if(!inRoom||!ready||document.hidden||!canv.isConnected)return;raf=requestA
 now=now||performance.now();var dt=Math.min(.1,(now-last)/1000);if(dt<.015)return;last=now;
 // a slow PC gets a softer picture instead of a jerky one
 slow=dt>.034&&dt<.1?slow+1:Math.max(0,slow-2);if(slow>45&&sharp>.55){sharp*=.8;slow=0}var t=(now-t0)/1000;
-size();wander(now,dt);
+size();screens(now);wander(now,dt);
 // camera
 var e=calm?1:1-Math.exp(-dt*4.5),D=(want.d||fit())*(want.z||1);['yaw','pitch'].forEach(function(k){cam[k]+=(want[k]-cam[k])*e});cam.d+=(D-cam.d)*e;for(var i=0;i<3;i++)cam.t[i]+=(want.t[i]-cam.t[i])*e;
 var ya=cam.yaw+(calm||down?0:mouse[0]*.06),pi=cam.pitch+(calm||down?0:mouse[1]*.04);cam.e=[cam.t[0]+cam.d*Math.cos(pi)*Math.sin(ya),cam.t[1]-cam.d*Math.cos(pi)*Math.cos(ya),cam.t[2]+cam.d*Math.sin(pi)];
