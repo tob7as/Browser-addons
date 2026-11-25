@@ -25,7 +25,7 @@ To join, open **Games** in Capri Browser, add a leaderboard name and press **Sen
 | # | Name | Sites visited |
 | ---: | --- | ---: |
 | 1 | ShadowGarden20 | 233 |
-| 2 | Toby | 116 |
+| 2 | Toby | 164 |
 | 3 | THE_noSkillguy | 17 |
 
 ## Best survival run
