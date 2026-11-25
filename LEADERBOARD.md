@@ -25,7 +25,7 @@ To join, open **Games** in Capri Browser, add a leaderboard name and press **Sen
 | # | Name | Sites visited |
 | ---: | --- | ---: |
 | 1 | ShadowGarden20 | 233 |
-| 2 | Toby | 164 |
+| 2 | Toby | 180 |
 | 3 | THE_noSkillguy | 18 |
 
 ## Best survival run
@@ -40,14 +40,14 @@ To join, open **Games** in Capri Browser, add a leaderboard name and press **Sen
 
 | # | Name | Best guess the site run |
 | ---: | --- | ---: |
-| 1 | THE_noSkillguy | 5 |
-| 2 | ShadowGarden20 | 1 |
-| 3 | Toby | 0 |
+| 1 | Toby | 5 |
+| 2 | THE_noSkillguy | 5 |
+| 3 | ShadowGarden20 | 1 |
 
 ## Best typing speed
 
 | # | Name | Best typing speed |
 | ---: | --- | ---: |
-| 1 | ShadowGarden20 | 41 WPM |
-| 2 | Toby | 0 WPM |
+| 1 | Toby | 47 WPM |
+| 2 | ShadowGarden20 | 41 WPM |
 | 3 | THE_noSkillguy | 0 WPM |
