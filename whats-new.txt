@@ -2,8 +2,8 @@ Capri Browser 2.0.1
 • Games are front and centre: every game shows on the Games page straight away, no downloading first. New: Daily Word Search, a new puzzle every day that's the same for everyone, from 140 themes, and every third day is a hard one. Keep your streak going and share your time.
 • Ad blocker stats: see how many ads, trackers and pop-ups Capri has stopped, on All-time stats.
 • Sketchy downloads: if a download looks dodgy (a program from a site she doesn't know, or a file pretending to be a picture or document), Capri asks if you're sure first.
-• Game mode can switch on by itself when a full-screen game starts (Settings > Capri features).
-• Notifications: turn all of Capri's notifications off with one switch, or just the ones you don't want (Settings > Capri features).
+• Game mode can switch on by itself when a full-screen game starts (Settings > Games).
+• Notifications: turn all of Capri's notifications off with one switch, or just the ones you don't want (Settings > Notifications).
 • Research (Settings > Research): choose how much she writes, Short, Mid or Long. When she is done she asks if you want her to keep researching, and you can say "keep researching" any time to go deeper. Big brains will be better: a bigger AI model writes better research.
 • Stats: Daily Word Search in This Week and All-time stats, and a new Capri Helped You section in All-time stats (research, jobs, messages read out, skips). 27 new achievements to unlock.
 • Leaderboards: choose which of your numbers go on the boards. Set a new best and Capri tells you where it would place this week.
