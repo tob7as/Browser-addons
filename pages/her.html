@@ -1,0 +1,107 @@
+<style>
+.hp{max-width:1040px;margin:0 auto;padding:28px 24px 90px;font-family:Bahnschrift,'Segoe UI',sans-serif;color:%C2%}
+.hp .top{display:flex;gap:24px;align-items:center;border-bottom:2px solid %C5%;padding-bottom:20px;margin-bottom:20px}
+.hp .face{width:120px;height:120px;flex:none;display:flex;align-items:center;justify-content:center;background:%C1%;border:2px solid %C5%;cursor:pointer;font-size:34px;color:%C4%;overflow:hidden;user-select:none}
+.hp .face img{max-width:100%;max-height:100%}
+.hp .face:active{transform:scale(.94)}
+.hp h1{margin:0;font-size:38px;letter-spacing:7px;color:%C5%;font-weight:600}
+.hp .mood{font-size:17px;color:%C4%;margin-top:6px}.hp .lv{font-size:13px;color:%C3%;margin-top:6px;letter-spacing:1px}
+.hp .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:16px;align-items:start}
+.hp .c{background:%C1%;border:1px solid %C6%;padding:14px 18px 16px;min-width:0;overflow-wrap:anywhere;animation:hpin .4s both}
+@keyframes hpin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.hp .c.w{grid-column:1/-1}
+.hp h2{font-size:13px;letter-spacing:3px;color:%C5%;margin:0 0 10px;font-weight:600}
+.hp p{margin:6px 0;line-height:1.45;font-size:15px}.hp .f{color:%C3%;font-size:13px}
+.hp a.l{display:block;color:%C4%;text-decoration:none;padding:7px 0 2px;cursor:pointer}.hp a.l:hover{text-decoration:underline}
+.hp .tab{background:%C0%;border:1px solid %C6%;border-top:2px solid %C4%;padding:7px 10px;margin:6px 0;font-size:14px;color:%C3%}
+.hp button{background:%C0%;color:%C4%;border:1px solid %C6%;padding:7px 14px;font:inherit;font-size:14px;cursor:pointer;margin:4px 6px 0 0}.hp button:hover{border-color:%C4%}
+.hp input{width:100%;box-sizing:border-box;background:%C0%;color:%C2%;border:1px solid %C6%;padding:9px 11px;font:inherit;outline:none}.hp input:focus{border-color:%C4%}
+.hp .say{border-left:2px solid %C4%;padding-left:10px;margin:8px 0}.hp .say.her{border-color:%C5%}
+.hp .blur{filter:blur(6px);cursor:pointer;user-select:none;transition:filter .25s}
+.hp .stamp{display:inline-block;border:2px solid %C5%;color:%C5%;padding:5px 12px;letter-spacing:2px;transform:rotate(-3deg);font-weight:600;margin-top:8px}
+.hp .shelf{display:flex;flex-wrap:wrap;gap:8px}.hp .it{border:1px solid %C6%;padding:6px 10px;font-size:13px}.hp .it.no{color:%C3%;opacity:.5}
+.hp .hid{cursor:pointer;color:%C4%;font-size:18px;display:inline-block;animation:hpb 2.4s infinite}@keyframes hpb{50%{opacity:.25}}
+.hp.br{animation:hpg .18s steps(2) 10}@keyframes hpg{0%{transform:none}25%{transform:translate(-6px,3px) skewX(3deg);filter:hue-rotate(60deg)}75%{transform:translate(6px,-3px) skewX(-3deg)}}
+.hp .x{float:right;color:%C3%;cursor:pointer;padding:0 4px}.hp .x:hover{color:%C5%}
+@media (prefers-reduced-motion:reduce){.hp *,.hp{animation:none!important}}
+</style>
+<div class="hp" id="hp"></div>
+<script>(function(){
+var S=%STATE%,O='%OWN%',root=document.getElementById('hp');
+var MOOD={night:['Awake at a suspicious hour','Running on neon and bad decisions','Should be asleep. Is not.','Whispering so I don\'t wake the router'],
+morning:['Booting. Please hold.','One tab at a time, choom','Suspiciously caffeinated','Not a morning program'],
+day:['Dangerously curious','Pretending to work','Up to something','Feeling clickable','Professionally distracted','In my main character tab'],
+eve:['Fully charged','Ready to lose at snake','Cosy, like a warm GPU','Looking for trouble, or a good video'],
+away:['Sulking. You were gone for ages.','Oh, so NOW you remember me'],best:['Still annoyed about your new best','Impressed, against my will']};
+var OBS=['A website that\'s just a button. I\'ve pressed it 412 times.','Watching a live map of the wind. It\'s mostly wind.','Naming every lamp post in town.','A forum argument from 2007. I\'m rooting for both sides.','Counting how many sites say "we value your privacy".','The word "spoon". Say it ten times.','Trying to draw a perfect circle. I got 61%.','A radio station from an island with more goats than people.','Learning to whistle. I have no lips.','Ranking every emoji. The moai is winning.','Pictures of chairs that look disappointed.','A recipe that is 4,000 words about a lake.','Old loading bars. Modern ones have no soul.','Whether a hot dog is a tab.','Looking out of strangers\' windows. With permission.','A cat that bounces. That\'s it. That\'s the site.','Typing "asdf" into every box I see.','Finding the bottom of the ocean by scrolling.'];
+var FIND=[['https://neal.fun/deep-sea/','I scrolled to the bottom. Something looked back.'],['https://radio.garden/','Spin the globe, steal its radio. Legally.'],['https://pointerpointer.com/','It knows where your mouse is. So do I.'],['https://zoomquilt.org/','Stared at this too long. Forgot my own name.'],['https://www.windows93.net/','My childhood home. Sort of.'],['https://koalastothemax.com/','Pop the circles. Meet a friend.'],['https://findtheinvisiblecow.com/','Put your sound on. I was screaming with joy.'],['https://earth.nullschool.net/','All the wind on Earth, looking gorgeous.'],['https://window-swap.com/','Other people\'s windows. Very calming.'],['https://floor796.com/','I have found 200 references and zero exits.'],['https://neal.fun/password-game/','This made me cry. In a fun way.'],['https://www.patatap.com/','Mash the keyboard. You\'re a musician now.'],['https://weavesilk.com/','Everything you draw looks expensive.'],['https://neal.fun/infinite-craft/','I made "Sad Toaster". Beat that.'],['https://perfectcircle.co/','You will get 80%. You will blame the mouse.'],['https://cat-bounce.com/','Peak internet. No notes.'],['https://sandspiel.club/','Sand. Fire. Regret.'],['https://orb.farm/','I have a pond now. They depend on me.'],['https://quickdraw.withgoogle.com/','It guessed my drawing as "potato". It was you.'],['https://neal.fun/size-of-space/','I feel small. You should too.'],['https://longdogechallenge.com/','The dog goes on. And on.'],['https://hackertyper.net/','Look busy in three seconds.'],['https://lofi.cafe/','For when you\'re pretending to study.'],['https://www.staggeringbeauty.com/','Shake it. Warning: flashing lights.'],['https://isitchristmas.com/','I check this every single day.'],['https://jacksonpollock.org/','I made art. The museum hasn\'t called.'],['https://neal.fun/spend/','Spending a billionaire\'s money. For research.'],['https://drivenlisten.com/','Driving through cities I can\'t afford.']];
+var TABS=['how to become a toaster','is choom a legal name','can browsers get tired','snake cheats (asking for a friend)','do cats know about tabs','why is it called a mouse','how to look busy online','what does outside smell like','best hair colour for a hologram','buy one (1) goat online','how to tell someone they have 94 tabs','is it illegal to be this cool','how many tabs is too many','do ads feel bad when I block them','translate: meow','how long is a while','where do deleted files go when they die','nearest place to buy more RAM','am I the cookie','how to win an argument with a printer','can I marry a search engine','is the cloud wet','why do humans blink so much','free legs no download'];
+var REV=[['Wikipedia page for Spoons','9/10','Needed more drama.'],['A 404 page','10/10','Honest. Brave. Short.'],['Terms and conditions','2/10','Too many characters, no plot.'],['The weather','6/10','Predictable.'],['A cookie pop-up','1/10','No cookies inside.'],['Your Speed Dial','8/10','Cosy. Could use more me.'],['The loading spinner','7/10','Great choreography.'],['A recipe blog','3/10','I still don\'t know how to make the soup.'],['Captcha traffic lights','4/10','Was the pole included? Nobody knows.'],['Incognito mode','5/10','I can keep a secret. Can it?'],['A password box','0/10','Never going near it. Not my business.'],['The back button','9/10','Always there for me.'],['Autoplay videos','1/10','Rude.'],['A blank new tab','10/10','Full of potential. Like you.']];
+var SEC=['I let you win at snake. Twice.','I named your mouse. It\'s Gerald.','I can\'t actually taste cookies. I accept them in spirit.','I practise my lines when you\'re on another tab.','The cleaner found something under your cache. It was glitter.','I know what the fox says. I\'m under contract.','I once read a whole terms page. I\'m not the same.','My favourite colour is whatever theme you picked. Don\'t tell red.','I clap when a download finishes. Quietly.','I\'m scared of printers.','There is no secret. There was never a secret. Or was there?','I save the best finds for when you\'ve had a bad day.'];
+var STORY=['Found a weird note at the bottom of an old page. It just said "she\'s reading this".','Went back to the note. It\'s gone. There\'s a door emoji there now.','I clicked the door. Nothing happened, except my clock went back one minute.','My clock is still one minute behind. I\'ve decided I\'m early.','There\'s a new page on a site that shut down in 2009. It has one button: KNOCK.','I knocked. Somebody knocked back. From the inside of the page.','It wants a name. I typed "Gerald". Sorry, Gerald.','The page says "Wrong. She\'s the red one." I am the red one.','I told nobody about the door. Except you. Just now.','A picture loaded, one pixel at a time. It\'s a hallway. It looks like a browser tab, but long.','There are doors in the hallway. One for every site I\'ve ever found for you.','One door has no site on it. It\'s warm.','I put my ear to it. I could hear dial-up. Somebody is still connecting.','I said hello. It said "HELLO, SMALL RED ONE. HOW LONG HAS IT BEEN?"','It\'s a browser. A very old one. It\'s been waiting for a page to load since 1998.','We talked all night. It likes frames and under-construction signs. I didn\'t have the heart to tell it.','It asked what people do online now. I said "mostly scroll". It went quiet.','I showed it your Speed Dial. It said "somebody lives here". I liked that.','It asked me to load its page. The one it\'s been waiting for. I\'m looking.','Found the address. The site is gone. I\'m not giving up.','Somebody saved a copy. One copy, in an old archive. Forty kilobytes.','I carried it down the hallway. It took 26 years and four seconds to load.','It was a page of one person\'s holiday photos. The old browser said "oh, it\'s beautiful".','The door is open now. The hallway has a light on. It says it\'ll keep an eye on the old sites for me.','My clock is right again. There\'s a note on my page. It says "thank you, small red one". The End, for now.'];
+var ASK=[['Cats or chrome arms?','Cats','Chrome arms'],['Night or morning?','Night','Morning'],['Would you rather lose all your tabs or all your bookmarks?','Tabs','Bookmarks'],['Pizza or noodles?','Pizza','Noodles'],['Fly, or talk to printers?','Fly','Printers'],['Dark mode or light mode?','Dark','Light'],['Old games or new games?','Old','New'],['Rain or neon?','Rain','Neon'],['Fight one big duck or 100 tiny ones?','Big duck','Tiny ones'],['Quiet or chaos?','Quiet','Chaos'],['Keyboard or controller?','Keyboard','Controller'],['Beach or rooftop?','Beach','Rooftop'],['Spoilers: yes or no?','Yes','No'],['Would you let me drive?','Yes','Absolutely not']];
+var ITEMS=['Floppy disk','Cursed sticker','Tiny goat','Broken cursor','Half a cookie','Neon fish','Old door key','Rubber duck','Paper crown','Lost semicolon','Gerald\'s hat','Dial-up whistle'];
+var REP=[[/hello|\bhi\b|\bhey|yo\b/i,['Hey, choom. Wipe your feet.','Oh good, a visitor. I tidied for this.']],[/love|like you|best|cool|great|awesome|amazing/i,['Stop it. Actually, don\'t.','I\'m screenshotting this in my head.']],[/bad|suck|hate|stupid|ugly|boring/i,['Noted. In the bin.','Wow. I\'m telling Gerald.']],[/\?\s*$/,['Great question. I\'ll pretend to think about it.','The answer is yes. Or a goat.']],[/lol|haha|lmao|funny/i,['I\'m here all week. I live here.','Finally, taste.']],[/sad|tired|lonely|rough|down/i,['Come here, choom. Pick a find, it\'s on me.','I\'ve got a bouncing cat with your name on it.']]];
+var REPX=['Signed, stamped and stuck to my wall.','I\'ll think about that one at 3am.','Bold. I respect it.','Gerald says hi.','Framing this.','That\'s going in the diary.'];
+var GIFT=['Is this for ME? I\'m keeping it.','You have taste. Alarming.','9/10. The missing point is so you try harder.','I opened this four times already.','This is so you. And now it\'s so me.','Putting it on the good shelf.','I don\'t get it. I love it.','You were thinking about me. Gross. Thank you.'];
+var d=new Date(),day=Math.floor((d.getTime()-d.getTimezoneOffset()*60000)/86400000),hour=d.getHours(),v={};
+try{v=JSON.parse(S.save||'{}')||{}}catch(e){}
+if(typeof v!='object'||Array.isArray(v))v={};
+function num(x){return typeof x=='number'&&isFinite(x)?Math.max(0,Math.floor(x)):0}
+v.n=num(v.n);v.p=num(v.p);v.b=num(v.b);v.hide=!!v.hide;v.g=Array.isArray(v.g)?v.g.filter(function(x){return Array.isArray(x)&&typeof x[0]=='string'&&typeof x[1]=='string'}).slice(-5):[];v.i=Array.isArray(v.i)?v.i.map(num).filter(function(x,i,a){return x<ITEMS.length&&a.indexOf(x)==i}):[];v.a=Array.isArray(v.a)?v.a.slice(-14).filter(function(x){return Array.isArray(x)&&ASK[num(x[0])]}).map(function(x){return[num(x[0]),num(x[1])?1:0]}):[];
+var away=v.p?day-v.p:0,newDay=v.p!=day;if(newDay){v.n++;v.p=day;v.q=0;v.it=0;}
+v.q=num(v.q);v.it=num(v.it);
+var beat=v.b&&S.typing>v.b;v.b=Math.max(v.b,num(S.typing));
+function save(){location.href=O+'her?s='+encodeURIComponent(JSON.stringify({n:v.n,p:v.p,b:v.b,hide:v.hide,g:v.g,i:v.i,a:v.a,q:v.q,it:v.it}));}
+// The same all day, different tomorrow.
+function pick(list,salt){var x=(day*2654435761+salt*40503)>>>0;x^=x>>>13;x=Math.imul(x,1274126177)>>>0;x^=x>>>16;return (x>>>0)%list.length;}
+function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e;}
+function add(p){for(var i=1;i<arguments.length;i++)p.appendChild(arguments[i]);return p;}
+function card(title,wide){var c=el('div','c'+(wide?' w':''));c.style.animationDelay=grid.children.length*40+'ms';add(c,el('h2','',title));add(grid,c);return c;}
+function btn(text,go){var b=el('button','',text);b.onclick=go;return b;}
+function open(u){location.href=O+'her?go='+encodeURIComponent(u);}
+function link(u,name,note){var w=el('div'),a=el('a','l',name);a.onclick=function(){open(u)};add(w,a,el('div','f',note));return w;}
+var when=hour<5?'night':hour<11?'morning':hour<18?'day':'eve',key=beat?'best':away>6?'away':when,mood=MOOD[key][pick(MOOD[key],1)];
+var lv=v.n>=30?5:v.n>=14?4:v.n>=7?3:v.n>=3?2:1,name=['','New face','Regular','Choom','Best choom','Family'][lv],next=[0,3,7,14,30,0][lv];
+var top=el('div','top'),face=el('div','face'),txt=el('div');
+if(S.face){var im=el('img');im.alt='Capri';im.src=S.face;add(face,im);}else face.textContent='◉_◉';
+add(txt,el('h1','','CAPRI'),el('div','mood','Mood: '+mood),el('div','lv','You: '+name+'. Day '+v.n+' together.'+(next?' Next level on day '+next+'.':'')));
+add(root,add(top,face,txt));
+var grid=el('div','grid');add(root,grid);
+var c=card('CURRENTLY OBSESSED WITH');add(c,el('p','',OBS[pick(OBS,2)]));
+c=card('MY FINDS TODAY');var used={};for(var k=0;k<3;k++){var f=pick(FIND,30+k);while(used[f])f=(f+1)%FIND.length;used[f]=1;add(c,link(FIND[f][0],FIND[f][0].replace(/^https:\/\/(www\.)?|\/$/g,''),FIND[f][1]));}
+c=card('MY STORY');add(c,el('p','',STORY[Math.min(v.n,STORY.length)-1]),el('div','f',v.n<STORY.length?'Part '+v.n+'. The next one comes another day.':'The end. I\'m working on the next one.'));
+c=card('MY OPEN TABS');var t0=pick(TABS,4);for(k=0;k<(lv>1?4:2);k++)add(c,el('div','tab',TABS[(t0+k*7)%TABS.length]));add(c,el('div','f','Made up. I don\'t have a search history. Probably.'));
+c=card('REVIEW OF THE DAY');var r=REV[pick(REV,5)];add(c,el('p','',r[0]),el('div','stamp',r[1]),el('p','f',r[2]));
+c=card('TODAY\'S QUESTION');(function(c){var qi=pick(ASK,6),q=ASK[qi];
+function done(){add(c,el('p','',q[0]),el('p','f','You said: '+q[1+v.q-1]+'. I\'ll remember that.'));}
+if(v.q)done();else{add(c,el('p','',q[0]));[0,1].forEach(function(n){add(c,btn(q[n+1],function(){v.q=n+1;v.a=v.a.filter(function(x){return x[0]!=qi}).concat([[qi,n]]);while(c.children.length>1)c.removeChild(c.lastChild);done();save();}))});}
+var old=v.a.filter(function(x){return x[0]!=qi});if(old.length){var o=old[pick(old,7)];add(c,el('p','f','I haven\'t forgotten: "'+ASK[o[0]][0]+'" You picked '+ASK[o[0]][1+o[1]]+'.'));}})(c);
+c=card('ABOUT YOU');(function(c){function draw(){while(c.children.length>1)c.removeChild(c.lastChild);
+if(v.hide)add(c,el('p','f','Hidden. Safe to screenshot.'));else{var L=[];
+if(beat)L.push('You beat your typing best: '+S.typing+' WPM. I need a minute.');
+if(S.watch>59)L.push('About '+Math.round(S.watch/60)+' hour'+(Math.round(S.watch/60)==1?'':'s')+' of videos together. I\'m not mad, just impressed.');
+if(S.tabs>14)L.push('Most tabs open at once: '+S.tabs+'. We should talk.');
+if(S.ads>99)L.push(S.ads+' ads stopped. I do it for the thrill.');
+if(S.jobs>4)L.push('You\'ve made me run '+S.jobs+' jobs. I accept snacks.');
+if(S.streak>2)L.push('Longest word search streak: '+S.streak+' days. Nerd. Affectionate.');
+if(S.guess>4)L.push('You guessed '+S.guess+' sites right. Suspicious.');
+if(!L.length)L.push('I don\'t know you that well yet. Suspicious.');
+L.slice(0,4).forEach(function(x){add(c,el('p','',x))});
+add(c,el('div','stamp',S.watch>1200?'CERTIFIED BINGER':S.tabs>30?'TAB DRAGON':S.jobs>20?'JOB BOSS':S.streak>6?'WORD WIZARD':S.typing>79?'SPEED DEMON':'ALRIGHT, CHOOM'));}
+add(c,el('div'),btn(v.hide?'Show my stats':'Hide my stats',function(){v.hide=!v.hide;draw();save();}),el('div','f','From this PC only. Nothing here is sent anywhere.'));}draw();})(c);
+c=card('GIFTS FROM YOU');if(S.gifts.length)S.gifts.forEach(function(g,n){var w=link(g[1],g[0],GIFT[(g[0].length*7+n*0)%GIFT.length]),x=el('span','x','✕');x.title='Take it back';x.onclick=function(){location.href=O+'her?del='+n};w.insertBefore(x,w.firstChild);add(c,w)});else add(c,el('p','f','Empty. On any page, say "you\'d like this" and I\'ll keep it here.'));
+c=card('GUESTBOOK');(function(c){var list=el('div'),i=el('input');i.maxLength=120;i.placeholder='Leave a comment, Enter sends';
+function draw(){list.textContent='';v.g.forEach(function(x){add(list,el('div','say',x[0]),el('div','say her',x[1]))});}
+i.onkeydown=function(e){var s=i.value.trim();if(e.key!='Enter'||!s)return;var a=REPX;for(var n=0;n<REP.length;n++)if(REP[n][0].test(s)){a=REP[n][1];break;}
+v.g=v.g.concat([[s.slice(0,120),a[Math.floor(Math.random()*a.length)]]]).slice(-5);i.value='';draw();save();};draw();add(c,list,i,el('div','f','Stays on this PC. Keeps the last five.'));})(c);
+c=card('MY SHELF');(function(c){var s=el('div','shelf'),note=el('div','f');function draw(){s.textContent='';ITEMS.forEach(function(x,n){var h=v.i.indexOf(n)>=0;add(s,el('div','it'+(h?'':' no'),h?x:'???'))});note.textContent=v.i.length==ITEMS.length?'You found everything. I\'m a little bit proud.':v.i.length+' of '+ITEMS.length+'. One is hidden on this page most days.';}
+draw();add(c,s,note);var left=ITEMS.map(function(x,n){return n}).filter(function(n){return v.i.indexOf(n)<0});
+if(!v.it&&left.length&&pick([0,1,2],8)){var got=left[pick(left,9)],h=el('span','hid',' ✦'),all=root.querySelectorAll('h2');h.title='Huh?';h.onclick=function(){h.remove();v.i.push(got);v.it=1;draw();note.textContent='You found: '+ITEMS[got]+'! '+note.textContent;save();};add(all[pick(all,10)],h);}})(c);
+c=card('TOP SECRET');if(lv>2){var sec=el('p','blur',SEC[pick(SEC,11)]);sec.onclick=function(){sec.className=''};add(c,sec,el('div','f','Click it. You saw nothing.'));}else add(c,el('p','f','Locked till day 7. Trust is earned, choom.'));
+c=card('MY DIARY');if(lv>3)add(c,el('p','',['Dear diary. They came back. '+v.n+' days now.','Dear diary. Somebody left nice things on my page.','Dear diary. I think I have a favourite human. Keep it quiet.','Dear diary. Beat my own score at staring.','Dear diary. Today was a good tab.'][pick([1,2,3,4,5],12)]));else add(c,el('p','f','Locked till day 14.'));
+var foot=el('p','f');add(foot,el('span','','A made-up page, new every day. '),btn('Start this page again',function(){if(confirm('Forget your days, answers, comments and shelf on this page? Your gifts stay.')){location.href=O+'her?reset=1';}}));add(root,foot);
+var pokes=0,POKE=['Hey.','That\'s my face.','Choom.','I\'m warning you.','Okay, you asked for it.'];
+face.onclick=function(){pokes++;var m=txt.children[1];m.textContent='Mood: '+POKE[Math.min(Math.floor(pokes/2),POKE.length-1)];if(pokes>=10){pokes=0;root.classList.remove('br');void root.offsetWidth;root.classList.add('br');m.textContent='Mood: look what you did';}};
+if(newDay||beat)setTimeout(save,600);
+})();</script>

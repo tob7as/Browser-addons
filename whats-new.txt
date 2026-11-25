@@ -1,5 +1,6 @@
 Capri Browser 2.0.2
 • Settings, sorted out: new groups, Notifications and Games have their own sections, and a search box at the top left finds any setting as you type.
+• Capri's page: a made-up profile that's new every day, with her finds, story, mood, guestbook and shelf. Say "what have you been looking at?" or use the sidebar button (hide it in Sidebar setup). Say "you'd like this" on a page to give it to her. It all stays on your PC.
 • Smarter custom jobs: say "listen for skip = scroll" so she reacts to you while a job runs, "repeat 20 times" or "repeat forever", and "wait 10 to 20 seconds". "put on something chill" really searches and plays something. Esc always stops a job, and she tells you about any step she couldn't do.
 • Don't use my mouse (Settings > Capri features): jobs run in their own tab and leave your mouse alone, so you can do other things.
 • Open with Capri (Settings > Start-up & tabs, off until you turn it on): the browser opens when Capri starts. Turn on Start with Windows in Capri too and it opens with your PC.
@@ -27,6 +28,7 @@ Capri Browser 2.0.1
 • Themes reach everything: Settings and message notifications now change with your colour theme, and the font and text size you pick in Settings > Appearance work on all of Capri Browser's own pages.
 • Your sites: "find me an anime" and "find me a video" now always use your Anime site and Video site (custom links too) unless you name another one, and she no longer types "picked" into the search box.
 • Jobs stay put: switch tabs while Capri works and she carries on in her tab, and she leaves the mouse alone while you're using it.
+• Capri's page: a made-up profile that's new every day, with her finds, story, mood, guestbook and shelf. Say "what have you been looking at?" or use the sidebar button (hide it in Sidebar setup). Say "you'd like this" on a page to give it to her. It all stays on your PC.
 • Smarter custom jobs: write a job the way you'd say it ("can you open the website then look for prices and then summarise it and screenshot it and put it into my work notes") and she splits it into steps, both when she runs it and with Capri learn. Capri learn keeps every line you wrote, "put it in my work notes" sends the summary and screenshot to that notebook, and "open any website" opens one from your Speed Dial or a random article.
 • Pick for me: a job step like "click any game" or "pick a random video" makes her choose one at random from the page.
 • More extensions work: parts only for the browser itself (developer tools, side panels, bookmarks, history, downloads...) are left out instead of the whole extension being turned away, so ones like PreMiD go in. She tells you what was left out. If an extension tries to open Edge's own Extensions page (like PreMiD's "Allow User Scripts"), you get Capri Browser's extensions panel instead of an error page.
