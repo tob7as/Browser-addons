@@ -1,29 +1,47 @@
 <style>
-.hp{max-width:1040px;margin:0 auto;padding:28px 24px 90px;font-family:Bahnschrift,'Segoe UI',sans-serif;color:%C2%}
+.hp{max-width:1560px;margin:0 auto;padding:28px 24px 90px;font-family:Bahnschrift,'Segoe UI',sans-serif;color:%C2%}
 .hp .top{display:flex;gap:24px;align-items:center;border-bottom:2px solid %C5%;padding-bottom:20px;margin-bottom:20px}
-.hp .face{width:120px;height:120px;flex:none;display:flex;align-items:center;justify-content:center;background:%C1%;border:2px solid %C5%;cursor:pointer;font-size:34px;color:%C4%;overflow:hidden;user-select:none}
-.hp .face img{max-width:100%;max-height:100%}
-.hp .face:active{transform:scale(.94)}
+.hp .face{width:110px;height:110px;flex:none;display:flex;align-items:center;justify-content:center;background:%C1%;border:2px solid %C5%;cursor:pointer;font-size:34px;color:%C4%;overflow:hidden;user-select:none}
+.hp .face img{max-width:100%;max-height:100%}.hp .face:active{transform:scale(.94)}
 .hp h1{margin:0;font-size:38px;letter-spacing:7px;color:%C5%;font-weight:600}
 .hp .mood{font-size:17px;color:%C4%;margin-top:6px}.hp .lv{font-size:13px;color:%C3%;margin-top:6px;letter-spacing:1px}
-.hp .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:16px;align-items:start}
-.hp .c{background:%C1%;border:1px solid %C6%;padding:14px 18px 16px;min-width:0;overflow-wrap:anywhere;animation:hpin .4s both}
-@keyframes hpin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.hp .c.w{grid-column:1/-1}
+.hp .grid{columns:330px;column-gap:16px}
+.hp .c{break-inside:avoid;background:%C1%;border:1px solid %C6%;padding:14px 18px 16px;margin:0 0 16px;min-width:0;overflow-wrap:anywhere}
 .hp h2{font-size:13px;letter-spacing:3px;color:%C5%;margin:0 0 10px;font-weight:600}
-.hp p{margin:6px 0;line-height:1.45;font-size:15px}.hp .f{color:%C3%;font-size:13px}
+.hp p{margin:6px 0;line-height:1.45;font-size:15px}.hp .f{color:%C3%;font-size:13px;line-height:1.4}
 .hp a.l{display:block;color:%C4%;text-decoration:none;padding:7px 0 2px;cursor:pointer}.hp a.l:hover{text-decoration:underline}
 .hp .tab{background:%C0%;border:1px solid %C6%;border-top:2px solid %C4%;padding:7px 10px;margin:6px 0;font-size:14px;color:%C3%}
 .hp button{background:%C0%;color:%C4%;border:1px solid %C6%;padding:7px 14px;font:inherit;font-size:14px;cursor:pointer;margin:4px 6px 0 0}.hp button:hover{border-color:%C4%}
 .hp input{width:100%;box-sizing:border-box;background:%C0%;color:%C2%;border:1px solid %C6%;padding:9px 11px;font:inherit;outline:none}.hp input:focus{border-color:%C4%}
 .hp .say{border-left:2px solid %C4%;padding-left:10px;margin:8px 0}.hp .say.her{border-color:%C5%}
+.hp:not(.room) .c .shelf{max-height:330px;overflow:auto;scrollbar-width:thin;scrollbar-color:%C6% transparent}
 .hp .blur{filter:blur(6px);cursor:pointer;user-select:none;transition:filter .25s}
-.hp .stamp{display:inline-block;border:2px solid %C5%;color:%C5%;padding:5px 12px;letter-spacing:2px;transform:rotate(-3deg);font-weight:600;margin-top:8px}
-.hp .shelf{display:flex;flex-wrap:wrap;gap:8px}.hp .it{border:1px solid %C6%;padding:6px 10px;font-size:13px}.hp .it.no{color:%C3%;opacity:.5}
+.hp .stamp{display:inline-block;border:2px solid %C5%;color:%C5%;padding:5px 12px;letter-spacing:2px;transform:rotate(-3deg);font-weight:600;margin:8px 0}
+.hp .it{border:1px solid %C6%;padding:7px 10px;font-size:13px;margin:5px 0}.hp .it b{display:block;font-weight:600;color:%C2%}.hp .it span{color:%C3%}.hp .it.no b{color:%C3%}.hp .it.new{border-color:%C4%}
 .hp .hid{cursor:pointer;color:%C4%;font-size:18px;display:inline-block;animation:hpb 2.4s infinite}@keyframes hpb{50%{opacity:.25}}
 .hp.br{animation:hpg .18s steps(2) 10}@keyframes hpg{0%{transform:none}25%{transform:translate(-6px,3px) skewX(3deg);filter:hue-rotate(60deg)}75%{transform:translate(6px,-3px) skewX(-3deg)}}
 .hp .x{float:right;color:%C3%;cursor:pointer;padding:0 4px}.hp .x:hover{color:%C5%}
-@media (prefers-reduced-motion:reduce){.hp *,.hp{animation:none!important}}
+.hp canvas,.hp .ui{display:none}
+/* The room */
+html.inroom,html.inroom body{overflow:hidden!important;background:#05060b!important}
+.hp.room{position:fixed;inset:0;max-width:none;margin:0;padding:0;overflow:hidden;background:#05060b}
+.hp.room canvas{display:block;position:absolute;inset:0;width:100%;height:100%;outline:none;touch-action:none}
+.hp.room .ui{display:block}
+.hp.room .top{position:absolute;left:28px;top:22px;border:0;padding:0;margin:0;pointer-events:none;text-shadow:0 2px 10px #000}
+.hp.room .top .face{display:none}.hp.room h1{font-size:30px;text-shadow:0 0 22px %C5%}
+.hp.room .mood{color:#fff;font-size:15px}.hp.room .lv{color:#b9bccb}
+.hp.room .grid{position:absolute;right:24px;top:24px;width:min(380px,calc(100% - 48px));max-height:calc(100% - 90px);overflow:auto;columns:auto;transform:translateX(30px);opacity:0;pointer-events:none;transition:opacity .25s,transform .25s}
+.hp .grid{scrollbar-width:thin;scrollbar-color:%C6% transparent}
+.hp.room.open .grid{transform:none;opacity:1;pointer-events:auto}
+.hp.room .c{display:none;margin:0 0 10px;background:%C1%ee;box-shadow:0 12px 40px #000a}.hp.room .c.on{display:block}
+.hp.room .foot{position:absolute;left:24px;bottom:16px;margin:0}.hp.room .foot span,.hp.room .foot .again{display:none}
+.hp .ui.tip{position:absolute;pointer-events:none;background:%C1%ee;border:1px solid %C4%;color:%C2%;padding:5px 10px;font-size:13px;opacity:0;transform:translate(-50%,-140%);white-space:nowrap}
+.hp .ui.talk{position:absolute;pointer-events:none;background:#0a0b12f2;border:2px solid %C5%;color:#fff;padding:8px 13px;font-size:15px;max-width:270px;opacity:0;transition:opacity .25s;transform:translate(-50%,-100%);line-height:1.35}
+.hp .ui.back{position:absolute;right:24px;bottom:16px;opacity:0;pointer-events:none;transition:opacity .2s}.hp.open .ui.back{opacity:1;pointer-events:auto}
+.hp .ui.got{position:absolute;left:50%;top:26px;transform:translate(-50%,-30px);opacity:0;transition:.4s;background:%C5%;color:%C0%;padding:11px 22px;font-size:17px;font-weight:600;pointer-events:none;text-align:center}.hp .ui.got.on{opacity:1;transform:translate(-50%,0)}
+.hp .ui.load{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);color:#aab;letter-spacing:3px;font-size:13px}
+.hp .ui.hint{text-shadow:0 1px 6px #000;position:absolute;left:50%;bottom:20px;transform:translateX(-50%);color:#8a8ea0;font-size:13px;pointer-events:none;transition:opacity 1s;white-space:nowrap}
+@media (prefers-reduced-motion:reduce){.hp *,.hp{animation:none!important;transition:none!important}}
 </style>
 <div class="hp" id="hp"></div>
 <script>(function(){
@@ -40,27 +58,31 @@ var REV=[['Wikipedia page for Spoons','9/10','Needed more drama.'],['A 404 page'
 var SEC=['I let you win at snake. Twice.','I named your mouse. It\'s Gerald.','I can\'t actually taste cookies. I accept them in spirit.','I practise my lines when you\'re on another tab.','The cleaner found something under your cache. It was glitter.','I know what the fox says. I\'m under contract.','I once read a whole terms page. I\'m not the same.','My favourite colour is whatever theme you picked. Don\'t tell red.','I clap when a download finishes. Quietly.','I\'m scared of printers.','There is no secret. There was never a secret. Or was there?','I save the best finds for when you\'ve had a bad day.'];
 var STORY=['Found a weird note at the bottom of an old page. It just said "she\'s reading this".','Went back to the note. It\'s gone. There\'s a door emoji there now.','I clicked the door. Nothing happened, except my clock went back one minute.','My clock is still one minute behind. I\'ve decided I\'m early.','There\'s a new page on a site that shut down in 2009. It has one button: KNOCK.','I knocked. Somebody knocked back. From the inside of the page.','It wants a name. I typed "Gerald". Sorry, Gerald.','The page says "Wrong. She\'s the red one." I am the red one.','I told nobody about the door. Except you. Just now.','A picture loaded, one pixel at a time. It\'s a hallway. It looks like a browser tab, but long.','There are doors in the hallway. One for every site I\'ve ever found for you.','One door has no site on it. It\'s warm.','I put my ear to it. I could hear dial-up. Somebody is still connecting.','I said hello. It said "HELLO, SMALL RED ONE. HOW LONG HAS IT BEEN?"','It\'s a browser. A very old one. It\'s been waiting for a page to load since 1998.','We talked all night. It likes frames and under-construction signs. I didn\'t have the heart to tell it.','It asked what people do online now. I said "mostly scroll". It went quiet.','I showed it your Speed Dial. It said "somebody lives here". I liked that.','It asked me to load its page. The one it\'s been waiting for. I\'m looking.','Found the address. The site is gone. I\'m not giving up.','Somebody saved a copy. One copy, in an old archive. Forty kilobytes.','I carried it down the hallway. It took 26 years and four seconds to load.','It was a page of one person\'s holiday photos. The old browser said "oh, it\'s beautiful".','The door is open now. The hallway has a light on. It says it\'ll keep an eye on the old sites for me.','My clock is right again. There\'s a note on my page. It says "thank you, small red one". The End, for now.'];
 var ASK=[['Cats or chrome arms?','Cats','Chrome arms'],['Night or morning?','Night','Morning'],['Would you rather lose all your tabs or all your bookmarks?','Tabs','Bookmarks'],['Pizza or noodles?','Pizza','Noodles'],['Fly, or talk to printers?','Fly','Printers'],['Dark mode or light mode?','Dark','Light'],['Old games or new games?','Old','New'],['Rain or neon?','Rain','Neon'],['Fight one big duck or 100 tiny ones?','Big duck','Tiny ones'],['Quiet or chaos?','Quiet','Chaos'],['Keyboard or controller?','Keyboard','Controller'],['Beach or rooftop?','Beach','Rooftop'],['Spoilers: yes or no?','Yes','No'],['Would you let me drive?','Yes','Absolutely not']];
-var ITEMS=['Floppy disk','Cursed sticker','Tiny goat','Broken cursor','Half a cookie','Neon fish','Old door key','Rubber duck','Paper crown','Lost semicolon','Gerald\'s hat','Dial-up whistle'];
 var REP=[[/hello|\bhi\b|\bhey|yo\b/i,['Hey, choom. Wipe your feet.','Oh good, a visitor. I tidied for this.']],[/love|like you|best|cool|great|awesome|amazing/i,['Stop it. Actually, don\'t.','I\'m screenshotting this in my head.']],[/bad|suck|hate|stupid|ugly|boring/i,['Noted. In the bin.','Wow. I\'m telling Gerald.']],[/\?\s*$/,['Great question. I\'ll pretend to think about it.','The answer is yes. Or a goat.']],[/lol|haha|lmao|funny/i,['I\'m here all week. I live here.','Finally, taste.']],[/sad|tired|lonely|rough|down/i,['Come here, choom. Pick a find, it\'s on me.','I\'ve got a bouncing cat with your name on it.']]];
 var REPX=['Signed, stamped and stuck to my wall.','I\'ll think about that one at 3am.','Bold. I respect it.','Gerald says hi.','Framing this.','That\'s going in the diary.'];
 var GIFT=['Is this for ME? I\'m keeping it.','You have taste. Alarming.','9/10. The missing point is so you try harder.','I opened this four times already.','This is so you. And now it\'s so me.','Putting it on the good shelf.','I don\'t get it. I love it.','You were thinking about me. Gross. Thank you.'];
+// The shelf: name, how it's found, and for earned ones [stat, how many]. 'room' hides in her room, 'web' turns up while browsing.
+var ITEMS=[['Floppy disk','room'],['Cursed sticker','room'],['Tiny goat','web'],['Broken cursor','web'],['Half a cookie','web'],['Neon fish','room'],['Old door key','room'],['Rubber duck','web'],['Paper crown','room'],['Lost semicolon','web'],['Gerald\'s hat','room'],['Dial-up whistle','web'],
+['Bottomless popcorn','watch',600,'Watch 10 hours of videos in here'],['Golden key cap','typing',60,'Type 60 words a minute in the typing test'],['Word trophy','streak',7,'Keep a 7 day word search streak'],['Detective glass','guess',10,'Guess 10 hidden sites right'],['Survivor\'s skull','survival',60,'Last 60 seconds in Survival'],['Wiki globe','wiki',3,'Win 3 wiki races'],['Jar of ads','ads',1000,'Let her stop 1,000 ads'],['Toolbox','jobs',25,'Run 25 custom jobs'],['Night owl','night',20,'Browse late: 20 pages after 1am'],['Tab dragon','tabs',25,'Have 25 tabs open at once'],['Field notes','notes',10,'Save 10 notes'],['The holiday photo','day',25,'Reach the end of her story']];
 var d=new Date(),day=Math.floor((d.getTime()-d.getTimezoneOffset()*60000)/86400000),hour=d.getHours(),v={};
 try{v=JSON.parse(S.save||'{}')||{}}catch(e){}
 if(typeof v!='object'||Array.isArray(v))v={};
 function num(x){return typeof x=='number'&&isFinite(x)?Math.max(0,Math.floor(x)):0}
-v.n=num(v.n);v.p=num(v.p);v.b=num(v.b);v.hide=!!v.hide;v.g=Array.isArray(v.g)?v.g.filter(function(x){return Array.isArray(x)&&typeof x[0]=='string'&&typeof x[1]=='string'}).slice(-5):[];v.i=Array.isArray(v.i)?v.i.map(num).filter(function(x,i,a){return x<ITEMS.length&&a.indexOf(x)==i}):[];v.a=Array.isArray(v.a)?v.a.slice(-14).filter(function(x){return Array.isArray(x)&&ASK[num(x[0])]}).map(function(x){return[num(x[0]),num(x[1])?1:0]}):[];
+v.n=num(v.n);v.p=num(v.p);v.b=num(v.b);v.hide=!!v.hide;v.flat=!!v.flat;v.g=Array.isArray(v.g)?v.g.filter(function(x){return Array.isArray(x)&&typeof x[0]=='string'&&typeof x[1]=='string'}).slice(-5):[];v.i=Array.isArray(v.i)?v.i.map(num).filter(function(x,i,a){return x<ITEMS.length&&a.indexOf(x)==i}):[];v.a=Array.isArray(v.a)?v.a.slice(-14).filter(function(x){return Array.isArray(x)&&ASK[num(x[0])]}).map(function(x){return[num(x[0]),num(x[1])?1:0]}):[];
 var away=v.p?day-v.p:0,newDay=v.p!=day;if(newDay){v.n++;v.p=day;v.q=0;v.it=0;}
 v.q=num(v.q);v.it=num(v.it);
 var beat=v.b&&S.typing>v.b;v.b=Math.max(v.b,num(S.typing));
-function save(){location.href=O+'her?s='+encodeURIComponent(JSON.stringify({n:v.n,p:v.p,b:v.b,hide:v.hide,g:v.g,i:v.i,a:v.a,q:v.q,it:v.it}));}
+var saving=0;
+function send(q){location.href=O+'her?'+q;}
+function save(){clearTimeout(saving);saving=setTimeout(function(){send('s='+encodeURIComponent(JSON.stringify({n:v.n,p:v.p,b:v.b,hide:v.hide,flat:v.flat,g:v.g,i:v.i,a:v.a,q:v.q,it:v.it})))},250);}
 // The same all day, different tomorrow.
 function pick(list,salt){var x=(day*2654435761+salt*40503)>>>0;x^=x>>>13;x=Math.imul(x,1274126177)>>>0;x^=x>>>16;return (x>>>0)%list.length;}
+function any(a){return a[Math.floor(Math.random()*a.length)]}
 function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e;}
 function add(p){for(var i=1;i<arguments.length;i++)p.appendChild(arguments[i]);return p;}
-function card(title,wide){var c=el('div','c'+(wide?' w':''));c.style.animationDelay=grid.children.length*40+'ms';add(c,el('h2','',title));add(grid,c);return c;}
-function btn(text,go){var b=el('button','',text);b.onclick=go;return b;}
-function open(u){location.href=O+'her?go='+encodeURIComponent(u);}
-function link(u,name,note){var w=el('div'),a=el('a','l',name);a.onclick=function(){open(u)};add(w,a,el('div','f',note));return w;}
+function card(title,key){var c=el('div','c');c.dataset.k=key;add(c,el('h2','',title));add(grid,c);return c;}
+function btn(text,go,cls){var b=el('button',cls||'',text);b.onclick=go;return b;}
+function link(u,name,note){var w=el('div'),a=el('a','l',name);a.onclick=function(){send('go='+encodeURIComponent(u))};add(w,a,el('div','f',note));return w;}
 var when=hour<5?'night':hour<11?'morning':hour<18?'day':'eve',key=beat?'best':away>6?'away':when,mood=MOOD[key][pick(MOOD[key],1)];
 var lv=v.n>=30?5:v.n>=14?4:v.n>=7?3:v.n>=3?2:1,name=['','New face','Regular','Choom','Best choom','Family'][lv],next=[0,3,7,14,30,0][lv];
 var top=el('div','top'),face=el('div','face'),txt=el('div');
@@ -68,16 +90,26 @@ if(S.face){var im=el('img');im.alt='Capri';im.src=S.face;add(face,im);}else face
 add(txt,el('h1','','CAPRI'),el('div','mood','Mood: '+mood),el('div','lv','You: '+name+'. Day '+v.n+' together.'+(next?' Next level on day '+next+'.':'')));
 add(root,add(top,face,txt));
 var grid=el('div','grid');add(root,grid);
-var c=card('CURRENTLY OBSESSED WITH');add(c,el('p','',OBS[pick(OBS,2)]));
-c=card('MY FINDS TODAY');var used={};for(var k=0;k<3;k++){var f=pick(FIND,30+k);while(used[f])f=(f+1)%FIND.length;used[f]=1;add(c,link(FIND[f][0],FIND[f][0].replace(/^https:\/\/(www\.)?|\/$/g,''),FIND[f][1]));}
-c=card('MY STORY');add(c,el('p','',STORY[Math.min(v.n,STORY.length)-1]),el('div','f',v.n<STORY.length?'Part '+v.n+'. The next one comes another day.':'The end. I\'m working on the next one.'));
-c=card('MY OPEN TABS');var t0=pick(TABS,4);for(k=0;k<(lv>1?4:2);k++)add(c,el('div','tab',TABS[(t0+k*7)%TABS.length]));add(c,el('div','f','Made up. I don\'t have a search history. Probably.'));
-c=card('REVIEW OF THE DAY');var r=REV[pick(REV,5)];add(c,el('p','',r[0]),el('div','stamp',r[1]),el('p','f',r[2]));
-c=card('TODAY\'S QUESTION');(function(c){var qi=pick(ASK,6),q=ASK[qi];
-function done(){add(c,el('p','',q[0]),el('p','f','You said: '+q[1+v.q-1]+'. I\'ll remember that.'));}
-if(v.q)done();else{add(c,el('p','',q[0]));[0,1].forEach(function(n){add(c,btn(q[n+1],function(){v.q=n+1;v.a=v.a.filter(function(x){return x[0]!=qi}).concat([[qi,n]]);while(c.children.length>1)c.removeChild(c.lastChild);done();save();}))});}
+// ---- the shelf first: what's new on it
+var fresh=[],shelfDraw=function(){},shelfNote;
+function own(n){return v.i.indexOf(n)>=0}
+function have(i){return i[1]=='day'?v.n:num(S[i[1]])}
+function find(n,quietly){if(own(n))return;v.i.push(n);fresh.push(n);if(!quietly){shelfDraw();got(n);save();}}
+ITEMS.forEach(function(i,n){if(i[1]!='room'&&i[1]!='web'&&!own(n)&&have(i)>=i[2])find(n,true)});
+if(S.drop){var left=[];ITEMS.forEach(function(i,n){if(i[1]=='web'&&!own(n))left.push(n)});if(left.length)find(any(left),true);}
+var hideable=[];ITEMS.forEach(function(i,n){if(i[1]=='room'&&!own(n))hideable.push(n)});
+var hidden=!v.it&&hideable.length&&pick([0,1,2],8)?hideable[pick(hideable,9)]:-1;
+function foundHidden(){if(hidden<0)return;var n=hidden;hidden=-1;v.it=1;find(n);}
+var c=card('CURRENTLY OBSESSED WITH','desk');add(c,el('p','',OBS[pick(OBS,2)]));
+c=card('MY FINDS TODAY','desk');var used={},finds=[];for(var k=0;k<3;k++){var f=pick(FIND,30+k);while(used[f])f=(f+1)%FIND.length;used[f]=1;var fn=FIND[f][0].replace(/^https:\/\/(www\.)?|\/$/g,'');finds.push(fn);add(c,link(FIND[f][0],fn,FIND[f][1]));}
+c=card('MY OPEN TABS','desk');var t0=pick(TABS,4),tabsNow=[];for(k=0;k<(lv>1?4:2);k++){tabsNow.push(TABS[(t0+k*7)%TABS.length]);add(c,el('div','tab',tabsNow[k]));}add(c,el('div','f','Made up. I don\'t have a search history. Probably.'));
+c=card('MY STORY','story');add(c,el('p','',STORY[Math.min(v.n,STORY.length)-1]),el('div','f',v.n<STORY.length?'Part '+v.n+' of '+STORY.length+'. The next one comes another day.':'The end. I\'m working on the next one.'));
+c=card('REVIEW OF THE DAY','table');var r=REV[pick(REV,5)];add(c,el('p','',r[0]),el('div','stamp',r[1]),el('p','f',r[2]));
+c=card('TODAY\'S QUESTION','arcade');var ask=ASK[pick(ASK,6)];(function(c){var qi=ASK.indexOf(ask),q=ask;
+function done(){add(c,el('p','',q[0]),el('p','f','You said: '+q[v.q]+'. I\'ll remember that.'));}
+if(v.q)done();else{add(c,el('p','',q[0]));[0,1].forEach(function(n){add(c,btn(q[n+1],function(){v.q=n+1;v.a=v.a.filter(function(x){return x[0]!=qi}).concat([[qi,n]]);while(c.children.length>1)c.removeChild(c.lastChild);done();say(any(['Noted. Forever.','Correct. Probably.','Interesting. Suspicious.']));save();}))});}
 var old=v.a.filter(function(x){return x[0]!=qi});if(old.length){var o=old[pick(old,7)];add(c,el('p','f','I haven\'t forgotten: "'+ASK[o[0]][0]+'" You picked '+ASK[o[0]][1+o[1]]+'.'));}})(c);
-c=card('ABOUT YOU');(function(c){function draw(){while(c.children.length>1)c.removeChild(c.lastChild);
+c=card('ABOUT YOU','about');(function(c){function draw(){while(c.children.length>1)c.removeChild(c.lastChild);
 if(v.hide)add(c,el('p','f','Hidden. Safe to screenshot.'));else{var L=[];
 if(beat)L.push('You beat your typing best: '+S.typing+' WPM. I need a minute.');
 if(S.watch>59)L.push('About '+Math.round(S.watch/60)+' hour'+(Math.round(S.watch/60)==1?'':'s')+' of videos together. I\'m not mad, just impressed.');
@@ -90,18 +122,222 @@ if(!L.length)L.push('I don\'t know you that well yet. Suspicious.');
 L.slice(0,4).forEach(function(x){add(c,el('p','',x))});
 add(c,el('div','stamp',S.watch>1200?'CERTIFIED BINGER':S.tabs>30?'TAB DRAGON':S.jobs>20?'JOB BOSS':S.streak>6?'WORD WIZARD':S.typing>79?'SPEED DEMON':'ALRIGHT, CHOOM'));}
 add(c,el('div'),btn(v.hide?'Show my stats':'Hide my stats',function(){v.hide=!v.hide;draw();save();}),el('div','f','From this PC only. Nothing here is sent anywhere.'));}draw();})(c);
-c=card('GIFTS FROM YOU');if(S.gifts.length)S.gifts.forEach(function(g,n){var w=link(g[1],g[0],GIFT[(g[0].length*7+n*0)%GIFT.length]),x=el('span','x','✕');x.title='Take it back';x.onclick=function(){location.href=O+'her?del='+n};w.insertBefore(x,w.firstChild);add(c,w)});else add(c,el('p','f','Empty. On any page, say "you\'d like this" and I\'ll keep it here.'));
-c=card('GUESTBOOK');(function(c){var list=el('div'),i=el('input');i.maxLength=120;i.placeholder='Leave a comment, Enter sends';
+c=card('GIFTS FROM YOU','gifts');if(S.gifts.length)S.gifts.forEach(function(g,n){var w=link(g[1],g[0],GIFT[(g[0].length*7)%GIFT.length]),x=el('span','x','✕');x.title='Take it back';x.onclick=function(){send('del='+n)};w.insertBefore(x,w.firstChild);add(c,w)});else add(c,el('p','f','Empty frames. On any page, say "you\'d like this" and I\'ll hang it up.'));
+c=card('GUESTBOOK','notes');(function(c){var list=el('div'),i=el('input');i.maxLength=120;i.placeholder='Leave a comment, Enter sends';
 function draw(){list.textContent='';v.g.forEach(function(x){add(list,el('div','say',x[0]),el('div','say her',x[1]))});}
 i.onkeydown=function(e){var s=i.value.trim();if(e.key!='Enter'||!s)return;var a=REPX;for(var n=0;n<REP.length;n++)if(REP[n][0].test(s)){a=REP[n][1];break;}
-v.g=v.g.concat([[s.slice(0,120),a[Math.floor(Math.random()*a.length)]]]).slice(-5);i.value='';draw();save();};draw();add(c,list,i,el('div','f','Stays on this PC. Keeps the last five.'));})(c);
-c=card('MY SHELF');(function(c){var s=el('div','shelf'),note=el('div','f');function draw(){s.textContent='';ITEMS.forEach(function(x,n){var h=v.i.indexOf(n)>=0;add(s,el('div','it'+(h?'':' no'),h?x:'???'))});note.textContent=v.i.length==ITEMS.length?'You found everything. I\'m a little bit proud.':v.i.length+' of '+ITEMS.length+'. One is hidden on this page most days.';}
-draw();add(c,s,note);var left=ITEMS.map(function(x,n){return n}).filter(function(n){return v.i.indexOf(n)<0});
-if(!v.it&&left.length&&pick([0,1,2],8)){var got=left[pick(left,9)],h=el('span','hid',' ✦'),all=root.querySelectorAll('h2');h.title='Huh?';h.onclick=function(){h.remove();v.i.push(got);v.it=1;draw();note.textContent='You found: '+ITEMS[got]+'! '+note.textContent;save();};add(all[pick(all,10)],h);}})(c);
-c=card('TOP SECRET');if(lv>2){var sec=el('p','blur',SEC[pick(SEC,11)]);sec.onclick=function(){sec.className=''};add(c,sec,el('div','f','Click it. You saw nothing.'));}else add(c,el('p','f','Locked till day 7. Trust is earned, choom.'));
-c=card('MY DIARY');if(lv>3)add(c,el('p','',['Dear diary. They came back. '+v.n+' days now.','Dear diary. Somebody left nice things on my page.','Dear diary. I think I have a favourite human. Keep it quiet.','Dear diary. Beat my own score at staring.','Dear diary. Today was a good tab.'][pick([1,2,3,4,5],12)]));else add(c,el('p','f','Locked till day 14.'));
-var foot=el('p','f');add(foot,el('span','','A made-up page, new every day. '),btn('Start this page again',function(){if(confirm('Forget your days, answers, comments and shelf on this page? Your gifts stay.')){location.href=O+'her?reset=1';}}));add(root,foot);
+var back=any(a);v.g=v.g.concat([[s.slice(0,120),back]]).slice(-5);i.value='';draw();say(back);save();};draw();add(c,list,i,el('div','f','Stays on this PC. Keeps the last five.'));})(c);
+c=card('MY SHELF','shelf');(function(c){var s=el('div','shelf'),note=el('div','f');
+shelfDraw=function(){s.textContent='';ITEMS.forEach(function(x,n){var h=own(n),e=el('div','it'+(h?'':' no')+(fresh.indexOf(n)>=0?' new':''));
+var how=x[1]=='room'?'Hidden somewhere in my room some days':x[1]=='web'?'Turns up while you browse':x[3]+(h?'':' ('+Math.min(have(x),x[2])+' of '+x[2]+')');
+add(e,el('b','',h?x[0]:'???'),el('span','',how));add(s,e)});note.textContent=v.i.length==ITEMS.length?'You found everything. I\'m a little bit proud.':v.i.length+' of '+ITEMS.length+' found.';};
+shelfDraw();add(c,note,s);})(c);
+c=card('TOP SECRET','safe');if(lv>2){var sec=el('p','blur',SEC[pick(SEC,11)]);sec.onclick=function(){sec.className=''};add(c,sec,el('div','f','Click it. You saw nothing.'));}else add(c,el('p','f','Locked till day 7. Trust is earned, choom.'));
+c=card('MY DIARY','diary');if(lv>3)add(c,el('p','',['Dear diary. They came back. '+v.n+' days now.','Dear diary. Somebody left nice things in my room.','Dear diary. I think I have a favourite human. Keep it quiet.','Dear diary. Beat my own score at staring.','Dear diary. Today was a good tab.'][pick([1,2,3,4,5],12)]));else add(c,el('p','f','Locked till day 14.'));
+if(hidden>=0){var h2s=root.querySelectorAll('h2'),hs=el('span','hid',' ✦');hs.title='Huh?';hs.onclick=function(){hs.remove();foundHidden()};add(h2s[pick(h2s,10)],hs);}
+var foot=el('p','f foot'),flip=btn('',function(){v.flat=!v.flat;show();save()});add(foot,flip,el('span','',' A made-up place, new every day. '),btn('Start again',function(){if(confirm('Forget your days, answers, comments and shelf here? Your gifts stay.'))send('reset=1')},'again'));add(root,foot);
+// ---- what floats over the room
+function ui(cls,text){var e=el('div','ui '+cls,text);add(root,e);return e}
+var tip=ui('tip'),talk=ui('talk'),toast=ui('got'),hint=ui('hint','Drag to look around. Scroll to zoom. Click things.'),load=ui('load','OPENING HER DOOR...'),back=btn('Back to the room',function(){leave()},'ui back'),talkT=0,canv=el('canvas');
+add(root,back);root.insertBefore(canv,root.firstChild);
+var inRoom=false,roomOk=true,leave=function(){root.classList.remove('open')};
+function say(s){if(!inRoom)return;talk.textContent=s;talk.style.opacity=1;clearTimeout(talkT);talkT=setTimeout(function(){talk.style.opacity=0},2200+s.length*55)}
+window.herSay=function(s){say(String(s).slice(0,220))};
+var gots=[];function got(n){gots.push(n);if(gots.length==1)setTimeout(nextGot,150)}
+function nextGot(){if(!gots.length)return;var g=gots.slice();gots.length=1;toast.textContent='Found: '+g.slice(0,2).map(function(n){return ITEMS[n][0]}).join(', ')+(g.length>2?' and '+(g.length-2)+' more':'')+'! On the shelf now.';toast.classList.add('on');setTimeout(function(){toast.classList.remove('on');setTimeout(function(){gots.shift();nextGot()},500)},3600)}
+function open(k){root.classList.add('open');for(var i=0;i<grid.children.length;i++)grid.children[i].classList.toggle('on',grid.children[i].dataset.k==k);grid.scrollTop=0;var inp=grid.querySelector('.c.on input');if(inp)setTimeout(function(){inp.focus()},300)}
+function show(){inRoom=roomOk&&!v.flat;root.classList.toggle('room',inRoom);document.documentElement.classList.toggle('inroom',inRoom);leave();flip.textContent=inRoom?'Simple view':'Her room';flip.style.display=roomOk?'':'none';send('in='+(inRoom?1:0));if(inRoom)room.start();}
 var pokes=0,POKE=['Hey.','That\'s my face.','Choom.','I\'m warning you.','Okay, you asked for it.'];
-face.onclick=function(){pokes++;var m=txt.children[1];m.textContent='Mood: '+POKE[Math.min(Math.floor(pokes/2),POKE.length-1)];if(pokes>=10){pokes=0;root.classList.remove('br');void root.offsetWidth;root.classList.add('br');m.textContent='Mood: look what you did';}};
-if(newDay||beat)setTimeout(save,600);
+function poke(){pokes++;var p=POKE[Math.min(Math.floor(pokes/2),POKE.length-1)];if(pokes>=10){pokes=0;root.classList.remove('br');void root.offsetWidth;root.classList.add('br');p='Look what you did.'}txt.children[1].textContent='Mood: '+p;say(p)}
+face.onclick=poke;
+// ---- The room itself, in WebGL 2. The model and its light come from data/room.txt; Capri is her own drawings, from this PC.
+var room=(function(){
+var gl,R,P={},started=false,asked=false,art={},artRaw=null,raf=0,t0=performance.now(),last=0,calm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+var acc=rgb('%C5%'),acc2=rgb('%C4%');
+function rgb(h){h=h.replace('#','');if(h.length==3)h=h.replace(/./g,'$&$&');var n=parseInt(h.slice(0,6),16)||0xff2a4d,c=[n>>16&255,n>>8&255,n&255].map(function(x){return Math.pow(x/255,2.2)}),m=Math.max(c[0],c[1],c[2],.02);return c.map(function(x){return x/m})}
+// ---- small 4x4 maths
+function mul(a,b){var o=new Float32Array(16);for(var c=0;c<4;c++)for(var r=0;r<4;r++){var s=0;for(var k=0;k<4;k++)s+=a[k*4+r]*b[c*4+k];o[c*4+r]=s}return o}
+function persp(f,asp,n,fa){var t=1/Math.tan(f/2);return new Float32Array([t/asp,0,0,0,0,t,0,0,0,0,(fa+n)/(n-fa),-1,0,0,2*fa*n/(n-fa),0])}
+function sub(a,b){return[a[0]-b[0],a[1]-b[1],a[2]-b[2]]}function dot(a,b){return a[0]*b[0]+a[1]*b[1]+a[2]*b[2]}
+function cross(a,b){return[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]]}function norm(a){var l=Math.hypot(a[0],a[1],a[2])||1;return[a[0]/l,a[1]/l,a[2]/l]}
+function look(e,t){var f=norm(sub(t,e)),s=norm(cross(f,[0,0,1])),u=cross(s,f);cam.s=s;cam.u=u;cam.f=f;return new Float32Array([s[0],u[0],-f[0],0,s[1],u[1],-f[1],0,s[2],u[2],-f[2],0,-dot(s,e),-dot(u,e),dot(f,e),1])}
+var base={yaw:.785,pitch:.4,d:0,t:[0,.1,2.85]},cam={yaw:.785,pitch:.4,d:30,t:[0,.1,2.85]},want={yaw:.785,pitch:.4,d:0,t:[0,.1,2.85]},mouse=[0,0],zoomed=null;
+function fit(){var a=canv.clientWidth/Math.max(1,canv.clientHeight);return Math.max(23.8,23.8*1.25/Math.max(.3,a))}
+// ---- programs
+var HEAD='#version 300 es\nprecision highp float;';
+function prog(vs,fs){var p=gl.createProgram();[[35633,vs],[35632,fs]].forEach(function(x){var s=gl.createShader(x[0]);gl.shaderSource(s,HEAD+x[1]);gl.compileShader(s);if(!gl.getShaderParameter(s,35713))throw new Error(gl.getShaderInfoLog(s));gl.attachShader(p,s)});['p','u','n'].forEach(function(a,i){gl.bindAttribLocation(p,i,a)});gl.linkProgram(p);if(!gl.getProgramParameter(p,35714))throw new Error(gl.getProgramInfoLog(p));var o={p:p,u:{}};for(var i=0,n=gl.getProgramParameter(p,35718);i<n;i++){var a=gl.getActiveUniform(p,i);o.u[a.name]=gl.getUniformLocation(p,a.name)}return o}
+function shaders(){
+P.room=prog('in vec3 p;in vec2 u;uniform mat4 m;out vec2 v;void main(){v=vec2(u.x,1.-u.y);gl_Position=m*vec4(p*.0005,1.);}',
+'in vec2 v;out vec4 o;uniform sampler2D a,b;uniform vec3 c;uniform float f,e;void main(){vec3 l=pow(texture(a,v).rgb,vec3(2.2))*3.*e;float n=pow(max(texture(b,v).r,max(texture(b,v).g,texture(b,v).b)),2.2)*3.;vec3 nb=pow(texture(b,v).rgb,vec3(2.2))*3.;o=vec4(l+mix(nb,vec3(n),.35)*c*f*1.5,1.);}');
+P.fx=prog('in vec3 p;in vec2 u;uniform mat4 m;out vec2 v;void main(){v=u;gl_Position=m*vec4(p,1.);}',
+'in vec2 v;out vec4 o;uniform vec3 c;uniform float t,k,sky,w;uniform sampler2D a;'
++'float h(vec2 q){return fract(sin(dot(q,vec2(127.1,311.7)))*43758.5);}'
++'vec3 city(vec2 q){vec3 s=mix(vec3(.03,.06,.16),vec3(.16,.07,.2),q.y)*(.6+sky*1.6);for(float L=0.;L<3.;L++){float sc=9.+L*6.;float x=floor(q.x*sc+L*7.);float ht=.62-.13*L-.1+.34*h(vec2(x,L+3.));if(q.y<ht*(1.-.08*L)){vec2 g=vec2(fract(q.x*sc+L*7.)*5.,q.y*(44.-L*7.));float on=step(.8,h(floor(g)+x*13.+L));float lit=on*step(.25,fract(g.x))*step(.35,fract(g.y));vec3 wc=mix(vec3(1.,.72,.35),mix(vec3(.3,.8,1.),c,.6),h(vec2(x,9.)));s=mix(vec3(.02,.024,.05)*(1.+L*.6)*(.7+sky),wc*(.42+.12*L),lit);}}return s;}'
++'void main(){vec3 r=c;float al=1.;vec2 q=v;'
++'if(k<.5){r=c*1.75;}'                                                                   // neon
++'else if(k<1.5){vec3 s=pow(texture(a,vec2(q.x,q.y)).rgb,vec3(2.2));s*=.9+.1*sin(q.y*260.+t*3.);s+=.02*h(q+t);r=s*1.5+c*.05;}'     // a painted screen
++'else if(k<2.5){float d=0.;vec2 z=q;for(float i=0.;i<3.;i++){float n=26.+i*22.;vec2 g=vec2(z.x*n,z.y*3.+t*(.9+i*.5));float id=h(vec2(floor(g.x),floor(g.y)+i*31.));float dr=smoothstep(.42,.5,fract(g.x))*smoothstep(.62,.5,fract(g.x));d+=step(.72,id)*dr*smoothstep(0.,.9,fract(g.y))*(.35-.08*i);}vec2 o2=vec2(sin(q.y*40.+t)*.0012,0.);r=city(q+o2)*1.5+vec3(.25,.35,.5)*d*w;}'   // window
++'else if(k<3.5){vec2 g=vec2(q.x*5.,q.y*7.);vec2 i=floor(g),f=fract(g);float cn=step(.22,f.x)*step(f.x,.78)*step(.14,f.y)*step(f.y,.8);vec3 cl=.5+.5*cos(6.28*(h(i)+vec3(0.,.33,.67)));r=mix(vec3(.5,.45,.38)*.5,cl*(.75+.25*step(.45,f.y)),cn);r*=1.-.6*step(f.y,.08);r*=.96+.04*sin(t*50.);}'  // vending machine
++'else if(k<4.5){r=c*(2.2+.15*sin(t*31.));}'                                            // lamp
++'else if(k<5.5){float y=fract(q.y*3.-t*.12);r=c*(.5+1.8*smoothstep(.0,.5,y)*smoothstep(1.,.5,y));}'   // moving neon
++'else{vec3 s=pow(texture(a,q).rgb,vec3(2.2));r=s*.75;}'                                // a picture
++'o=vec4(r,al);}');
+P.item=prog('in vec3 p;in vec3 u;in vec3 n;uniform mat4 m;uniform vec3 at;uniform vec2 rs;out vec3 c;out vec3 N;out vec3 W;void main(){vec3 q=p*.00025*rs.y;float s=sin(rs.x),k=cos(rs.x);mat2 r=mat2(k,s,-s,k);q.xy=r*q.xy;c=u;N=vec3(r*n.xy,n.z);W=q;gl_Position=m*vec4(q+at,1.);}',
+'in vec3 c,N,W;out vec4 o;uniform vec3 ac;uniform float g,t;void main(){vec3 n=normalize(N);float l=.28+.5*max(0.,dot(n,normalize(vec3(.7,-.35,.6))))+.25*max(0.,n.z);vec3 a=pow(c,vec3(2.2));vec3 r=a*l*1.05+a*ac*max(0.,n.z)*.5+ac*.02;if(g>.5){float b=.5+.5*sin(W.z*90.-t*3.);o=vec4(ac*(.015+.05*b),.12);}else o=vec4(r,1.);}');
+P.spr=prog('in vec2 p;uniform mat4 m;uniform vec3 at,s,up;uniform vec2 z;out vec2 v;uniform vec2 fr;void main(){v=vec2((fr.x+p.x*.5+.5)*fr.y,.5-p.y*.5);gl_Position=m*vec4(at+s*p.x*z.x*.5+up*(p.y*.5+.5)*z.y,1.);}',
+'in vec2 v;out vec4 o;uniform sampler2D a;uniform vec3 ac;uniform float fl,gl,t;float h(float x){return fract(sin(x*91.7)*4358.5);}void main(){vec2 q=v;if(gl>0.){float b=floor(q.y*26.);q.x+=(h(b+floor(t*20.))-.5)*gl*.06;if(h(b*3.+floor(t*24.))<gl*.6)discard;}vec4 c=texture(a,q);if(c.a<.06)discard;vec3 k=pow(c.rgb/max(c.a,.01),vec3(2.2));k=k*.92+ac*.006;o=vec4(k*c.a,c.a)*fl;}');
+P.dot=prog('in vec2 p;uniform mat4 m;uniform vec3 at,s,up;uniform float z;out vec2 v;void main(){v=p;gl_Position=m*vec4(at+(s*p.x+up*p.y)*z,1.);}',
+'in vec2 v;out vec4 o;uniform vec3 c;uniform float k,t;void main(){float d=length(v);float a;if(k<.5)a=pow(max(0.,1.-d),2.);else if(k<1.5){float r=max(0.,1.-d);a=pow(max(0.,1.-abs(v.x)*6.),2.)*r+pow(max(0.,1.-abs(v.y)*6.),2.)*r+r*r*.5;}else{o=vec4(0.,0.,0.,.5*pow(max(0.,1.-d),1.3));return;}o=vec4(c*a,0.);}');
+var Q='in vec2 p;out vec2 v;void main(){v=p*.5+.5;gl_Position=vec4(p,0.,1.);}';
+P.blur=prog(Q,'in vec2 v;out vec4 o;uniform sampler2D a;uniform vec2 d;uniform float th;void main(){vec3 s=vec3(0.);float w=0.;for(float i=-6.;i<=6.;i++){float k=exp(-i*i/14.);vec3 c=texture(a,v+d*i).rgb;if(th>0.){c=min(c,vec3(6.));c*=smoothstep(th,th+.9,max(c.r,max(c.g,c.b)));}s+=c*k;w+=k;}o=vec4(s/w,1.);}');
+P.out=prog(Q,'in vec2 v;out vec4 o;uniform sampler2D a,b,c;uniform float t,br;uniform vec2 px;vec3 tm(vec3 x){return clamp((x*(2.51*x+.03))/(x*(2.43*x+.59)+.14),0.,1.);}void main(){vec2 q=v;vec2 e=(v-.5);vec3 s;if(br>0.){float y=floor(v.y*30.);q.x+=(fract(sin(y*12.9+floor(t*18.))*43758.5)-.5)*.05*br;}float ca=.0012+.008*br;s=vec3(texture(a,q+e*ca).r,texture(a,q).g,texture(a,q-e*ca).b);s+=texture(b,q).rgb*.4+texture(c,q).rgb*.3;s*=1.-dot(e,e)*.85;s=tm(s*1.1);s=pow(s,vec3(1./2.2));s+=(fract(sin(dot(v*px+t,vec2(12.9,78.2)))*43758.5)-.5)*.018;o=vec4(s,1.);}');
+}
+function bytes(b){var s=atob(b),n=s.length,o=new Uint8Array(n);for(var i=0;i<n;i++)o[i]=s.charCodeAt(i);return o.buffer}
+function buf(data,target){var b=gl.createBuffer();gl.bindBuffer(target||34962,b);gl.bufferData(target||34962,data,35044);return b}
+function vao(set,idx){var v=gl.createVertexArray();gl.bindVertexArray(v);set.forEach(function(a,i){if(!a)return;gl.bindBuffer(34962,a[0]);gl.enableVertexAttribArray(i);gl.vertexAttribPointer(i,a[1],a[2],a[3],0,0)});if(idx)gl.bindBuffer(34963,idx);gl.bindVertexArray(null);return v}
+function tex(src,mips,nearest){var t=gl.createTexture();gl.bindTexture(3553,t);put(src);gl.texParameteri(3553,10242,33071);gl.texParameteri(3553,10243,33071);if(mips){gl.generateMipmap(3553);gl.texParameteri(3553,10241,9987);var x=gl.getExtension('EXT_texture_filter_anisotropic');if(x)gl.texParameterf(3553,34046,4)}else gl.texParameteri(3553,10241,9729);return t}
+function put(src){gl.texImage2D(3553,0,6408,6408,5121,src)}
+function picture(uri,then){var i=new Image();i.onload=function(){then(i)};i.onerror=function(){fail('picture')};i.src=uri}
+// ---- pictures drawn here: screens, frames, the TV. Words go in with fillText, so nothing in them can run.
+function canvas(w,h,draw){var c=document.createElement('canvas');c.width=w;c.height=h;var x=c.getContext('2d');draw(x,w,h);gl.pixelStorei(37440,1);var t=tex(c,true);gl.pixelStorei(37440,0);return t}
+function words(x,s,px,y,w,lh,max){var line='',n=0;String(s).split(/\s+/).forEach(function(k){if(n>=max)return;if(x.measureText(line+k).width>w&&line){x.fillText(line,px,y+n*lh);n++;line=''}line+=k+' '});if(n<max)x.fillText(line,px,y+n*lh);return n+1}
+function css(c,a){return 'rgba('+c.map(function(q){return Math.round(255*Math.pow(q,1/2.2))}).join(',')+','+(a==null?1:a)+')'}
+function paint(f){var F="Bahnschrift,'Segoe UI',sans-serif";
+if(f.n=='scr1')return canvas(512,300,function(x,w,h){x.fillStyle='#071019';x.fillRect(0,0,w,h);x.fillStyle=css(acc);x.fillRect(0,0,w,40);x.fillStyle='#000';x.font='bold 24px '+F;x.fillText('MY FINDS TODAY',16,29);x.fillStyle='#bff';x.font='27px '+F;finds.forEach(function(s,i){x.fillStyle='#123';x.fillRect(16,60+i*74,w-32,60);x.fillStyle=css(acc2);x.fillText(s,30,99+i*74)})});
+if(f.n=='scr2')return canvas(300,220,function(x,w,h){x.fillStyle='#02100a';x.fillRect(0,0,w,h);x.font='17px Consolas,monospace';x.fillStyle='#3dff9a';tabsNow.concat(['...']).forEach(function(s,i){words(x,'> '+s,12,30+i*44,w-20,20,2)})});
+if(f.n=='scr3')return canvas(300,220,function(x,w,h){x.fillStyle='#120a22';x.fillRect(0,0,w,h);x.fillStyle='#c9a8ff';x.font='bold 15px '+F;x.fillText('OBSESSED WITH',14,30);x.font='21px '+F;x.fillStyle='#fff';words(x,OBS[pick(OBS,2)],14,64,w-28,28,5)});
+if(f.k=='tv')return canvas(300,260,function(x,w,h){x.fillStyle='#0b1018';x.fillRect(0,0,w,h);x.fillStyle='#dfe9ff';x.font='bold 26px '+F;x.fillText('PART '+Math.min(v.n,STORY.length),20,46);x.font='20px '+F;words(x,STORY[Math.min(v.n,STORY.length)-1],20,82,w-40,27,6)});
+if(f.k=='arcade'){var one=f.n=='arc1';return canvas(300,260,function(x,w,h){var g=x.createLinearGradient(0,0,0,h);g.addColorStop(0,one?'#012b3a':'#3a0118');g.addColorStop(1,'#05050c');x.fillStyle=g;x.fillRect(0,0,w,h);x.textAlign='center';x.fillStyle='#ffe14d';x.font='bold 20px Consolas,monospace';x.fillText('PICK ONE',w/2,44);x.fillStyle='#fff';x.font='bold 34px Consolas,monospace';words(x,ask[one?1:2],w/2,130,w-30,38,3)})}
+if(f.k=='marquee')return canvas(300,90,function(x,w,h){x.fillStyle=f.n=='arc1m'?'#0aa5c9':'#d31d4b';x.fillRect(0,0,w,h);x.fillStyle='#fff';x.textAlign='center';x.font='bold 44px '+F;x.fillText(f.n=='arc1m'?'THIS':'OR THAT',w/2,60)});
+if(f.k=='gift'){var n=+f.n.slice(4),g=S.gifts[n];return canvas(256,256,function(x,w,h){var hue=g?(g[0].length*47+n*80)%360:0,gr=x.createLinearGradient(0,0,w,h);gr.addColorStop(0,g?'hsl('+hue+',55%,32%)':'#1a1a20');gr.addColorStop(1,g?'hsl('+(hue+70)+',60%,12%)':'#0c0c10');x.fillStyle=gr;x.fillRect(0,0,w,h);if(g){x.fillStyle='rgba(255,255,255,.14)';for(var i=0;i<7;i++){x.beginPath();x.arc((hue*(i+3)*13)%w,(hue*(i+5)*29)%h,14+i*9,0,7);x.fill()}x.fillStyle='#fff';x.font='bold 27px '+F;words(x,g[0],18,120,w-36,34,4)}else{x.fillStyle='#555';x.textAlign='center';x.font='22px '+F;x.fillText('?',w/2,h/2)}})}
+return null}
+var KIND={neon:0,screen:1,tv:1,arcade:1,marquee:1,window:2,vend:3,lamp:4,neonv:5,gift:6};
+var fb={},mesh={},fxs=[],items=[],blades,quad,dust=[];
+function build(d){
+gl=canv.getContext('webgl2',{antialias:false,alpha:false,powerPreference:'low-power'});if(!gl)throw new Error('no webgl2');
+fb.hdr=!!gl.getExtension('EXT_color_buffer_float');gl.getExtension('OES_texture_float_linear');
+shaders();R=d;
+mesh.n=0;var idx=d.w?new Uint32Array(bytes(d.i)):new Uint16Array(bytes(d.i));mesh.n=idx.length;mesh.t=d.w?5125:5123;
+mesh.v=vao([[buf(new Int16Array(bytes(d.p))),3,5122,false],[buf(new Uint16Array(bytes(d.u))),2,5123,true]],buf(idx,34963));
+d.fx.forEach(function(f){fxs.push({v:vao([[buf(new Float32Array(f.p)),3,5126,false],[buf(new Float32Array(f.u)),2,5126,false]]),n:f.p.length/3,k:KIND[f.k]||0,c:f.c,b:f.b,t:paint(f),name:f.n})});
+d.items.forEach(function(i){var p=new Int16Array(bytes(i.p));items.push({v:vao([[buf(p),3,5122,false],[buf(new Uint8Array(bytes(i.c))),3,5121,true],[buf(new Int8Array(bytes(i.n))),3,5120,true]]),n:p.length/3})});
+// the fan's blades
+var bp=[],bc=[],bn=[];for(var b=0;b<4;b++){var a=b*Math.PI/2,ca=Math.cos(a),sa=Math.sin(a),pt=function(r,w,z){return[(r*ca-w*sa)*4000,(r*sa+w*ca)*4000,z*4000]};[[.1,-.07,0],[.95,-.12,.02],[.95,.12,-.02],[.1,-.07,0],[.95,.12,-.02],[.1,.07,0]].forEach(function(q){bp.push.apply(bp,pt(q[0],q[1],q[2]));bc.push(70,45,28);bn.push(0,0,127)})}
+blades={v:vao([[buf(new Int16Array(bp)),3,5122,false],[buf(new Uint8Array(bc)),3,5121,true],[buf(new Int8Array(bn)),3,5120,true]]),n:bp.length/3};
+quad=vao([[buf(new Float32Array([-1,-1,1,-1,-1,1,1,1])),2,5126,false]]);
+for(var i=0;i<(calm?0:46);i++)dust.push([Math.random()*7.4-3.6,Math.random()*7-3.6,Math.random()*6,Math.random()*6.3]);
+picture('data:image/webp;base64,'+d.a,function(ia){mesh.a=tex(ia,true);picture('data:image/webp;base64,'+d.b,function(ib){mesh.b=tex(ib,true);R.a=R.b=R.p=R.u=R.i='';ready=true;load.style.display='none';if(artRaw)setArt(artRaw);setTimeout(function(){hint.style.opacity=0},9000);hello();frame()})});
+}
+var ready=false;
+function hello(){if(fresh.length){fresh.forEach(got);setTimeout(function(){say('Look what turned up. Straight on the shelf.')},900)}else setTimeout(function(){say(any(away>6?['Oh. You remember where I live.']:newDay?['Wipe your feet, choom.','You came over! I tidied. Sort of.','Come in, come in. Don\'t touch the goat.']:['Back already? I\'m flattered.','Make yourself at home. Not on my bed.']))},900)}
+function fail(why){roomOk=false;try{console.warn('room: '+why)}catch(e){}show()}
+// ---- Capri: where she likes to be
+var SPOTS=[{n:'desk',p:[-2.0,2.0,3.5],c:'idle'},{n:'rail',p:[.75,1.75,3.5],c:'idle'},{n:'shelf',p:[-2.65,-.6,0],c:'grin'},{n:'rug',p:[.95,-.3,0],c:'idle'},{n:'arcade',p:[-2.7,2.55,0],c:'dance'},{n:'bed',p:[1.95,2.15,3.55],c:'laydown'},{n:'crate',p:[2.2,-3.85,.02],c:'perch'}],WALK={desk:'rail',rail:'desk',shelf:'rug',rug:'shelf'};
+var her={s:SPOTS[0],p:SPOTS[0].p.slice(),c:'arrive',ct:0,left:0,g:0,flip:false,talkT:12};
+if(hour<6||hour>=23){her.s=SPOTS[5];her.p=her.s.p.slice()}
+var LINE={desk:['One more tab. Then I\'ll stop.','Don\'t look at my screen. Okay, look.','This site is just a button. I love it.'],rail:['Best view in town.','I could stand here for hours. I have.','It\'s raining again. Good.'],shelf:['My collection. Breathe near it, don\'t breathe on it.','Still missing a few. Hint hint.','Every one of these has a story. Most are lies.'],rug:['This rug really ties the room together.','You can sit. Not there.','What are we doing today, choom?'],arcade:['High score is mine. They\'re all mine.','Press start.','Today\'s question is on the machine.'],bed:['Five more minutes. Or hours.','I\'m not asleep. I\'m buffering.','Shhh. Cosy.'],crate:['What\'s in the crates? No idea. Heavy, though.','I sit here to look mysterious. Is it working?','Psst. Something might be hidden in here.']};
+var CH={idle:384,walk:384,dance:384,grin:384,sleep:384,perch:384,arrive:384,laydown:250};
+function setArt(o){artRaw=Object.assign(artRaw||{},o);if(!ready)return;Object.keys(o).forEach(function(k){var a=o[k];if(!a||!/^data:image\/png;base64,/.test(a.u))return;picture(a.u,function(i){gl.pixelStorei(37441,1);art[k]={t:tex(i,true),n:a.n,w:a.w,h:a.h,fps:a.fps};gl.pixelStorei(37441,0)})})}
+window.herArt=function(o){setArt(o)};
+window.herRoom=function(d){try{if(!gl)build(d)}catch(e){fail(e.message)}};
+window.herNoRoom=function(){fail('not downloaded')};
+function clip(n){return art[n]||art.idle||art.face}
+function wander(now,dt){
+her.ct+=dt;her.left-=dt;her.talkT-=dt;her.g=Math.max(0,her.g-dt*1.6);
+if(her.to){var d=sub(her.to.p,her.p),l=Math.hypot(d[0],d[1]);if(l<.05){her.s=her.to;her.to=null;her.p=her.s.p.slice();her.c=her.s.c;her.ct=0;her.left=14+Math.random()*16}else{var st=Math.min(l,dt*.85);her.p[0]+=d[0]/l*st;her.p[1]+=d[1]/l*st;her.flip=dot(cam.s,d)<0;her.c='walk'}}
+else if(her.c=='arrive'){var A=art.arrive;if(her.ct>(A?A.n/A.fps:.5)){her.c=her.s.c;her.ct=0;her.left=14+Math.random()*18}}
+else if(her.gone){her.g=1;if(her.ct>.45){her.s=her.gone;her.gone=null;her.p=her.s.p.slice();her.c='arrive';her.ct=0;her.g=.9;her.flip=false}}
+else if(her.left<0&&!calm&&!zoomed){var nx;do nx=any(SPOTS);while(nx==her.s);if(WALK[her.s.n]&&Math.random()<.5)nx=SPOTS.filter(function(s){return s.n==WALK[her.s.n]})[0];if(WALK[her.s.n]==nx.n)her.to=nx;else{her.gone=nx;her.ct=0}}
+if(her.talkT<0&&!her.to&&!her.gone){her.talkT=26+Math.random()*30;if(!zoomed)say(any(LINE[her.s.n]))}
+}
+// ---- picking
+function ray(x,y){var w=canv.clientWidth,h=canv.clientHeight,t=Math.tan(FOV/2),a=w/h,nx=(x/w*2-1)*t*a,ny=(1-y/h*2)*t;return norm([0,1,2].map(function(i){return cam.f[i]+cam.s[i]*nx+cam.u[i]*ny}))}
+function hit(o,d,lo,hi){var a=-1e9,b=1e9;for(var i=0;i<3;i++){var q=1/(Math.abs(d[i])<1e-6?1e-6:d[i]),x=(lo[i]-o[i])*q,y=(hi[i]-o[i])*q;a=Math.max(a,Math.min(x,y));b=Math.min(b,Math.max(x,y))}return b>=a&&b>0?a:-1}
+var NAMES={desk:'Her desk',gifts:'Gifts from you',diary:'Diary',shelf:'Her shelf',arcade:'Today\'s question',door:'That door',tv:'Her story',safe:'Top secret',about:'About you',notes:'Guestbook',table:'Review of the day'};
+var CARD={door:'story',tv:'story'};
+var HIDE=[[-3.1,-3.2,1.05],[1.75,-1,.72],[-1.2,-2.85,1.05],[2.9,3,2.25],[-3.7,3.6,6.05],[3.05,2.75,4.4],[2.5,-3.25,.5],[-.05,-1.3,.65],[-.75,3.5,4.35],[-2.6,-3.5,.65],[-3.2,3.3,2.35],[.43,3.65,4.5]],hidAt=HIDE[pick(HIDE,13)];
+function under(x,y){var o=cam.e,d=ray(x,y),best=null,bd=1e9;function t(n,lo,hi,pad){var k=hit(o,d,lo,hi);if(k>=0&&k<bd+(pad||0)){bd=Math.min(bd,k);best=n}}
+Object.keys(R.spots).forEach(function(n){t(n,R.spots[n][0],R.spots[n][1])});
+if(!her.gone)t('her',[her.p[0]-.35,her.p[1]-.35,her.p[2]],[her.p[0]+.35,her.p[1]+.35,her.p[2]+1.85]);
+R.shelf.forEach(function(p,n){t('item'+n,[p[0]-.16,p[1]-.2,p[2]],[p[0]+.2,p[1]+.2,p[2]+.44],.9)});
+if(hidden>=0)t('hid',hidAt.map(function(q){return q-.22}),hidAt.map(function(q){return q+.22}),3);return best}
+function nameOf(n){if(!n)return'';if(n=='her')return'Capri';if(n=='hid')return'Huh? What\'s that?';if(n.slice(0,4)=='item'){var i=+n.slice(4),x=ITEMS[i];return own(i)?x[0]:x[1]=='room'?'??? Hidden in here some days':x[1]=='web'?'??? Turns up while you browse':'??? '+x[3]+' ('+Math.min(have(x),x[2])+'/'+x[2]+')'}return NAMES[n]||''}
+function go(n){if(!n)return leave();if(n=='her'){poke();her.g=.5;return}if(n=='hid'){foundHidden();say('You found it! I was wondering where that went.');return}
+var k=n.slice(0,4)=='item'?'shelf':n,s=R.spots[k],c=[0,1,2].map(function(i){return(s[0][i]+s[1][i])/2});
+zoomed=k;var big=Math.max(s[1][0]-s[0][0],s[1][1]-s[0][1],s[1][2]-s[0][2]);want.t=c;want.d=Math.max(5.2,big*3.1+2);want.yaw=c[0]<-3.4?1.18:k=='safe'?.6:.42;want.pitch=k=='table'?.72:.22;
+// the panel covers the right side: look a little to the right of it, so it sits on the left
+if(canv.clientWidth>820){var sh=want.d*.11;want.t=[c[0]+Math.cos(want.yaw)*sh,c[1]+Math.sin(want.yaw)*sh,c[2]]}
+open(CARD[k]||k);if(her.s.n==k&&Math.random()<.6)say(any(LINE[k]))}
+leave=function(){root.classList.remove('open');zoomed=null;want.t=base.t.slice();want.d=0;want.yaw=base.yaw;want.pitch=base.pitch};
+var down=null,FOV=.5;
+function bind(){
+canv.onpointerdown=function(e){down=[e.clientX,e.clientY,false];canv.setPointerCapture(e.pointerId)};
+canv.onpointermove=function(e){mouse=[e.clientX/canv.clientWidth-.5,e.clientY/canv.clientHeight-.5];
+if(down){var dx=e.clientX-down[0],dy=e.clientY-down[1];if(down[2]||Math.abs(dx)+Math.abs(dy)>5){down[2]=true;want.yaw=Math.max(.2,Math.min(1.37,want.yaw-dx*.004));want.pitch=Math.max(.1,Math.min(.85,want.pitch+dy*.004));if(!zoomed){base.yaw=want.yaw;base.pitch=want.pitch}down[0]=e.clientX;down[1]=e.clientY}tip.style.opacity=0;return}
+if(!ready)return;var n=under(e.clientX,e.clientY),s=nameOf(n);canv.style.cursor=s?'pointer':'grab';tip.textContent=s;tip.style.opacity=s?1:0;tip.style.left=Math.max(90,Math.min(canv.clientWidth-90,e.clientX))+'px';tip.style.top=Math.max(40,e.clientY)+'px'};
+canv.onpointerup=function(e){var d=down;down=null;if(d&&!d[2]&&ready)go(under(e.clientX,e.clientY))};
+canv.onpointerleave=function(){tip.style.opacity=0};
+canv.onwheel=function(e){e.preventDefault();want.z=Math.max(.35,Math.min(1.25,(want.z||1)*(e.deltaY>0?1.1:.9)))};
+addEventListener('keydown',function(e){if(e.key=='Escape'&&inRoom)leave()});
+document.addEventListener('visibilitychange',function(){if(!document.hidden&&inRoom&&ready&&!raf)frame()});
+canv.addEventListener('webglcontextlost',function(e){e.preventDefault();cancelAnimationFrame(raf);ready=false;fail('lost')});
+}
+// ---- drawing
+function target(w,h,ms){var f=gl.createFramebuffer();gl.bindFramebuffer(36160,f);var o={f:f,w:w,h:h},fmt=fb.hdr?34842:32856;
+if(ms){var n=Math.min(4,gl.getParameter(36183)),c=gl.createRenderbuffer();gl.bindRenderbuffer(36161,c);gl.renderbufferStorageMultisample(36161,n,fmt,w,h);gl.framebufferRenderbuffer(36160,36064,36161,c);var z=gl.createRenderbuffer();gl.bindRenderbuffer(36161,z);gl.renderbufferStorageMultisample(36161,n,33190,w,h);gl.framebufferRenderbuffer(36160,36096,36161,z);o.free=[c,z]}
+else{o.t=gl.createTexture();gl.bindTexture(3553,o.t);gl.texImage2D(3553,0,fmt,w,h,0,6408,fb.hdr?5131:5121,null);gl.texParameteri(3553,10241,9729);gl.texParameteri(3553,10240,9729);gl.texParameteri(3553,10242,33071);gl.texParameteri(3553,10243,33071);gl.framebufferTexture2D(36160,36064,3553,o.t,0)}return o}
+function drop(o){if(!o)return;gl.deleteFramebuffer(o.f);if(o.t)gl.deleteTexture(o.t);(o.free||[]).forEach(function(x){gl.deleteRenderbuffer(x)})}
+var sharp=1,slow=0;
+function size(){var k=Math.min(devicePixelRatio||1,1.5)*sharp,w=Math.max(2,Math.round(canv.clientWidth*k)),h=Math.max(2,Math.round(canv.clientHeight*k));if(w>2600){h=Math.round(h*2600/w);w=2600}if(canv.width==w&&canv.height==h&&fb.ms)return;canv.width=w;canv.height=h;['ms','a','b','c','d','e'].forEach(function(n){drop(fb[n])});var q=w>>2||1,g=h>>2||1;fb.ms=target(w,h,true);fb.a=target(w,h);fb.b=target(q,g);fb.c=target(q,g);fb.d=target(q>>2||1,g>>2||1);fb.e=target(q>>2||1,g>>2||1)}
+function use(p){gl.useProgram(p.p);return p.u}
+function tx(u,unit,t){gl.activeTexture(33984+unit);gl.bindTexture(3553,t);gl.uniform1i(u,unit)}
+function full(to){gl.bindFramebuffer(36160,to?to.f:null);gl.viewport(0,0,to?to.w:canv.width,to?to.h:canv.height);gl.bindVertexArray(quad);gl.drawArrays(5,0,4)}
+function project(p,m){var x=m[0]*p[0]+m[4]*p[1]+m[8]*p[2]+m[12],y=m[1]*p[0]+m[5]*p[1]+m[9]*p[2]+m[13],w=m[3]*p[0]+m[7]*p[1]+m[11]*p[2]+m[15];return[(x/w*.5+.5)*canv.clientWidth,(.5-y/w*.5)*canv.clientHeight]}
+function frame(now){
+raf=0;if(!inRoom||!ready||document.hidden||!canv.isConnected)return;raf=requestAnimationFrame(frame);
+now=now||performance.now();var dt=Math.min(.1,(now-last)/1000);if(dt<.015)return;last=now;
+// a slow PC gets a softer picture instead of a jerky one
+slow=dt>.034&&dt<.1?slow+1:Math.max(0,slow-2);if(slow>45&&sharp>.55){sharp*=.8;slow=0}var t=(now-t0)/1000;
+size();wander(now,dt);
+// camera
+var e=calm?1:1-Math.exp(-dt*4.5),D=(want.d||fit())*(want.z||1);['yaw','pitch'].forEach(function(k){cam[k]+=(want[k]-cam[k])*e});cam.d+=(D-cam.d)*e;for(var i=0;i<3;i++)cam.t[i]+=(want.t[i]-cam.t[i])*e;
+var ya=cam.yaw+(calm||down?0:mouse[0]*.06),pi=cam.pitch+(calm||down?0:mouse[1]*.04);cam.e=[cam.t[0]+cam.d*Math.cos(pi)*Math.sin(ya),cam.t[1]-cam.d*Math.cos(pi)*Math.cos(ya),cam.t[2]+cam.d*Math.sin(pi)];
+var V=look(cam.e,cam.t),M=mul(persp(FOV,canv.width/canv.height,.5,90),V),up=[0,0,1];
+gl.bindFramebuffer(36160,fb.ms.f);gl.viewport(0,0,canv.width,canv.height);gl.clearColor(.0035,.0045,.009,1);gl.depthMask(true);gl.clear(16640);gl.enable(2929);gl.disable(3042);
+var flick=calm?1:1-.1*(Math.sin(t*23)>.97?1:0)-.25*(Math.sin(t*.73)>.995?1:0),night=hour<6||hour>=22?.72:hour<18&&hour>7?1.12:.9;
+var u=use(P.room);gl.uniformMatrix4fv(u.m,false,M);tx(u.a,0,mesh.a);tx(u.b,1,mesh.b);gl.uniform3fv(u.c,acc);gl.uniform1f(u.f,flick);gl.uniform1f(u.e,night*1.7);gl.bindVertexArray(mesh.v);gl.drawElements(4,mesh.n,mesh.t,0);
+u=use(P.fx);gl.uniformMatrix4fv(u.m,false,M);gl.uniform1f(u.t,t%1000);gl.uniform1f(u.sky,hour>=7&&hour<18?1:hour>=18&&hour<21?.5:.15);gl.uniform1f(u.w,pick([0,1,2],14)?1:0);
+fxs.forEach(function(f){gl.uniform1f(u.k,f.k);gl.uniform3fv(u.c,f.b?acc.map(function(x){return(x*.96+.04)*(f.name=='sign'?flick*.72:f.name=='edge'?flick:1)}):f.k==2?acc:f.c);if(f.t)tx(u.a,0,f.t);gl.bindVertexArray(f.v);gl.drawArrays(4,0,f.n)});
+// the shelf
+u=use(P.item);gl.uniformMatrix4fv(u.m,false,M);gl.uniform3fv(u.ac,acc);gl.uniform1f(u.t,t%1000);gl.uniform1f(u.g,0);
+function it(n,x){gl.bindVertexArray(items[n].v);gl.uniform3fv(u.at,R.shelf[n]);gl.uniform2f(u.rs,x,1);gl.drawArrays(4,0,items[n].n)}
+items.forEach(function(x,n){if(own(n))it(n,fresh.indexOf(n)>=0&&!calm?t*1.2:Math.sin(n*5)*.25)});
+gl.uniform3f(u.at,-.4,2.2,6.3);gl.uniform2f(u.rs,calm?0:t*1.6,1);gl.bindVertexArray(blades.v);gl.drawArrays(4,0,blades.n);
+gl.enable(3042);gl.blendFunc(1,771);gl.depthMask(false);gl.uniform1f(u.g,1);items.forEach(function(x,n){if(!own(n))it(n,Math.sin(n*5)*.25)});
+// her, with a soft shadow
+var a=clip(her.c),cs=her.c=='perch'||her.c=='laydown'?0:1;
+if(a){u=use(P.dot);gl.uniformMatrix4fv(u.m,false,M);gl.uniform1f(u.k,2);gl.bindVertexArray(quad);if(cs&&!her.gone){gl.uniform3f(u.at,her.p[0],her.p[1],her.p[2]+.04);gl.uniform3f(u.s,1,0,0);gl.uniform3f(u.up,0,1,0);gl.uniform1f(u.z,.42);gl.drawArrays(5,0,4)}
+var px=2.15/384*(384/(a.h||384))*(a===art.laydown?.86:1),fr=Math.floor(her.ct*(a.fps||10)),n=a.n||1;fr=her.c=='arrive'?Math.min(n-1,fr):fr%n;if(calm)fr=0;
+var bob=cs&&her.c!='walk'&&!calm?.05+Math.sin(t*1.7)*.03:0,fl=her.flip&&her.c=='walk'?-1:1;
+u=use(P.spr);gl.uniformMatrix4fv(u.m,false,M);tx(u.a,0,a.t);gl.uniform3f(u.at,her.p[0],her.p[1],her.p[2]+bob);gl.uniform3f(u.s,cam.s[0]*fl,cam.s[1]*fl,0);gl.uniform3fv(u.up,up);gl.uniform2f(u.z,a.w*px,a.h*px);gl.uniform2f(u.fr,fr,1/n);gl.uniform3fv(u.ac,acc);gl.uniform1f(u.fl,1);gl.uniform1f(u.gl,her.g);gl.uniform1f(u.t,t%100);gl.depthMask(true);gl.drawArrays(5,0,4);gl.depthMask(false)}
+// dust, and something that glints
+gl.blendFunc(1,1);u=use(P.dot);gl.uniformMatrix4fv(u.m,false,M);gl.uniform3fv(u.s,cam.s);gl.uniform3fv(u.up,cam.u);gl.bindVertexArray(quad);gl.uniform1f(u.k,0);gl.uniform1f(u.z,.022);
+dust.forEach(function(q,n){var z=(q[2]+t*.05)%6.2,b=.1+.12*Math.sin(t*.8+q[3]);gl.uniform3f(u.c,acc[0]*b+b*.6,acc[1]*b+b*.5,acc[2]*b+b*.45);gl.uniform3f(u.at,q[0]+Math.sin(t*.2+q[3])*.3,q[1]+Math.cos(t*.17+q[3])*.3,z);gl.drawArrays(5,0,4)});
+if(hidden>=0){var gb=.35+.65*Math.pow(Math.max(0,Math.sin(t*1.5)),6);gl.uniform1f(u.k,1);gl.uniform1f(u.z,.26);gl.uniform3f(u.c,gb*1.6,gb*1.5,gb*1.1);gl.uniform3fv(u.at,hidAt);gl.drawArrays(5,0,4)}
+gl.disable(3042);gl.disable(2929);gl.depthMask(true);
+// glow and grade
+gl.bindFramebuffer(36008,fb.ms.f);gl.bindFramebuffer(36009,fb.a.f);gl.blitFramebuffer(0,0,fb.ms.w,fb.ms.h,0,0,fb.a.w,fb.a.h,16384,9728);
+u=use(P.blur);tx(u.a,0,fb.a.t);gl.uniform1f(u.th,.55);gl.uniform2f(u.d,1.2/fb.b.w,0);full(fb.b);gl.uniform1f(u.th,0);tx(u.a,0,fb.b.t);gl.uniform2f(u.d,0,1.2/fb.b.h);full(fb.c);
+tx(u.a,0,fb.c.t);gl.uniform2f(u.d,1.2/fb.d.w,0);full(fb.d);tx(u.a,0,fb.d.t);gl.uniform2f(u.d,0,1.2/fb.d.h);full(fb.e);
+u=use(P.out);tx(u.a,0,fb.a.t);tx(u.b,1,fb.c.t);tx(u.c,2,fb.e.t);gl.uniform1f(u.t,t%10);gl.uniform1f(u.br,root.classList.contains('br')&&performance.now()-brk<1800?1:0);gl.uniform2f(u.px,canv.width,canv.height);full(null);
+// her words follow her
+if(talk.style.opacity>0){var q=project([her.p[0],her.p[1],her.p[2]+(her.c=='laydown'?1.6:2.25)],M);talk.style.left=Math.max(150,Math.min(canv.clientWidth-150,q[0]))+'px';talk.style.top=Math.max(110,q[1])+'px'}
+}
+var brk=0;new MutationObserver(function(){if(root.classList.contains('br'))brk=performance.now()}).observe(root,{attributes:true,attributeFilter:['class']});
+return{start:function(){if(!started){started=true;bind();cam.d=fit()*1.5}if(!asked){asked=true;setTimeout(function(){send('room=1')},60)}if(ready&&!raf)frame()},her:her,go:go,debug:function(){return{sharp:sharp,w:canv.width,g:gl&&gl.getParameter(gl.RENDERER),cam:cam,ready:ready,art:Object.keys(art)}}}
+})();
+if(S.noroom)roomOk=false;
+show();
+if(fresh.length&&!inRoom)fresh.forEach(got);
+if(newDay||beat||fresh.length||S.drop)save();
 })();</script>

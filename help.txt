@@ -39,7 +39,7 @@ CUSTOM JOBS
 • "open custom jobs" (or the sidebar): your own commands, like "movie night", with a link and steps in whatever words you like
 • A step can be any of her commands, "check the comments", "ask Ready?" (waits for your yes) or "wait for it to load"; give a job a few names: "movie night / film time"
 • Steps can repeat ("repeat 20 times", "repeat forever"), and she can listen: listen for "skip" = next video. Esc stops a job
-• "what have you been looking at?" opens Capri's own page, "you'd like this" gives her the page you're on
+• "show me your room" opens Capri's 3D room, "you'd like this" hangs the page you're on on her wall
 • "make a job called movie night: open youtube.com, full screen", "what jobs do I have?", "delete my movie night job"
 
 SHOPPING
