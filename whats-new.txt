@@ -1,3 +1,16 @@
+Capri Browser 2.0.2
+• Settings, sorted out: new groups, Notifications and Games have their own sections, and a search box at the top left finds any setting as you type.
+• Smarter custom jobs: say "listen for skip = scroll" so she reacts to you while a job runs, "repeat 20 times" or "repeat forever", and "wait 10 to 20 seconds". "put on something chill" really searches and plays something. Esc always stops a job, and she tells you about any step she couldn't do.
+• Don't use my mouse (Settings > Capri features): jobs run in their own tab and leave your mouse alone, so you can do other things.
+• Open with Capri (Settings > Start-up & tabs, off until you turn it on): the browser opens when Capri starts. Turn on Start with Windows in Capri too and it opens with your PC.
+• Windows Hello (Settings > Privacy & security, off until you turn it on): asks for your PIN, face or fingerprint before a saved password is shown, copied or filled.
+• Backup and restore: save your notes, bookmarks, Speed Dial, jobs and settings to a file, never your passwords (Settings > Cleaner & backup).
+• Hide Capri in full screen (Settings > Video player, off until you turn it on): move the mouse and a button on the side of the screen brings her back.
+• Research card: shows what she's up to while she researches.
+• Crash recovery: if a page or the browser's engine stops, it can be brought back.
+• Safer password vault: more checks on what is kept and filled.
+• Capri Cleaner moved: it's now in Settings > Cleaner & backup. Its old side panel is gone, and every choice is still there.
+
 Capri Browser 2.0.1
 • Games are front and centre: every game shows on the Games page straight away, no downloading first. New: Daily Word Search, a new puzzle every day that's the same for everyone, from 140 themes, and every third day is a hard one. Keep your streak going and share your time.
 • Ad blocker stats: see how many ads, trackers and pop-ups Capri has stopped, on All-time stats.

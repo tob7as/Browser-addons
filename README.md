@@ -7,7 +7,7 @@ They live here instead of inside the mod, so the mod stays small.
 
 - **Games:** open the Games page in Capri Browser and select **Get games**.
 - **Languages:** open Settings, go to Language and select **Download languages**.
-- **Updates:** select **Update all** at the bottom of the Games page or Settings.
+- **Updates:** select **Update all** in Settings, under Updates.
 
 Capri Browser only downloads files from the exact version of this repo it was built for, and checks every file against a fingerprint built into the mod. Anything that doesn't match is thrown away, so a change here never reaches players until a new version of the mod comes out.
 

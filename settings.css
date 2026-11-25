@@ -30,3 +30,4 @@ input[type=text]{background:%C0%;color:%C2%;border:1px solid %C6%;padding:8px 10
 .nav .gn{color:%C3%;font-size:11px;letter-spacing:2px;margin:16px 0 4px 17px;opacity:.8}
 .nav{max-height:calc(100vh - 48px);overflow-y:auto;scrollbar-width:thin}.nav a{padding:7px 14px;margin:1px 0}
 .fs{width:100%;box-sizing:border-box;background:color-mix(in srgb,%C1% 60%,%C0%);color:%C2%;border:1px solid color-mix(in srgb,%C6% 80%,%C1%);padding:10px 14px;font:14px Bahnschrift,'Segoe UI';outline:none;margin-bottom:4px}.fs:focus{border-color:%C4%}.fs::placeholder{color:%C3%}
+.nl{margin:0;padding:9px 0 9px 14px;border-left:2px solid %C6%;color:%C3%;font-size:14px;line-height:1.5}.nl b{display:block;color:%C2%;font-weight:600}
