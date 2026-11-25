@@ -73,7 +73,8 @@ var away=v.p?day-v.p:0,newDay=v.p!=day;if(newDay){v.n++;v.p=day;v.q=0;v.it=0;}
 v.q=num(v.q);v.it=num(v.it);
 var beat=v.b&&S.typing>v.b;v.b=Math.max(v.b,num(S.typing));
 var saving=0;
-function send(q){location.href=O+'her?'+q;}
+// One at a time: a second one too soon would cancel the first.
+var line=[],busy=false;function send(q){line.push(q);if(!busy)nextSend()}function nextSend(){busy=line.length>0;if(!busy)return;location.href=O+'her?'+line.shift();setTimeout(nextSend,180)}
 function save(){clearTimeout(saving);saving=setTimeout(function(){send('s='+encodeURIComponent(JSON.stringify({n:v.n,p:v.p,b:v.b,hide:v.hide,flat:v.flat,g:v.g,i:v.i,a:v.a,q:v.q,it:v.it})))},250);}
 // The same all day, different tomorrow.
 function pick(list,salt){var x=(day*2654435761+salt*40503)>>>0;x^=x>>>13;x=Math.imul(x,1274126177)>>>0;x^=x>>>16;return (x>>>0)%list.length;}
