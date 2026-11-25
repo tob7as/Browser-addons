@@ -22,6 +22,7 @@
 .hp.br:not(.room){animation:hpg .18s steps(2) 10}@keyframes hpg{0%{transform:none}25%{transform:translate(-6px,3px) skewX(3deg);filter:hue-rotate(60deg)}75%{transform:translate(6px,-3px) skewX(-3deg)}}
 .hp.br:not(.room)[data-g='1']{animation:hpg1 .3s steps(3) 6}.hp.br:not(.room)[data-g='3']{animation:hpg1 .6s steps(2) 3}.hp.br:not(.room)[data-g='2']{animation:hpg2 .6s linear 3}.hp.br:not(.room)[data-g='4']{animation:hpg3 .5s ease-in-out 4}.hp.br:not(.room)[data-g='5']{animation:hpg4 .9s steps(4) 2}.hp.br:not(.room)[data-g='6']{animation:hpg5 1.8s steps(6)}
 @keyframes hpg1{0%{clip-path:inset(0 0 60% 0)}33%{clip-path:inset(35% 0 20% 0);transform:translateX(14px)}66%{clip-path:inset(60% 0 0 0);transform:translateX(-14px)}}@keyframes hpg2{50%{transform:translateY(-40px);filter:blur(2px)}}@keyframes hpg3{50%{transform:skewX(8deg) scaleY(.97);filter:hue-rotate(140deg)}}@keyframes hpg4{50%{transform:scaleX(-1)}}@keyframes hpg5{50%{filter:grayscale(1) contrast(1.6)}}
+.hp .frs{display:grid;grid-template-columns:1fr 1fr;gap:12px}.hp .fr{border:1px solid %C6%;padding:8px;font-size:13px}.hp .fr.on{border-color:%C4%}.hp .fr input{display:none}.hp .fr b{display:block;margin:6px 0 2px}.hp .fr button{padding:4px 9px;font-size:13px}.hp .pic{height:112px;background:%C0%;display:flex;align-items:center;justify-content:center;font-size:30px;color:%C3%;cursor:pointer}.hp .pic img{max-width:100%;max-height:100%}
 .hp .x{float:right;color:%C3%;cursor:pointer;padding:0 4px}.hp .x:hover{color:%C5%}
 .hp canvas,.hp .ui{display:none}
 /* The room */
@@ -125,6 +126,14 @@ if(!L.length)L.push('I don\'t know you that well yet. Suspicious.');
 L.slice(0,4).forEach(function(x){add(c,el('p','',x))});
 add(c,el('div','stamp',S.watch>1200?'CERTIFIED BINGER':S.tabs>30?'TAB DRAGON':S.jobs>20?'JOB BOSS':S.streak>6?'WORD WIZARD':S.typing>79?'SPEED DEMON':'ALRIGHT, CHOOM'));}
 add(c,el('div'),btn(v.hide?'Show my stats':'Hide my stats',function(){v.hide=!v.hide;draw();save();}),el('div','f','From this PC only. Nothing here is sent anywhere.'));}draw();})(c);
+c=card('PICTURE FRAMES','gifts');S.pics=[0,1,2,3].map(function(n){var p=(S.pics||[])[n];return typeof p=='string'&&/^data:image\/jpeg;base64,/.test(p)?p:''});
+// Made small here and kept on this PC only. Wide and high: each frame's own shape.
+var SHAPE=[[320,400],[400,300],[400,282],[300,400]],slots=[],frames=el('div','frs');add(c,frames,el('p','f','Choose a picture, or drop one on a frame. They stay on this PC.'));
+function frameMark(n){slots.forEach(function(s,i){s.classList.toggle('on',i==n)})}
+function frameDraw(){frames.textContent='';slots=S.pics.map(function(p,n){var s=el('div','fr'),pic=el('div','pic',p?'':'+'),f=el('input');f.type='file';f.accept='image/*';f.onchange=function(){takePic(n,f.files[0])};if(p){var i=el('img');i.src=p;add(pic,i)}pic.title='Choose a picture';pic.onclick=function(){f.click()};s.ondrop=function(e){e.preventDefault();e.stopPropagation();takePic(n,e.dataTransfer.files[0])};add(s,pic,el('b','','Frame '+(n+1)),f,btn(p?'Change':'Choose',function(){f.click()}));if(p)add(s,btn('Take down',function(){setPic(n,'')}));add(frames,s);return s})}
+function setPic(n,u){S.pics[n]=u;send('pic='+n+'.'+encodeURIComponent(u));frameDraw();frameMark(n);room.hang(n);if(u)say(['Ooh. That one stays up.','Nice. My wall has taste now.','Framed it. Looks expensive.'][n%3])}
+function takePic(n,file){if(!file)return;if(!/^image\//.test(file.type)||file.size>3e7){say('That\'s not a picture I can hang.');return}var r=new FileReader();r.onload=function(){var i=new Image();i.onerror=function(){say('I can\'t open that picture.')};i.onload=function(){var w=SHAPE[n][0],h=SHAPE[n][1],k=Math.max(w/i.width,h/i.height),c=document.createElement('canvas'),q=.86,u;c.width=w;c.height=h;var x=c.getContext('2d');x.fillStyle='#101018';x.fillRect(0,0,w,h);x.imageSmoothingQuality='high';x.drawImage(i,(w-i.width*k)/2,(h-i.height*k)/2,i.width*k,i.height*k);do{u=c.toDataURL('image/jpeg',q);q-=.1}while(u.length>40000&&q>.1);if(u.length<=40000)setPic(n,u);else say('Too busy for my wall. Try another one?')};i.src=r.result};r.readAsDataURL(file)}
+document.addEventListener('dragover',function(e){e.preventDefault()});document.addEventListener('drop',function(e){e.preventDefault()});frameDraw();
 c=card('GIFTS FROM YOU','gifts');if(S.gifts.length)S.gifts.forEach(function(g,n){var w=link(g[1],g[0],GIFT[(g[0].length*7)%GIFT.length]),x=el('span','x','✕');x.title='Take it back';x.onclick=function(){send('del='+n)};w.insertBefore(x,w.firstChild);add(c,w)});else add(c,el('p','f','Empty frames. On any page, say "you\'d like this" and I\'ll hang it up.'));
 c=card('GUESTBOOK','notes');(function(c){var list=el('div'),i=el('input');i.maxLength=120;i.placeholder='Leave a comment, Enter sends';
 function draw(){list.textContent='';v.g.forEach(function(x){add(list,el('div','say',x[0]),el('div','say her',x[1]))});}
@@ -150,8 +159,8 @@ var gots=[];function got(n){gots.push(n);if(gots.length==1)setTimeout(nextGot,15
 function nextGot(){if(!gots.length)return;var g=gots.slice();gots.length=1;toast.textContent='Found: '+g.slice(0,2).map(function(n){return ITEMS[n][0]}).join(', ')+(g.length>2?' and '+(g.length-2)+' more':'')+'! On the shelf now.';toast.classList.add('on');setTimeout(function(){toast.classList.remove('on');setTimeout(function(){gots.shift();nextGot()},500)},3600)}
 function open(k){root.classList.add('open');for(var i=0;i<grid.children.length;i++)grid.children[i].classList.toggle('on',grid.children[i].dataset.k==k);grid.scrollTop=0;var inp=grid.querySelector('.c.on input');if(inp)setTimeout(function(){inp.focus()},300)}
 function show(){inRoom=roomOk&&!v.flat;root.classList.toggle('room',inRoom);document.documentElement.classList.toggle('inroom',inRoom);leave();flip.textContent=inRoom?'Simple view':'Her room';flip.style.display=roomOk?'':'none';send('in='+(inRoom?1:0));if(inRoom)room.start();}
-var pokes=0,POKE=['Hey.','That\'s my face.','Choom.','I\'m warning you.','Okay, you asked for it.'];
-function poke(){pokes++;var p=POKE[Math.min(Math.floor(pokes/2),POKE.length-1)];if(pokes>=10){pokes=0;root.classList.remove('br');root.dataset.g=((+root.dataset.g||0)+1+Math.floor(Math.random()*6))%7;void root.offsetWidth;root.classList.add('br');p='Look what you did.'}txt.children[1].textContent='Mood: '+p;say(p)}
+var brT=0,pokes=0,POKE=['Hey.','That\'s my face.','Choom.','I\'m warning you.','Okay, you asked for it.'];
+function poke(){pokes++;var p=POKE[Math.min(Math.floor(pokes/2),POKE.length-1)];if(pokes>=10){pokes=0;root.classList.remove('br');root.dataset.g=((+root.dataset.g||0)+1+Math.floor(Math.random()*6))%7;void root.offsetWidth;root.classList.add('br');clearTimeout(brT);brT=setTimeout(function(){root.classList.remove('br')},1900);p='Look what you did.'}txt.children[1].textContent='Mood: '+p;say(p)}
 face.onclick=poke;
 // ---- The room itself, in WebGL 2. The model and its light come from data/room.txt; Capri is her own drawings, from this PC.
 var room=(function(){
@@ -226,6 +235,8 @@ if(f.k=='marquee')return canvas(300,90,function(x,w,h){x.fillStyle=f.n=='arc1m'?
 if(f.k=='gift'){var n=+f.n.slice(4),g=S.gifts[n];return canvas(256,256,function(x,w,h){var hue=g?(g[0].length*47+n*80)%360:0,gr=x.createLinearGradient(0,0,w,h);gr.addColorStop(0,g?'hsl('+hue+',55%,32%)':'#1a1a20');gr.addColorStop(1,g?'hsl('+(hue+70)+',60%,12%)':'#0c0c10');x.fillStyle=gr;x.fillRect(0,0,w,h);if(g){x.fillStyle='rgba(255,255,255,.14)';for(var i=0;i<7;i++){x.beginPath();x.arc((hue*(i+3)*13)%w,(hue*(i+5)*29)%h,14+i*9,0,7);x.fill()}x.fillStyle='#fff';x.font='bold 27px '+F;words(x,g[0],18,120,w-36,34,4)}else{x.fillStyle='#555';x.textAlign='center';x.font='22px '+F;x.fillText('?',w/2,h/2)}})}
 return null}
 var KIND={neon:0,screen:1,tv:1,arcade:1,marquee:1,window:2,vend:3,lamp:4,neonv:5,gift:6,holo:7,globe:8,beam:9};
+// a frame's own picture, over whatever was in it
+function hang(n){var f=fxs.filter(function(x){return x.name=='gift'+n})[0];if(!f)return;function put(t){gl.deleteTexture(f.t);f.t=t}if(!S.pics[n])return put(paint({k:'gift',n:f.name}));var i=new Image();i.onload=function(){if(S.pics[n]==i.src)put(canvas(i.width,i.height,function(x){x.drawImage(i,0,0)}))};i.src=S.pics[n]}
 var fb={},mesh={},fxs=[],items=[],blades,bot,quad,dust=[];
 function build(d){
 gl=canv.getContext('webgl2',{antialias:false,alpha:false,powerPreference:'low-power'});if(!gl)throw new Error('no webgl2');
@@ -234,6 +245,9 @@ shaders();R=d;
 mesh.n=0;var idx=d.w?new Uint32Array(bytes(d.i)):new Uint16Array(bytes(d.i));mesh.n=idx.length;mesh.t=d.w?5125:5123;
 mesh.v=vao([[buf(new Int16Array(bytes(d.p))),3,5122,false],[buf(new Uint16Array(bytes(d.u))),2,5123,true]],buf(idx,34963));
 d.fx.forEach(function(f){fxs.push({v:vao([[buf(new Float32Array(f.p)),3,5126,false],[buf(new Float32Array(f.u)),2,5126,false]]),n:f.p.length/3,k:KIND[f.k]||0,c:f.c,b:f.b,t:paint(f),name:f.n})});
+S.pics.forEach(function(p,n){if(p)hang(n)});
+// every frame can be clicked
+delete R.spots.gifts;fxs.forEach(function(x,n){if(x.name.slice(0,4)!='gift')return;var p=d.fx[n].p,lo=[0,1,2].map(function(a){return Math.min(p[a],p[a+3],p[a+6])-.06}),hi=[0,1,2].map(function(a){return Math.max(p[a],p[a+3],p[a+6])+.06});R.spots[x.name]=[lo,hi]});
 d.items.forEach(function(i){var p=new Int16Array(bytes(i.p));items.push({v:vao([[buf(p),3,5122,false],[buf(new Uint8Array(bytes(i.c))),3,5121,true],[buf(new Int8Array(bytes(i.n))),3,5120,true]]),n:p.length/3})});
 // the fan's blades
 var bp=[],bc=[],bn=[];for(var b=0;b<4;b++){var a=b*Math.PI/2,ca=Math.cos(a),sa=Math.sin(a),pt=function(r,w,z){return[(r*ca-w*sa)*4000,(r*sa+w*ca)*4000,z*4000]};[[.1,-.07,0],[.95,-.12,.02],[.95,.12,-.02],[.1,-.07,0],[.95,.12,-.02],[.1,.07,0]].forEach(function(q){bp.push.apply(bp,pt(q[0],q[1],q[2]));bc.push(34,38,50);bn.push(0,0,127)})}
@@ -277,8 +291,8 @@ if(her.talkT<0&&!her.to&&!her.gone){her.talkT=26+Math.random()*30;if(!zoomed)say
 // ---- picking
 function ray(x,y){var w=canv.clientWidth,h=canv.clientHeight,t=Math.tan(FOV/2),a=w/h,nx=(x/w*2-1)*t*a,ny=(1-y/h*2)*t;return norm([0,1,2].map(function(i){return cam.f[i]+cam.s[i]*nx+cam.u[i]*ny}))}
 function hit(o,d,lo,hi){var a=-1e9,b=1e9;for(var i=0;i<3;i++){var q=1/(Math.abs(d[i])<1e-6?1e-6:d[i]),x=(lo[i]-o[i])*q,y=(hi[i]-o[i])*q;a=Math.max(a,Math.min(x,y));b=Math.min(b,Math.max(x,y))}return b>=a&&b>0?a:-1}
-var NAMES={desk:'Her desk',gifts:'Gifts from you',diary:'Diary',shelf:'Her shelf',arcade:'Today\'s question',door:'That door',tv:'Her story',safe:'Top secret',about:'About you',notes:'Guestbook',table:'Review of the day'};
-var CARD={door:'story',tv:'story'};
+var NAMES={desk:'Her desk',diary:'Diary',shelf:'Her shelf',arcade:'Today\'s question',door:'That door',tv:'Her story',safe:'Top secret',about:'About you',notes:'Guestbook',table:'Review of the day'};
+var CARD={door:'story',tv:'story',gift0:'gifts',gift1:'gifts',gift2:'gifts',gift3:'gifts'};[0,1,2,3].forEach(function(n){NAMES['gift'+n]='Frame '+(n+1)+': put a picture in it'});
 var HIDE=[[-3.1,-3.2,1.05],[1.75,-1,.72],[-1.2,-2.85,1.05],[2.9,3,2.25],[-3.7,3.6,6.05],[3.05,2.75,4.4],[2.5,-3.25,.5],[-.05,-1.3,.65],[-.75,3.5,4.35],[-2.6,-3.5,.65],[-3.2,3.3,2.35],[.43,3.65,4.5]],hidAt=HIDE[pick(HIDE,13)];
 function under(x,y){var o=cam.e,d=ray(x,y),best=null,bd=1e9;function t(n,lo,hi,pad){var k=hit(o,d,lo,hi);if(k>=0&&k<bd+(pad||0)){bd=Math.min(bd,k);best=n}}
 Object.keys(R.spots).forEach(function(n){t(n,R.spots[n][0],R.spots[n][1])});
@@ -291,7 +305,7 @@ var k=n.slice(0,4)=='item'?'shelf':n,s=R.spots[k],c=[0,1,2].map(function(i){retu
 zoomed=k;var big=Math.max(s[1][0]-s[0][0],s[1][1]-s[0][1],s[1][2]-s[0][2]);want.t=c;want.d=Math.max(5.2,big*3.1+2);want.yaw=c[0]<-3.4?1.18:k=='safe'?.6:.42;want.pitch=k=='table'?.72:.22;
 // the panel covers the right side: look a little to the right of it, so it sits on the left
 if(canv.clientWidth>820){var sh=want.d*.11;want.t=[c[0]+Math.cos(want.yaw)*sh,c[1]+Math.sin(want.yaw)*sh,c[2]]}
-open(CARD[k]||k);if(her.s.n==k&&Math.random()<.6)say(any(LINE[k]))}
+open(CARD[k]||k);if(CARD[k]=='gifts')frameMark(+k.slice(4));if(her.s.n==k&&Math.random()<.6)say(any(LINE[k]))}
 leave=function(){root.classList.remove('open');zoomed=null;want.t=base.t.slice();want.d=0;want.yaw=base.yaw;want.pitch=base.pitch};
 var down=null,FOV=.5;function at(e){var r=canv.getBoundingClientRect();return[(e.clientX-r.left)/(r.width||1)*canv.clientWidth,(e.clientY-r.top)/(r.height||1)*canv.clientHeight]}
 function bind(){
@@ -300,6 +314,7 @@ canv.onpointermove=function(e){var A=at(e);mouse=[A[0]/canv.clientWidth-.5,A[1]/
 if(down){var dx=e.clientX-down[0],dy=e.clientY-down[1];if(down[2]||Math.abs(dx)+Math.abs(dy)>5){down[2]=true;want.yaw=Math.max(.2,Math.min(1.37,want.yaw-dx*.004));want.pitch=Math.max(.1,Math.min(.85,want.pitch+dy*.004));if(!zoomed){base.yaw=want.yaw;base.pitch=want.pitch}down[0]=e.clientX;down[1]=e.clientY}tip.style.opacity=0;return}
 if(!ready)return;var n=under(A[0],A[1]),s=nameOf(n);canv.style.cursor=s?'pointer':'grab';tip.textContent=s;tip.style.opacity=s?1:0;tip.style.left=Math.max(90,Math.min(canv.clientWidth-90,A[0]))+'px';tip.style.top=Math.max(40,A[1])+'px'};
 canv.onpointerup=function(e){var d=down;down=null;if(d&&!d[2]&&ready)go(under.apply(null,at(e)))};
+canv.ondrop=function(e){e.stopPropagation();e.preventDefault();var n=ready?under.apply(null,at(e)):'',k=(n||'').slice(0,4)=='gift'?+n.slice(4):S.pics.indexOf('');takePic(k<0?0:k,e.dataTransfer.files[0])};
 canv.onpointerleave=function(){tip.style.opacity=0};
 canv.onwheel=function(e){e.preventDefault();want.z=Math.max(.35,Math.min(1.25,(want.z||1)*(e.deltaY>0?1.1:.9)))};
 addEventListener('keydown',function(e){if(e.key=='Escape'&&inRoom)leave()});
@@ -355,12 +370,11 @@ gl.disable(3042);gl.disable(2929);gl.depthMask(true);
 gl.bindFramebuffer(36008,fb.ms.f);gl.bindFramebuffer(36009,fb.a.f);gl.blitFramebuffer(0,0,fb.ms.w,fb.ms.h,0,0,fb.a.w,fb.a.h,16384,9728);
 u=use(P.blur);tx(u.a,0,fb.a.t);gl.uniform1f(u.th,.55);gl.uniform2f(u.d,1.2/fb.b.w,0);full(fb.b);gl.uniform1f(u.th,0);tx(u.a,0,fb.b.t);gl.uniform2f(u.d,0,1.2/fb.b.h);full(fb.c);
 tx(u.a,0,fb.c.t);gl.uniform2f(u.d,1.2/fb.d.w,0);full(fb.d);tx(u.a,0,fb.d.t);gl.uniform2f(u.d,0,1.2/fb.d.h);full(fb.e);
-u=use(P.out);tx(u.a,0,fb.a.t);tx(u.b,1,fb.c.t);tx(u.c,2,fb.e.t);gl.uniform1f(u.t,t%10);gl.uniform1f(u.br,root.classList.contains('br')&&performance.now()-brk<1800?1:0);gl.uniform1f(u.bk,+root.dataset.g||0);gl.uniform2f(u.px,canv.width,canv.height);full(null);
+u=use(P.out);tx(u.a,0,fb.a.t);tx(u.b,1,fb.c.t);tx(u.c,2,fb.e.t);gl.uniform1f(u.t,t%10);gl.uniform1f(u.br,root.classList.contains('br')?1:0);gl.uniform1f(u.bk,+root.dataset.g||0);gl.uniform2f(u.px,canv.width,canv.height);full(null);
 // her words follow her
 if(talk.style.opacity>0){var q=project([her.p[0],her.p[1],her.p[2]+(her.c=='laydown'?1.6:2.25)],M);talk.style.left=Math.max(150,Math.min(canv.clientWidth-150,q[0]))+'px';talk.style.top=Math.max(110,q[1])+'px'}
 }
-var brk=0;new MutationObserver(function(){if(root.classList.contains('br'))brk=performance.now()}).observe(root,{attributes:true,attributeFilter:['class']});
-return{start:function(){if(!started){started=true;bind();cam.d=fit()*1.5}if(!asked){asked=true;setTimeout(function(){send('room=1')},60)}if(ready&&!raf)frame()},her:her,go:go,under:under,zap:zap,debug:function(){return{sharp:sharp,w:canv.width,g:gl&&gl.getParameter(gl.RENDERER),cam:cam,ready:ready,art:Object.keys(art)}}}
+return{start:function(){if(!started){started=true;bind();cam.d=fit()*1.5}if(!asked){asked=true;setTimeout(function(){send('room=1')},60)}if(ready&&!raf)frame()},her:her,go:go,under:under,zap:zap,hang:hang,debug:function(){return{sharp:sharp,w:canv.width,g:gl&&gl.getParameter(gl.RENDERER),cam:cam,ready:ready,art:Object.keys(art)}}}
 })();
 if(S.noroom)roomOk=false;
 show();
