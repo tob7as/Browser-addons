@@ -9,6 +9,7 @@ Capri Browser 2.0.2
 • Hide Capri in full screen (Settings > Video player, off until you turn it on): move the mouse and a button on the side of the screen brings her back.
 • Research card: shows what she's up to while she researches.
 • Crash recovery: if a page or the browser's engine stops, it can be brought back.
+• Pop-up shield fix: full-page drawings and 3D scenes on sites are no longer taken off as if they were hidden click-catchers.
 • Safer password vault: more checks on what is kept and filled.
 • Capri Cleaner moved: it's now in Settings > Cleaner & backup. Its old side panel is gone, and every choice is still there.
 
