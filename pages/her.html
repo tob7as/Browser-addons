@@ -320,7 +320,7 @@ var LINE={desk:['One more tab. Then I\'ll stop.','Don\'t look at my screen. Okay
 var CH={idle:384,walk:384,dance:384,grin:384,sleep:384,perch:384,arrive:384,laydown:250};
 function setArt(o){artRaw=Object.assign(artRaw||{},o);if(!ready)return;Object.keys(o).forEach(function(k){var a=o[k];if(!a||!/^data:image\/png;base64,/.test(a.u))return;picture(a.u,function(i){gl.pixelStorei(37441,1);art[k]={t:tex(i,true),n:a.n,w:a.w,h:a.h,fps:a.fps,px:solid(i)};gl.pixelStorei(37441,0)})})}
 function solid(i){try{var c=document.createElement('canvas'),x;c.width=i.width;c.height=i.height;x=c.getContext('2d',{willReadFrequently:true});x.drawImage(i,0,0);var d=x.getImageData(0,0,c.width,c.height).data,o=new Uint8Array(c.width*c.height);for(var k=0;k<o.length;k++)o[k]=d[k*4+3];return{d:o,w:c.width,h:c.height}}catch(e){}}
-var FACE={idle:[.56,.305],walk:[.55,.325],grin:[.565,.325],arrive:[.565,.325],dance:[.49,.33],perch:[.68,.43],laydown:[.365,.375]};
+var FACE={idle:[.56,.305],walk:[.55,.325],grin:[.565,.325],arrive:[.565,.325],dance:[.555,.335],perch:[.68,.43],laydown:[.365,.375]};
 // what of her is under a ray: nothing, her, or her face
 function touch(o,d){var q=her.q;if(!q||her.gone)return null;var s=norm([cam.s[0],cam.s[1],0]),n=cross(s,[0,0,1]),k=dot(sub(q.at,o),n)/dot(d,n);if(!(k>0))return null;
 var x=[0,1,2].map(function(i){return o[i]+d[i]*k-q.at[i]}),u=dot(x,s)*q.fl/q.w+.5,w=1-x[2]/q.h,a=q.a,F=FACE[q.n];if(u<0||u>1||w<0||w>1)return null;
