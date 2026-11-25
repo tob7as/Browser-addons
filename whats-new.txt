@@ -7,6 +7,7 @@ Capri Browser 2.0.2
 • Windows Hello (Settings > Privacy & security, off until you turn it on): asks for your PIN, face or fingerprint before a saved password is shown, copied or filled.
 • Backup and restore: save your notes, bookmarks, Speed Dial, jobs and settings to a file, never your passwords (Settings > Cleaner & backup).
 • Hide Capri in full screen (Settings > Video player, off until you turn it on): move the mouse and a button on the side of the screen brings her back.
+• Bugs and ideas: Report a bug and Suggest an idea are now at the top of Settings > Updates and of What's new.
 • Research card: shows what she's up to while she researches.
 • Crash recovery: if a page or the browser's engine stops, it can be brought back.
 • Pop-up shield fix: full-page drawings and 3D scenes on sites are no longer taken off as if they were hidden click-catchers.
