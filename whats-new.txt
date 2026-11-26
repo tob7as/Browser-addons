@@ -5,6 +5,7 @@ Capri Browser 2.0.3
 • Windows Hello now starts on for saved passwords, on PCs that have it set up.
 • Bugs and ideas: Report a bug and Suggest an idea are at the top of Settings > Updates and of What's new, and take you to the form on Useful information.
 • Discord replies: a message that did send isn't called "not sent" any more. She waits a little longer to see it go through.
+• Discord out of sight: with Message without opening a tab on, "message someone on Discord" no longer opens the tab, she just asks what to say. She also finds people who aren't in your recent messages.
 • No answer to "what do you want to say": after a minute she leaves it and refreshes that chat.
 • Her room's screens: sharper, and the whole page fits on them, so the Discord one isn't cut off. Her main screen shows whatever she's working on, research included, and her computer keeps busy when she isn't.
 • Sound in her room: a quiet city hum and real rain on the window when it rains, with thunder in storms. Zoom in on the arcade or the cleaning bot to hear them. It starts off: use the Sound slider at the top of her room. It goes quiet while music plays and stops when you switch tabs.
