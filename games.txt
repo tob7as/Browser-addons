@@ -4,7 +4,6 @@ guess	Guess the Site	A popular site opens blurred. Pick which one it is. Three l
 typing	Typing Race	Type a paragraph from the page you were reading, against the clock. Includes Survival mode.	page
 roulette	Site Roulette	Opens a random interesting website.	data
 quiz	Quiz	Capri asks you questions about the page you're reading.	none
-reaction	Reaction Test	Click the moment the panel turns cyan. Five rounds, then your average.	page
 minecraft	Minecraft with Capri	Play Minecraft Bedrock with Capri. Opens the add-on and how to set it up.	none
 snake	Neon Snake	Classic snake in Capri neon. It speeds up as you grow.	page
 memory	Memory Match	Flip tiles and find all eight pairs in as few moves as you can.	page
