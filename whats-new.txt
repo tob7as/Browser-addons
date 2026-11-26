@@ -7,6 +7,7 @@ Capri Browser 2.0.3
 • Discord replies: a message that did send isn't called "not sent" any more. She waits a little longer to see it go through.
 • No answer to "what do you want to say": after a minute she leaves it and refreshes that chat.
 • Her room's screens: sharper, and the whole page fits on them, so the Discord one isn't cut off. Her main screen shows whatever she's working on, research included, and her computer keeps busy when she isn't.
+• Removed: Capri no longer saves a discord-check.txt file when she can't find your Discord messages.
 
 Capri Browser 2.0.2
 • Settings, sorted out: new groups, Notifications and Games have their own sections, and a search box at the top left finds any setting as you type.
