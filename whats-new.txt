@@ -10,7 +10,7 @@ Capri Browser 2.0.3
 • Her room's screens: sharper, and the whole page fits on them, so the Discord one isn't cut off. Her main screen shows whatever she's working on, research included, and her computer keeps busy when she isn't.
 • Sound in her room: a quiet city hum and real rain on the window when it rains, with thunder in storms. Zoom in on the arcade or the cleaning bot to hear them. It starts off: use the Sound slider at the top of her room. It goes quiet while music plays and stops when you switch tabs.
 • The city outside her window is real 3D now: you look through the glass at streets and towers that move as you look around, with lit windows, neon signs, holo billboards, roof lights, traffic and flying cars. You only see it through the window.
-• Real weather in her room: type a city in Settings > Capri, and her window shows its live weather. Leave it empty for made-up weather.
+• Real weather in her room: type a city in the OUTSIDE box in her room (in the simple view too) or in Settings > Capri, and her window shows its live weather. Leave it empty for made-up weather.
 • Rain on her window: drops on the glass bend the city behind them, and rain falls outside.
 • The plants on her window sill are gone.
 • Leaderboards: Send my stats no longer gets refused when a number goes up fast (it counts what time allows and catches up later), and a board where you have 0 doesn't show you with 0.
