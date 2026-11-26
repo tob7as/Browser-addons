@@ -179,12 +179,15 @@ async function postStats(db, got, who) {
     v[b[0]] = n;
   }
   // Numbers that time makes impossible: since the last send, watch time can only grow as fast as real time (half as fast
-  // again, in case two players were counted), and videos and sites get generous per-hour limits.
+  // again, in case two players were counted), and videos (Shorts are quick) and sites get generous per-hour limits.
+  // Anything over is counted up to the limit instead of refused, so the rest catches up on later sends as time passes.
   const now = Date.now();
   const prev = await db.prepare('SELECT hours, videos, sites, sent FROM scores WHERE wk = ?1 AND owner = ?2').bind(round, owner).first();
   if (prev && prev.sent) {
     const hrs = (now - prev.sent) / 3600000;
-    if (v.hours - prev.hours > hrs * 1.5 + 0.5 || v.videos - prev.videos > hrs * 30 + 30 || v.sites - prev.sites > hrs * 300 + 100) return no(400, "Your numbers went up faster than time has passed since you last sent, so I can't use them.");
+    v.hours = Math.min(v.hours, Math.floor((prev.hours + hrs * 1.5 + 0.5) * 10) / 10);
+    v.videos = Math.min(v.videos, prev.videos + Math.floor(hrs * 120 + 30));
+    v.sites = Math.min(v.sites, prev.sites + Math.floor(hrs * 300 + 100));
   }
   // One good send every 2 minutes per install (refused ones don't count).
   if (await over(db, 'weekby:' + owner, 1, 120)) return no(429, SLOW);
