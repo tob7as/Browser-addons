@@ -27,7 +27,7 @@ To join, open **Games** in Capri Browser, add a leaderboard name and press **Sen
 | # | Name | Sites visited |
 | ---: | --- | ---: |
 | 1 | ShadowGarden20 | 455 |
-| 2 | Toby | 185 |
+| 2 | Toby | 438 |
 | 3 | THE_noSkillguy | 18 |
 | 4 | CoolD | 9 |
 
