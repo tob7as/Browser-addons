@@ -7,6 +7,8 @@ Capri Browser 2.0.3
 • Discord replies: a message that did send isn't called "not sent" any more. She waits a little longer to see it go through.
 • No answer to "what do you want to say": after a minute she leaves it and refreshes that chat.
 • Her room's screens: sharper, and the whole page fits on them, so the Discord one isn't cut off. Her main screen shows whatever she's working on, research included, and her computer keeps busy when she isn't.
+• Sound in her room: a quiet city hum and real rain on the window when it rains, with thunder in storms. Zoom in on the arcade or the cleaning bot to hear them. It starts off: use the Sound slider at the top of her room. It goes quiet while music plays and stops when you switch tabs.
+• The city outside her window: tall spires with blinking lights, flying cars, neon signs, holo billboards and searchlights.
 • Removed: Capri no longer saves a discord-check.txt file when she can't find your Discord messages.
 
 Capri Browser 2.0.2
