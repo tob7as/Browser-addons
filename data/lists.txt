@@ -188,6 +188,7 @@ about	t42	Signs you out of websites. History, Speed Dial and saved passwords are
 about	allsites	What sites may use and do: location, camera, microphone, pop-ups, JavaScript and more.
 about	english	22 more languages can be downloaded. They're kept outside the mod, so they don't use its space.
 about	discordbutton	You can also switch this by right-clicking the Discord button.
+about	wxcity	Type a city and her window shows its real weather, checked every 20 minutes. Only the city name, then its place on the map, go to Open-Meteo (a free weather service, no account). Leave it empty for made-up weather.
 about	browsersounds	Soft sounds for opening, closing and switching tabs, menus, panels, buttons and finished downloads.
 about	typingsounds	A soft key sound as you type in the address bar and on pages.
 # tip: the hover box on a setting in Settings. The setting (its key, its name, or tNN for the browser's own word number NN), then what it does
