@@ -1,4 +1,8 @@
 Capri Browser 2.0.3
+• Safer Capri: she only reads words you can actually see, so tiny, see-through or hidden text on a page can't trick her. She never clicks or types on banking, payment or sign-in pages, and after reading a page she asks before opening a new site (Settings > Privacy & security).
+• Safe mode on banking and payment sites: Capri and the ad blocker step back, with a button to open the page in Edge.
+• Safer browsing: secure https is tried first, typing on a page without a padlock warns you, a site with a bad certificate is stopped with no way past, Microsoft SmartScreen is switched on, and look-alike names like paypa1 or g00gle get a warning.
+• Windows Hello now starts on for saved passwords, on PCs that have it set up.
 • Bugs and ideas: Report a bug and Suggest an idea are at the top of Settings > Updates and of What's new, and take you to the form on Useful information.
 • Discord replies: a message that did send isn't called "not sent" any more. She waits a little longer to see it go through.
 • No answer to "what do you want to say": after a minute she leaves it and refreshes that chat.
