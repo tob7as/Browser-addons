@@ -11,7 +11,7 @@ Capri Browser 2.0.3
 • Sound in her room: a quiet city hum and real rain on the window when it rains, with thunder in storms. Zoom in on the arcade or the cleaning bot to hear them. It starts off: use the Sound slider at the top of her room. It goes quiet while music plays and stops when you switch tabs.
 • The city outside her window: tall spires with blinking lights, flying cars, neon signs, holo billboards and searchlights.
 • Leaderboards: Send my stats no longer gets refused when a number goes up fast (it counts what time allows and catches up later), and a board where you have 0 doesn't show you with 0.
-• Removed: the Reaction Test game.
+• Removed: the Reaction Test game, and the start-up animation (the browser just opens).
 • Removed: Capri no longer saves a discord-check.txt file when she can't find your Discord messages.
 
 Capri Browser 2.0.2

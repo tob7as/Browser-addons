@@ -216,7 +216,6 @@ tip	shieldtalk	When the shield stops a sneaky redirect or pop-up, Capri sometime
 tip	downloads	Capri warns you when a download is a program, since programs can change your PC.
 tip	darkweb	Turns bright web sites dark, even ones that have no dark mode of their own.
 tip	timed	Wiki races get a 3-minute timer.
-tip	boot	Capri Browser's start-up animation when it opens.
 tip	sleep	Tabs you haven't used for 20 minutes are put to sleep to save memory. They wake up when you open them.
 tip	autopip	Switch away from a playing video and it pops out into a small window that stays on top.
 tip	Capri's hologram when she talks	Capri's call screen from Holocall, a mod by Issei, shows in the corner of the browser while she talks. Get Holocall from the Capri app's mod browser. Its sounds don't play here.
