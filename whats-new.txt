@@ -10,6 +10,7 @@ Capri Browser 2.0.3
 • Her room's screens: sharper, and the whole page fits on them, so the Discord one isn't cut off. Her main screen shows whatever she's working on, research included, and her computer keeps busy when she isn't.
 • Sound in her room: a quiet city hum and real rain on the window when it rains, with thunder in storms. Zoom in on the arcade or the cleaning bot to hear them. It starts off: use the Sound slider at the top of her room. It goes quiet while music plays and stops when you switch tabs.
 • The city outside her window: tall spires with blinking lights, flying cars, neon signs, holo billboards and searchlights.
+• Leaderboards: Send my stats no longer gets refused when a number goes up fast (it counts what time allows and catches up later), and a board where you have 0 doesn't show you with 0.
 • Removed: Capri no longer saves a discord-check.txt file when she can't find your Discord messages.
 
 Capri Browser 2.0.2
