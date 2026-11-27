@@ -9,7 +9,7 @@ To join, open **Games** in Capri Browser, add a leaderboard name and press **Sen
 | # | Name | Hours watched |
 | ---: | --- | ---: |
 | 1 | Toby | 12.2h |
-| 2 | ShadowGarden20 | 4.6h |
+| 2 | ShadowGarden20 | 4.9h |
 | 3 | CoolD | 0.3h |
 
 ## Most videos finished
@@ -22,7 +22,7 @@ To join, open **Games** in Capri Browser, add a leaderboard name and press **Sen
 
 | # | Name | Sites visited |
 | ---: | --- | ---: |
-| 1 | Toby | 528 |
+| 1 | Toby | 575 |
 | 2 | ShadowGarden20 | 481 |
 | 3 | FrostDelx | 30 |
 | 4 | THE_noSkillguy | 18 |
@@ -32,7 +32,8 @@ To join, open **Games** in Capri Browser, add a leaderboard name and press **Sen
 
 | # | Name | Best survival run |
 | ---: | --- | ---: |
-| 1 | ShadowGarden20 | 27 words |
+| 1 | Toby | 28 words |
+| 2 | ShadowGarden20 | 27 words |
 
 ## Best Guess the Site run
 
